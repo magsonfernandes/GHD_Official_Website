@@ -30,14 +30,30 @@ export function ArrivalQuote() {
           <span className="h-px w-12 bg-gold/50 sm:w-16" />
         </motion.div>
 
-        <motion.blockquote variants={fadeUp} className="mt-10 md:mt-12">
-          <p className="font-display-wide text-[1.65rem] font-black uppercase leading-[1.15] tracking-[0.14em] text-charcoal sm:text-4xl sm:tracking-[0.18em] md:text-5xl md:tracking-[0.22em] lg:text-[3.35rem]">
-            You arrive.
-          </p>
-          <p className="mt-4 font-heading text-[1.45rem] font-light uppercase leading-[1.2] tracking-[0.12em] text-charcoal/88 sm:mt-5 sm:text-3xl sm:tracking-[0.16em] md:text-4xl md:tracking-[0.2em] lg:mt-6 lg:text-[2.75rem]">
-            We take care of the rest
-          </p>
-        </motion.blockquote>
+        <motion.figure variants={fadeUp} className="relative mt-10 md:mt-14">
+          <span
+            className="pointer-events-none absolute -left-2 top-1/2 hidden -translate-y-1/2 font-heading text-[7rem] leading-none text-[#733E24]/10 md:block lg:-left-6 lg:text-[9rem]"
+            aria-hidden
+          >
+            &ldquo;
+          </span>
+
+          <blockquote className="relative mx-auto max-w-3xl border-y border-[#733E24]/15 px-6 py-10 sm:px-10 sm:py-12 md:py-14">
+            <p className="font-brand text-[2rem] font-normal italic leading-[1.2] tracking-[0.01em] text-charcoal/70 sm:text-[2.75rem] md:text-[3.25rem]">
+              You arrive.
+            </p>
+            <p className="mt-3 font-heading text-[2.35rem] font-light leading-[1.12] tracking-[0.02em] text-[#733E24] sm:mt-4 sm:text-[3rem] md:text-[3.75rem] lg:text-[4.25rem]">
+              We take care of the rest.
+            </p>
+          </blockquote>
+
+          <span
+            className="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 font-heading text-[7rem] leading-none text-[#733E24]/10 md:block lg:-right-6 lg:text-[9rem]"
+            aria-hidden
+          >
+            &rdquo;
+          </span>
+        </motion.figure>
 
         <motion.div
           variants={fadeUp}

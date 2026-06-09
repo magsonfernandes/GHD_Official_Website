@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { getDefaultBookingHref } from "@/lib/booking";
 import { cn } from "@/lib/utils";
-import { SITE } from "@/lib/constants";
 
 type ReserveButtonProps = {
   className?: string;
@@ -11,11 +13,11 @@ type ReserveButtonProps = {
 export function ReserveButton({
   className,
   variant = "outline",
-  href = SITE.reserveHref,
+  href,
 }: ReserveButtonProps) {
   return (
     <Link
-      href={href}
+      href={href ?? getDefaultBookingHref()}
       className={cn(
         "inline-flex items-center justify-center rounded-none px-7 py-3 font-body text-[0.7rem] font-medium uppercase tracking-[0.08em] transition-all duration-500 ease-out",
         variant === "outline" &&

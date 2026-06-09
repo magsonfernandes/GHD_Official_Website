@@ -24,8 +24,6 @@ function DetailBlock({
 }
 
 export function RoomsContent() {
-  const [heroImage, ...galleryImages] = ROYAL_STUDIO.gallery;
-
   return (
     <>
       <section className="bg-muted pt-28 pb-12 md:pt-32 md:pb-16">
@@ -42,68 +40,33 @@ export function RoomsContent() {
         </div>
       </section>
 
-      <section className="relative aspect-[16/9] w-full overflow-hidden bg-muted sm:aspect-[2.1/1]">
-        <Image
-          src={heroImage.src}
-          alt={heroImage.alt}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-      </section>
-
       <section className="bg-white px-6 py-14 md:py-20 lg:px-10">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16 lg:items-start">
-            <div>
-              <SectionLabel as="span">{ROYAL_STUDIO.name}</SectionLabel>
-              <h2 className="mt-3 font-heading text-3xl font-medium text-charcoal sm:text-4xl">
-                {ROYAL_STUDIO.name}
-              </h2>
+        <div className="mx-auto max-w-3xl">
+          <SectionLabel as="span">{ROYAL_STUDIO.name}</SectionLabel>
+          <h2 className="mt-3 font-heading text-3xl font-medium text-charcoal sm:text-4xl">
+            {ROYAL_STUDIO.name}
+          </h2>
 
-              <div className="mt-8 grid gap-6 sm:grid-cols-3">
-                <DetailBlock label="Bed" value={ROYAL_STUDIO.beds} />
-                <DetailBlock
-                  label="Occupancy"
-                  value={`Sleeps ${ROYAL_STUDIO.sleeps}`}
-                />
-                <DetailBlock label="Size" value={ROYAL_STUDIO.size} />
-              </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            <DetailBlock label="Bed" value={ROYAL_STUDIO.beds} />
+            <DetailBlock
+              label="Occupancy"
+              value={`Sleeps ${ROYAL_STUDIO.sleeps}`}
+            />
+            <DetailBlock label="Size" value={ROYAL_STUDIO.size} />
+          </div>
 
-              <div className="mt-10">
-                <h3 className="font-body text-xs font-medium uppercase tracking-[0.16em] text-charcoal">
-                  About the room
-                </h3>
-                <p className="mt-4 font-body text-base font-light leading-relaxed text-grey">
-                  {ROYAL_STUDIO.description}
-                </p>
-              </div>
+          <div className="mt-10">
+            <h3 className="font-body text-xs font-medium uppercase tracking-[0.16em] text-charcoal">
+              About the room
+            </h3>
+            <p className="mt-4 font-body text-base font-light leading-relaxed text-grey">
+              {ROYAL_STUDIO.description}
+            </p>
+          </div>
 
-              <div className="mt-10">
-                <ReserveButton variant="filled" />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {galleryImages.slice(0, 4).map((image, index) => (
-                <div
-                  key={image.src}
-                  className={cn(
-                    "relative aspect-[4/5] overflow-hidden bg-muted",
-                    index === 0 && "col-span-2 aspect-[16/10]",
-                  )}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 50vw, 30vw"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="mt-10">
+            <ReserveButton variant="filled" />
           </div>
         </div>
       </section>
@@ -136,6 +99,7 @@ export function RoomsContent() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index === 0}
                 />
               </div>
             ))}
