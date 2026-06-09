@@ -1,0 +1,171 @@
+export type BeachGuideEntry = {
+  id: string;
+  name: string;
+  subtitle: string;
+  image?: string;
+  distance?: string;
+  travelTime?: string;
+  vibe?: string;
+  paragraphs: readonly string[];
+  bestFor: readonly string[];
+};
+
+export const BEACHES_BLOG = {
+  meta: {
+    region: "North Goa",
+    guideType: "Travel Guide",
+    beachesCovered: "10 beaches covered",
+    baseLocation: "Base is in Nerul",
+    readTime: "9 min read",
+  },
+  intro: [
+    "Goa's coastline stretches for over 100 kilometers along the Arabian Sea, offering a diverse collection of beaches, each with its own personality. Whether you're seeking quiet mornings by the water, thrilling adventures, lively beach clubs, or breathtaking sunsets, Goa has a shoreline that perfectly matches your travel style.",
+    "For guests staying in Nerul, some of Goa's most popular beaches are just minutes away, making it an ideal base to explore the coast.",
+  ],
+  beaches: [
+    {
+      id: "coco-beach",
+      name: "Coco Beach",
+      subtitle: "Nerul's Hidden Riverside Escape",
+      distance: "Less than 1 km",
+      travelTime: "5 minutes",
+      vibe: "Peaceful",
+      paragraphs: [
+        "Nestled along the Nerul River estuary, Coco Beach is one of the closest beaches to Nerul and remains relatively peaceful compared to Goa's busier shores. Surrounded by swaying coconut palms and fishing boats, it offers a glimpse into Goa's traditional coastal life.",
+        "The beach is particularly known as a departure point for dolphin-watching tours, river cruises, and water-based activities. Early mornings and evenings provide beautiful views as fishing vessels return to shore and the sun casts golden reflections across the estuary.",
+      ],
+      bestFor: ["Dolphin trips", "Photography", "Peaceful walks", "Local experiences"],
+    },
+    {
+      id: "sinquerim-beach",
+      name: "Sinquerim Beach",
+      subtitle: "Where History Meets the Sea",
+      distance: "Approximately 2 km",
+      travelTime: "5–10 minutes",
+      vibe: "Scenic",
+      paragraphs: [
+        "Located at the base of the iconic Fort Aguada, Sinquerim Beach combines history, scenic beauty, and adventure. Its long stretch of golden sand is often quieter than neighboring beaches, making it perfect for travelers seeking a more relaxed atmosphere.",
+        "The beach is known for its water sports, including jet skiing, parasailing, and banana boat rides. The backdrop of the historic fort adds a unique character rarely found elsewhere along Goa's coastline.",
+      ],
+      bestFor: ["Water sports", "Sunset walks", "Couples", "History lovers"],
+    },
+    {
+      id: "candolim-beach",
+      name: "Candolim Beach",
+      subtitle: "The Perfect Balance",
+      distance: "Approximately 3–5 km",
+      travelTime: "10–15 minutes",
+      vibe: "Relaxed",
+      paragraphs: [
+        "Candolim Beach offers a refined coastal experience, balancing lively beach culture with a more relaxed environment than nearby tourist hotspots.",
+        "Its wide sandy shoreline is lined with excellent beach shacks, seafood restaurants, and elegant beachfront cafés. Visitors can spend the day relaxing by the sea before enjoying dinner with stunning sunset views.",
+        "Candolim is often considered one of the best beaches for travelers seeking comfort, accessibility, and vibrant yet manageable activity.",
+      ],
+      bestFor: ["Families", "Dining", "Beachside relaxation", "Sunset views"],
+    },
+    {
+      id: "calangute-beach",
+      name: "Calangute Beach",
+      subtitle: "The Queen of Beaches",
+      distance: "Approximately 6–8 km",
+      travelTime: "15–20 minutes",
+      vibe: "Lively",
+      paragraphs: [
+        "Often referred to as the \"Queen of Beaches,\" Calangute is among Goa's most famous destinations. Its vast shoreline attracts visitors from around the world and serves as the heart of North Goa's tourism scene.",
+        "The beach is lined with restaurants, shopping stalls, beach shacks, and entertainment options, creating a lively atmosphere throughout the day and evening.",
+        "For first-time visitors to Goa, Calangute offers an energetic introduction to the state's vibrant beach culture.",
+      ],
+      bestFor: ["First-time visitors", "Shopping", "Dining", "People-watching"],
+    },
+    {
+      id: "baga-beach",
+      name: "Baga Beach",
+      subtitle: "Goa's Entertainment Capital",
+      vibe: "Nightlife",
+      paragraphs: [
+        "Located just north of Calangute, Baga Beach is renowned for its vibrant nightlife and energetic atmosphere.",
+        "By day, visitors enjoy parasailing, jet skiing, and other water sports. As evening approaches, the beach transforms into one of Goa's most active entertainment hubs, with music, dining, and nightlife drawing visitors from across the region.",
+        "Popular beach clubs, live performances, and waterfront dining make Baga a favorite among travelers looking for excitement after sunset.",
+      ],
+      bestFor: ["Nightlife", "Water sports", "Groups", "Entertainment"],
+    },
+    {
+      id: "anjuna-beach",
+      name: "Anjuna Beach",
+      subtitle: "Goa's Bohemian Soul",
+      distance: "Approximately 11–12 km",
+      travelTime: "25–30 minutes",
+      vibe: "Cultural",
+      paragraphs: [
+        "Anjuna Beach remains one of Goa's most iconic destinations thanks to its rich cultural heritage and laid-back atmosphere.",
+        "Known for its rocky coastline, dramatic sea views, and famous Wednesday Flea Market, Anjuna continues to attract travelers seeking unique experiences, local crafts, and a creative spirit that traces back to Goa's hippie era.",
+        "The beach offers a distinctive blend of culture, music, and coastal beauty unlike anywhere else in Goa.",
+      ],
+      bestFor: ["Flea markets", "Culture", "Photography", "Sunset views"],
+    },
+    {
+      id: "vagator-beach",
+      name: "Vagator Beach",
+      subtitle: "Red Cliffs and Stunning Sunsets",
+      vibe: "Scenic",
+      paragraphs: [
+        "Vagator is often regarded as one of Goa's most visually striking beaches.",
+        "Towering red laterite cliffs overlook the Arabian Sea, creating dramatic scenery that becomes especially beautiful during sunset. The beach is also home to several well-known restaurants and beach clubs that have become landmarks in Goa's hospitality scene.",
+        "Its elevated viewpoints offer some of the most memorable coastal panoramas in the state.",
+      ],
+      bestFor: ["Sunsets", "Photography", "Beach clubs", "Scenic views"],
+    },
+    {
+      id: "arambol-beach",
+      name: "Arambol Beach",
+      subtitle: "Goa's Free-Spirited Retreat",
+      vibe: "Alternative",
+      paragraphs: [
+        "Located in North Goa, Arambol has earned a reputation as one of the state's most distinctive and artistic beach destinations.",
+        "Known for its relaxed atmosphere, paragliding opportunities, freshwater lake, and vibrant community gatherings, Arambol attracts travelers looking for experiences beyond traditional tourism.",
+        "Evenings often bring music, performances, and informal gatherings along the shoreline, creating a uniquely welcoming atmosphere.",
+      ],
+      bestFor: [
+        "Wellness",
+        "Creativity",
+        "Paragliding",
+        "Alternative travel experiences",
+      ],
+    },
+    {
+      id: "morjim-beach",
+      name: "Morjim Beach",
+      subtitle: "Nature's Coastal Sanctuary",
+      vibe: "Peaceful",
+      paragraphs: [
+        "Morjim Beach offers a quieter alternative to Goa's more commercial destinations.",
+        "Its wide shoreline and peaceful surroundings have made it popular among travelers seeking tranquility. The beach is particularly significant as a nesting ground for the endangered Olive Ridley turtles, making it one of Goa's most ecologically important coastal areas.",
+        "The combination of natural beauty and conservation efforts creates a unique experience for visitors.",
+      ],
+      bestFor: ["Nature lovers", "Birdwatching", "Peaceful escapes"],
+    },
+    {
+      id: "mandrem-ashwem",
+      name: "Mandrem & Ashwem",
+      subtitle: "Serenity by the Sea",
+      vibe: "Wellness",
+      paragraphs: [
+        "Further north, Mandrem and Ashwem represent some of Goa's most peaceful and unspoiled beaches.",
+        "These stretches of coastline are known for their clean sands, calm atmosphere, boutique cafés, wellness retreats, and yoga experiences. Unlike the bustling beaches of central North Goa, Mandrem and Ashwem offer a slower, more contemplative pace.",
+        "They are ideal for travelers seeking relaxation, mindfulness, and uninterrupted ocean views.",
+      ],
+      bestFor: ["Yoga", "Wellness retreats", "Couples", "Quiet relaxation"],
+    },
+  ] as BeachGuideEntry[],
+  quickPick: [
+    { mood: "For relaxation", beaches: "Coco, Morjim, Mandrem, Ashwem" },
+    { mood: "For history and scenery", beaches: "Sinquerim, Vagator" },
+    { mood: "For dining and leisure", beaches: "Candolim" },
+    { mood: "For shopping and activity", beaches: "Calangute" },
+    { mood: "For nightlife", beaches: "Baga" },
+    { mood: "For culture and markets", beaches: "Anjuna" },
+    { mood: "For wellness and slow travel", beaches: "Arambol, Mandrem, Ashwem" },
+  ],
+  outro:
+    "Whether you prefer quiet mornings by the sea, adventurous water sports, cultural exploration, or vibrant nightlife, Goa's beaches offer experiences that continue to captivate travelers from around the world. For guests staying in Nerul, many of these iconic destinations are just a short drive away, making every day an opportunity to discover a new side of Goa's coastline.",
+} as const;

@@ -397,6 +397,17 @@ export const EXPERIENCES = [
 
 export const EXPERIENCE_POSTS = [
   {
+    slug: "beaches-of-goa",
+    title: "Beaches of Goa: From Serene Shores to Vibrant Coastal Escapes",
+    excerpt:
+      "Explore Goa's diverse coastline, from tranquil hidden beaches and scenic sunset spots to lively shores filled with dining, water sports, and unforgettable seaside experiences.",
+    category: "BEACHES",
+    date: "May 3, 2026",
+    readTime: "9 min read",
+    image: "/images/experiences/pexels-mohit-hambiria-92377455-28520489.jpg",
+    alt: "Scenic Goan beach with lush hills and gentle waves",
+  },
+  {
     slug: "remote-work-in-goa",
     title: "Where Productivity Meets Paradise",
     excerpt:
@@ -439,17 +450,6 @@ export const EXPERIENCE_POSTS = [
     readTime: "4 min read",
     image: "/images/experiences/emma-miller-juOaQQKFFKo-unsplash.jpg",
     alt: "Fresh cashew nuts on a wooden surface in Goa",
-  },
-  {
-    slug: "beaches-of-goa",
-    title: "Beyond the Shoreline",
-    excerpt:
-      "From lively coastal stretches to secluded sandy escapes, Goa's beaches offer something for every traveler. Discover the unique charm of each shoreline along the Arabian Sea.",
-    category: "BEACHES",
-    date: "May 3, 2026",
-    readTime: "6 min read",
-    image: "/images/experiences/pexels-mohit-hambiria-92377455-28520489.jpg",
-    alt: "Scenic Goan beach with lush hills and gentle waves",
   },
 ] as const;
 

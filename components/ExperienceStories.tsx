@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import {
   EXPERIENCE_POSTS,
@@ -95,16 +96,16 @@ export function ExperienceStories() {
                     {post.excerpt}
                   </p>
 
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-fit items-center font-body text-[10px] font-medium uppercase tracking-[0.12em] text-charcoal sm:mt-6 sm:text-xs sm:tracking-[0.14em]"
+                  <Link
+                    href={`/experiences/${post.slug}`}
+                    className="mt-3 inline-flex w-fit items-center font-body text-[10px] font-medium uppercase tracking-[0.12em] text-charcoal transition-colors hover:text-[#733E24] sm:mt-6 sm:text-xs sm:tracking-[0.14em]"
                     aria-label={`Read more about ${post.title}`}
                   >
                     Read more
                     <span className="ml-1.5 sm:ml-2" aria-hidden>
                       →
                     </span>
-                  </button>
+                  </Link>
                 </div>
 
                 <div

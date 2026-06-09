@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { ROYAL_STUDIO } from "@/lib/constants";
-import { ReserveButton } from "@/components/ui/ReserveButton";
+import { RoomGallery } from "@/components/RoomGallery";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { cn } from "@/lib/utils";
 
 function DetailBlock({
   label,
@@ -64,10 +62,6 @@ export function RoomsContent() {
               {ROYAL_STUDIO.description}
             </p>
           </div>
-
-          <div className="mt-10">
-            <ReserveButton variant="filled" />
-          </div>
         </div>
       </section>
 
@@ -84,26 +78,7 @@ export function RoomsContent() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-            {ROYAL_STUDIO.gallery.map((image, index) => (
-              <div
-                key={image.src}
-                className={cn(
-                  "relative aspect-[4/3] overflow-hidden bg-white",
-                  index === 0 && "sm:col-span-2 lg:col-span-2 lg:aspect-[2.05/1]",
-                )}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority={index === 0}
-                />
-              </div>
-            ))}
-          </div>
+          <RoomGallery />
         </div>
       </section>
 
