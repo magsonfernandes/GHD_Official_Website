@@ -1,0 +1,66 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SIGNATURE_EXPERIENCES_VIDEO } from "@/lib/constants";
+import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
+
+export function Experiences() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    void video.play().catch(() => {});
+  }, []);
+
+  return (
+    <section
+      id="accommodation"
+      className="relative w-full overflow-hidden aspect-[3/2] lg:aspect-auto lg:min-h-screen"
+    >
+      <div className="absolute inset-0 overflow-hidden" aria-hidden>
+        <video
+          ref={videoRef}
+          src={SIGNATURE_EXPERIENCES_VIDEO}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute bottom-0 left-0 h-full w-[108%] max-w-none object-cover object-left-bottom lg:w-[115%]"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/[0.42]" aria-hidden />
+
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-6 py-10 lg:justify-start lg:px-10 lg:py-16 xl:px-16">
+        <motion.div
+          variants={fadeUpStagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mx-auto w-full max-w-2xl -translate-y-6 text-center lg:mx-0 lg:max-w-[22rem] lg:-translate-y-28 lg:text-left xl:max-w-[24rem]"
+        >
+          <motion.div variants={fadeUp}>
+            <SectionLabel light>Goan Flavours</SectionLabel>
+          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="mt-3 text-balance font-heading text-[3.5rem] font-light leading-[1.08] text-white sm:text-[3.875rem] lg:mt-3.5 xl:text-[4.25rem]"
+          >
+            Taste the Soul of Goa
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 font-body text-[0.9375rem] font-normal leading-[1.75] text-white sm:text-base lg:mt-5"
+          >
+            From fresh seafood delicacies to time-honoured Goan specialties,
+            uncover the flavours that have shaped the region&apos;s rich culinary
+            heritage.
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
