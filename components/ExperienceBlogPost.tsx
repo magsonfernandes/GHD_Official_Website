@@ -21,7 +21,7 @@ export function ExperienceBlogPost({ post }: ExperienceBlogPostProps) {
             href="/experiences"
             className="inline-flex font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]"
           >
-            ← All experiences
+            ← All city attractions
           </Link>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 font-body text-xs font-light text-grey">

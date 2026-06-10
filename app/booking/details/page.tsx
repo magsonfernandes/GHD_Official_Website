@@ -6,7 +6,8 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Complete Your Stay | GHD Hotels",
-  description: "Complete your Nivaãra Nerul reservation with contact, payment, and policy details.",
+  description:
+    "Complete your Nivaãra Nerul reservation with your contact details and send your booking request via WhatsApp.",
 };
 
 export default function BookingDetailsPage() {

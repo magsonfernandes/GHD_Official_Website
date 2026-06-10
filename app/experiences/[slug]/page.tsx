@@ -24,7 +24,7 @@ export async function generateMetadata({
   const post = getExperiencePost(slug);
 
   if (!post) {
-    return { title: "Experience | GHD Hotels" };
+    return { title: "City Attraction | GHD Hotels" };
   }
 
   return {

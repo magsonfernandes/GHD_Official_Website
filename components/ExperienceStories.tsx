@@ -24,13 +24,13 @@ export function ExperienceStories() {
       <section className="bg-muted pt-28 pb-16 md:pt-32 md:pb-20">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-10">
           <div className="mx-auto max-w-2xl">
-            <SectionLabel>Experiences</SectionLabel>
+            <SectionLabel>City Attractions</SectionLabel>
             <h1 className="mt-4 font-heading text-4xl font-medium leading-tight text-charcoal sm:text-5xl md:text-6xl">
-              Experiences in Goa
+              City Attractions in Goa
             </h1>
             <p className="mx-auto mt-6 max-w-xl font-body text-base font-light leading-relaxed text-grey sm:text-lg">
               Experience Goa at its most authentic. From heritage landmarks to
-              coastal adventures, uncover stories and experiences waiting to be
+              coastal adventures, uncover stories and attractions waiting to be
               explored.
             </p>
           </div>

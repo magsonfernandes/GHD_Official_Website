@@ -10,11 +10,16 @@ import {
 } from "@/components/booking/BookingLayout";
 import { BookingPolicyModal } from "@/components/booking/BookingPolicyModal";
 import {
+  HOTEL_WHATSAPP,
   PROPERTIES,
   ROYAL_STUDIO,
   ROYAL_STUDIO_RATE,
   SITE,
 } from "@/lib/constants";
+import {
+  buildWhatsAppReservationMessage,
+  openWhatsAppReservation,
+} from "@/lib/whatsapp-booking";
 
 const fieldClass =
   "w-full border border-border bg-white px-3 py-2.5 font-body text-sm font-light text-charcoal outline-none transition-colors placeholder:text-grey/70 focus:border-charcoal";
@@ -84,10 +89,6 @@ export function BookingDetailsContent() {
   const [address2, setAddress2] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardExpiry, setCardExpiry] = useState("");
-  const [cardCvv, setCardCvv] = useState("");
-  const [cardName, setCardName] = useState("");
   const [agreePrivacy, setAgreePrivacy] = useState(false);
   const [policyOpen, setPolicyOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -115,11 +116,7 @@ export function BookingDetailsContent() {
       !country ||
       !address1.trim() ||
       !city.trim() ||
-      !state.trim() ||
-      !cardNumber.trim() ||
-      !cardExpiry.trim() ||
-      !cardCvv.trim() ||
-      !cardName.trim()
+      !state.trim()
     ) {
       setErrorMessage("Please fill in all required fields.");
       return;
@@ -130,7 +127,27 @@ export function BookingDetailsContent() {
       return;
     }
 
-    // Reservation submission will be wired to backend later.
+    if (!booking) return;
+
+    const message = buildWhatsAppReservationMessage({
+      booking,
+      propertyName,
+      nights,
+      totalCost,
+      contact: {
+        firstName,
+        surname,
+        phone,
+        email,
+        country,
+        address1,
+        address2,
+        city,
+        state,
+      },
+    });
+
+    openWhatsAppReservation(message);
   }
 
   return (
@@ -370,85 +387,22 @@ export function BookingDetailsContent() {
               </div>
             </section>
 
-            <section className="space-y-5">
-              <SectionHeading title="Payment" />
+            <section className="space-y-4 border border-border bg-muted/30 p-5 sm:p-6">
+              <SectionHeading title="Confirm via WhatsApp" />
+
+              <p className="font-body text-sm font-light leading-relaxed text-grey">
+                After you submit, WhatsApp will open with your reservation
+                request pre-filled for{" "}
+                <span className="font-medium text-charcoal">
+                  {HOTEL_WHATSAPP.display}
+                </span>
+                , including your stay details and the total booking amount.
+              </p>
 
               <p className="font-body text-sm font-light text-grey">
-                We use secure transmission and encrypted storage to protect your
-                personal information.
+                Tap <span className="font-medium text-charcoal">Send</span> in
+                WhatsApp to deliver your request to our reservations team.
               </p>
-
-              <p className="font-body text-xs font-medium uppercase tracking-[0.12em] text-grey">
-                Visa · MasterCard · American Express · Diners Club
-              </p>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="sm:col-span-2">
-                  <label htmlFor="card-number" className={labelClass}>
-                    Card Number *
-                  </label>
-                  <input
-                    id="card-number"
-                    type="text"
-                    inputMode="numeric"
-                    autoComplete="cc-number"
-                    value={cardNumber}
-                    onChange={(event) => setCardNumber(event.target.value)}
-                    placeholder="0000 0000 0000 0000"
-                    required
-                    className={fieldClass}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="card-expiry" className={labelClass}>
-                    Expiration Date (MM/YY) *
-                  </label>
-                  <input
-                    id="card-expiry"
-                    type="text"
-                    inputMode="numeric"
-                    autoComplete="cc-exp"
-                    value={cardExpiry}
-                    onChange={(event) => setCardExpiry(event.target.value)}
-                    placeholder="MM/YY"
-                    required
-                    className={fieldClass}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="card-cvv" className={labelClass}>
-                    CVV *
-                  </label>
-                  <input
-                    id="card-cvv"
-                    type="text"
-                    inputMode="numeric"
-                    autoComplete="cc-csc"
-                    value={cardCvv}
-                    onChange={(event) => setCardCvv(event.target.value)}
-                    placeholder="CVV"
-                    required
-                    className={fieldClass}
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="card-name" className={labelClass}>
-                    Name on Card *
-                  </label>
-                  <input
-                    id="card-name"
-                    type="text"
-                    autoComplete="cc-name"
-                    value={cardName}
-                    onChange={(event) => setCardName(event.target.value)}
-                    required
-                    className={fieldClass}
-                  />
-                </div>
-              </div>
             </section>
 
             <section className="space-y-4 border-t border-border pt-8">
@@ -506,7 +460,7 @@ export function BookingDetailsContent() {
                 type="submit"
                 className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#733E24] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#733E24]/90 sm:text-xs lg:w-auto lg:min-w-[15rem]"
               >
-                Confirm Reservation
+                Send Reservation on WhatsApp
               </button>
             </div>
           </form>

@@ -176,7 +176,7 @@ export const NAV_ITEMS = [
   { label: "HOME", href: "/" },
   { label: "BRANDS", href: "/#brands" },
   { label: "ROOMS", href: "/rooms" },
-  { label: "EXPERIENCES", href: "/experiences" },
+  { label: "CITY ATTRACTIONS", href: "/experiences" },
   { label: "FAQs", href: "/faqs" },
   { label: "CONTACT", href: "/#contact" },
 ] as const;
@@ -205,6 +205,12 @@ export const SOCIAL_LINKS = [
   },
 ] as const;
 
+export const HOTEL_WHATSAPP = {
+  phone: "918380008687",
+  display: "+91 83800 08687",
+  waMeUrl: "https://wa.me/918380008687",
+} as const;
+
 export const SITE = {
   name: "GHD Hotels",
   tagline: "Luxury Hospitality. Thoughtfully Crafted.",
@@ -212,6 +218,7 @@ export const SITE = {
   propertyDisplay: "Nivaãra - Nerul",
   phone: "+91 838 000 8687",
   phoneHref: "tel:+918380008687",
+  whatsappHref: HOTEL_WHATSAPP.waMeUrl,
   phoneSecondary: "+91 839 002 0408",
   phoneSecondaryHref: "tel:+918390020408",
   email: "info@ghdhotels.in",
@@ -667,6 +674,6 @@ export const HIGHLIGHTS = [
   {
     icon: "sparkles" as const,
     value: "Curated",
-    label: "Experiences",
+    label: "City Attractions",
   },
 ] as const;

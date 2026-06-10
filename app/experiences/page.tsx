@@ -5,9 +5,9 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Experiences | GHD Hotels",
+  title: "City Attractions | GHD Hotels",
   description:
-    "Experience Goa at its most authentic. From heritage landmarks to coastal adventures, uncover stories and experiences waiting to be explored.",
+    "Experience Goa at its most authentic. From heritage landmarks to coastal adventures, uncover stories and city attractions waiting to be explored.",
 };
 
 export default function ExperiencesPage() {
