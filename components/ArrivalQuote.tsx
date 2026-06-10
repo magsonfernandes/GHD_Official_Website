@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
+import { BRAND_MENU } from "@/lib/constants";
+
+const NIVAARA_BRAND =
+  BRAND_MENU.find((brand) => brand.id === "nivaara")?.name ?? "Nivaãra";
 
 export function ArrivalQuote() {
   return (
@@ -24,8 +28,8 @@ export function ArrivalQuote() {
           aria-hidden
         >
           <span className="h-px w-12 bg-gold/50 sm:w-16" />
-          <span className="font-display-wide text-[0.625rem] font-black uppercase tracking-[0.38em] text-[#733E24] sm:text-xs">
-            Nivaãra Nerul
+          <span className="font-display-wide text-[0.625rem] font-black tracking-[0.38em] text-[#733E24] sm:text-xs">
+            {NIVAARA_BRAND}
           </span>
           <span className="h-px w-12 bg-gold/50 sm:w-16" />
         </motion.div>

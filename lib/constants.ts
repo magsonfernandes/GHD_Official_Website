@@ -1,5 +1,5 @@
 export const PROPERTIES = [
-  { id: "nivaara", name: "Nivaãra Nerul", available: true },
+  { id: "nivaara", name: "Nivaãra - Nerul, North Goa", available: true },
   { id: "celestra", name: "Celéstra", available: false },
   { id: "samraya", name: "Samrāya", available: false },
 ] as const;
@@ -346,8 +346,8 @@ export const HOTEL_WHATSAPP = {
 export const SITE = {
   name: "GHD Hotels",
   tagline: "Luxury Hospitality. Thoughtfully Crafted.",
-  property: "Nivaãra Nerul",
-  propertyDisplay: "Nivaãra - Nerul",
+  property: "Nivaãra - Nerul, North Goa",
+  propertyDisplay: "Nivaãra - Nerul, North Goa",
   phone: "+91 838 000 8687",
   phoneHref: "tel:+918380008687",
   whatsappHref: HOTEL_WHATSAPP.waMeUrl,
