@@ -6,6 +6,7 @@ import {
   ROYAL_STUDIO_BOOKING_POLICY,
   ROYAL_STUDIO_RATE,
 } from "@/lib/constants";
+import { sectionBodyClass } from "@/lib/section-typography";
 
 type BookingPolicyModalProps = {
   open: boolean;
@@ -100,7 +101,7 @@ export function BookingPolicyModal({ open, onClose }: BookingPolicyModalProps) {
                 <h3 className="font-body text-sm font-medium text-charcoal">
                   {section.title}
                 </h3>
-                <p className="mt-1.5 font-body text-sm font-light leading-relaxed text-grey">
+                <p className={sectionBodyClass(false, "mt-1.5 text-left")}>
                   {section.body}
                 </p>
               </div>

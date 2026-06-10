@@ -5,6 +5,17 @@ import { useCallback, useEffect, useState } from "react";
 import { ROYAL_STUDIO } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+export type RoomGalleryImage = {
+  src: string;
+  alt: string;
+};
+
+type RoomGalleryProps = {
+  images?: readonly RoomGalleryImage[];
+  variant?: "bento" | "compact" | "grid";
+  className?: string;
+};
+
 const GALLERY_LAYOUT = [
   "col-span-2 min-h-[15rem] sm:min-h-[18rem] lg:col-span-4 lg:row-span-2 lg:min-h-[22rem]",
   "col-span-1 min-h-[11rem] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
@@ -15,8 +26,11 @@ const GALLERY_LAYOUT = [
   "col-span-2 min-h-[12rem] lg:col-span-3 lg:row-span-1 lg:min-h-[14rem]",
 ] as const;
 
-export function RoomGallery() {
-  const images = ROYAL_STUDIO.gallery;
+export function RoomGallery({
+  images = ROYAL_STUDIO.gallery,
+  variant = "bento",
+  className,
+}: RoomGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const closeLightbox = useCallback(() => setActiveIndex(null), []);
@@ -57,15 +71,26 @@ export function RoomGallery() {
 
   return (
     <>
-      <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-6 lg:gap-5">
+      <div
+        className={cn(
+          variant === "compact" && "grid grid-cols-2 gap-2 sm:gap-3",
+          variant === "grid" &&
+            "grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5",
+          variant === "bento" &&
+            "mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-6 lg:gap-5",
+          className,
+        )}
+      >
         {images.map((image, index) => (
           <button
-            key={image.src}
+            key={`${image.src}-${index}`}
             type="button"
             onClick={() => setActiveIndex(index)}
             className={cn(
               "group relative cursor-zoom-in overflow-hidden bg-white text-left shadow-[0_8px_30px_rgba(17,17,17,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#733E24]",
-              GALLERY_LAYOUT[index] ?? "col-span-1 min-h-[11rem] lg:col-span-2",
+              variant === "compact" || variant === "grid"
+                ? "aspect-[4/3] min-h-0"
+                : GALLERY_LAYOUT[index] ?? "col-span-1 min-h-[11rem] lg:col-span-2",
             )}
             aria-label={`View ${image.alt}`}
           >

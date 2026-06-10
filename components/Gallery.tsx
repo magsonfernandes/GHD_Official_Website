@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { GALLERY_IMAGES } from "@/lib/constants";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -25,15 +25,9 @@ export function Gallery() {
           viewport={viewportOnce}
           className="mb-14 flex flex-col items-center text-center md:mb-16"
         >
-          <motion.div variants={fadeUp} className="mb-5">
-            <SectionLabel>Gallery</SectionLabel>
+          <motion.div variants={fadeUp} className="w-full">
+            <SectionIntro label="Gallery" title="Moments of Serenity" />
           </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-3xl font-medium text-charcoal sm:text-4xl"
-          >
-            Moments of Serenity
-          </motion.h2>
         </motion.div>
 
         <motion.div

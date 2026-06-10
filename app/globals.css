@@ -73,6 +73,17 @@
   body {
     @apply bg-white font-body font-light text-charcoal antialiased;
   }
+  img {
+    opacity: 1;
+  }
+}
+
+.page-media-loading {
+  visibility: hidden;
+}
+
+.page-media-ready {
+  visibility: visible;
 }
 
 @layer utilities {

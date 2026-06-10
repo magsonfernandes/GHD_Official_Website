@@ -33,14 +33,6 @@ function FacebookIcon({ className }: IconProps) {
   );
 }
 
-function YouTubeIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
-      <path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.04 5 12 5 12 5s-6.04 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26.3 26.3 0 0 0 2 12a26.3 26.3 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.96 19 12 19 12 19s6.04 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26.3 26.3 0 0 0 22 12a26.3 26.3 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z" />
-    </svg>
-  );
-}
-
 function XIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
@@ -49,10 +41,10 @@ function XIcon({ className }: IconProps) {
   );
 }
 
-function PinterestIcon({ className }: IconProps) {
+function LinkedInIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
-      <path d="M12 2a10 10 0 0 0-3.46 19.4c-.05-.8-.1-2.03.02-2.9l1.2-5.1s-.3-.6-.3-1.48c0-1.39.8-2.43 1.9-2.43.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.05.53 1.9 1.57 1.9 1.88 0 3.14-2.4 3.14-5.25 0-2.16-1.46-3.77-4.1-3.77-2.97 0-4.82 2.22-4.82 4.7 0 .86.25 1.46.64 1.92.07.08.08.15.06.23l-.24.95c-.04.15-.12.19-.28.12-1.05-.43-1.7-1.77-1.7-2.85 0-2.32 1.97-5.1 5.87-5.1 3.22 0 5.34 2.36 5.34 4.89 0 3.37-1.87 5.89-4.63 5.89-.99 0-1.92-.55-2.24-1.17l-.67 2.45c-.2.8-.76 1.8-1.13 2.41A10 10 0 1 0 12 2z" />
+      <path d="M6.94 5a2 2 0 1 1 .02 4 2 2 0 0 1-.02-4ZM5 8.75h3.88V20H5V8.75Zm6.13 0H15v1.53h.05c.55-.98 1.9-2.02 3.91-2.02 4.18 0 4.95 2.75 4.95 6.33V20H20v-5.56c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V20h-3.89V8.75Z" />
     </svg>
   );
 }
@@ -60,9 +52,8 @@ function PinterestIcon({ className }: IconProps) {
 const SOCIAL_ICONS = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
-  youtube: YouTubeIcon,
   x: XIcon,
-  pinterest: PinterestIcon,
+  linkedin: LinkedInIcon,
 } as const;
 
 export function Footer() {

@@ -4,6 +4,7 @@ import { BeachesBlogContent } from "@/components/BeachesBlogContent";
 import { getExperienceBlogContent } from "@/lib/experience-content";
 import type { ExperiencePost } from "@/lib/experiences";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 type ExperienceBlogPostProps = {
   post: ExperiencePost;
@@ -32,12 +33,12 @@ export function ExperienceBlogPost({ post }: ExperienceBlogPostProps) {
             <span>{post.readTime}</span>
           </div>
 
-          <h1 className="mt-5 font-heading text-3xl font-medium leading-tight text-charcoal sm:text-4xl md:text-5xl">
+          <h1 className={sectionHeadingClass(false, "mt-5 text-left")}>
             {post.title}
           </h1>
 
           {!isBeachesGuide ? (
-            <p className="mt-5 font-body text-base font-light leading-relaxed text-grey sm:text-lg">
+            <p className={sectionBodyClass(false, "mt-5 text-left")}>
               {post.excerpt}
             </p>
           ) : null}
@@ -65,7 +66,7 @@ export function ExperienceBlogPost({ post }: ExperienceBlogPostProps) {
                 {paragraphs.map((paragraph, index) => (
                   <p
                     key={`${post.slug}-paragraph-${index}`}
-                    className="font-body text-base font-light leading-relaxed text-charcoal sm:text-lg"
+                    className={sectionBodyClass(false, "mt-0 text-left")}
                   >
                     {paragraph}
                   </p>

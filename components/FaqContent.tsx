@@ -1,20 +1,19 @@
 import { ContactNavLink } from "@/components/contact/ContactNavLink";
 import { FAQ_SECTIONS, SITE } from "@/lib/constants";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/ui/SectionIntro";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 export function FaqContent() {
   return (
     <>
       <section className="bg-muted pt-28 pb-12 md:pt-32 md:pb-16">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
-          <SectionLabel>Help Centre</SectionLabel>
-          <h1 className="mt-4 font-heading text-4xl font-medium leading-tight text-charcoal sm:text-5xl md:text-6xl">
-            Frequently Asked Questions
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-base font-light leading-relaxed text-grey sm:text-lg">
-            Everything you need to know about staying at Nivaãra Nerul — from
-            bookings and amenities to local attractions and property policies.
-          </p>
+        <div className="mx-auto max-w-3xl px-6 lg:px-10">
+          <SectionIntro
+            label="Help Centre"
+            title="Frequently Asked Questions"
+            description="Everything you need to know about staying at Nivaãra Nerul — from bookings and amenities to local attractions and property policies."
+            titleAs="h1"
+          />
         </div>
       </section>
 
@@ -22,7 +21,7 @@ export function FaqContent() {
         <div className="mx-auto max-w-3xl space-y-14 md:space-y-16">
           {FAQ_SECTIONS.map((section) => (
             <div key={section.title}>
-              <h2 className="font-heading text-2xl font-medium text-charcoal sm:text-3xl">
+              <h2 className={sectionHeadingClass()}>
                 {section.title}
               </h2>
 
@@ -41,7 +40,7 @@ export function FaqContent() {
 
                     <div className="pb-5 pr-8">
                       {"answer" in item && item.answer ? (
-                        <p className="font-body text-sm font-light leading-relaxed text-grey sm:text-base">
+                        <p className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}>
                           {item.answer}
                         </p>
                       ) : null}
@@ -57,7 +56,7 @@ export function FaqContent() {
                           {item.bullets.map((bullet) => (
                             <li
                               key={bullet}
-                              className="font-body text-sm font-light leading-relaxed text-grey sm:text-base"
+                              className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}
                             >
                               {bullet}
                             </li>
@@ -74,15 +73,12 @@ export function FaqContent() {
       </section>
 
       <section className="bg-muted px-6 py-14 md:py-20 lg:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionLabel>Contact</SectionLabel>
-          <h2 className="mt-3 font-heading text-3xl font-medium text-charcoal sm:text-4xl">
-            Still have questions?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl font-body text-sm font-light leading-relaxed text-grey sm:text-base">
-            Our team will be delighted to assist you. Reach out by phone, email,
-            or through the contact details below.
-          </p>
+        <div className="mx-auto max-w-3xl">
+          <SectionIntro
+            label="Contact"
+            title="Still have questions?"
+            description="Our team will be delighted to assist you. Reach out by phone, email, or through the contact details below."
+          />
 
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-6">
             <a

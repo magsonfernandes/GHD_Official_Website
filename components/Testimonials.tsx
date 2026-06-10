@@ -2,7 +2,8 @@
 
 import { useCallback, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/ui/SectionIntro";
+import { sectionBodyClass } from "@/lib/section-typography";
 import { TESTIMONIALS } from "@/lib/constants";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -124,15 +125,12 @@ export function Testimonials() {
           viewport={viewportOnce}
           className="mb-8 flex flex-col items-center text-center md:mb-10"
         >
-          <motion.div variants={fadeUp} className="mb-3">
-            <SectionLabel>Testimonials</SectionLabel>
+          <motion.div variants={fadeUp} className="w-full">
+            <SectionIntro
+              label="Testimonials"
+              title="Words From Our Guests"
+            />
           </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-[2.75rem] font-light leading-[1.15] text-charcoal xl:text-[3rem]"
-          >
-            Words From Our Guests
-          </motion.h2>
         </motion.div>
 
         <div
@@ -148,7 +146,7 @@ export function Testimonials() {
             else retreat();
           }}
         >
-          <div className="absolute inset-0 flex items-start justify-center pt-4 md:pt-6">
+          <div className="pointer-events-none absolute inset-0 flex items-start justify-center pt-4 md:pt-6">
             {TESTIMONIALS.map((testimonial, index) => {
               const offset = index - activeIndex;
               const { x, y, rotateZ, rotateY, scale, opacity } =
@@ -219,7 +217,7 @@ export function Testimonials() {
                       </>
                     ) : (
                       <div className="flex min-h-[10rem] flex-col justify-center">
-                        <p className="line-clamp-4 font-body text-sm font-light leading-relaxed text-charcoal/70 sm:text-[0.9375rem]">
+                        <p className={sectionBodyClass(false, "mt-0 line-clamp-4 text-left text-charcoal/70")}>
                           {testimonial.quote}
                         </p>
                         <p className="mt-4 font-body text-xs uppercase tracking-[0.2em] text-grey">
@@ -234,14 +232,17 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="-mt-5 flex flex-col items-center gap-5 sm:-mt-6 md:-mt-7">
+        <div className="relative z-20 -mt-5 flex flex-col items-center gap-5 sm:-mt-6 md:-mt-7">
           <div className="flex items-center gap-4 sm:gap-5">
             <button
               type="button"
-              onClick={retreat}
+              onClick={() => {
+                if (!isAtStart) retreat();
+              }}
               disabled={isAtStart}
+              aria-disabled={isAtStart}
               className={cn(
-                "group flex items-center justify-center p-1 text-[#733E24] transition-colors duration-500",
+                "group flex items-center justify-center p-2 text-[#733E24] transition-colors duration-500",
                 isAtStart
                   ? "cursor-default opacity-35"
                   : "hover:text-gold",
@@ -259,10 +260,13 @@ export function Testimonials() {
 
             <button
               type="button"
-              onClick={advance}
+              onClick={() => {
+                if (!isAtEnd) advance();
+              }}
               disabled={isAtEnd}
+              aria-disabled={isAtEnd}
               className={cn(
-                "group flex items-center justify-center p-1 text-[#733E24] transition-colors duration-500",
+                "group flex items-center justify-center p-2 text-[#733E24] transition-colors duration-500",
                 isAtEnd ? "cursor-default opacity-35" : "hover:text-gold",
               )}
               aria-label="Next testimonial"
@@ -278,14 +282,23 @@ export function Testimonials() {
                 type="button"
                 onClick={() => setActiveIndex(index)}
                 className={cn(
-                  "h-1.5 rounded-full transition-all duration-500",
+                  "rounded-full p-1 transition-all duration-500",
                   index === activeIndex
-                    ? "w-8 bg-gold"
-                    : "w-1.5 bg-charcoal/20 hover:bg-charcoal/35",
+                    ? "bg-gold/15"
+                    : "hover:bg-charcoal/5",
                 )}
                 aria-label={`Show testimonial from ${testimonial.name}`}
                 aria-current={index === activeIndex ? "true" : undefined}
-              />
+              >
+                <span
+                  className={cn(
+                    "block h-1.5 rounded-full transition-all duration-500",
+                    index === activeIndex
+                      ? "w-8 bg-gold"
+                      : "w-1.5 bg-charcoal/20",
+                  )}
+                />
+              </button>
             ))}
           </div>
         </div>

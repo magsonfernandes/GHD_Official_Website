@@ -7,7 +7,9 @@ import {
   EXPERIENCE_POSTS,
   EXPERIENCES_HERO_VIDEO,
 } from "@/lib/constants";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 import { cn } from "@/lib/utils";
 
 export function ExperienceStories() {
@@ -21,23 +23,8 @@ export function ExperienceStories() {
 
   return (
     <>
-      <section className="bg-muted pt-28 pb-16 md:pt-32 md:pb-20">
-        <div className="mx-auto max-w-7xl px-6 text-center lg:px-10">
-          <div className="mx-auto max-w-2xl">
-            <SectionLabel>City Attractions</SectionLabel>
-            <h1 className="mt-4 font-heading text-4xl font-medium leading-tight text-charcoal sm:text-5xl md:text-6xl">
-              City Attractions in Goa
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl font-body text-base font-light leading-relaxed text-grey sm:text-lg">
-              Experience Goa at its most authentic. From heritage landmarks to
-              coastal adventures, uncover stories and attractions waiting to be
-              explored.
-            </p>
-          </div>
-
-        </div>
-
-        <div className="relative mt-10 aspect-video w-full overflow-hidden md:mt-14 lg:aspect-[2.2/1]">
+      <section className="bg-muted pt-16">
+        <div className="relative aspect-video w-full overflow-hidden lg:aspect-[2.2/1]">
           <video
             ref={heroVideoRef}
             src={EXPERIENCES_HERO_VIDEO}
@@ -48,6 +35,17 @@ export function ExperienceStories() {
             preload="auto"
             className="absolute left-0 top-0 h-full w-[118%] max-w-none object-cover object-left"
           />
+        </div>
+
+        <div className="mx-auto max-w-7xl px-6 pb-16 pt-10 md:pb-20 md:pt-14 lg:px-10">
+          <div className="mx-auto max-w-2xl">
+            <SectionIntro
+              label="City Attractions"
+              title="City Attractions in Goa"
+              description="Experience Goa at its most authentic. From heritage landmarks to coastal adventures, uncover stories and attractions waiting to be explored."
+              titleAs="h1"
+            />
+          </div>
         </div>
       </section>
 
@@ -88,11 +86,11 @@ export function ExperienceStories() {
                     <span className="hidden sm:inline">{post.readTime}</span>
                   </div>
 
-                  <h2 className="mt-2 font-heading text-base font-medium leading-snug text-charcoal sm:mt-4 sm:text-2xl md:text-3xl lg:text-4xl">
+                  <h2 className={sectionHeadingClass(false, "mt-2 sm:mt-4")}>
                     {post.title}
                   </h2>
 
-                  <p className="mt-2 font-body text-[0.6875rem] font-light leading-relaxed text-grey sm:mt-4 sm:text-sm md:text-base lg:text-lg">
+                  <p className={sectionBodyClass(false, "mt-2 sm:mt-4")}>
                     {post.excerpt}
                   </p>
 

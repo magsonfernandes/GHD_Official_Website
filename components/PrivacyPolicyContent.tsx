@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PRIVACY_POLICY } from "@/lib/privacy-policy";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/ui/SectionIntro";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 export function PrivacyPolicyContent() {
   const { title, summaryTitle, contactEmail, contactEmailHref, lastUpdated, sections } =
@@ -9,15 +10,16 @@ export function PrivacyPolicyContent() {
   return (
     <>
       <section className="bg-muted pt-28 pb-12 md:pt-32 md:pb-16">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
-          <SectionLabel>Legal</SectionLabel>
-          <h1 className="mt-4 font-heading text-4xl font-medium leading-tight text-charcoal sm:text-5xl md:text-6xl">
-            {title}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-base font-light leading-relaxed text-grey sm:text-lg">
-            {summaryTitle}
+        <div className="mx-auto max-w-3xl px-6 lg:px-10">
+          <SectionIntro
+            label="Legal"
+            title={title}
+            description={summaryTitle}
+            titleAs="h1"
+          />
+          <p className="mt-4 text-center font-body text-xs text-grey">
+            Last updated: {lastUpdated}
           </p>
-          <p className="mt-4 font-body text-xs text-grey">Last updated: {lastUpdated}</p>
         </div>
       </section>
 
@@ -25,7 +27,7 @@ export function PrivacyPolicyContent() {
         <div className="mx-auto max-w-3xl space-y-12 md:space-y-14">
           {sections.map((section) => (
             <article key={section.id} id={section.id}>
-              <h2 className="font-heading text-2xl font-medium text-charcoal sm:text-3xl">
+              <h2 className={sectionHeadingClass()}>
                 {section.title}
               </h2>
 
@@ -33,7 +35,7 @@ export function PrivacyPolicyContent() {
                 {section.paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="font-body text-sm font-light leading-relaxed text-grey sm:text-base"
+                    className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}
                   >
                     {paragraph.includes(contactEmail) ? (
                       <>
@@ -53,7 +55,7 @@ export function PrivacyPolicyContent() {
                 ))}
 
                 {"bullets" in section && section.bullets ? (
-                  <ul className="list-disc space-y-2 pl-5 font-body text-sm font-light leading-relaxed text-grey sm:text-base">
+                  <ul className={sectionBodyClass(false, "mt-0 list-disc space-y-2 pl-5 text-sm sm:text-base")}>
                     {section.bullets.map((bullet) => (
                       <li key={bullet}>{bullet}</li>
                     ))}
@@ -61,7 +63,7 @@ export function PrivacyPolicyContent() {
                 ) : null}
 
                 {"footer" in section && section.footer ? (
-                  <p className="font-body text-sm font-light leading-relaxed text-grey sm:text-base">
+                  <p className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}>
                     {section.footer.includes(contactEmail) ? (
                       <>
                         {section.footer.split(contactEmail)[0]}
@@ -83,7 +85,7 @@ export function PrivacyPolicyContent() {
           ))}
 
           <div className="border-t border-border pt-8">
-            <p className="font-body text-sm font-light text-grey">
+            <p className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}>
               For privacy-related enquiries, please contact{" "}
               <a
                 href={contactEmailHref}

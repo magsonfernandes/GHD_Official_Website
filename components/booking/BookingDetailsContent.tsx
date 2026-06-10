@@ -10,7 +10,6 @@ import {
 } from "@/components/booking/BookingLayout";
 import { BookingPolicyModal } from "@/components/booking/BookingPolicyModal";
 import {
-  HOTEL_WHATSAPP,
   PROPERTIES,
   ROYAL_STUDIO,
   ROYAL_STUDIO_RATE,
@@ -20,6 +19,7 @@ import {
   buildWhatsAppReservationMessage,
   openWhatsAppReservation,
 } from "@/lib/whatsapp-booking";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 const fieldClass =
   "w-full border border-border bg-white px-3 py-2.5 font-body text-sm font-light text-charcoal outline-none transition-colors placeholder:text-grey/70 focus:border-charcoal";
@@ -154,7 +154,7 @@ export function BookingDetailsContent() {
     <BookingLayout step={2}>
       {booking ? (
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-heading text-3xl font-medium text-charcoal sm:text-4xl">
+          <h2 className={sectionHeadingClass(false, "text-left")}>
             Complete Your Stay
           </h2>
 
@@ -387,24 +387,6 @@ export function BookingDetailsContent() {
               </div>
             </section>
 
-            <section className="space-y-4 border border-border bg-muted/30 p-5 sm:p-6">
-              <SectionHeading title="Confirm via WhatsApp" />
-
-              <p className="font-body text-sm font-light leading-relaxed text-grey">
-                After you submit, WhatsApp will open with your reservation
-                request pre-filled for{" "}
-                <span className="font-medium text-charcoal">
-                  {HOTEL_WHATSAPP.display}
-                </span>
-                , including your stay details and the total booking amount.
-              </p>
-
-              <p className="font-body text-sm font-light text-grey">
-                Tap <span className="font-medium text-charcoal">Send</span> in
-                WhatsApp to deliver your request to our reservations team.
-              </p>
-            </section>
-
             <section className="space-y-4 border-t border-border pt-8">
               <p className="font-body text-sm text-charcoal">
                 Cancellation or amendment can be made 7 days prior to date of
@@ -426,7 +408,7 @@ export function BookingDetailsContent() {
                 Acknowledgement
               </h3>
 
-              <p className="font-body text-sm font-light text-grey">
+              <p className={sectionBodyClass(false, "mt-0 text-left")}>
                 By completing this booking, I agree with the Booking Conditions.
               </p>
 
@@ -460,7 +442,7 @@ export function BookingDetailsContent() {
                 type="submit"
                 className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#733E24] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#733E24]/90 sm:text-xs lg:w-auto lg:min-w-[15rem]"
               >
-                Send Reservation on WhatsApp
+                Make Reservation
               </button>
             </div>
           </form>

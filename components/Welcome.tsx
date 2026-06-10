@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { NIVAARA_LOGO, WELCOME_IMAGE } from "@/lib/constants";
-import { fadeUp, fadeUpStagger, imageReveal, viewportOnce } from "@/lib/animations";
+import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 export function Welcome() {
   return (
@@ -38,13 +39,13 @@ export function Welcome() {
         >
           <motion.h2
             variants={fadeUp}
-            className="font-heading text-3xl font-medium leading-snug text-charcoal sm:text-4xl md:text-5xl"
+            className={sectionHeadingClass(false, "max-w-lg text-left")}
           >
             A Sanctuary of Quiet Sophistication
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="max-w-lg font-body text-base font-light leading-relaxed text-grey sm:text-lg"
+            className={sectionBodyClass(false, "max-w-lg text-left")}
           >
             Nivaãra Nerul is designed for discerning travelers seeking refined
             comfort, personalized service, and immersive experiences. Every detail
@@ -53,21 +54,16 @@ export function Welcome() {
           </motion.p>
         </motion.div>
 
-        <motion.div
-          variants={imageReveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="relative aspect-[4/5] overflow-hidden bg-muted"
-        >
+        <div className="relative aspect-[4/5] overflow-hidden bg-muted">
           <Image
             src={WELCOME_IMAGE}
             alt="Elegant guest room interior at Nivaãra Nerul"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="eager"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

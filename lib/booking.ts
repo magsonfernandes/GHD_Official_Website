@@ -119,9 +119,14 @@ export function getDefaultGuestSelection(): GuestSelection {
   return DEFAULT_GUEST_SELECTION.map((room) => ({ ...room }));
 }
 
-export function getDefaultBookingHref(): string {
-  const checkIn = addDays(startOfDay(new Date()), 1);
+export function getDefaultReservationDates() {
+  const checkIn = startOfDay(new Date());
   const checkOut = addDays(checkIn, 1);
+  return { checkIn, checkOut };
+}
+
+export function getDefaultBookingHref(): string {
+  const { checkIn, checkOut } = getDefaultReservationDates();
   const guests = getDefaultGuestSelection();
 
   const params = buildBookingSearchParams({

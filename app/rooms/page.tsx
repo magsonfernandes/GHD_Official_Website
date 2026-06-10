@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Rooms | GHD Hotels",
   description:
-    "Explore the Royal Studio at Nivaãra Nerul — a spacious, thoughtfully designed room with contemporary comfort, natural light, and essential amenities.",
+    "Explore Nivaãra Room, Mountain View Room, and Sea View Room at Nivaãra Nerul — the same thoughtfully designed space with views priced for your preference.",
 };
 
 export default function RoomsPage() {

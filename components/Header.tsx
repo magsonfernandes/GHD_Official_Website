@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { BrandsNavItem } from "@/components/BrandsMegaMenu";
 import { ContactNavLink } from "@/components/contact/ContactNavLink";
 import { getDefaultBookingHref } from "@/lib/booking";
 import { GHD_LOGO, GHD_LOGO_WHITE, NAV_ITEMS, SITE } from "@/lib/constants";
@@ -25,9 +24,7 @@ function NavLinks({ scrolled }: { scrolled: boolean }) {
   return (
     <>
       {NAV_ITEMS.map((item) =>
-        item.label === "BRANDS" ? (
-          <BrandsNavItem key={item.href} scrolled={scrolled} />
-        ) : item.label === "CONTACT" ? (
+        item.label === "CONTACT" ? (
           <li key={item.href} className="shrink-0">
             <ContactNavLink
               className={cn(

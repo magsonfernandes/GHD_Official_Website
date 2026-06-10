@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { POOL_EXPERIENCES_VIDEO } from "@/lib/constants";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 export function GoanFlavoursDuplicate() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -43,13 +44,13 @@ export function GoanFlavoursDuplicate() {
         >
           <motion.h2
             variants={fadeUp}
-            className="mt-3 text-balance font-heading text-[3.5rem] font-light leading-[1.08] text-white sm:text-[3.875rem] lg:mt-3.5 xl:text-[4.25rem]"
+            className={sectionHeadingClass(true, "text-balance")}
           >
             Some Views Are Best Enjoyed From the Water
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-4 font-body text-[0.9375rem] font-normal leading-[1.75] text-white sm:text-base lg:mt-5"
+            className={sectionBodyClass(true)}
           >
             Take a refreshing dip, watch the sky change colours, and embrace a
             slower pace in a setting designed for relaxation and reflection.

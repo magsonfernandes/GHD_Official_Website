@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { SIGNATURE_EXPERIENCES_VIDEO } from "@/lib/constants";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
 
@@ -43,22 +43,15 @@ export function Experiences() {
           className="mx-auto w-full max-w-2xl -translate-y-6 text-center lg:mx-0 lg:max-w-[22rem] lg:-translate-y-28 lg:text-left xl:max-w-[24rem]"
         >
           <motion.div variants={fadeUp}>
-            <SectionLabel light>Goan Flavours</SectionLabel>
+            <SectionIntro
+              label="Goan Flavours"
+              title="Taste the Soul of Goa"
+              description="From fresh seafood delicacies to time-honoured Goan specialties, uncover the flavours that have shaped the region's rich culinary heritage."
+              light
+              align="left"
+              className="text-balance lg:text-left"
+            />
           </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="mt-3 text-balance font-heading text-[3.5rem] font-light leading-[1.08] text-white sm:text-[3.875rem] lg:mt-3.5 xl:text-[4.25rem]"
-          >
-            Taste the Soul of Goa
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="mt-4 font-body text-[0.9375rem] font-normal leading-[1.75] text-white sm:text-base lg:mt-5"
-          >
-            From fresh seafood delicacies to time-honoured Goan specialties,
-            uncover the flavours that have shaped the region&apos;s rich culinary
-            heritage.
-          </motion.p>
         </motion.div>
       </div>
     </section>

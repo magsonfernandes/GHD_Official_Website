@@ -6,6 +6,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ReservationBar } from "@/components/ReservationWidget";
 import { BookingTimeline } from "@/components/booking/BookingTimeline";
 import { parseBookingSearchParams } from "@/lib/booking";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 type BookingLayoutProps = {
   step: 1 | 2;
@@ -26,10 +27,10 @@ export function BookingLayout({ step, children }: BookingLayoutProps) {
     return (
       <section className="bg-muted px-6 py-32 text-center lg:px-10">
         <div className="mx-auto max-w-lg">
-          <h1 className="font-heading text-3xl font-medium text-charcoal">
+          <h1 className={sectionHeadingClass(false, "mt-0")}>
             Booking details unavailable
           </h1>
-          <p className="mt-4 font-body text-sm font-light text-grey">
+          <p className={sectionBodyClass(false, "mt-4")}>
             Please select a hotel, check-in, and check-out date to continue.
           </p>
           <Link

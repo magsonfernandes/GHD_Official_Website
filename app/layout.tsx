@@ -7,6 +7,7 @@ import {
   Playfair_Display,
 } from "next/font/google";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
+import { PageMediaGate } from "@/components/PageMediaGate";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
@@ -81,7 +82,7 @@ export default function RootLayout({
       <body>
         <ContactModalProvider>
           <ScrollToTop />
-          {children}
+          <PageMediaGate>{children}</PageMediaGate>
         </ContactModalProvider>
       </body>
     </html>

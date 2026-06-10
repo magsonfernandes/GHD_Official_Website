@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { ROYAL_STUDIO } from "@/lib/constants";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 import { cn } from "@/lib/utils";
 
 type RoomDetailsModalProps = {
@@ -47,7 +48,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-white px-5 py-4 sm:px-6">
           <h2
             id="room-details-title"
-            className="font-heading text-2xl font-medium text-charcoal sm:text-3xl"
+            className={sectionHeadingClass(false, "mt-0 text-left")}
           >
             {ROYAL_STUDIO.name}
           </h2>
@@ -74,7 +75,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
             <h3 className="font-body text-xs font-medium uppercase tracking-[0.16em] text-charcoal">
               Room description
             </h3>
-            <p className="mt-3 font-body text-sm font-light leading-relaxed text-grey sm:text-base">
+            <p className={sectionBodyClass(false, "mt-3 text-left")}>
               {ROYAL_STUDIO.description}
             </p>
           </section>
@@ -199,7 +200,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
               {ROYAL_STUDIO.duringStay.guidelines.map((guideline) => (
                 <li
                   key={guideline}
-                  className="font-body text-sm font-light leading-relaxed text-grey"
+                  className={sectionBodyClass(false, "mt-0 text-left")}
                 >
                   {guideline}
                 </li>

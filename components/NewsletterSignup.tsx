@@ -1,8 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/ui/SectionIntro";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 import { SITE } from "@/lib/constants";
+import {
+  formatContactFetchFailure,
+  formatContactSubmitFailure,
+  mailApiHtmlError,
+  parseContactResponseJson,
+} from "@/lib/contactFormDiagnostics";
 
 type NewsletterSignupProps = {
   idSuffix?: string;
@@ -10,6 +17,7 @@ type NewsletterSignupProps = {
 
 export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
   const emailId = `newsletter-email${idSuffix}`;
+  const ageId = `newsletter-age${idSuffix}`;
   const [email, setEmail] = useState("");
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(false);
@@ -18,33 +26,64 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
   );
   const [errorMessage, setErrorMessage] = useState("");
 
+  const formReady = Boolean(email.trim() && ageConfirmed);
+  const canSubmit = formReady && status !== "loading";
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setErrorMessage("");
 
     if (!email.trim()) {
       setErrorMessage("Please enter your email address.");
+      setStatus("error");
       return;
     }
 
-    if (!ageConfirmed || !marketingConsent) {
-      setErrorMessage("Please confirm both checkboxes to continue.");
+    if (!ageConfirmed) {
+      setErrorMessage("Please confirm you are over the age of 18.");
+      setStatus("error");
       return;
     }
 
     setStatus("loading");
 
+    const url = "/api/newsletter";
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 30_000);
+
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, ageConfirmed, marketingConsent }),
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          ageConfirmed,
+          marketingConsent,
+        }),
+        signal: controller.signal,
       });
 
-      const data = (await response.json()) as { error?: string };
+      const raw = await response.text();
+      const contentType = response.headers.get("content-type") || "";
+      const data =
+        parseContactResponseJson(raw, contentType) ??
+        ({} as { ok?: boolean; error?: string; hint?: string });
 
-      if (!response.ok) {
-        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      if (
+        !data.error &&
+        (raw.trim().startsWith("<!") || contentType.includes("text/html"))
+      ) {
+        throw new Error(mailApiHtmlError(url));
+      }
+
+      if (!response.ok || data.ok !== true) {
+        throw new Error(
+          formatContactSubmitFailure({
+            requestUrl: url,
+            response,
+            rawBody: raw,
+          }),
+        );
       }
 
       setStatus("success");
@@ -52,23 +91,35 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
       setAgeConfirmed(false);
       setMarketingConsent(false);
     } catch (error) {
-      setStatus("error");
+      const isNetwork =
+        error instanceof TypeError ||
+        (error instanceof DOMException && error.name === "AbortError") ||
+        (error instanceof Error &&
+          /failed to fetch|networkerror|load failed|aborted/i.test(
+            error.message,
+          ));
+
       setErrorMessage(
-        error instanceof Error ? error.message : "Something went wrong. Please try again.",
+        isNetwork
+          ? formatContactFetchFailure(url, error)
+          : error instanceof Error
+            ? error.message
+            : "Failed to submit signup.",
       );
+      setStatus("error");
+    } finally {
+      window.clearTimeout(timeoutId);
     }
   }
 
   return (
     <section className="border-t border-border bg-muted py-10 md:py-12">
       <div className="mx-auto max-w-2xl px-6 text-center lg:px-10">
-        <SectionLabel>Newsletter</SectionLabel>
-        <h2 className="mt-2 font-heading text-2xl font-medium text-charcoal sm:text-3xl">
-          Be the first to know
-        </h2>
-        <p className="mx-auto mt-2 max-w-xl font-body text-[0.65rem] font-medium uppercase tracking-[0.16em] text-charcoal sm:text-xs sm:tracking-[0.2em]">
-          Sign up to receive GHD Hotels newsletters and offers in your inbox
-        </p>
+        <SectionIntro
+          label="Newsletter"
+          title="Be the first to know"
+          description="Sign up to receive GHD Hotels newsletters and offers in your inbox."
+        />
 
         {status === "success" ? (
           <div
@@ -76,16 +127,20 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
             aria-live="polite"
             className="mx-auto mt-6 max-w-lg border border-[#733E24]/20 bg-white px-6 py-8 text-center sm:px-8 sm:py-10"
           >
-            <p className="font-heading text-2xl font-medium text-charcoal sm:text-3xl">
+            <p className={sectionHeadingClass(false, "mt-0")}>
               Thank you for signing up
             </p>
-            <p className="mt-3 font-body text-sm font-light leading-relaxed text-grey sm:text-base">
+            <p className={sectionBodyClass(false, "mt-3")}>
               Your subscription has been received. We&apos;ll share GHD Hotels
               newsletters and exclusive offers in your inbox soon.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mx-auto mt-6 max-w-lg text-left">
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="mx-auto mt-6 max-w-lg text-left"
+          >
             <label htmlFor={emailId} className="sr-only">
               Email address
             </label>
@@ -98,25 +153,32 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter Email Address"
                 autoComplete="email"
+                required
                 disabled={status === "loading"}
                 className="h-10 flex-1 border border-border bg-white px-3 font-body text-sm font-light text-charcoal outline-none transition-colors placeholder:text-grey/70 focus:border-charcoal disabled:opacity-60"
               />
               <button
                 type="submit"
-                disabled={status === "loading"}
-                className="h-10 shrink-0 bg-[#733E24] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#733E24]/90 disabled:opacity-60 sm:text-xs"
+                disabled={!canSubmit}
+                className="h-10 shrink-0 bg-[#733E24] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#733E24]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               >
                 {status === "loading" ? "Submitting…" : "Sign Up"}
               </button>
             </div>
 
             <div className="mt-4 space-y-2.5">
-              <label className="flex items-start gap-2.5 font-body text-[0.6875rem] font-light leading-snug text-grey sm:text-xs">
+              <label
+                htmlFor={ageId}
+                className="flex items-start gap-2.5 font-body text-[0.6875rem] font-light leading-snug text-grey sm:text-xs"
+              >
                 <input
+                  id={ageId}
                   type="checkbox"
+                  name="ageConfirmed"
                   checked={ageConfirmed}
                   onChange={(event) => setAgeConfirmed(event.target.checked)}
                   disabled={status === "loading"}
+                  required
                   className="mt-0.5 size-3.5 shrink-0 accent-[#733E24]"
                 />
                 <span>
@@ -127,6 +189,7 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
                   >
                     Privacy Policy
                   </a>
+                  <span className="text-charcoal"> *</span>
                 </span>
               </label>
 
@@ -147,12 +210,17 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
             </div>
 
             {status === "error" && errorMessage ? (
-              <p
+              <div
                 role="alert"
-                className="mt-3 text-center font-body text-xs text-red-600"
+                className="mt-3 border border-red-500/30 px-4 py-3 text-left"
               >
-                {errorMessage}
-              </p>
+                <p className="mb-2 font-body text-sm font-medium text-red-600">
+                  Could not complete signup. Details:
+                </p>
+                <pre className="max-h-64 overflow-y-auto whitespace-pre-wrap break-words font-mono text-xs leading-relaxed text-red-600/90">
+                  {errorMessage}
+                </pre>
+              </div>
             ) : null}
           </form>
         )}

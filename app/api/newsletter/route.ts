@@ -1,22 +1,15 @@
-import nodemailer from "nodemailer";
+import fs from "node:fs";
+import path from "node:path";
 import { NextResponse } from "next/server";
+import { isSmtpPassConfigured, missingSmtpPassHint } from "@/lib/mailEnv";
+import { sendMailViaSmtp } from "@/lib/smtp";
 
-function getSmtpConfig() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const password = process.env.SMTP_PASSWORD;
-
-  if (!host || !user || !password) {
-    return null;
-  }
-
-  return {
-    host,
-    port: Number(process.env.SMTP_PORT ?? 465),
-    secure: process.env.SMTP_SECURE !== "false",
-    auth: { user, pass: password },
-  };
-}
+const mailbox = String(
+  process.env.NEWSLETTER_RECIPIENT ||
+    process.env.MAILBOX ||
+    process.env.CONTACT_RECIPIENT ||
+    "website@ghdhotels.in",
+).trim();
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -34,64 +27,79 @@ export async function POST(request: Request) {
 
     if (!isValidEmail(email)) {
       return NextResponse.json(
-        { error: "Please enter a valid email address." },
+        { ok: false, error: "Please enter a valid email address." },
         { status: 400 },
       );
     }
 
-    if (!body.ageConfirmed || !body.marketingConsent) {
+    if (!body.ageConfirmed) {
       return NextResponse.json(
-        { error: "Please confirm both checkboxes to continue." },
+        { ok: false, error: "Please confirm you are over the age of 18." },
         { status: 400 },
       );
     }
 
-    const smtpConfig = getSmtpConfig();
-    if (!smtpConfig) {
-      console.error("Newsletter signup failed: SMTP is not configured.");
+    if (!isSmtpPassConfigured()) {
+      const envFilePath = path.join(process.cwd(), ".env.local");
       return NextResponse.json(
-        { error: "Email service is not configured. Please try again later." },
-        { status: 500 },
+        {
+          ok: false,
+          error: "Missing SMTP_PASS",
+          hint: missingSmtpPassHint({
+            envFilePath,
+            envFileExists: fs.existsSync(envFilePath),
+          }),
+        },
+        { status: 400 },
       );
     }
 
-    const recipient =
-      process.env.NEWSLETTER_RECIPIENT ?? process.env.SMTP_USER ?? email;
     const submittedAt = new Date().toISOString();
+    const marketingConsent = body.marketingConsent === true;
 
-    const transporter = nodemailer.createTransport(smtpConfig);
+    const subject = `New newsletter signup — ${email}`;
+    const text = [
+      "A new newsletter signup was submitted on the GHD Hotels website.",
+      "",
+      `Email: ${email}`,
+      `Age confirmed (18+): Yes`,
+      `Marketing consent: ${marketingConsent ? "Yes" : "No"}`,
+      `Submitted at: ${submittedAt}`,
+    ].join("\n");
 
-    await transporter.sendMail({
-      from: `"GHD Hotels Website" <${smtpConfig.auth.user}>`,
-      to: recipient,
+    await sendMailViaSmtp({
+      from: mailbox,
+      to: mailbox,
+      subject,
+      text,
       replyTo: email,
-      subject: "New Newsletter Signup — GHD Hotels",
-      text: [
-        "A new newsletter signup was submitted on the GHD Hotels website.",
-        "",
-        `Email: ${email}`,
-        `Age confirmed: Yes`,
-        `Marketing consent: Yes`,
-        `Submitted at: ${submittedAt}`,
-      ].join("\n"),
-      html: `
-        <h2>New Newsletter Signup</h2>
-        <p>A new newsletter signup was submitted on the GHD Hotels website.</p>
-        <ul>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Age confirmed:</strong> Yes</li>
-          <li><strong>Marketing consent:</strong> Yes</li>
-          <li><strong>Submitted at:</strong> ${submittedAt}</li>
-        </ul>
-      `,
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ ok: true });
   } catch (error) {
+    if (error instanceof Error && /Missing SMTP_PASS/i.test(error.message)) {
+      const envFilePath = path.join(process.cwd(), ".env.local");
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Missing SMTP_PASS",
+          hint: missingSmtpPassHint({
+            envFilePath,
+            envFileExists: fs.existsSync(envFilePath),
+          }),
+        },
+        { status: 400 },
+      );
+    }
+
+    const msg =
+      error instanceof Error
+        ? error.message
+        : typeof error === "string"
+          ? error
+          : "Failed to send email";
+
     console.error("Newsletter signup error:", error);
-    return NextResponse.json(
-      { error: "Unable to submit your signup right now. Please try again later." },
-      { status: 500 },
-    );
+    return NextResponse.json({ ok: false, error: msg }, { status: 500 });
   }
 }

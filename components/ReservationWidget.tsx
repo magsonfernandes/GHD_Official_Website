@@ -14,7 +14,7 @@ import {
   reservationDividerClass,
   searchSegmentClass,
 } from "@/components/reservation/fieldStyles";
-import { buildBookingSearchParams } from "@/lib/booking";
+import { buildBookingSearchParams, getDefaultReservationDates } from "@/lib/booking";
 import { AVAILABLE_PROPERTIES, DEFAULT_PROPERTY_ID } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -188,17 +188,23 @@ export function ReservationBar({
   variant = "hero",
 }: ReservationBarProps & { variant?: "hero" | "booking" }) {
   const router = useRouter();
+  const defaultDates = getDefaultReservationDates();
   const [property, setProperty] = useState(initialProperty);
   const [guests, setGuests] = useState<GuestSelection>(initialGuests);
-  const [checkIn, setCheckIn] = useState<Date | undefined>(initialCheckIn);
-  const [checkOut, setCheckOut] = useState<Date | undefined>(initialCheckOut);
+  const [checkIn, setCheckIn] = useState<Date | undefined>(
+    initialCheckIn ?? defaultDates.checkIn,
+  );
+  const [checkOut, setCheckOut] = useState<Date | undefined>(
+    initialCheckOut ?? defaultDates.checkOut,
+  );
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   useEffect(() => {
+    const dates = getDefaultReservationDates();
     setProperty(initialProperty);
     setGuests(initialGuests);
-    setCheckIn(initialCheckIn);
-    setCheckOut(initialCheckOut);
+    setCheckIn(initialCheckIn ?? dates.checkIn);
+    setCheckOut(initialCheckOut ?? dates.checkOut);
     setValidationErrors([]);
   }, [initialProperty, initialGuests, initialCheckIn, initialCheckOut]);
 

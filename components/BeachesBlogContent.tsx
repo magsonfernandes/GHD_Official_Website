@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { BEACHES_BLOG } from "@/lib/beaches-blog";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
-const bodyClass =
-  "font-body text-sm font-light leading-relaxed text-justify text-charcoal sm:text-base md:text-lg";
+const bodyClass = sectionBodyClass(false, "mt-0 text-justify");
 
 function BeachPhotoPlaceholder({ beachName }: { beachName: string }) {
   return (
@@ -67,7 +67,7 @@ export function BeachesBlogContent() {
           </p>
         </div>
 
-        <h2 className="mt-12 font-heading text-2xl font-medium text-charcoal sm:text-3xl md:text-4xl">
+        <h2 className={sectionHeadingClass(false, "mt-12 text-left")}>
           The beaches, from closest to furthest
         </h2>
 
@@ -83,9 +83,9 @@ export function BeachesBlogContent() {
                   {String(index + 1).padStart(2, "0")}
                 </p>
 
-                <h3 className="mt-3 font-heading text-2xl font-medium text-charcoal sm:text-3xl md:text-4xl">
+                <h3 className={sectionHeadingClass(false, "mt-3 text-left")}>
                   {beach.name}
-                  <span className="font-body text-lg font-light text-grey sm:text-xl md:text-2xl">
+                  <span className={sectionBodyClass(false, "mt-0 inline text-grey")}>
                     {" "}
                     · {beach.subtitle}
                   </span>
@@ -129,7 +129,7 @@ export function BeachesBlogContent() {
         </ol>
 
         <div className="mt-16 border-t border-border pt-12 md:mt-20 md:pt-16">
-          <h2 className="font-heading text-2xl font-medium text-charcoal sm:text-3xl md:text-4xl">
+          <h2 className={sectionHeadingClass(false, "text-left")}>
             Choosing your perfect beach
           </h2>
 

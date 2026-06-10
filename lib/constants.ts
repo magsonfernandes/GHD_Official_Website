@@ -155,7 +155,6 @@ export const ROYAL_STUDIO = {
   ],
   duringStay: {
     timings: [
-      { label: "Breakfast", value: "8:30 AM – 10:30 AM" },
       { label: "Housekeeping", value: "9:00 AM – 6:00 PM" },
       { label: "Pool", value: "9:00 AM – 8:00 PM" },
     ],
@@ -172,9 +171,143 @@ export const ROYAL_STUDIO = {
   },
 } as const;
 
+export const NIVAARA_FULL_GALLERY = [
+  {
+    src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+    alt: "Nivaãra Room at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
+    alt: "Nivaãra Room interior at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
+    alt: "Nivaãra Room workspace at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
+    alt: "Nivaãra Room seating area at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
+    alt: "Nivaãra Room bedroom detail at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
+    alt: "Ensuite bathroom at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
+    alt: "Luxury bathroom at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
+    alt: "Private terrace at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Terrace_Pic2.w1200.webp",
+    alt: "Terrace overlooking Goa at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
+    alt: "Rooftop pool at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Pool_Pic2.w1200.webp",
+    alt: "Poolside at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
+    alt: "Private workspace at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
+    alt: "Lobby lounge at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
+    alt: "Reception at Nivaãra Nerul",
+  },
+  {
+    src: "/images/nivaara/Nivaara_Full Building View_Pic1.w1200.webp",
+    alt: "Nivaãra Nerul building view",
+  },
+] as const;
+
+export const ROOM_CATEGORIES = [
+  {
+    id: "nivaara-room",
+    name: "(BaseCategory) Nivaãra Room",
+    summary:
+      "Spacious room with a king bed, private balcony, and workspace — thoughtfully designed for business and leisure in Goa.",
+    headline: "Thoughtfully Designed for a Comfortable Stay",
+    description:
+      "Designed for modern comfort, the Nivaãra Room offers a spacious and well-appointed retreat for business and leisure travellers alike. Featuring a king-sized bed, private balcony, dedicated workspace, and contemporary interiors, the room provides everything needed for a seamless stay in Goa.",
+    highlights: [
+      "Private Balcony",
+      "King Bed",
+      "Work Desk",
+      "Contemporary Comfort",
+    ],
+    nightlyRate: 5499,
+    priceLabel: "Base Rate",
+    beds: "1 King Bed",
+    sleeps: 2,
+    sizeSqFt: 517,
+    size: "517 sq. ft.",
+    image: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
+    gallery: NIVAARA_FULL_GALLERY,
+  },
+  {
+    id: "mountain-view",
+    name: "Mountain View Room",
+    summary:
+      "King bed and private balcony overlooking Goa's green hills — modern comfort with a calm, refreshing outlook.",
+    headline: "Wake Up to Goa's Green Landscape",
+    description:
+      "Overlooking the surrounding hills and natural greenery, the Mountain View Room combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
+    highlights: [
+      "Mountain Views",
+      "Private Balcony",
+      "King Bed",
+      "Peaceful Surroundings",
+    ],
+    nightlyRate: 6499,
+    priceLabel: "Premium outlook",
+    beds: "1 King Bed",
+    sleeps: 2,
+    sizeSqFt: 517,
+    size: "517 sq. ft.",
+    image: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
+    gallery: NIVAARA_FULL_GALLERY,
+  },
+  {
+    id: "sea-view",
+    name: "Sea View Room",
+    summary:
+      "Private balcony with sea views and contemporary comfort — Goa's coastal charm brought directly to your stay.",
+    headline: "Views of the Arabian Sea from Your Balcony",
+    description:
+      "Offering glimpses of the Arabian Sea, the Sea View Room brings Goa's coastal charm directly to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a room designed for comfort with an elevated sense of place.",
+    highlights: [
+      "Sea Views",
+      "Private Balcony",
+      "King Bed",
+      "Coastal Ambience",
+    ],
+    nightlyRate: 7499,
+    priceLabel: "Best outlook",
+    beds: "1 King Bed",
+    sleeps: 2,
+    sizeSqFt: 517,
+    size: "517 sq. ft.",
+    image: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+    gallery: NIVAARA_FULL_GALLERY,
+  },
+] as const;
+
 export const NAV_ITEMS = [
   { label: "HOME", href: "/" },
-  { label: "BRANDS", href: "/#brands" },
   { label: "ROOMS", href: "/rooms" },
   { label: "CITY ATTRACTIONS", href: "/experiences" },
   { label: "FAQs", href: "/faqs" },
@@ -185,23 +318,22 @@ export const SOCIAL_LINKS = [
   {
     label: "Instagram",
     icon: "instagram",
-    href: "https://www.instagram.com/ghdhotels",
+    href: "https://www.instagram.com/ghd_hotels?igsh=dGF2aDRyMnN4MGpt",
   },
   {
     label: "Facebook",
     icon: "facebook",
-    href: "https://www.facebook.com/ghdhotels",
+    href: "https://www.facebook.com/profile.php?id=61590444132512",
   },
   {
-    label: "YouTube",
-    icon: "youtube",
-    href: "https://www.youtube.com/@ghdhotels",
+    label: "X",
+    icon: "x",
+    href: "https://x.com/GHD_Hotels",
   },
-  { label: "X", icon: "x", href: "https://x.com/ghdhotels" },
   {
-    label: "Pinterest",
-    icon: "pinterest",
-    href: "https://www.pinterest.com/ghdhotels",
+    label: "LinkedIn",
+    icon: "linkedin",
+    href: "https://www.linkedin.com/company/ghd-hotels/",
   },
 ] as const;
 
@@ -414,50 +546,6 @@ export const EXPERIENCE_POSTS = [
     image: "/images/experiences/pexels-mohit-hambiria-92377455-28520489.jpg",
     alt: "Scenic Goan beach with lush hills and gentle waves",
   },
-  {
-    slug: "remote-work-in-goa",
-    title: "Where Productivity Meets Paradise",
-    excerpt:
-      "Discover how Goa offers the perfect balance between focused workdays and relaxing evenings. From scenic cafés to peaceful coastal settings, it's an ideal destination for professionals seeking a refreshing change of pace.",
-    category: "WORK",
-    date: "June 1, 2026",
-    readTime: "5 min read",
-    image: "/images/experiences/medium-shot-woman-working-beach.jpg",
-    alt: "Woman working on a laptop at the beach in Goa",
-  },
-  {
-    slug: "kayaking-adventures",
-    title: "Paddle Through Goa's Hidden Waters",
-    excerpt:
-      "Explore serene backwaters, mangrove-lined channels, and quiet lagoons by kayak. Experience a slower side of Goa while surrounded by untouched natural beauty.",
-    category: "KAYAK",
-    date: "May 24, 2026",
-    readTime: "4 min read",
-    image: "/images/experiences/filip-mroz-zK049OFP4uI-unsplash.jpg",
-    alt: "Kayaking through a lush green waterway in Goa",
-  },
-  {
-    slug: "goan-culinary-journey",
-    title: "A Taste of Authentic Goa",
-    excerpt:
-      "From fresh seafood delicacies to traditional village recipes, discover the rich flavours that define Goan cuisine. Every meal tells a story of culture, history, and local tradition.",
-    category: "DINING",
-    date: "May 17, 2026",
-    readTime: "5 min read",
-    image: "/images/experiences/pexels-roman-odintsov-4870444.jpg",
-    alt: "Fresh seafood dining experience in Goa",
-  },
-  {
-    slug: "cashew-heritage-festivals",
-    title: "Celebrating Goa's Cashew Legacy",
-    excerpt:
-      "Visit during the summer season to witness Goa's famous cashew harvest and lively festivals. Learn about local traditions, farming practices, and the journey from fruit to feni.",
-    category: "CASHEW",
-    date: "May 10, 2026",
-    readTime: "4 min read",
-    image: "/images/experiences/emma-miller-juOaQQKFFKo-unsplash.jpg",
-    alt: "Fresh cashew nuts on a wooden surface in Goa",
-  },
 ] as const;
 
 export const FAQ_SECTIONS = [
@@ -562,11 +650,6 @@ export const FAQ_SECTIONS = [
         question: "Does Nivaãra have an in-house restaurant?",
         answer:
           "Yes, guests can enjoy a curated dining experience featuring a selection of local and international cuisines.",
-      },
-      {
-        question: "Is breakfast included with the stay?",
-        answer:
-          "Breakfast inclusion depends on the reservation plan selected during booking.",
       },
       {
         question: "Do you offer room service?",

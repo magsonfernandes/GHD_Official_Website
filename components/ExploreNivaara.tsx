@@ -9,7 +9,9 @@ import {
 } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 import { EXPLORE_SPACES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -290,30 +292,14 @@ export function ExploreNivaara() {
   }, []);
 
   const editorialContent = (onStrip: boolean) => (
-    <>
-      <SectionLabel light={onStrip}>Explore Nivaãra</SectionLabel>
-
-      <h2
-        className={cn(
-          "font-heading mt-3 max-w-none text-[2.75rem] font-light leading-[1.15] lg:mt-3.5 xl:text-[3rem]",
-          onStrip ? "text-white" : "text-charcoal",
-        )}
-      >
-        Discover spaces designed for every moment
-      </h2>
-
-      <p
-        className={cn(
-          "mt-4 max-w-none font-body text-[0.9375rem] font-normal leading-[1.75] sm:text-base lg:mt-5",
-          onStrip ? "text-white" : "text-charcoal/80",
-        )}
-      >
-        Whether you&apos;re visiting for work, a quiet escape, meaningful
-        conversations, or moments of leisure, Nivaãra brings together
-        thoughtfully crafted spaces that balance productivity, comfort, and
-        relaxation.
-      </p>
-    </>
+    <SectionIntro
+      label="Explore Nivaãra"
+      title="Discover spaces designed for every moment"
+      description="Whether you're visiting for work, a quiet escape, meaningful conversations, or moments of leisure, Nivaãra brings together thoughtfully crafted spaces that balance productivity, comfort, and relaxation."
+      light={onStrip}
+      align="left"
+      titleAs="h2"
+    />
   );
 
   return (
@@ -401,10 +387,10 @@ export function ExploreNivaara() {
                   </div>
 
                   <div className="mt-7 w-full">
-                    <h3 className="font-heading text-2xl font-light text-white md:text-[1.75rem]">
+                    <h3 className={sectionHeadingClass(true, "mt-0")}>
                       {space.title}
                     </h3>
-                    <p className="mt-3 font-body text-sm font-light leading-relaxed text-white md:text-[0.9375rem]">
+                    <p className={sectionBodyClass(true, "mt-3 lg:mt-4")}>
                       {space.description}
                     </p>
                   </div>

@@ -1,26 +1,14 @@
-import nodemailer from "nodemailer";
+import fs from "node:fs";
+import path from "node:path";
 import { NextResponse } from "next/server";
+import { isSmtpPassConfigured, missingSmtpPassHint } from "@/lib/mailEnv";
+import { sendMailViaSmtp } from "@/lib/smtp";
 
-function getSmtpConfig() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const password = process.env.SMTP_PASSWORD;
-
-  if (!host || !user || !password) {
-    return null;
-  }
-
-  return {
-    host,
-    port: Number(process.env.SMTP_PORT ?? 465),
-    secure: process.env.SMTP_SECURE !== "false",
-    auth: { user, pass: password },
-  };
-}
-
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+const mailbox = String(
+  process.env.MAILBOX ||
+    process.env.CONTACT_RECIPIENT ||
+    "website@ghdhotels.in",
+).trim();
 
 export async function POST(request: Request) {
   try {
@@ -31,78 +19,76 @@ export async function POST(request: Request) {
       message?: string;
     };
 
-    const name = body.name?.trim() ?? "";
-    const email = body.email?.trim().toLowerCase() ?? "";
-    const phone = body.phone?.trim() ?? "";
-    const message = body.message?.trim() ?? "";
+    const name = String(body.name ?? "").trim();
+    const email = String(body.email ?? "").trim();
+    const phone = String(body.phone ?? "").trim();
+    const message = String(body.message ?? "").trim();
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Please fill in all required fields." },
+        { ok: false, error: "Missing required fields" },
         { status: 400 },
       );
     }
 
-    if (!isValidEmail(email)) {
+    if (!isSmtpPassConfigured()) {
+      const envFilePath = path.join(process.cwd(), ".env.local");
       return NextResponse.json(
-        { error: "Please enter a valid email address." },
+        {
+          ok: false,
+          error: "Missing SMTP_PASS",
+          hint: missingSmtpPassHint({
+            envFilePath,
+            envFileExists: fs.existsSync(envFilePath),
+          }),
+        },
         { status: 400 },
       );
     }
 
-    const smtpConfig = getSmtpConfig();
-    if (!smtpConfig) {
-      console.error("Contact form failed: SMTP is not configured.");
-      return NextResponse.json(
-        { error: "Email service is not configured. Please try again later." },
-        { status: 500 },
-      );
-    }
+    const subject = `New enquiry from ${name}`;
+    const text = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "Not provided"}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n");
 
-    const recipient =
-      process.env.CONTACT_RECIPIENT ??
-      process.env.NEWSLETTER_RECIPIENT ??
-      "info@ghdhotels.in";
-    const submittedAt = new Date().toISOString();
-
-    const transporter = nodemailer.createTransport(smtpConfig);
-
-    await transporter.sendMail({
-      from: `"GHD Hotels Website" <${smtpConfig.auth.user}>`,
-      to: recipient,
+    await sendMailViaSmtp({
+      from: mailbox,
+      to: mailbox,
+      subject,
+      text,
       replyTo: email,
-      subject: `Contact Form — ${name}`,
-      text: [
-        "A new contact form message was submitted on the GHD Hotels website.",
-        "",
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Submitted at: ${submittedAt}`,
-        "",
-        "Message:",
-        message,
-      ].join("\n"),
-      html: `
-        <h2>New Contact Form Message</h2>
-        <p>A new contact form message was submitted on the GHD Hotels website.</p>
-        <ul>
-          <li><strong>Name:</strong> ${name}</li>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Phone:</strong> ${phone}</li>
-          <li><strong>Submitted at:</strong> ${submittedAt}</li>
-        </ul>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br />")}</p>
-      `,
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ ok: true });
   } catch (error) {
+    if (error instanceof Error && /Missing SMTP_PASS/i.test(error.message)) {
+      const envFilePath = path.join(process.cwd(), ".env.local");
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Missing SMTP_PASS",
+          hint: missingSmtpPassHint({
+            envFilePath,
+            envFileExists: fs.existsSync(envFilePath),
+          }),
+        },
+        { status: 400 },
+      );
+    }
+
+    const msg =
+      error instanceof Error
+        ? error.message
+        : typeof error === "string"
+          ? error
+          : "Failed to send email";
+
     console.error("Contact form error:", error);
-    return NextResponse.json(
-      { error: "Unable to send your message right now. Please try again later." },
-      { status: 500 },
-    );
+    return NextResponse.json({ ok: false, error: msg }, { status: 500 });
   }
 }
