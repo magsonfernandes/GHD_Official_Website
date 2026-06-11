@@ -2,10 +2,6 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
-import { BRAND_MENU } from "@/lib/constants";
-
-const NIVAARA_BRAND =
-  BRAND_MENU.find((brand) => brand.id === "nivaara")?.name ?? "Nivaãra";
 
 export function ArrivalQuote() {
   return (
@@ -22,37 +18,25 @@ export function ArrivalQuote() {
         viewport={viewportOnce}
         className="relative mx-auto max-w-5xl text-center"
       >
-        <motion.div
-          variants={fadeUp}
-          className="mx-auto flex items-center justify-center gap-4"
-          aria-hidden
-        >
-          <span className="h-px w-12 bg-gold/50 sm:w-16" />
-          <span className="font-display-wide text-[0.625rem] font-black tracking-[0.38em] text-[#733E24] sm:text-xs">
-            {NIVAARA_BRAND}
-          </span>
-          <span className="h-px w-12 bg-gold/50 sm:w-16" />
-        </motion.div>
-
-        <motion.figure variants={fadeUp} className="relative mt-10 md:mt-14">
+        <motion.figure variants={fadeUp} className="relative">
           <span
-            className="pointer-events-none absolute -left-2 top-1/2 hidden -translate-y-1/2 font-heading text-[7rem] leading-none text-[#733E24]/10 md:block lg:-left-6 lg:text-[9rem]"
+            className="pointer-events-none absolute -left-2 top-1/2 hidden -translate-y-1/2 font-heading text-[7rem] leading-none text-[#543119]/10 md:block lg:-left-6 lg:text-[9rem]"
             aria-hidden
           >
             &ldquo;
           </span>
 
-          <blockquote className="relative mx-auto max-w-3xl border-y border-[#733E24]/15 px-6 py-10 sm:px-10 sm:py-12 md:py-14">
+          <blockquote className="relative mx-auto max-w-3xl border-y border-[#543119]/15 px-6 py-10 sm:px-10 sm:py-12 md:py-14">
             <p className="font-brand text-[2rem] font-normal italic leading-[1.2] tracking-[0.01em] text-charcoal/70 sm:text-[2.75rem] md:text-[3.25rem]">
               You arrive.
             </p>
-            <p className="mt-3 font-heading text-[2.35rem] font-light leading-[1.12] tracking-[0.02em] text-[#733E24] sm:mt-4 sm:text-[3rem] md:text-[3.75rem] lg:text-[4.25rem]">
+            <p className="mt-3 font-heading text-[1.75rem] font-light leading-[1.12] tracking-[0.02em] text-[#543119] sm:mt-4 sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem]">
               We take care of the rest.
             </p>
           </blockquote>
 
           <span
-            className="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 font-heading text-[7rem] leading-none text-[#733E24]/10 md:block lg:-right-6 lg:text-[9rem]"
+            className="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 font-heading text-[7rem] leading-none text-[#543119]/10 md:block lg:-right-6 lg:text-[9rem]"
             aria-hidden
           >
             &rdquo;

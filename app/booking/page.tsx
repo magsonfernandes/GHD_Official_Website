@@ -6,7 +6,8 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Booking | GHD Hotels",
-  description: "Review your stay details and explore the Royal Studio at Nivaãra Nerul.",
+  description:
+    "Review your stay details and choose from three room categories at Nivaãra Nerul.",
 };
 
 export default function BookingPage() {

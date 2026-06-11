@@ -26,7 +26,7 @@ export const DEFAULT_GUEST_SELECTION: GuestSelection = [
   { adults: 2, children: 0 },
 ];
 
-const MAX_ROOMS = 5;
+export const MAX_ROOMS = 5;
 const MIN_ADULTS = 1;
 const MAX_OCCUPANCY = 4;
 
@@ -66,6 +66,8 @@ type GuestRoomPickerProps = {
   onChange: (value: GuestSelection) => void;
   className?: string;
   variant?: "default" | "hero";
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 };
 
 function Counter({
@@ -116,8 +118,13 @@ export function GuestRoomPicker({
   onChange,
   className,
   variant = "default",
+  open: openProp,
+  onOpenChange,
 }: GuestRoomPickerProps) {
-  const [open, setOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = openProp !== undefined;
+  const open = isControlled ? openProp : internalOpen;
+  const setOpen = isControlled ? onOpenChange! : setInternalOpen;
   const isHero = variant === "hero";
 
   const updateRoomCount = (count: number) => {
@@ -228,6 +235,17 @@ export function GuestRoomPicker({
               </div>
             ))}
           </div>
+
+          {value.length < MAX_ROOMS ? (
+            <button
+              type="button"
+              onClick={() => updateRoomCount(value.length + 1)}
+              className="mt-4 flex w-full items-center justify-center gap-2 border border-dashed border-slate-200 bg-muted/30 px-3 py-2.5 font-body text-[0.75rem] font-medium tracking-[0.04em] text-charcoal transition-colors hover:border-[#543119]/40 hover:bg-muted/50"
+            >
+              <Plus className="size-3.5" strokeWidth={1.5} />
+              Add another room
+            </button>
+          ) : null}
         </PopoverContent>
       </Popover>
     </div>

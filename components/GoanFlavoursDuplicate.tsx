@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { POOL_EXPERIENCES_VIDEO } from "@/lib/constants";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
-import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 export function GoanFlavoursDuplicate() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -42,19 +42,16 @@ export function GoanFlavoursDuplicate() {
           viewport={viewportOnce}
           className="mx-auto w-full max-w-2xl -translate-y-6 text-center lg:mx-0 lg:max-w-[22rem] lg:-translate-y-28 lg:text-left xl:max-w-[24rem]"
         >
-          <motion.h2
-            variants={fadeUp}
-            className={sectionHeadingClass(true, "text-balance")}
-          >
-            Some Views Are Best Enjoyed From the Water
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className={sectionBodyClass(true)}
-          >
-            Take a refreshing dip, watch the sky change colours, and embrace a
-            slower pace in a setting designed for relaxation and reflection.
-          </motion.p>
+          <motion.div variants={fadeUp}>
+            <SectionIntro
+              label="Poolside"
+              title="Some Views Are Best Enjoyed From the Water"
+              description="Take a refreshing dip, watch the sky change colours, and embrace a slower pace in a setting designed for relaxation and reflection."
+              light
+              align="left"
+              className="text-balance lg:text-left"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

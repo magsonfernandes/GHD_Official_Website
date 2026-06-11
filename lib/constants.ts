@@ -174,23 +174,23 @@ export const ROYAL_STUDIO = {
 export const NIVAARA_FULL_GALLERY = [
   {
     src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
-    alt: "Nivaãra Room at Nivaãra Nerul",
+    alt: "Luxury Studio at Nivaãra Nerul",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-    alt: "Nivaãra Room interior at Nivaãra Nerul",
+    alt: "Luxury Studio interior at Nivaãra Nerul",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-    alt: "Nivaãra Room workspace at Nivaãra Nerul",
+    alt: "Luxury Studio workspace at Nivaãra Nerul",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
-    alt: "Nivaãra Room seating area at Nivaãra Nerul",
+    alt: "Luxury Studio seating area at Nivaãra Nerul",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
-    alt: "Nivaãra Room bedroom detail at Nivaãra Nerul",
+    alt: "Luxury Studio bedroom detail at Nivaãra Nerul",
   },
   {
     src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
@@ -237,12 +237,12 @@ export const NIVAARA_FULL_GALLERY = [
 export const ROOM_CATEGORIES = [
   {
     id: "nivaara-room",
-    name: "(BaseCategory) Nivaãra Room",
+    name: "Luxury Studio",
     summary:
-      "Spacious room with a king bed, private balcony, and workspace — thoughtfully designed for business and leisure in Goa.",
+      "Spacious studio with a king bed, private balcony, and workspace — thoughtfully designed for business and leisure in Goa.",
     headline: "Thoughtfully Designed for a Comfortable Stay",
     description:
-      "Designed for modern comfort, the Nivaãra Room offers a spacious and well-appointed retreat for business and leisure travellers alike. Featuring a king-sized bed, private balcony, dedicated workspace, and contemporary interiors, the room provides everything needed for a seamless stay in Goa.",
+      "Designed for modern comfort, the Luxury Studio offers a spacious and well-appointed retreat for business and leisure travellers alike. Featuring a king-sized bed, private balcony, dedicated workspace, and contemporary interiors, the studio provides everything needed for a seamless stay in Goa.",
     highlights: [
       "Private Balcony",
       "King Bed",
@@ -260,12 +260,12 @@ export const ROOM_CATEGORIES = [
   },
   {
     id: "mountain-view",
-    name: "Mountain View Room",
+    name: "Mountain View Studio",
     summary:
       "King bed and private balcony overlooking Goa's green hills — modern comfort with a calm, refreshing outlook.",
     headline: "Wake Up to Goa's Green Landscape",
     description:
-      "Overlooking the surrounding hills and natural greenery, the Mountain View Room combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
+      "Overlooking the surrounding hills and natural greenery, the Mountain View Studio combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
     highlights: [
       "Mountain Views",
       "Private Balcony",
@@ -283,12 +283,12 @@ export const ROOM_CATEGORIES = [
   },
   {
     id: "sea-view",
-    name: "Sea View Room",
+    name: "Sea View Studio",
     summary:
       "Private balcony with sea views and contemporary comfort — Goa's coastal charm brought directly to your stay.",
     headline: "Views of the Arabian Sea from Your Balcony",
     description:
-      "Offering glimpses of the Arabian Sea, the Sea View Room brings Goa's coastal charm directly to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a room designed for comfort with an elevated sense of place.",
+      "Offering glimpses of the Arabian Sea, the Sea View Studio brings Goa's coastal charm directly to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a studio designed for comfort with an elevated sense of place.",
     highlights: [
       "Sea Views",
       "Private Balcony",
@@ -309,7 +309,7 @@ export const ROOM_CATEGORIES = [
 export const NAV_ITEMS = [
   { label: "HOME", href: "/" },
   { label: "ROOMS", href: "/rooms" },
-  { label: "CITY ATTRACTIONS", href: "/experiences" },
+  { label: "CITY ATTRACTIONS", href: "/city-attractions" },
   { label: "FAQs", href: "/faqs" },
   { label: "CONTACT", href: "/#contact" },
 ] as const;
@@ -388,7 +388,7 @@ export const NIVAARA_LOGO = "/logos/Nivaãra_logo.png";
 
 export const GHD_LOGO_WHITE = "/images/nivaara/GHD hotels logo white.png";
 
-export const GHD_LOGO = "/images/nivaara/GHD hotels logo.png";
+export const GHD_LOGO = "/logos/GHD Hotels Logo - Brown.png";
 
 export const SIGNATURE_EXPERIENCES_VIDEO =
   "/images/nivaara/Food_nivaara.mp4";

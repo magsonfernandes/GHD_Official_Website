@@ -25,7 +25,7 @@ export function BookingTimeline({ currentStep }: BookingTimelineProps) {
               className={cn(
                 "flex size-5 shrink-0 items-center justify-center rounded-full border font-body text-[10px] font-medium leading-none transition-colors",
                 isCompleted || isCurrent
-                  ? "border-[#733E24] bg-[#733E24] text-white"
+                  ? "border-[#543119] bg-[#543119] text-white"
                   : "border-border bg-white text-grey",
               )}
               aria-current={isCurrent ? "step" : undefined}

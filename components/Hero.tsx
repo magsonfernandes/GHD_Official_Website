@@ -23,7 +23,7 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative h-screen min-h-[600px] overflow-hidden"
+      className="relative h-screen min-h-[600px] overflow-hidden bg-black"
     >
       <motion.div className="absolute inset-0" style={{ y: mediaY }}>
         <video
@@ -34,7 +34,7 @@ export function Hero() {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-contain object-center md:left-0 md:w-[118%] md:max-w-none md:object-cover md:object-left"
         />
       </motion.div>
       <div className="absolute inset-0 bg-black/[0.42]" aria-hidden />

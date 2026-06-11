@@ -55,7 +55,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="font-body text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]"
+            className="font-body text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]"
           >
             Close
           </button>

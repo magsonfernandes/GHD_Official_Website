@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { BRAND_MENU } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const GHD_BROWN = "#733E24";
+const GHD_BROWN = "#543119";
 
 type BrandsMegaMenuProps = {
   scrolled: boolean;
@@ -137,7 +137,7 @@ export function BrandsNavItem({ scrolled }: BrandsMegaMenuProps) {
                         <li key={location.name}>
                           <Link
                             href={location.href}
-                            className="block py-2 font-heading text-xl font-medium text-charcoal transition-colors duration-300 hover:text-[#733E24] sm:text-2xl"
+                            className="block py-2 font-heading text-xl font-medium text-charcoal transition-colors duration-300 hover:text-[#543119] sm:text-2xl"
                             onClick={() => {
                               setOpen(false);
                               setNivaaraOpen(false);

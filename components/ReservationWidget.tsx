@@ -49,6 +49,8 @@ type ReservationBarProps = {
   initialGuests?: GuestSelection;
   initialCheckIn?: Date;
   initialCheckOut?: Date;
+  guestsPickerOpen?: boolean;
+  onGuestsPickerOpenChange?: (open: boolean) => void;
   onSearch?: (params: URLSearchParams) => void;
 };
 
@@ -66,6 +68,8 @@ type ReservationFormProps = {
   }) => void;
   onSubmit: () => void;
   onDismissErrors: () => void;
+  guestsPickerOpen?: boolean;
+  onGuestsPickerOpenChange?: (open: boolean) => void;
   variant?: "hero" | "booking";
 };
 
@@ -80,6 +84,8 @@ function ReservationForm({
   onDatesChange,
   onSubmit,
   onDismissErrors,
+  guestsPickerOpen,
+  onGuestsPickerOpenChange,
   variant = "hero",
 }: ReservationFormProps) {
   const isHero = variant === "hero";
@@ -130,6 +136,8 @@ function ReservationForm({
         <GuestRoomPicker
           value={guests}
           onChange={onGuestsChange}
+          open={guestsPickerOpen}
+          onOpenChange={onGuestsPickerOpenChange}
           variant={isHero ? "hero" : "default"}
           className="md:flex-[1.2]"
         />
@@ -167,7 +175,7 @@ function ReservationForm({
               "inline-flex h-10 shrink-0 items-center justify-center rounded-none px-5 font-body text-[0.7rem] font-semibold uppercase tracking-[0.08em] transition-colors duration-500 ease-out sm:h-11 sm:px-6",
               isHero
                 ? "bg-white text-charcoal hover:bg-white/90 group-hover/reservation:bg-charcoal group-hover/reservation:text-white group-hover/reservation:hover:bg-charcoal/90"
-                : "bg-[#733E24] text-white hover:bg-[#733E24]/90",
+                : "bg-[#543119] text-white hover:bg-[#543119]/90",
             )}
           >
             Search
@@ -184,6 +192,8 @@ export function ReservationBar({
   initialGuests = DEFAULT_GUEST_SELECTION,
   initialCheckIn,
   initialCheckOut,
+  guestsPickerOpen,
+  onGuestsPickerOpenChange,
   onSearch,
   variant = "hero",
 }: ReservationBarProps & { variant?: "hero" | "booking" }) {
@@ -249,6 +259,8 @@ export function ReservationBar({
         }}
         onSubmit={handleSearch}
         onDismissErrors={() => setValidationErrors([])}
+        guestsPickerOpen={guestsPickerOpen}
+        onGuestsPickerOpenChange={onGuestsPickerOpenChange}
         variant={variant}
       />
     </div>

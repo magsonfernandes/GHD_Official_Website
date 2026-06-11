@@ -21,10 +21,10 @@ export function Welcome() {
       >
         <Image
           src={NIVAARA_LOGO}
-          alt="Nivaãra"
-          width={480}
-          height={144}
-          className="h-16 w-auto sm:h-20 md:h-24 lg:h-28"
+          alt="Nivaãra by GHD Hotels"
+          width={160}
+          height={224}
+          className="h-20 w-auto sm:h-[5.5rem] md:h-24 lg:h-28"
           priority
         />
       </motion.div>

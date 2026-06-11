@@ -3,18 +3,21 @@
 import { differenceInCalendarDays, format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import {
   BookingLayout,
   useBookingFromParams,
 } from "@/components/booking/BookingLayout";
 import { BookingPolicyModal } from "@/components/booking/BookingPolicyModal";
+import { PROPERTIES, SITE } from "@/lib/constants";
 import {
-  PROPERTIES,
-  ROYAL_STUDIO,
-  ROYAL_STUDIO_RATE,
-  SITE,
-} from "@/lib/constants";
+  buildAddRoomBookingHref,
+  calculateStayTotal,
+  canAddBookingRoom,
+  getBookingRoomCategory,
+} from "@/lib/booking";
+import { getRoomCategoryNightlyRate } from "@/lib/rooms";
 import {
   buildWhatsAppReservationMessage,
   openWhatsAppReservation,
@@ -79,6 +82,7 @@ function SectionHeading({
 }
 
 export function BookingDetailsContent() {
+  const router = useRouter();
   const booking = useBookingFromParams();
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
@@ -97,8 +101,11 @@ export function BookingDetailsContent() {
     ? Math.max(differenceInCalendarDays(booking.checkOut, booking.checkIn), 1)
     : 1;
   const roomCount = booking?.guests.length ?? 1;
-  const { totalPerNight } = ROYAL_STUDIO_RATE;
-  const totalCost = totalPerNight * roomCount * nights;
+  const roomCategory = booking ? getBookingRoomCategory(booking) : null;
+  const nightlyRate = roomCategory
+    ? getRoomCategoryNightlyRate(roomCategory).nightlyRate
+    : 0;
+  const totalCost = calculateStayTotal(nightlyRate, roomCount, nights);
   const retentionAmount = totalCost;
   const propertyName = booking
     ? PROPERTIES.find((property) => property.id === booking.property)?.name ??
@@ -161,15 +168,17 @@ export function BookingDetailsContent() {
           <div className="mt-8 grid gap-8 lg:grid-cols-[18rem_1fr] xl:grid-cols-[22rem_1fr]">
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <div className="overflow-hidden border border-border bg-white">
-                <div className="relative hidden aspect-[4/3] lg:block">
-                  <Image
-                    src={ROYAL_STUDIO.image}
-                    alt={ROYAL_STUDIO.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1280px) 18rem, 22rem"
-                  />
-                </div>
+                {roomCategory ? (
+                  <div className="relative hidden aspect-[4/3] lg:block">
+                    <Image
+                      src={roomCategory.image}
+                      alt={roomCategory.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1280px) 18rem, 22rem"
+                    />
+                  </div>
+                ) : null}
 
                 <div className="p-4 sm:p-5">
                   <h3 className="font-heading text-lg font-medium text-charcoal">
@@ -203,10 +212,10 @@ export function BookingDetailsContent() {
                       <div key={`price-room-${index}`}>
                         <p className="font-body text-xs lowercase text-grey">room</p>
                         <p className="mt-1 font-body text-sm font-medium text-charcoal">
-                          {formatInr(totalPerNight * nights)}
+                          {formatInr(nightlyRate * nights)}
                         </p>
                         <p className="mt-1 font-body text-sm text-charcoal">
-                          {ROYAL_STUDIO.name}
+                          {roomCategory?.name}
                           {roomCount > 1 ? ` · Room ${index + 1}` : ""}
                         </p>
                         <p className="mt-0.5 font-body text-xs text-grey">
@@ -215,6 +224,21 @@ export function BookingDetailsContent() {
                       </div>
                     ))}
                   </div>
+
+                  {booking && canAddBookingRoom(booking) ? (
+                    <div className="mt-5">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const href = buildAddRoomBookingHref(booking);
+                          if (href) router.push(href);
+                        }}
+                        className="inline-flex w-full items-center justify-center border border-dashed border-border bg-muted/20 px-4 py-2.5 font-body text-xs font-medium lowercase tracking-[0.06em] text-charcoal transition-colors hover:border-[#543119]/40 hover:bg-muted/40"
+                      >
+                        Add room
+                      </button>
+                    </div>
+                  ) : null}
 
                   <div className="mt-5 border-t border-border pt-4">
                     <p className="font-body text-sm text-charcoal">
@@ -397,7 +421,7 @@ export function BookingDetailsContent() {
               <button
                 type="button"
                 onClick={() => setPolicyOpen(true)}
-                className="inline-flex font-body text-xs font-medium uppercase tracking-[0.12em] text-[#733E24] transition-colors hover:text-[#733E24]/80"
+                className="inline-flex font-body text-xs font-medium uppercase tracking-[0.12em] text-[#543119] transition-colors hover:text-[#543119]/80"
               >
                 View Full Policy
               </button>
@@ -418,13 +442,13 @@ export function BookingDetailsContent() {
                   checked={agreePrivacy}
                   onChange={(event) => setAgreePrivacy(event.target.checked)}
                   required
-                  className="mt-0.5 size-4 shrink-0 accent-[#733E24]"
+                  className="mt-0.5 size-4 shrink-0 accent-[#543119]"
                 />
                 <span className="font-body text-sm text-charcoal">
                   * I agree with the{" "}
                   <Link
                     href="/privacy"
-                    className="text-[#733E24] underline underline-offset-2"
+                    className="text-[#543119] underline underline-offset-2"
                   >
                     Privacy Policy
                   </Link>
@@ -440,7 +464,7 @@ export function BookingDetailsContent() {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#733E24] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#733E24]/90 sm:text-xs lg:w-auto lg:min-w-[15rem]"
+                className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#543119] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#543119]/90 sm:text-xs lg:w-auto lg:min-w-[15rem]"
               >
                 Make Reservation
               </button>
@@ -450,10 +474,14 @@ export function BookingDetailsContent() {
         </div>
       ) : null}
 
-      <BookingPolicyModal
-        open={policyOpen}
-        onClose={() => setPolicyOpen(false)}
-      />
+      {roomCategory ? (
+        <BookingPolicyModal
+          open={policyOpen}
+          onClose={() => setPolicyOpen(false)}
+          roomName={roomCategory.name}
+          nightlyRate={nightlyRate}
+        />
+      ) : null}
     </BookingLayout>
   );
 }

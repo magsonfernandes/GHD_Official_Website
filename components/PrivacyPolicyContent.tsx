@@ -42,7 +42,7 @@ export function PrivacyPolicyContent() {
                         {paragraph.split(contactEmail)[0]}
                         <a
                           href={contactEmailHref}
-                          className="text-charcoal underline underline-offset-2 transition-colors hover:text-[#733E24]"
+                          className="text-charcoal underline underline-offset-2 transition-colors hover:text-[#543119]"
                         >
                           {contactEmail}
                         </a>
@@ -69,7 +69,7 @@ export function PrivacyPolicyContent() {
                         {section.footer.split(contactEmail)[0]}
                         <a
                           href={contactEmailHref}
-                          className="text-charcoal underline underline-offset-2 transition-colors hover:text-[#733E24]"
+                          className="text-charcoal underline underline-offset-2 transition-colors hover:text-[#543119]"
                         >
                           {contactEmail}
                         </a>
@@ -89,7 +89,7 @@ export function PrivacyPolicyContent() {
               For privacy-related enquiries, please contact{" "}
               <a
                 href={contactEmailHref}
-                className="text-charcoal underline underline-offset-2 transition-colors hover:text-[#733E24]"
+                className="text-charcoal underline underline-offset-2 transition-colors hover:text-[#543119]"
               >
                 {contactEmail}
               </a>
@@ -98,7 +98,7 @@ export function PrivacyPolicyContent() {
             <p className="mt-4 font-body text-sm text-grey">
               <Link
                 href="/"
-                className="font-medium uppercase tracking-[0.12em] text-charcoal transition-colors hover:text-[#733E24]"
+                className="font-medium uppercase tracking-[0.12em] text-charcoal transition-colors hover:text-[#543119]"
               >
                 Return to homepage
               </Link>

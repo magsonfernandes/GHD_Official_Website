@@ -200,7 +200,7 @@ export function Testimonials() {
                         </p>
                         <footer className="mt-6 flex items-center gap-3">
                           <div
-                            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-[#faf9f6] font-heading text-base text-[#733E24]"
+                            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-[#faf9f6] font-heading text-base text-[#543119]"
                             aria-hidden
                           >
                             {testimonial.name.charAt(0)}
@@ -242,7 +242,7 @@ export function Testimonials() {
               disabled={isAtStart}
               aria-disabled={isAtStart}
               className={cn(
-                "group flex items-center justify-center p-2 text-[#733E24] transition-colors duration-500",
+                "group flex items-center justify-center p-2 text-[#543119] transition-colors duration-500",
                 isAtStart
                   ? "cursor-default opacity-35"
                   : "hover:text-gold",
@@ -266,7 +266,7 @@ export function Testimonials() {
               disabled={isAtEnd}
               aria-disabled={isAtEnd}
               className={cn(
-                "group flex items-center justify-center p-2 text-[#733E24] transition-colors duration-500",
+                "group flex items-center justify-center p-2 text-[#543119] transition-colors duration-500",
                 isAtEnd ? "cursor-default opacity-35" : "hover:text-gold",
               )}
               aria-label="Next testimonial"

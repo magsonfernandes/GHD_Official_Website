@@ -66,7 +66,7 @@ export function RoyalStudioCard({ guests, nights, bookAsName }: RoyalStudioCardP
           <div className="mt-4 sm:mt-6">
             <Link
               href="/rooms"
-              className="inline-flex items-center border-b border-charcoal pb-0.5 font-body text-[0.65rem] font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:border-[#733E24] hover:text-[#733E24] sm:text-xs"
+              className="inline-flex items-center border-b border-charcoal pb-0.5 font-body text-[0.65rem] font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:border-[#543119] hover:text-[#543119] sm:text-xs"
             >
               Room Details
             </Link>

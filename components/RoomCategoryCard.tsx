@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { RoomCategory } from "@/lib/rooms";
+import { RoomFromPrice } from "@/components/RoomFromPrice";
 import {
-  formatNightlyPrice,
   formatRoomGuests,
   formatRoomSize,
   getRoomCategoryNightlyRate,
@@ -48,12 +48,7 @@ export function RoomCategoryCard({ room }: { room: RoomCategory }) {
           </div>
 
           <div className="mt-8 border-t border-border pt-6">
-            <p className="font-body text-xs lowercase tracking-[0.04em] text-grey">
-              nightly from
-            </p>
-            <p className="mt-1 font-heading text-2xl font-light text-charcoal sm:text-[1.75rem]">
-              {formatNightlyPrice(rate.nightlyRate)}
-            </p>
+            <RoomFromPrice amount={rate.nightlyRate} />
 
             <Link
               href={`/rooms/${room.id}`}

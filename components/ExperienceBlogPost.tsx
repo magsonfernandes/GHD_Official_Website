@@ -19,8 +19,8 @@ export function ExperienceBlogPost({ post }: ExperienceBlogPostProps) {
       <section className="bg-muted pt-28 pb-10 md:pt-32 md:pb-12">
         <div className="mx-auto max-w-3xl px-6 lg:px-10">
           <Link
-            href="/experiences"
-            className="inline-flex font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]"
+            href="/city-attractions"
+            className="inline-flex font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]"
           >
             ← All city attractions
           </Link>

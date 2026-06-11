@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import type { BookingSearch } from "@/lib/booking";
-import { HOTEL_WHATSAPP, ROYAL_STUDIO, ROYAL_STUDIO_BOOKING_POLICY } from "@/lib/constants";
+import { getBookingRoomCategory } from "@/lib/booking";
+import { HOTEL_WHATSAPP, ROYAL_STUDIO_BOOKING_POLICY } from "@/lib/constants";
 
 export type ReservationContactDetails = {
   firstName: string;
@@ -45,10 +46,12 @@ export function buildWhatsAppReservationMessage({
   totalCost: number;
   contact: ReservationContactDetails;
 }): string {
+  const roomCategory = getBookingRoomCategory(booking);
+
   const guestLines = booking.guests
     .map(
       (room, index) =>
-        `• Room ${index + 1}: ${formatGuestLine(room)} (${ROYAL_STUDIO.name})`,
+        `• Room ${index + 1}: ${formatGuestLine(room)} (${roomCategory.name})`,
     )
     .join("\n");
 
@@ -69,7 +72,7 @@ export function buildWhatsAppReservationMessage({
     `I would like to make a reservation at *${propertyName}*. Please find my booking details below:`,
     "",
     `*Property:* ${propertyName}`,
-    `*Room:* ${ROYAL_STUDIO.name}`,
+    `*Room:* ${roomCategory.name}`,
     `*Check-in:* ${format(booking.checkIn, "MMMM d, yyyy")} (from ${ROYAL_STUDIO_BOOKING_POLICY.checkInTime})`,
     `*Check-out:* ${format(booking.checkOut, "MMMM d, yyyy")} (until ${ROYAL_STUDIO_BOOKING_POLICY.checkOutTime})`,
     `*Nights:* ${nights}`,

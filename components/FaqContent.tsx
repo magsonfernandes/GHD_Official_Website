@@ -28,10 +28,10 @@ export function FaqContent() {
               <div className="mt-6 divide-y divide-border border-y border-border">
                 {section.items.map((item) => (
                   <details key={item.question} className="group">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-body text-sm font-medium text-charcoal transition-colors hover:text-[#733E24] sm:text-base [&::-webkit-details-marker]:hidden">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-body text-sm font-medium text-charcoal transition-colors hover:text-[#543119] sm:text-base [&::-webkit-details-marker]:hidden">
                       <span>{item.question}</span>
                       <span
-                        className="shrink-0 font-body text-lg leading-none text-[#733E24] transition-transform group-open:rotate-45"
+                        className="shrink-0 font-body text-lg leading-none text-[#543119] transition-transform group-open:rotate-45"
                         aria-hidden
                       >
                         +
@@ -83,7 +83,7 @@ export function FaqContent() {
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-6">
             <a
               href={SITE.phoneHref}
-              className="font-body text-sm font-medium text-charcoal transition-colors hover:text-[#733E24]"
+              className="font-body text-sm font-medium text-charcoal transition-colors hover:text-[#543119]"
             >
               {SITE.phone}
             </a>
@@ -92,13 +92,13 @@ export function FaqContent() {
             </span>
             <a
               href={SITE.emailHref}
-              className="font-body text-sm font-medium text-charcoal transition-colors hover:text-[#733E24]"
+              className="font-body text-sm font-medium text-charcoal transition-colors hover:text-[#543119]"
             >
               {SITE.email}
             </a>
           </div>
 
-          <ContactNavLink className="mt-8 inline-flex items-center font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]">
+          <ContactNavLink className="mt-8 inline-flex items-center font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]">
             Contact us
           </ContactNavLink>
         </div>

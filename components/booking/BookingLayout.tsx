@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ReservationBar } from "@/components/ReservationWidget";
 import { BookingTimeline } from "@/components/booking/BookingTimeline";
-import { parseBookingSearchParams } from "@/lib/booking";
+import {
+  BOOKING_OPEN_GUESTS_PARAM,
+  parseBookingSearchParams,
+} from "@/lib/booking";
 import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 type BookingLayoutProps = {
@@ -22,6 +25,20 @@ export function BookingLayout({ step, children }: BookingLayoutProps) {
     () => parseBookingSearchParams(searchParams),
     [searchParams],
   );
+  const [guestsPickerOpen, setGuestsPickerOpen] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get(BOOKING_OPEN_GUESTS_PARAM) !== "1") {
+      return;
+    }
+
+    setGuestsPickerOpen(true);
+
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete(BOOKING_OPEN_GUESTS_PARAM);
+    const query = params.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  }, [pathname, router, searchParams]);
 
   if (!booking) {
     return (
@@ -35,7 +52,7 @@ export function BookingLayout({ step, children }: BookingLayoutProps) {
           </p>
           <Link
             href="/"
-            className="mt-8 inline-flex items-center font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]"
+            className="mt-8 inline-flex items-center font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]"
           >
             Return to homepage
           </Link>
@@ -49,16 +66,24 @@ export function BookingLayout({ step, children }: BookingLayoutProps) {
       <section className="border-b border-border bg-muted px-4 pb-8 pt-28 md:px-6 md:pb-10 md:pt-32 lg:px-10">
         <div className="mx-auto max-w-[1240px] space-y-5">
           <BookingTimeline currentStep={step} />
-          <ReservationBar
-            variant="booking"
-            initialProperty={booking.property}
-            initialGuests={booking.guests}
-            initialCheckIn={booking.checkIn}
-            initialCheckOut={booking.checkOut}
-            onSearch={(params) =>
-              router.push(`${pathname}?${params.toString()}`)
-            }
-          />
+          <div className="hidden md:block">
+            <ReservationBar
+              variant="booking"
+              initialProperty={booking.property}
+              initialGuests={booking.guests}
+              initialCheckIn={booking.checkIn}
+              initialCheckOut={booking.checkOut}
+              guestsPickerOpen={guestsPickerOpen}
+              onGuestsPickerOpenChange={setGuestsPickerOpen}
+              onSearch={(params) => {
+                const roomCategory = searchParams.get("roomCategory");
+                if (roomCategory) {
+                  params.set("roomCategory", roomCategory);
+                }
+                router.push(`${pathname}?${params.toString()}`);
+              }}
+            />
+          </div>
         </div>
       </section>
 

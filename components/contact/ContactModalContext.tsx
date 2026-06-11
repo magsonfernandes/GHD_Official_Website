@@ -204,7 +204,7 @@ function ContactModal({
             <button
               type="button"
               onClick={onClose}
-              className="shrink-0 font-body text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]"
+              className="shrink-0 font-body text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]"
             >
               Close
             </button>
@@ -252,7 +252,7 @@ function ContactModal({
             </p>
 
             {status === "success" ? (
-              <div className="mt-6 border border-[#733E24]/20 bg-muted/30 px-6 py-8 text-center">
+              <div className="mt-6 border border-[#543119]/20 bg-muted/30 px-6 py-8 text-center">
                 <p className="font-heading text-xl font-light text-charcoal">
                   Message Received
                 </p>
@@ -366,7 +366,7 @@ function ContactModal({
                 <button
                   type="submit"
                   disabled={!canSend}
-                  className="mt-2 h-10 w-full bg-[#733E24] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#733E24]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-xs"
+                  className="mt-2 h-10 w-full bg-[#543119] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-xs"
                 >
                   {status === "loading" ? (
                     "Sending..."

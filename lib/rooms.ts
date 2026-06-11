@@ -38,6 +38,3 @@ export function formatRoomSize(sizeSqFt: number): string {
   return `${sqM} m² | ${sizeSqFt.toLocaleString("en-IN")} sq. ft.`;
 }
 
-export function formatNightlyPrice(amount: number): string {
-  return `${formatRoomRate(amount)} / night`;
-}

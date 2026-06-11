@@ -95,8 +95,8 @@ export function ExperienceStories() {
                   </p>
 
                   <Link
-                    href={`/experiences/${post.slug}`}
-                    className="mt-3 inline-flex w-fit items-center font-body text-[10px] font-medium uppercase tracking-[0.12em] text-charcoal transition-colors hover:text-[#733E24] sm:mt-6 sm:text-xs sm:tracking-[0.14em]"
+                    href={`/city-attractions/${post.slug}`}
+                    className="mt-3 inline-flex w-fit items-center font-body text-[10px] font-medium uppercase tracking-[0.12em] text-charcoal transition-colors hover:text-[#543119] sm:mt-6 sm:text-xs sm:tracking-[0.14em]"
                     aria-label={`Read more about ${post.title}`}
                   >
                     Read more

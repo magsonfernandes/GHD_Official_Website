@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import {
-  ROYAL_STUDIO,
-  ROYAL_STUDIO_BOOKING_POLICY,
-  ROYAL_STUDIO_RATE,
-} from "@/lib/constants";
+import { ROYAL_STUDIO_BOOKING_POLICY } from "@/lib/constants";
 import { sectionBodyClass } from "@/lib/section-typography";
 
 type BookingPolicyModalProps = {
   open: boolean;
   onClose: () => void;
+  roomName: string;
+  nightlyRate: number;
 };
 
 function formatInr(amount: number): string {
@@ -21,8 +19,12 @@ function formatInr(amount: number): string {
   }).format(amount);
 }
 
-export function BookingPolicyModal({ open, onClose }: BookingPolicyModalProps) {
-  const { basePerNight, gstPercent, totalPerNight } = ROYAL_STUDIO_RATE;
+export function BookingPolicyModal({
+  open,
+  onClose,
+  roomName,
+  nightlyRate,
+}: BookingPolicyModalProps) {
   const { rateLabel, sections } = ROYAL_STUDIO_BOOKING_POLICY;
 
   useEffect(() => {
@@ -64,16 +66,16 @@ export function BookingPolicyModal({ open, onClose }: BookingPolicyModalProps) {
               id="booking-policy-title"
               className="font-heading text-xl font-medium text-charcoal sm:text-2xl"
             >
-              {ROYAL_STUDIO.name}
+              {roomName}
             </h2>
-            <p className="mt-1 font-body text-xs font-medium uppercase tracking-[0.12em] text-[#733E24]">
+            <p className="mt-1 font-body text-xs font-medium uppercase tracking-[0.12em] text-[#543119]">
               {rateLabel}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 font-body text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#733E24]"
+            className="shrink-0 font-body text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]"
           >
             Close
           </button>
@@ -89,9 +91,7 @@ export function BookingPolicyModal({ open, onClose }: BookingPolicyModalProps) {
               Details per night
             </p>
             <p className="mt-2 font-body text-sm text-charcoal">
-              {formatInr(basePerNight)} / room / night + {gstPercent}% GST (
-              {formatInr(totalPerNight)} / room / night, fees &amp; taxes
-              included)
+              {formatInr(nightlyRate)} / room / night, fees &amp; taxes included
             </p>
           </div>
 

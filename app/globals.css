@@ -10,7 +10,7 @@
   --color-charcoal: #111111;
   --color-grey: #6b7280;
   --color-gold: #c6a86a;
-  --color-ghd-brown: #733e24;
+  --color-ghd-brown: #543119;
   --color-brand: #274395;
   --color-brand-soft: #6b74d6;
   --color-border: #e5e7eb;
@@ -54,7 +54,7 @@
   --input: #e5e7eb;
   --ring: var(--brand-soft);
   --radius: 0.5rem;
-  --ghd-brown: #733e24;
+  --ghd-brown: #543119;
 
   /* Footer — change color and opacity here */
   --footer-bg-r: 224;
@@ -114,17 +114,17 @@
   .reservation-calendar button[data-day][data-range-start="true"],
   .reservation-calendar button[data-day][data-range-end="true"],
   .reservation-calendar button[data-day][data-selected-single="true"] {
-    background-color: #733e24 !important;
+    background-color: #543119 !important;
     color: #ffffff !important;
   }
   .reservation-calendar button[data-day][data-range-middle="true"] {
-    background-color: rgb(115 62 36 / 0.15) !important;
+    background-color: rgb(84 49 25 / 0.15) !important;
     color: #111111 !important;
   }
   .reservation-calendar .rdp-range_start,
   .reservation-calendar .rdp-range_middle,
   .reservation-calendar .rdp-range_end {
-    background-color: rgb(115 62 36 / 0.15) !important;
+    background-color: rgb(84 49 25 / 0.15) !important;
   }
   .reservation-ui,
   .reservation-ui * {
@@ -138,7 +138,7 @@
   }
   .site-header--scrolled .site-header__logo,
   .site-header--scrolled .site-header__contact {
-    color: #733e24 !important;
+    color: #543119 !important;
   }
   .site-header--scrolled .site-header__nav-link {
     color: #111111 !important;
@@ -147,7 +147,7 @@
     color: rgb(17 17 17 / 0.7) !important;
   }
   .site-header--scrolled .site-header__contact:hover {
-    color: rgb(115 62 36 / 0.65) !important;
+    color: rgb(84 49 25 / 0.65) !important;
   }
 }
 
@@ -156,4 +156,17 @@ footer#contact.site-footer {
     var(--footer-bg-r) var(--footer-bg-g) var(--footer-bg-b) /
       var(--footer-bg-opacity)
   ) !important;
+}
+
+.room-gallery-crossfade-in {
+  animation: room-gallery-crossfade 280ms cubic-bezier(0.33, 0, 0.2, 1) forwards;
+}
+
+@keyframes room-gallery-crossfade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -43,10 +43,10 @@ function ReservationDayButton({
     <CalendarDayButton
       className={cn(
         "mx-auto !size-9 !min-w-9 !rounded-full bg-transparent transition-all duration-300 ease-out",
-        "data-[range-start=true]:!rounded-full data-[range-start=true]:bg-[#733E24] data-[range-start=true]:text-white",
-        "data-[range-end=true]:!rounded-full data-[range-end=true]:bg-[#733E24] data-[range-end=true]:text-white",
-        "data-[range-middle=true]:!w-full data-[range-middle=true]:!min-w-0 data-[range-middle=true]:!rounded-none data-[range-middle=true]:bg-[#733E24]/15 data-[range-middle=true]:text-charcoal",
-        "data-[selected-single=true]:!rounded-full data-[selected-single=true]:bg-[#733E24] data-[selected-single=true]:text-white",
+        "data-[range-start=true]:!rounded-full data-[range-start=true]:bg-[#543119] data-[range-start=true]:text-white",
+        "data-[range-end=true]:!rounded-full data-[range-end=true]:bg-[#543119] data-[range-end=true]:text-white",
+        "data-[range-middle=true]:!w-full data-[range-middle=true]:!min-w-0 data-[range-middle=true]:!rounded-none data-[range-middle=true]:bg-[#543119]/15 data-[range-middle=true]:text-charcoal",
+        "data-[selected-single=true]:!rounded-full data-[selected-single=true]:bg-[#543119] data-[selected-single=true]:text-white",
         "hover:data-[range-middle=true]:bg-transparent",
         className,
       )}
@@ -168,15 +168,15 @@ export function DateRangePicker({
                 "font-reservation text-sm font-extralight uppercase tracking-[0.06em] text-black",
               weekdays: "border-b border-slate-100 pb-2",
               weekday:
-                "flex-1 text-[0.6875rem] font-normal text-[#733E24] select-none",
+                "flex-1 text-[0.6875rem] font-normal text-[#543119] select-none",
               week: "mt-1",
               day: "p-0 transition-colors duration-300 ease-out",
               range_start:
-                "rounded-none bg-[#733E24]/15 transition-colors duration-300 ease-out [&_button]:z-10",
+                "rounded-none bg-[#543119]/15 transition-colors duration-300 ease-out [&_button]:z-10",
               range_middle:
-                "rounded-none bg-[#733E24]/15 transition-colors duration-300 ease-out",
+                "rounded-none bg-[#543119]/15 transition-colors duration-300 ease-out",
               range_end:
-                "rounded-none bg-[#733E24]/15 transition-colors duration-300 ease-out [&_button]:z-10",
+                "rounded-none bg-[#543119]/15 transition-colors duration-300 ease-out [&_button]:z-10",
               button_previous:
                 "text-black hover:bg-slate-100 hover:text-black",
               button_next: "text-black hover:bg-slate-100 hover:text-black",

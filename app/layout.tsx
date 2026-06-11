@@ -7,6 +7,8 @@ import {
   Playfair_Display,
 } from "next/font/google";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
+import { NIVAARA_LOGO } from "@/lib/constants";
+import { MobileReserveBar } from "@/components/MobileReserveBar";
 import { PageMediaGate } from "@/components/PageMediaGate";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
@@ -65,7 +67,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/logos/Nivaãra_logo.png",
+    icon: NIVAARA_LOGO,
   },
 };
 
@@ -82,7 +84,10 @@ export default function RootLayout({
       <body>
         <ContactModalProvider>
           <ScrollToTop />
-          <PageMediaGate>{children}</PageMediaGate>
+          <div className="pb-[calc(2.5rem+env(safe-area-inset-bottom))] md:pb-0">
+            <PageMediaGate>{children}</PageMediaGate>
+          </div>
+          <MobileReserveBar />
         </ContactModalProvider>
       </body>
     </html>

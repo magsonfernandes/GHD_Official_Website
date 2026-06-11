@@ -125,7 +125,7 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
           <div
             role="status"
             aria-live="polite"
-            className="mx-auto mt-6 max-w-lg border border-[#733E24]/20 bg-white px-6 py-8 text-center sm:px-8 sm:py-10"
+            className="mx-auto mt-6 max-w-lg border border-[#543119]/20 bg-white px-6 py-8 text-center sm:px-8 sm:py-10"
           >
             <p className={sectionHeadingClass(false, "mt-0")}>
               Thank you for signing up
@@ -160,7 +160,7 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="h-10 shrink-0 bg-[#733E24] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#733E24]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
+                className="h-10 shrink-0 bg-[#543119] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               >
                 {status === "loading" ? "Submitting…" : "Sign Up"}
               </button>
@@ -179,7 +179,7 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
                   onChange={(event) => setAgeConfirmed(event.target.checked)}
                   disabled={status === "loading"}
                   required
-                  className="mt-0.5 size-3.5 shrink-0 accent-[#733E24]"
+                  className="mt-0.5 size-3.5 shrink-0 accent-[#543119]"
                 />
                 <span>
                   I am over the age of 18 and have read the{" "}
@@ -199,7 +199,7 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
                   checked={marketingConsent}
                   onChange={(event) => setMarketingConsent(event.target.checked)}
                   disabled={status === "loading"}
-                  className="mt-0.5 size-3.5 shrink-0 accent-[#733E24]"
+                  className="mt-0.5 size-3.5 shrink-0 accent-[#543119]"
                 />
                 <span>
                   By submitting this form, I confirm I would like to receive emails

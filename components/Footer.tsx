@@ -83,7 +83,7 @@ export function Footer() {
 
         <Link
           href="/"
-          className="relative mt-8 block h-9 w-[8.5rem] sm:mt-10 sm:h-10 sm:w-[9.5rem] md:h-11 md:w-[10.5rem]"
+          className="relative mt-8 block h-9 w-[10rem] sm:mt-10 sm:h-10 sm:w-[11.5rem] md:h-11 md:w-[13rem]"
           aria-label={`${SITE.name} home`}
         >
           <Image
@@ -91,7 +91,7 @@ export function Footer() {
             alt={SITE.name}
             fill
             className="object-contain object-center"
-            sizes="(max-width: 768px) 136px, 168px"
+            sizes="(max-width: 768px) 160px, 208px"
           />
         </Link>
 

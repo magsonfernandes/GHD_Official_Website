@@ -79,7 +79,7 @@ export function BeachesBlogContent() {
               </div>
 
               <div className="mt-6 md:mt-8">
-                <p className="font-display-wide text-xs font-black uppercase tracking-[0.28em] text-[#733E24] sm:text-sm">
+                <p className="font-display-wide text-xs font-black uppercase tracking-[0.28em] text-[#543119] sm:text-sm">
                   {String(index + 1).padStart(2, "0")}
                 </p>
 
@@ -136,7 +136,7 @@ export function BeachesBlogContent() {
           <ol className="mt-8 list-none space-y-4">
             {quickPick.map((pick, index) => (
               <li key={pick.mood} className={bodyClass}>
-                <span className="font-display-wide text-[0.65rem] font-black uppercase tracking-[0.22em] text-[#733E24]">
+                <span className="font-display-wide text-[0.65rem] font-black uppercase tracking-[0.22em] text-[#543119]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className="ml-3 font-medium">{pick.mood}:</span>{" "}

@@ -1,10 +1,15 @@
 import { addDays, startOfDay } from "date-fns";
 import type { GuestSelection } from "@/components/reservation/GuestRoomPicker";
-import { DEFAULT_GUEST_SELECTION } from "@/components/reservation/GuestRoomPicker";
-import { DEFAULT_PROPERTY_ID } from "@/lib/constants";
+import {
+  DEFAULT_GUEST_SELECTION,
+  MAX_ROOMS,
+} from "@/components/reservation/GuestRoomPicker";
+import { DEFAULT_PROPERTY_ID, ROOM_CATEGORIES } from "@/lib/constants";
+import { getRoomCategoryById } from "@/lib/rooms";
 
 export type BookingSearch = {
   property: string;
+  roomCategoryId: string;
   checkIn: Date;
   checkOut: Date;
   rooms: number;
@@ -12,6 +17,20 @@ export type BookingSearch = {
   children: number;
   guests: GuestSelection;
 };
+
+export function getBookingRoomCategory(booking: BookingSearch) {
+  return (
+    getRoomCategoryById(booking.roomCategoryId) ?? ROOM_CATEGORIES[0]
+  );
+}
+
+export function calculateStayTotal(
+  nightlyRate: number,
+  roomCount: number,
+  nights: number,
+) {
+  return nightlyRate * roomCount * Math.max(nights, 1);
+}
 
 function parseGuestSelection(
   guestsParam: string | null,
@@ -78,9 +97,12 @@ export function parseBookingSearchParams(
   const rooms = Number(searchParams.get("rooms") ?? 1);
   const adults = Number(searchParams.get("adults") ?? 2);
   const children = Number(searchParams.get("children") ?? 0);
+  const roomCategoryId =
+    searchParams.get("roomCategory") ?? ROOM_CATEGORIES[0].id;
 
   return {
     property,
+    roomCategoryId,
     checkIn: checkInDate,
     checkOut: checkOutDate,
     rooms: Number.isNaN(rooms) || rooms < 1 ? 1 : rooms,
@@ -97,6 +119,7 @@ export function parseBookingSearchParams(
 
 export function buildBookingSearchParams(booking: {
   property: string;
+  roomCategoryId?: string;
   guests: GuestSelection;
   checkIn: Date;
   checkOut: Date;
@@ -104,7 +127,7 @@ export function buildBookingSearchParams(booking: {
   const adults = booking.guests.reduce((sum, room) => sum + room.adults, 0);
   const children = booking.guests.reduce((sum, room) => sum + room.children, 0);
 
-  return new URLSearchParams({
+  const params: Record<string, string> = {
     property: booking.property,
     rooms: String(booking.guests.length),
     adults: String(adults),
@@ -112,7 +135,13 @@ export function buildBookingSearchParams(booking: {
     guests: JSON.stringify(booking.guests),
     checkIn: booking.checkIn.toISOString(),
     checkOut: booking.checkOut.toISOString(),
-  });
+  };
+
+  if (booking.roomCategoryId) {
+    params.roomCategory = booking.roomCategoryId;
+  }
+
+  return new URLSearchParams(params);
 }
 
 export function getDefaultGuestSelection(): GuestSelection {
@@ -123,6 +152,30 @@ export function getDefaultReservationDates() {
   const checkIn = startOfDay(new Date());
   const checkOut = addDays(checkIn, 1);
   return { checkIn, checkOut };
+}
+
+export const BOOKING_OPEN_GUESTS_PARAM = "openGuests";
+
+export function canAddBookingRoom(booking: BookingSearch): boolean {
+  return booking.guests.length < MAX_ROOMS;
+}
+
+export function buildAddRoomBookingHref(booking: BookingSearch): string | null {
+  if (!canAddBookingRoom(booking)) {
+    return null;
+  }
+
+  const params = buildBookingSearchParams({
+    property: booking.property,
+    roomCategoryId: booking.roomCategoryId,
+    guests: [...booking.guests, { adults: 1, children: 0 }],
+    checkIn: booking.checkIn,
+    checkOut: booking.checkOut,
+  });
+
+  params.set(BOOKING_OPEN_GUESTS_PARAM, "1");
+
+  return `/booking?${params.toString()}`;
 }
 
 export function getDefaultBookingHref(): string {
