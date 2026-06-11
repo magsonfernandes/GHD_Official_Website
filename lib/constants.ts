@@ -239,7 +239,7 @@ export const ROOM_CATEGORIES = [
     id: "nivaara-room",
     name: "Luxury Studio",
     summary:
-      "Spacious studio with a king bed, private balcony, and workspace — thoughtfully designed for business and leisure in Goa.",
+      "Offering generous space, a private balcony, and carefully considered comforts, this studio is ideal for both productive stays and relaxing escapes.",
     headline: "Thoughtfully Designed for a Comfortable Stay",
     description:
       "Designed for modern comfort, the Luxury Studio offers a spacious and well-appointed retreat for business and leisure travellers alike. Featuring a king-sized bed, private balcony, dedicated workspace, and contemporary interiors, the studio provides everything needed for a seamless stay in Goa.",
@@ -262,7 +262,7 @@ export const ROOM_CATEGORIES = [
     id: "mountain-view",
     name: "Mountain View Studio",
     summary:
-      "King bed and private balcony overlooking Goa's green hills — modern comfort with a calm, refreshing outlook.",
+      "Overlooking Goa's lush hills, this tranquil studio invites slower mornings, scenic views, and a stay connected to nature.",
     headline: "Wake Up to Goa's Green Landscape",
     description:
       "Overlooking the surrounding hills and natural greenery, the Mountain View Studio combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
@@ -285,7 +285,7 @@ export const ROOM_CATEGORIES = [
     id: "sea-view",
     name: "Sea View Studio",
     summary:
-      "Private balcony with sea views and contemporary comfort — Goa's coastal charm brought directly to your stay.",
+      "With views stretching towards the Arabian Sea, this studio captures the essence of Goa's coastal charm in a comfortable and elegant setting.",
     headline: "Views of the Arabian Sea from Your Balcony",
     description:
       "Offering glimpses of the Arabian Sea, the Sea View Studio brings Goa's coastal charm directly to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a studio designed for comfort with an elevated sense of place.",
