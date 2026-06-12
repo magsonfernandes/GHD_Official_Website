@@ -49,6 +49,12 @@ const archivoExpanded = Archivo({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "GHD Hotels | Nivaãra Nerul — Luxury on Goa's Coast",
   description:
@@ -84,9 +90,7 @@ export default function RootLayout({
       <body>
         <ContactModalProvider>
           <ScrollToTop />
-          <div className="pb-[calc(2.5rem+env(safe-area-inset-bottom))] md:pb-0">
-            <PageMediaGate>{children}</PageMediaGate>
-          </div>
+          <PageMediaGate>{children}</PageMediaGate>
           <MobileReserveBar />
         </ContactModalProvider>
       </body>

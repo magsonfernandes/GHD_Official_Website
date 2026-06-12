@@ -5,7 +5,7 @@ import {
   MAX_ROOMS,
 } from "@/components/reservation/GuestRoomPicker";
 import { DEFAULT_PROPERTY_ID, ROOM_CATEGORIES } from "@/lib/constants";
-import { getRoomCategoryById } from "@/lib/rooms";
+import { getRoomCategoryById, getRoomCategoryNightlyRate } from "@/lib/rooms";
 
 export type BookingSearch = {
   property: string;
@@ -20,8 +20,25 @@ export type BookingSearch = {
 
 export function getBookingRoomCategory(booking: BookingSearch) {
   return (
-    getRoomCategoryById(booking.roomCategoryId) ?? ROOM_CATEGORIES[0]
+    getRoomCategoryForSlot(booking, 0) ?? ROOM_CATEGORIES[0]
   );
+}
+
+export function getRoomCategoryForSlot(booking: BookingSearch, index: number) {
+  const roomCategoryId =
+    booking.guests[index]?.roomCategoryId ?? booking.roomCategoryId;
+
+  return getRoomCategoryById(roomCategoryId) ?? ROOM_CATEGORIES[0];
+}
+
+export function getRoomSelections(booking: BookingSearch): (string | null)[] {
+  return booking.guests.map(
+    (room) => room.roomCategoryId ?? null,
+  );
+}
+
+export function areAllRoomsAssigned(booking: BookingSearch): boolean {
+  return booking.guests.every((room) => Boolean(room.roomCategoryId));
 }
 
 export function calculateStayTotal(
@@ -30,6 +47,16 @@ export function calculateStayTotal(
   nights: number,
 ) {
   return nightlyRate * roomCount * Math.max(nights, 1);
+}
+
+export function calculateBookingTotal(booking: BookingSearch, nights: number) {
+  const stayNights = Math.max(nights, 1);
+
+  return booking.guests.reduce((sum, _room, index) => {
+    const category = getRoomCategoryForSlot(booking, index);
+    const { nightlyRate } = getRoomCategoryNightlyRate(category);
+    return sum + nightlyRate * stayNights;
+  }, 0);
 }
 
 function parseGuestSelection(
@@ -46,10 +73,17 @@ function parseGuestSelection(
         parsed.length > 0 &&
         parsed.every(
           (room) =>
-            typeof room?.adults === "number" && typeof room?.children === "number",
+            typeof room?.adults === "number" &&
+            typeof room?.children === "number" &&
+            (room.roomCategoryId === undefined ||
+              typeof room.roomCategoryId === "string"),
         )
       ) {
-        return parsed;
+        return parsed.map((room) => ({
+          adults: room.adults,
+          children: room.children,
+          ...(room.roomCategoryId ? { roomCategoryId: room.roomCategoryId } : {}),
+        }));
       }
     } catch {
       // Fall through to reconstructed guest selection.
@@ -97,23 +131,31 @@ export function parseBookingSearchParams(
   const rooms = Number(searchParams.get("rooms") ?? 1);
   const adults = Number(searchParams.get("adults") ?? 2);
   const children = Number(searchParams.get("children") ?? 0);
-  const roomCategoryId =
+  const fallbackRoomCategoryId =
     searchParams.get("roomCategory") ?? ROOM_CATEGORIES[0].id;
+  const parsedGuests = parseGuestSelection(
+    searchParams.get("guests"),
+    rooms,
+    adults,
+    children,
+  );
+  const guests =
+    parsedGuests.length === 1
+      ? parsedGuests.map((room) => ({
+          ...room,
+          roomCategoryId: room.roomCategoryId ?? fallbackRoomCategoryId,
+        }))
+      : parsedGuests;
 
   return {
     property,
-    roomCategoryId,
+    roomCategoryId: guests[0]?.roomCategoryId ?? fallbackRoomCategoryId,
     checkIn: checkInDate,
     checkOut: checkOutDate,
     rooms: Number.isNaN(rooms) || rooms < 1 ? 1 : rooms,
     adults: Number.isNaN(adults) || adults < 1 ? 2 : adults,
     children: Number.isNaN(children) || children < 0 ? 0 : children,
-    guests: parseGuestSelection(
-      searchParams.get("guests"),
-      rooms,
-      adults,
-      children,
-    ),
+    guests,
   };
 }
 
@@ -137,11 +179,26 @@ export function buildBookingSearchParams(booking: {
     checkOut: booking.checkOut.toISOString(),
   };
 
-  if (booking.roomCategoryId) {
-    params.roomCategory = booking.roomCategoryId;
+  const primaryRoomCategory =
+    booking.guests.find((room) => room.roomCategoryId)?.roomCategoryId ??
+    booking.roomCategoryId;
+
+  if (primaryRoomCategory) {
+    params.roomCategory = primaryRoomCategory;
   }
 
   return new URLSearchParams(params);
+}
+
+export function buildGuestsWithRoomSelections(
+  guests: GuestSelection,
+  selections: (string | null)[],
+): GuestSelection {
+  return guests.map((room, index) => ({
+    adults: room.adults,
+    children: room.children,
+    ...(selections[index] ? { roomCategoryId: selections[index]! } : {}),
+  }));
 }
 
 export function getDefaultGuestSelection(): GuestSelection {
@@ -167,7 +224,6 @@ export function buildAddRoomBookingHref(booking: BookingSearch): string | null {
 
   const params = buildBookingSearchParams({
     property: booking.property,
-    roomCategoryId: booking.roomCategoryId,
     guests: [...booking.guests, { adults: 1, children: 0 }],
     checkIn: booking.checkIn,
     checkOut: booking.checkOut,

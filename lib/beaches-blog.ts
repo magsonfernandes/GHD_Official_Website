@@ -1,3 +1,12 @@
+const BEACH_IMAGES = {
+  coco: "/images/experiences/Beaches/coco beach.png",
+  sinquerim: "/images/experiences/Beaches/sinquerim beach.png",
+  candolim: "/images/experiences/Beaches/candolim beach.jpg",
+  calangute: "/images/experiences/Beaches/calangute beach.jpg",
+  baga: "/images/experiences/Beaches/Baga Beach.png",
+  anjuna: "/images/experiences/Beaches/anjuna beach.jpg",
+} as const;
+
 export type BeachGuideEntry = {
   id: string;
   name: string;
@@ -26,6 +35,7 @@ export const BEACHES_BLOG = {
     {
       id: "coco-beach",
       name: "Coco Beach",
+      image: BEACH_IMAGES.coco,
       subtitle: "Nerul's Hidden Riverside Escape",
       distance: "Less than 1 km",
       travelTime: "5 minutes",
@@ -39,6 +49,7 @@ export const BEACHES_BLOG = {
     {
       id: "sinquerim-beach",
       name: "Sinquerim Beach",
+      image: BEACH_IMAGES.sinquerim,
       subtitle: "Where History Meets the Sea",
       distance: "Approximately 2 km",
       travelTime: "5–10 minutes",
@@ -52,6 +63,7 @@ export const BEACHES_BLOG = {
     {
       id: "candolim-beach",
       name: "Candolim Beach",
+      image: BEACH_IMAGES.candolim,
       subtitle: "The Perfect Balance",
       distance: "Approximately 3–5 km",
       travelTime: "10–15 minutes",
@@ -66,6 +78,7 @@ export const BEACHES_BLOG = {
     {
       id: "calangute-beach",
       name: "Calangute Beach",
+      image: BEACH_IMAGES.calangute,
       subtitle: "The Queen of Beaches",
       distance: "Approximately 6–8 km",
       travelTime: "15–20 minutes",
@@ -80,6 +93,7 @@ export const BEACHES_BLOG = {
     {
       id: "baga-beach",
       name: "Baga Beach",
+      image: BEACH_IMAGES.baga,
       subtitle: "Goa's Entertainment Capital",
       vibe: "Nightlife",
       paragraphs: [
@@ -92,6 +106,7 @@ export const BEACHES_BLOG = {
     {
       id: "anjuna-beach",
       name: "Anjuna Beach",
+      image: BEACH_IMAGES.anjuna,
       subtitle: "Goa's Bohemian Soul",
       distance: "Approximately 11–12 km",
       travelTime: "25–30 minutes",

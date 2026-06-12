@@ -11,7 +11,11 @@ import {
   type ReactNode,
 } from "react";
 import Image from "next/image";
-import { CORPORATE_OFFICE } from "@/lib/constants";
+import {
+  CORPORATE_OFFICE,
+  NIVAARA_CONTACT,
+  RESERVATION_CONTACT,
+} from "@/lib/constants";
 import {
   formatContactFetchFailure,
   formatContactSubmitFailure,
@@ -37,6 +41,80 @@ const ContactModalContext = createContext<ContactModalContextValue | null>(null)
 
 const fieldClass =
   "w-full border border-border bg-white px-3 py-2.5 font-body text-sm font-light text-charcoal outline-none transition-colors placeholder:text-grey/70 focus:border-charcoal disabled:opacity-60";
+
+const contactSectionTitleClass =
+  "font-heading text-xl font-medium leading-tight text-charcoal sm:text-2xl";
+
+const contactLabelClass =
+  "font-body text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/60";
+
+const contactValueClass =
+  "font-body text-xs font-light leading-snug text-charcoal/75 sm:text-[0.8125rem]";
+
+function ContactSectionDivider({
+  orientation = "horizontal",
+  className,
+}: {
+  orientation?: "horizontal" | "vertical";
+  className?: string;
+}) {
+  return (
+    <div
+      role="presentation"
+      aria-hidden
+      className={cn(
+        orientation === "vertical"
+          ? "w-px shrink-0 self-stretch bg-gradient-to-b from-transparent via-[#543119]/20 to-transparent"
+          : "h-px w-full bg-gradient-to-r from-transparent via-[#543119]/20 to-transparent",
+        className,
+      )}
+    />
+  );
+}
+
+function ContactSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="space-y-2.5">
+      <h3 className={contactSectionTitleClass}>{title}</h3>
+      <div className="space-y-2">{children}</div>
+    </section>
+  );
+}
+
+function ContactDetailRow({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <p className={contactLabelClass}>{label}</p>
+      <div className={cn("mt-0.5", contactValueClass)}>{children}</div>
+    </div>
+  );
+}
+
+function ContactLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <a href={href} className="transition-colors hover:text-charcoal">
+      {children}
+    </a>
+  );
+}
 
 function ContactModal({
   open,
@@ -199,7 +277,7 @@ function ContactModal({
               id="contact-modal-title"
               className={sectionHeadingClass(false, "mt-0 text-left")}
             >
-              {CORPORATE_OFFICE.title}
+              Contact
             </h2>
             <button
               type="button"
@@ -210,37 +288,81 @@ function ContactModal({
             </button>
           </div>
 
-          <div className={sectionBodyClass(false, "mt-5 space-y-4 text-left")}>
+          <div className="mt-4 grid text-left sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:gap-8 lg:gap-10">
             <div>
-              <p className="font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal">
-                Address
-              </p>
-              <address className="mt-2 space-y-0.5 not-italic">
-                {CORPORATE_OFFICE.addressLines.map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
-              </address>
+              <ContactSection title={NIVAARA_CONTACT.title}>
+                <ContactDetailRow label="Reception">
+                  <ContactLink href={NIVAARA_CONTACT.receptionPhoneHref}>
+                    {NIVAARA_CONTACT.receptionPhone}
+                  </ContactLink>
+                </ContactDetailRow>
+
+                <ContactDetailRow label="Email">
+                  <ContactLink href={NIVAARA_CONTACT.receptionEmailHref}>
+                    {NIVAARA_CONTACT.receptionEmail}
+                  </ContactLink>
+                </ContactDetailRow>
+
+                <ContactDetailRow label="Website">
+                  <ContactLink href={NIVAARA_CONTACT.websiteHref}>
+                    {NIVAARA_CONTACT.website}
+                  </ContactLink>
+                </ContactDetailRow>
+
+                <ContactDetailRow label="Address">
+                  <address className="not-italic">
+                    {NIVAARA_CONTACT.addressLines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </address>
+                </ContactDetailRow>
+              </ContactSection>
+
+              <ContactSectionDivider className="my-4 sm:my-5" />
+
+              <ContactSection title={RESERVATION_CONTACT.title}>
+                <ContactDetailRow label="Reservation">
+                  <ContactLink href={RESERVATION_CONTACT.phoneHref}>
+                    {RESERVATION_CONTACT.phone}
+                  </ContactLink>
+                </ContactDetailRow>
+
+                <ContactDetailRow label="Email">
+                  <ContactLink href={RESERVATION_CONTACT.emailHref}>
+                    {RESERVATION_CONTACT.email}
+                  </ContactLink>
+                </ContactDetailRow>
+              </ContactSection>
             </div>
 
-            <p>
-              <span className="font-medium text-charcoal">Email:</span>{" "}
-              <a
-                href={CORPORATE_OFFICE.emailHref}
-                className="transition-colors hover:text-charcoal"
-              >
-                {CORPORATE_OFFICE.email}
-              </a>
-            </p>
+            <ContactSectionDivider
+              orientation="vertical"
+              className="my-1 hidden sm:block"
+            />
 
-            <p>
-              <span className="font-medium text-charcoal">Phone:</span>{" "}
-              <a
-                href={CORPORATE_OFFICE.phoneHref}
-                className="transition-colors hover:text-charcoal"
-              >
-                {CORPORATE_OFFICE.phone}
-              </a>
-            </p>
+            <ContactSectionDivider className="my-5 sm:hidden" />
+
+            <ContactSection title={CORPORATE_OFFICE.title}>
+              <ContactDetailRow label="Phone">
+                <ContactLink href={CORPORATE_OFFICE.phoneHref}>
+                  {CORPORATE_OFFICE.phone}
+                </ContactLink>
+              </ContactDetailRow>
+
+              <ContactDetailRow label="Email">
+                <ContactLink href={CORPORATE_OFFICE.emailHref}>
+                  {CORPORATE_OFFICE.email}
+                </ContactLink>
+              </ContactDetailRow>
+
+              <ContactDetailRow label="Address">
+                <address className="not-italic">
+                  {CORPORATE_OFFICE.addressLines.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </address>
+              </ContactDetailRow>
+            </ContactSection>
           </div>
 
           <div className="mt-8 border-t border-border pt-6">

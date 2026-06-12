@@ -64,7 +64,7 @@ function NavLinks({ scrolled }: { scrolled: boolean }) {
 function TransparentHeaderContent() {
   return (
     <>
-      <div className="px-4 pt-3 md:hidden">
+      <div className="px-4 pt-3 pb-3 md:hidden">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2">
           <div
             className="min-w-0 max-w-[38%] border border-white/80 px-2 py-1 font-body text-[0.58rem] font-normal leading-tight tracking-[0.06em] text-white/90"
@@ -286,7 +286,7 @@ function StickyHeaderContent() {
 
         <Link
           href={getDefaultBookingHref()}
-          className="hidden h-full shrink-0 items-center justify-center rounded-none bg-[#543119] px-5 font-body text-[0.62rem] font-medium uppercase tracking-[0.1em] text-white transition-colors duration-500 hover:bg-[#543119]/90 md:flex sm:px-7 sm:text-[0.7rem] lg:px-9"
+          className="site-header__reserve-desktop h-full shrink-0 items-center justify-center rounded-none bg-[#543119] px-5 font-body text-[0.62rem] font-medium uppercase tracking-[0.1em] text-white transition-colors duration-500 hover:bg-[#543119]/90 sm:px-7 sm:text-[0.7rem] lg:px-9"
         >
           Reserve
         </Link>

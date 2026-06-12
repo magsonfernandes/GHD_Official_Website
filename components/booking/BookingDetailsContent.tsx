@@ -13,9 +13,10 @@ import { BookingPolicyModal } from "@/components/booking/BookingPolicyModal";
 import { PROPERTIES, SITE } from "@/lib/constants";
 import {
   buildAddRoomBookingHref,
-  calculateStayTotal,
+  calculateBookingTotal,
   canAddBookingRoom,
   getBookingRoomCategory,
+  getRoomCategoryForSlot,
 } from "@/lib/booking";
 import { getRoomCategoryNightlyRate } from "@/lib/rooms";
 import {
@@ -102,10 +103,7 @@ export function BookingDetailsContent() {
     : 1;
   const roomCount = booking?.guests.length ?? 1;
   const roomCategory = booking ? getBookingRoomCategory(booking) : null;
-  const nightlyRate = roomCategory
-    ? getRoomCategoryNightlyRate(roomCategory).nightlyRate
-    : 0;
-  const totalCost = calculateStayTotal(nightlyRate, roomCount, nights);
+  const totalCost = booking ? calculateBookingTotal(booking, nights) : 0;
   const retentionAmount = totalCost;
   const propertyName = booking
     ? PROPERTIES.find((property) => property.id === booking.property)?.name ??
@@ -208,21 +206,26 @@ export function BookingDetailsContent() {
                   </div>
 
                   <div className="mt-5 space-y-5">
-                    {booking.guests.map((room, index) => (
-                      <div key={`price-room-${index}`}>
-                        <p className="font-body text-xs lowercase text-grey">room</p>
-                        <p className="mt-1 font-body text-sm font-medium text-charcoal">
-                          {formatInr(nightlyRate * nights)}
-                        </p>
-                        <p className="mt-1 font-body text-sm text-charcoal">
-                          {roomCategory?.name}
-                          {roomCount > 1 ? ` · Room ${index + 1}` : ""}
-                        </p>
-                        <p className="mt-0.5 font-body text-xs text-grey">
-                          {formatGuestLine(room)}
-                        </p>
-                      </div>
-                    ))}
+                    {booking.guests.map((room, index) => {
+                      const slotCategory = getRoomCategoryForSlot(booking, index);
+                      const slotRate = getRoomCategoryNightlyRate(slotCategory).nightlyRate;
+
+                      return (
+                        <div key={`price-room-${index}`}>
+                          <p className="font-body text-xs lowercase text-grey">room</p>
+                          <p className="mt-1 font-body text-sm font-medium text-charcoal">
+                            {formatInr(slotRate * nights)}
+                          </p>
+                          <p className="mt-1 font-body text-sm text-charcoal">
+                            {slotCategory.name}
+                            {roomCount > 1 ? ` · Room ${index + 1}` : ""}
+                          </p>
+                          <p className="mt-0.5 font-body text-xs text-grey">
+                            {formatGuestLine(room)}
+                          </p>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   {booking && canAddBookingRoom(booking) ? (
@@ -421,7 +424,7 @@ export function BookingDetailsContent() {
               <button
                 type="button"
                 onClick={() => setPolicyOpen(true)}
-                className="inline-flex font-body text-xs font-medium uppercase tracking-[0.12em] text-[#543119] transition-colors hover:text-[#543119]/80"
+                className="inline-flex font-body text-xs font-medium uppercase tracking-[0.12em] text-[#543119] underline-offset-4 transition-colors hover:text-[#543119]/80 hover:underline"
               >
                 View Full Policy
               </button>
@@ -464,7 +467,8 @@ export function BookingDetailsContent() {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#543119] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#543119]/90 sm:text-xs lg:w-auto lg:min-w-[15rem]"
+                disabled={!agreePrivacy}
+                className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#543119] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs lg:w-auto lg:min-w-[15rem]"
               >
                 Make Reservation
               </button>
@@ -478,8 +482,14 @@ export function BookingDetailsContent() {
         <BookingPolicyModal
           open={policyOpen}
           onClose={() => setPolicyOpen(false)}
-          roomName={roomCategory.name}
-          nightlyRate={nightlyRate}
+          roomName={
+            roomCount > 1 ? "Multiple room categories" : roomCategory.name
+          }
+          nightlyRate={
+            roomCount > 1
+              ? Math.round(totalCost / Math.max(nights, 1) / roomCount)
+              : getRoomCategoryNightlyRate(roomCategory).nightlyRate
+          }
         />
       ) : null}
     </BookingLayout>

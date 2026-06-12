@@ -335,6 +335,11 @@ export const SOCIAL_LINKS = [
     icon: "linkedin",
     href: "https://www.linkedin.com/company/ghd-hotels/",
   },
+  {
+    label: "YouTube",
+    icon: "youtube",
+    href: "https://www.youtube.com/@ghdhotels",
+  },
 ] as const;
 
 export const HOTEL_WHATSAPP = {
@@ -360,8 +365,27 @@ export const SITE = {
   reserveHref: "tel:+918380008687",
 } as const;
 
+export const NIVAARA_CONTACT = {
+  title: "Nivaãra",
+  receptionPhone: "+91 83900 20408",
+  receptionPhoneHref: "tel:+918390020408",
+  receptionEmail: "info.nerul@ghdhotels.in",
+  receptionEmailHref: "mailto:info.nerul@ghdhotels.in",
+  website: "www.ghdhotels.in",
+  websiteHref: "https://www.ghdhotels.in",
+  addressLines: ["Survey No. 98, Nerul, North Goa - 403114"],
+} as const;
+
+export const RESERVATION_CONTACT = {
+  title: "Reservation",
+  phone: "+91 838 000 8687",
+  phoneHref: "tel:+918380008687",
+  email: "reservation@ghdhotels.in",
+  emailHref: "mailto:reservation@ghdhotels.in",
+} as const;
+
 export const CORPORATE_OFFICE = {
-  title: "Corporate Office",
+  title: "Head Office",
   addressLines: [
     "GHD Hotels LLP",
     "325, Gera Imperium Star",
@@ -543,7 +567,7 @@ export const EXPERIENCE_POSTS = [
     category: "BEACHES",
     date: "May 3, 2026",
     readTime: "9 min read",
-    image: "/images/experiences/pexels-mohit-hambiria-92377455-28520489.jpg",
+    image: "/images/experiences/Beaches/pexels-mohit-hambiria-92377455-28520489.jpg",
     alt: "Scenic Goan beach with lush hills and gentle waves",
   },
 ] as const;
@@ -560,7 +584,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Which are the nearest beaches to Nivaãra?",
         answer:
-          "Some of North Goa's most popular beaches, including Candolim Beach, Sinquerim Beach, and Coco Beach, are easily accessible from the property.",
+          "Coco Beach is the closest, at approximately 1.7 km from the property. Other popular North Goa beaches, including Sinquerim Beach and Candolim Beach, are also easily accessible from Nivaãra.",
       },
       {
         question: "How far is Nivaãra from Goa Airport?",
@@ -649,12 +673,12 @@ export const FAQ_SECTIONS = [
       {
         question: "Does Nivaãra have an in-house restaurant?",
         answer:
-          "Yes, guests can enjoy a curated dining experience featuring a selection of local and international cuisines.",
+          "Our in-house kitchen will be opening soon. In the meantime, guests can order food delivery to the property through Swiggy and Zomato.",
       },
       {
         question: "Do you offer room service?",
         answer:
-          "Room service availability may vary based on operational hours and property policies.",
+          "In-house room service will be available once our kitchen opens. Until then, guests can conveniently order meals to the property via Swiggy and Zomato.",
       },
     ],
   },
@@ -664,7 +688,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Is there a swimming pool at the property?",
         answer:
-          "Yes, guests can enjoy access to the swimming pool during designated operating hours.",
+          "Yes. Nivaãra features an open terrace swimming pool, offering guests a refreshing swim with scenic views. The pool is accessible during designated operating hours.",
       },
       {
         question: "Is parking available?",
@@ -680,11 +704,6 @@ export const FAQ_SECTIONS = [
         question: "Is the property suitable for families?",
         answer:
           "Yes, Nivaãra welcomes families and offers a comfortable environment for guests of all ages.",
-      },
-      {
-        question: "Do you assist with sightseeing and local experiences?",
-        answer:
-          "Yes, our team can help arrange local tours, activities, transportation, and recommendations to help guests explore Goa.",
       },
     ],
   },

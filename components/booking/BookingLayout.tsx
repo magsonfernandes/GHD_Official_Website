@@ -76,10 +76,40 @@ export function BookingLayout({ step, children }: BookingLayoutProps) {
               guestsPickerOpen={guestsPickerOpen}
               onGuestsPickerOpenChange={setGuestsPickerOpen}
               onSearch={(params) => {
-                const roomCategory = searchParams.get("roomCategory");
-                if (roomCategory) {
-                  params.set("roomCategory", roomCategory);
+                const guestsParam = params.get("guests");
+
+                if (guestsParam && booking) {
+                  try {
+                    const nextGuests = JSON.parse(guestsParam) as typeof booking.guests;
+                    const mergedGuests = nextGuests.map((room, index) => ({
+                      ...room,
+                      ...(booking.guests[index]?.roomCategoryId
+                        ? { roomCategoryId: booking.guests[index].roomCategoryId }
+                        : {}),
+                    }));
+
+                    params.set("guests", JSON.stringify(mergedGuests));
+
+                    const primaryRoomCategory = mergedGuests.find(
+                      (room) => room.roomCategoryId,
+                    )?.roomCategoryId;
+
+                    if (primaryRoomCategory) {
+                      params.set("roomCategory", primaryRoomCategory);
+                    }
+                  } catch {
+                    const roomCategory = searchParams.get("roomCategory");
+                    if (roomCategory) {
+                      params.set("roomCategory", roomCategory);
+                    }
+                  }
+                } else {
+                  const roomCategory = searchParams.get("roomCategory");
+                  if (roomCategory) {
+                    params.set("roomCategory", roomCategory);
+                  }
                 }
+
                 router.push(`${pathname}?${params.toString()}`);
               }}
             />

@@ -9,7 +9,6 @@ import {
   formatRoomSize,
   getRoomCategoryNightlyRate,
 } from "@/lib/rooms";
-import { calculateStayTotal } from "@/lib/booking";
 import { sectionBodyClass } from "@/lib/section-typography";
 import { cn } from "@/lib/utils";
 
@@ -17,8 +16,10 @@ type BookingRoomCategoryCardProps = {
   room: RoomCategory;
   guests: GuestSelection;
   nights: number;
+  assignedRoomIndexes: number[];
   selected: boolean;
   onSelect: () => void;
+  selectable?: boolean;
 };
 
 function formatOccupancy(room: { adults: number; children: number }): string {
@@ -33,13 +34,16 @@ export function BookingRoomCategoryCard({
   room,
   guests,
   nights,
+  assignedRoomIndexes,
   selected,
   onSelect,
+  selectable = true,
 }: BookingRoomCategoryCardProps) {
   const rate = getRoomCategoryNightlyRate(room);
-  const roomCount = guests.length;
   const stayNights = Math.max(nights, 1);
-  const totalCost = calculateStayTotal(rate.nightlyRate, roomCount, stayNights);
+  const assignedCount = assignedRoomIndexes.length;
+  const totalCost = rate.nightlyRate * assignedCount * stayNights;
+  const showAssignmentDetails = assignedCount > 0;
 
   return (
     <article
@@ -82,18 +86,20 @@ export function BookingRoomCategoryCard({
             <RoomFromPrice amount={rate.nightlyRate} />
 
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={onSelect}
-                className={cn(
-                  "inline-flex items-center justify-center rounded-none border px-6 py-2.5 font-body text-xs lowercase tracking-[0.08em] transition-colors",
-                  selected
-                    ? "border-[#543119] bg-[#543119] text-white"
-                    : "border-charcoal bg-white text-charcoal",
-                )}
-              >
-                {selected ? "Selected" : "Select room"}
-              </button>
+              {selectable ? (
+                <button
+                  type="button"
+                  onClick={onSelect}
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-none border px-6 py-2.5 font-body text-xs lowercase tracking-[0.08em] transition-colors",
+                    selected
+                      ? "border-[#543119] bg-[#543119] text-white"
+                      : "border-charcoal bg-white text-charcoal",
+                  )}
+                >
+                  {selected ? "Selected" : "Select room"}
+                </button>
+              ) : null}
 
               <Link
                 href={`/rooms/${room.id}`}
@@ -106,7 +112,7 @@ export function BookingRoomCategoryCard({
         </div>
       </div>
 
-      {selected ? (
+      {showAssignmentDetails ? (
         <div className="space-y-4 border-t border-border px-6 py-5 sm:px-8">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <p className="font-body text-xs text-grey sm:text-sm">
@@ -122,8 +128,8 @@ export function BookingRoomCategoryCard({
                 {formatRoomRate(totalCost)}
               </p>
               <p className="mt-1 font-body text-xs text-grey">
-                For {stayNights} night{stayNights === 1 ? "" : "s"} and {roomCount}{" "}
-                room{roomCount === 1 ? "" : "s"}
+                For {stayNights} night{stayNights === 1 ? "" : "s"} and{" "}
+                {assignedCount} room{assignedCount === 1 ? "" : "s"}
               </p>
             </div>
           </div>
@@ -134,7 +140,10 @@ export function BookingRoomCategoryCard({
             </p>
 
             <ul className="mt-3 space-y-3">
-              {guests.map((guestRoom, index) => {
+              {assignedRoomIndexes.map((index) => {
+                const guestRoom = guests[index];
+                if (!guestRoom) return null;
+
                 const pax = guestRoom.adults + guestRoom.children;
 
                 return (

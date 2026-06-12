@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 export type RoomGuests = {
   adults: number;
   children: number;
+  roomCategoryId?: string;
 };
 
 export type GuestSelection = RoomGuests[];

@@ -1,17 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { HERO_VIDEO } from "@/lib/constants";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const mediaY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -23,9 +17,9 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative h-screen min-h-[600px] overflow-hidden bg-black"
+      className="relative flex w-full justify-center bg-black"
     >
-      <motion.div className="absolute inset-0" style={{ y: mediaY }}>
+      <div className="relative h-[min(100svh,calc(100vw*9/16))] w-[min(100vw,calc(100svh*16/9))]">
         <video
           ref={videoRef}
           src={HERO_VIDEO}
@@ -34,10 +28,10 @@ export function Hero() {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-contain object-center md:left-0 md:w-[118%] md:max-w-none md:object-cover md:object-left"
+          className="h-full w-full object-contain"
         />
-      </motion.div>
-      <div className="absolute inset-0 bg-black/[0.42]" aria-hidden />
+        <div className="absolute inset-0 bg-black/[0.42]" aria-hidden />
+      </div>
     </section>
   );
 }

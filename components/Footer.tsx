@@ -49,11 +49,20 @@ function LinkedInIcon({ className }: IconProps) {
   );
 }
 
+function YouTubeIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.28 6 12 6 12 6s-6.28 0-7.86.061A2.75 2.75 0 0 0 2.2 8.001 28.6 28.6 0 0 0 2.14 12a28.6 28.6 0 0 0 .06 3.999 2.75 2.75 0 0 0 1.94 1.94C5.72 18 12 18 12 18s6.28 0 7.86-.061a2.75 2.75 0 0 0 1.94-1.94A28.6 28.6 0 0 0 21.86 12a28.6 28.6 0 0 0-.06-3.999ZM10 15.001V9l5.2 3-5.2 3Z" />
+    </svg>
+  );
+}
+
 const SOCIAL_ICONS = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
   x: XIcon,
   linkedin: LinkedInIcon,
+  youtube: YouTubeIcon,
 } as const;
 
 export function Footer() {
