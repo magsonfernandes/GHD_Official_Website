@@ -1,10 +1,14 @@
 const BEACH_IMAGES = {
   coco: "/images/experiences/Beaches/coco beach.png",
   sinquerim: "/images/experiences/Beaches/sinquerim beach.png",
-  candolim: "/images/experiences/Beaches/candolim beach.jpg",
-  calangute: "/images/experiences/Beaches/calangute beach.jpg",
+  candolim: "/images/experiences/Beaches/candolim beach .png",
+  calangute: "/images/experiences/Beaches/calangute beach.png",
   baga: "/images/experiences/Beaches/Baga Beach.png",
-  anjuna: "/images/experiences/Beaches/anjuna beach.jpg",
+  anjuna: "/images/experiences/Beaches/anjuna beach.png",
+  vagator: "/images/experiences/Beaches/vagator beach.png",
+  arambol: "/images/experiences/Beaches/arambol beach.png",
+  morjim: "/images/experiences/Beaches/morjim beach.png",
+  mandremAshwem: "/images/experiences/Beaches/mandrem and ashwem beach.png",
 } as const;
 
 export type BeachGuideEntry = {
@@ -121,6 +125,7 @@ export const BEACHES_BLOG = {
     {
       id: "vagator-beach",
       name: "Vagator Beach",
+      image: BEACH_IMAGES.vagator,
       subtitle: "Red Cliffs and Stunning Sunsets",
       vibe: "Scenic",
       paragraphs: [
@@ -133,6 +138,7 @@ export const BEACHES_BLOG = {
     {
       id: "arambol-beach",
       name: "Arambol Beach",
+      image: BEACH_IMAGES.arambol,
       subtitle: "Goa's Free-Spirited Retreat",
       vibe: "Alternative",
       paragraphs: [
@@ -150,6 +156,7 @@ export const BEACHES_BLOG = {
     {
       id: "morjim-beach",
       name: "Morjim Beach",
+      image: BEACH_IMAGES.morjim,
       subtitle: "Nature's Coastal Sanctuary",
       vibe: "Peaceful",
       paragraphs: [
@@ -162,6 +169,7 @@ export const BEACHES_BLOG = {
     {
       id: "mandrem-ashwem",
       name: "Mandrem & Ashwem",
+      image: BEACH_IMAGES.mandremAshwem,
       subtitle: "Serenity by the Sea",
       vibe: "Wellness",
       paragraphs: [

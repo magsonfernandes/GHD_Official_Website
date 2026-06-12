@@ -171,6 +171,48 @@ footer#contact.site-footer {
   }
 }
 
+#hero.hero-section {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+#hero .hero-section__media-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#hero .hero-section__media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+#hero .hero-section__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 0.42);
+  pointer-events: none;
+}
+
 /* Mobile reserve bar — forced layout (not reliant on Tailwind breakpoints alone) */
 @media (max-width: 767px) {
   .site-header__reserve-desktop {

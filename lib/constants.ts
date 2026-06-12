@@ -403,7 +403,7 @@ export const CORPORATE_OFFICE = {
 export const HERO_IMAGE =
   "/images/nivaara/Nivaara_Full Building View_Pic1.w1600.webp";
 
-export const HERO_VIDEO = "/images/nivaara/hero section.mp4";
+export const HERO_VIDEO = "/images/nivaara/hero%20section.mp4";
 
 export const WELCOME_IMAGE =
   "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp";
