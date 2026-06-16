@@ -713,7 +713,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Is smoking allowed inside the rooms?",
         answer:
-          "No. Smoking is prohibited inside guest rooms. Designated smoking areas may be available within the property.",
+          "Yes. Smoking is allowed inside guest rooms.",
       },
       {
         question: "Are pets allowed?",

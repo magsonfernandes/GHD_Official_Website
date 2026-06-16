@@ -1,5 +1,5 @@
-import { ContactNavLink } from "@/components/contact/ContactNavLink";
-import { FAQ_SECTIONS, SITE } from "@/lib/constants";
+import { ContactCtaSection } from "@/components/ContactCtaSection";
+import { FAQ_SECTIONS } from "@/lib/constants";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
@@ -72,37 +72,7 @@ export function FaqContent() {
         </div>
       </section>
 
-      <section className="bg-muted px-6 py-14 md:py-20 lg:px-10">
-        <div className="mx-auto max-w-3xl">
-          <SectionIntro
-            label="Contact"
-            title="Still have questions?"
-            description="Our team will be delighted to assist you. Reach out by phone, email, or through the contact details below."
-          />
-
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-6">
-            <a
-              href={SITE.phoneHref}
-              className="font-body text-sm font-medium text-charcoal transition-colors hover:text-[#543119]"
-            >
-              {SITE.phone}
-            </a>
-            <span className="hidden text-grey sm:inline" aria-hidden>
-              ·
-            </span>
-            <a
-              href={SITE.emailHref}
-              className="font-body text-sm font-medium text-charcoal transition-colors hover:text-[#543119]"
-            >
-              {SITE.email}
-            </a>
-          </div>
-
-          <ContactNavLink className="mt-8 inline-flex items-center font-body text-xs font-medium uppercase tracking-[0.14em] text-charcoal transition-colors hover:text-[#543119]">
-            Contact us
-          </ContactNavLink>
-        </div>
-      </section>
+      <ContactCtaSection />
     </>
   );
 }

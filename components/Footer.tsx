@@ -90,6 +90,30 @@ export function Footer() {
           </ul>
         </nav>
 
+        <nav className="mt-5 w-full" aria-label="Legal">
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-x-5">
+            <li>
+              <Link
+                href="/privacy"
+                className="font-body text-[8px] uppercase tracking-[0.12em] text-charcoal/65 transition-colors hover:text-charcoal sm:text-[9px]"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li aria-hidden className="text-charcoal/35">
+              |
+            </li>
+            <li>
+              <Link
+                href="/terms"
+                className="font-body text-[8px] uppercase tracking-[0.12em] text-charcoal/65 transition-colors hover:text-charcoal sm:text-[9px]"
+              >
+                Terms &amp; Conditions
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         <Link
           href="/"
           className="relative mt-8 block h-9 w-[10rem] sm:mt-10 sm:h-10 sm:w-[11.5rem] md:h-11 md:w-[13rem]"
@@ -125,13 +149,7 @@ export function Footer() {
         </ul>
 
         <div className="mt-8 w-full border-t border-charcoal/10 pt-6 sm:mt-10 sm:pt-7">
-          <Link
-            href="/privacy"
-            className="font-body text-[8px] uppercase tracking-[0.12em] text-charcoal/65 transition-colors hover:text-charcoal sm:text-[9px]"
-          >
-            Privacy Policy
-          </Link>
-          <p className="mt-3 font-body text-[8px] tracking-[0.03em] text-charcoal/55 sm:text-[9px]">
+          <p className="font-body text-[8px] tracking-[0.03em] text-charcoal/55 sm:text-[9px]">
             © 2026 GHD. All Rights Reserved.
           </p>
         </div>
