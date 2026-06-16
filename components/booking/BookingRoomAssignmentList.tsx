@@ -43,7 +43,7 @@ export function BookingRoomAssignmentList({
             className="border border-border bg-white p-5 shadow-[0_8px_30px_rgba(17,17,17,0.04)] sm:p-6"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="font-heading text-xl font-light text-charcoal sm:text-2xl">
+              <h3 className="font-heading text-xl font-thin text-charcoal sm:text-2xl">
                 Room {index + 1}
               </h3>
               <p className="font-body text-sm text-charcoal/70">

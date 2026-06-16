@@ -43,7 +43,7 @@ const fieldClass =
   "w-full border border-border bg-white px-3 py-2.5 font-body text-sm font-light text-charcoal outline-none transition-colors placeholder:text-grey/70 focus:border-charcoal disabled:opacity-60";
 
 const contactSectionTitleClass =
-  "font-heading text-xl font-medium leading-tight text-charcoal sm:text-2xl";
+  "font-heading text-xl font-thin leading-tight text-charcoal sm:text-2xl";
 
 const contactLabelClass =
   "font-body text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/60";
@@ -366,7 +366,7 @@ function ContactModal({
           </div>
 
           <div className="mt-8 border-t border-border pt-6">
-            <h3 className="font-heading text-xl font-medium text-charcoal sm:text-2xl">
+            <h3 className="font-heading text-xl font-thin text-charcoal sm:text-2xl">
               Send Us a Message
             </h3>
             <p className={sectionBodyClass(false, "mt-2 text-left")}>
@@ -375,7 +375,7 @@ function ContactModal({
 
             {status === "success" ? (
               <div className="mt-6 border border-[#543119]/20 bg-muted/30 px-6 py-8 text-center">
-                <p className="font-heading text-xl font-light text-charcoal">
+                <p className="font-heading text-xl font-thin text-charcoal">
                   Message Received
                 </p>
                 <p className={sectionBodyClass(false, "mt-3 text-center")}>

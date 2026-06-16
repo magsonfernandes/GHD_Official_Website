@@ -19,7 +19,7 @@ export function RoomFromPrice({
       <p className="font-body text-xs lowercase tracking-[0.04em] text-grey">from</p>
       <p
         className={cn(
-          "mt-1 font-heading text-2xl font-light text-charcoal sm:text-[1.75rem]",
+          "mt-1 font-heading text-2xl font-thin text-charcoal sm:text-[1.75rem]",
           priceClassName,
         )}
       >

@@ -10,7 +10,7 @@ import {
   useBookingFromParams,
 } from "@/components/booking/BookingLayout";
 import { BookingPolicyModal } from "@/components/booking/BookingPolicyModal";
-import { PROPERTIES, SITE } from "@/lib/constants";
+import { HOTEL_CHECK_IN_TIME, HOTEL_CHECK_OUT_TIME, PROPERTIES, SITE } from "@/lib/constants";
 import {
   buildAddRoomBookingHref,
   calculateBookingTotal,
@@ -32,7 +32,7 @@ const labelClass =
   "mb-1.5 block font-body text-xs font-medium text-charcoal";
 
 const sectionTitleClass =
-  "font-heading text-xl font-medium text-charcoal sm:text-2xl";
+  "font-heading text-xl font-thin text-charcoal sm:text-2xl";
 
 const COUNTRIES = [
   "India",
@@ -179,7 +179,7 @@ export function BookingDetailsContent() {
                 ) : null}
 
                 <div className="p-4 sm:p-5">
-                  <h3 className="font-heading text-lg font-medium text-charcoal">
+                  <h3 className="font-heading text-lg font-thin text-charcoal">
                     {propertyName}
                   </h3>
 
@@ -191,7 +191,9 @@ export function BookingDetailsContent() {
                       <p className="mt-1 font-body text-sm text-charcoal">
                         {format(booking.checkIn, "MMMM d, yyyy")}
                       </p>
-                      <p className="font-body text-xs text-grey">From 14:00</p>
+                      <p className="font-body text-xs text-grey">
+                        From {HOTEL_CHECK_IN_TIME}
+                      </p>
                     </div>
 
                     <div>
@@ -201,7 +203,9 @@ export function BookingDetailsContent() {
                       <p className="mt-1 font-body text-sm text-charcoal">
                         {format(booking.checkOut, "MMMM d, yyyy")}
                       </p>
-                      <p className="font-body text-xs text-grey">Until 11:00</p>
+                      <p className="font-body text-xs text-grey">
+                        Until {HOTEL_CHECK_OUT_TIME}
+                      </p>
                     </div>
                   </div>
 
@@ -250,7 +254,7 @@ export function BookingDetailsContent() {
                     <p className="mt-1 font-body text-xs text-grey">
                       Fees &amp; Taxes Included
                     </p>
-                    <p className="mt-2 font-heading text-xl font-medium text-charcoal sm:text-2xl">
+                    <p className="mt-2 font-heading text-xl font-thin text-charcoal sm:text-2xl">
                       {formatInr(totalCost)}
                     </p>
                   </div>
@@ -416,9 +420,10 @@ export function BookingDetailsContent() {
 
             <section className="space-y-4 border-t border-border pt-8">
               <p className="font-body text-sm text-charcoal">
-                Cancellation or amendment can be made 7 days prior to date of
-                arrival, failing which 100% retention is applicable.{" "}
-                <span className="font-medium">{formatInr(retentionAmount)}</span>
+                Cancellation within 3 days of check-in incurs 100% retention.
+                Less than 72 hours before arrival, no-show, and early checkout
+                are also subject to full retention.{" "}
+                <span className="font-semibold">{formatInr(retentionAmount)}</span>
               </p>
 
               <button
@@ -431,7 +436,7 @@ export function BookingDetailsContent() {
             </section>
 
             <section className="space-y-4 border-t border-border pt-8">
-              <h3 className="font-heading text-xl font-medium text-charcoal">
+              <h3 className="font-heading text-xl font-thin text-charcoal">
                 Acknowledgement
               </h3>
 
@@ -468,7 +473,7 @@ export function BookingDetailsContent() {
               <button
                 type="submit"
                 disabled={!agreePrivacy}
-                className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#543119] px-8 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs lg:w-auto lg:min-w-[15rem]"
+                className="inline-flex h-12 w-full items-center justify-center rounded-none bg-[#543119] px-8 font-body text-[0.7rem] font-medium uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs lg:w-auto lg:min-w-[15rem]"
               >
                 Make Reservation
               </button>

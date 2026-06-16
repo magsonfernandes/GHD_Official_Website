@@ -102,7 +102,7 @@ export function LegalDocumentContent({ document }: LegalDocumentContentProps) {
                   </div>
                 ) : null}
 
-                {section.paragraphs.map((paragraph) => (
+                {(section.paragraphs ?? []).map((paragraph) => (
                   <p
                     key={paragraph}
                     className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}
@@ -141,7 +141,7 @@ export function LegalDocumentContent({ document }: LegalDocumentContentProps) {
                         >
                           {subsection.title}
                         </h3>
-                        {subsection.paragraphs.map((paragraph) => (
+                        {(subsection.paragraphs ?? []).map((paragraph) => (
                           <p
                             key={paragraph}
                             className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}
@@ -172,7 +172,12 @@ export function LegalDocumentContent({ document }: LegalDocumentContentProps) {
                   : null}
 
                 {"footer" in section && section.footer ? (
-                  <p className={sectionBodyClass(false, "mt-0 text-sm sm:text-base")}>
+                  <p
+                    className={sectionBodyClass(
+                      false,
+                      "mt-0 whitespace-pre-line text-sm sm:text-base",
+                    )}
+                  >
                     {renderLinkedText(
                       section.footer,
                       contactEmail,

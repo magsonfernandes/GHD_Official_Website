@@ -110,7 +110,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
                 ] as const
               ).map(([title, items]) => (
                 <div key={title}>
-                  <h4 className="font-heading text-lg font-medium text-charcoal">
+                  <h4 className="font-heading text-lg font-thin text-charcoal">
                     {title}
                   </h4>
                   <ul className="mt-3 space-y-3">
@@ -143,7 +143,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
             <ul className="mt-3 space-y-2">
               {ROYAL_STUDIO.travelTips.map((tip) => (
                 <li key={tip.label} className="font-body text-sm text-grey">
-                  <span className="font-medium text-charcoal">{tip.label}:</span>{" "}
+                  <span className="font-semibold text-charcoal">{tip.label}:</span>{" "}
                   {tip.value}
                 </li>
               ))}
@@ -181,13 +181,13 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
             </h3>
 
             <div className="mt-4">
-              <h4 className="font-heading text-lg font-medium text-charcoal">
+              <h4 className="font-heading text-lg font-thin text-charcoal">
                 Timings
               </h4>
               <ul className="mt-3 space-y-2">
                 {ROYAL_STUDIO.duringStay.timings.map((timing) => (
                   <li key={timing.label} className="font-body text-sm text-grey">
-                    <span className="font-medium text-charcoal">
+                    <span className="font-semibold text-charcoal">
                       {timing.label}:
                     </span>{" "}
                     {timing.value}

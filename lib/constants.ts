@@ -19,6 +19,9 @@ export const DEFAULT_PROPERTY_ID = "nivaara";
 
 export const ROOM_OPTIONS = [1, 2, 3, 4, 5] as const;
 
+export const HOTEL_CHECK_IN_TIME = "1:00 PM";
+export const HOTEL_CHECK_OUT_TIME = "11:00 AM";
+
 export const ROYAL_STUDIO_RATE = {
   basePerNight: 7499,
   gstPercent: 5,
@@ -28,28 +31,32 @@ export const ROYAL_STUDIO_RATE = {
 
 export const ROYAL_STUDIO_BOOKING_POLICY = {
   rateLabel: "Standard Rate",
-  checkInTime: "14:00",
-  checkOutTime: "11:00",
+  checkInTime: HOTEL_CHECK_IN_TIME,
+  checkOutTime: HOTEL_CHECK_OUT_TIME,
   sections: [
     {
-      title: "Guarantee Policy",
-      body: "A valid credit card guarantee is required at the time of booking to secure your reservation at Nivaãra Nerul.",
+      title: "Booking Procedure",
+      body: "All reservations must be sent by email or approved booking system. Unconfirmed bookings shall not be treated as guaranteed. Voucher number and guest details are mandatory. Last-minute bookings are subject to room availability.",
     },
     {
-      title: "Cancellation Policy",
-      body: "Cancellation or amendment may be made up to 7 days prior to the date of arrival. Failure to cancel or amend within this period will result in 100% retention of the booking amount.",
+      title: "Cancellation & Retention Policy",
+      body: "Cancellation within 3 days: 100% retention. Less than 72 hours before check-in, no-show, and early checkout are subject to 100% retention.",
     },
     {
       title: "Check-in Policy",
-      body: "Rooms are available from 14:00 (2:00 PM). Early check-in is subject to availability and may incur additional charges.",
+      body: `Rooms are available from ${HOTEL_CHECK_IN_TIME}. Early check-in is subject to availability and may incur additional charges.`,
     },
     {
       title: "Check-out Policy",
-      body: "Rooms must be vacated by 11:00 AM at the latest. Late check-out requests should be informed to the Front Desk in advance and are subject to availability.",
+      body: `Rooms must be vacated by ${HOTEL_CHECK_OUT_TIME} at the latest. Late check-out requests should be informed to the Front Desk in advance and are subject to availability.`,
+    },
+    {
+      title: "Mandatory ID",
+      body: "All guests must provide a government-approved photo ID. Passport and visa are required for foreign nationals.",
     },
     {
       title: "Children Policy",
-      body: "Nivaãra welcomes families. Children sharing the parent room are subject to the room's maximum occupancy of 4 guests. Extra beds may be arranged upon request, subject to availability and additional charges.",
+      body: "Child below 6 years: Complimentary sharing parents bed without extra mattress. Child between 6-11 years: Charged as per contracted child rate with 1 Extra mattress. Child above 12 years: Treated as adult.",
     },
   ],
 } as const;
@@ -155,6 +162,8 @@ export const ROYAL_STUDIO = {
   ],
   duringStay: {
     timings: [
+      { label: "Check-in", value: HOTEL_CHECK_IN_TIME },
+      { label: "Check-out", value: HOTEL_CHECK_OUT_TIME },
       { label: "Housekeeping", value: "9:00 AM – 6:00 PM" },
       { label: "Pool", value: "9:00 AM – 8:00 PM" },
     ],
@@ -628,7 +637,10 @@ export const FAQ_SECTIONS = [
     items: [
       {
         question: "What are the check-in and check-out timings?",
-        bullets: ["Check-In: 2:00 PM", "Check-Out: 11:00 AM"],
+        bullets: [
+          `Check-In: ${HOTEL_CHECK_IN_TIME}`,
+          `Check-Out: ${HOTEL_CHECK_OUT_TIME}`,
+        ],
       },
       {
         question: "Can I request an early check-in or late check-out?",
@@ -638,7 +650,7 @@ export const FAQ_SECTIONS = [
       {
         question: "What documents are required during check-in?",
         answer:
-          "Guests are required to present a valid government-issued photo identification at the time of check-in.",
+          "All guests must provide a government-approved photo ID. Foreign nationals must present a valid passport and visa.",
       },
     ],
   },
@@ -723,7 +735,7 @@ export const FAQ_SECTIONS = [
       {
         question: "What is your cancellation policy?",
         answer:
-          "Cancellation and modification policies depend on the booking rate and package selected at the time of reservation.",
+          "Cancellations within 3 days of check-in incur 100% retention. Less than 72 hours before arrival, no-shows, and early checkouts are also subject to full retention.",
       },
       {
         question: "Can I modify my reservation after booking?",

@@ -109,7 +109,7 @@ export function BrandsNavItem({ scrolled }: BrandsMegaMenuProps) {
                       onFocus={() => setNivaaraOpen(true)}
                       onClick={() => setNivaaraOpen((value) => !value)}
                     >
-                      <span className="font-heading text-2xl font-medium sm:text-3xl">
+                      <span className="font-heading text-2xl font-thin sm:text-3xl">
                         {brand.name}
                       </span>
                       <span className="font-body text-xs text-grey" aria-hidden>
@@ -137,7 +137,7 @@ export function BrandsNavItem({ scrolled }: BrandsMegaMenuProps) {
                         <li key={location.name}>
                           <Link
                             href={location.href}
-                            className="block py-2 font-heading text-xl font-medium text-charcoal transition-colors duration-300 hover:text-[#543119] sm:text-2xl"
+                            className="block py-2 font-heading text-xl font-thin text-charcoal transition-colors duration-300 hover:text-[#543119] sm:text-2xl"
                             onClick={() => {
                               setOpen(false);
                               setNivaaraOpen(false);

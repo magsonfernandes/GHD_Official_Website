@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import {
   Archivo,
-  Cormorant_Garamond,
   DM_Sans,
   Inter,
   Playfair_Display,
@@ -20,10 +20,9 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-cormorant",
+const forum = localFont({
+  src: "../fonts/Forum-Regular.ttf",
+  variable: "--font-forum",
   display: "swap",
 });
 
@@ -85,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${cormorant.variable} ${playfair.variable} ${inter.variable} ${archivoExpanded.variable}`}
+      className={`${dmSans.variable} ${forum.variable} ${playfair.variable} ${inter.variable} ${archivoExpanded.variable}`}
     >
       <body>
         <ContactModalProvider>

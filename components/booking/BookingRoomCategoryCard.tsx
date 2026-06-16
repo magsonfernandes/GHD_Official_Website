@@ -65,7 +65,7 @@ export function BookingRoomCategoryCard({
 
         <div className="flex flex-col justify-between p-6 sm:p-8">
           <div>
-            <h2 className="font-heading text-2xl font-light leading-[1.15] text-charcoal sm:text-[2rem]">
+            <h2 className="font-heading text-2xl font-thin leading-[1.15] text-charcoal sm:text-[2rem]">
               {room.name}
             </h2>
 
@@ -124,7 +124,7 @@ export function BookingRoomCategoryCard({
             </p>
 
             <div className="text-right">
-              <p className="font-heading text-2xl font-light text-charcoal sm:text-3xl">
+              <p className="font-heading text-2xl font-thin text-charcoal sm:text-3xl">
                 {formatRoomRate(totalCost)}
               </p>
               <p className="mt-1 font-body text-xs text-grey">

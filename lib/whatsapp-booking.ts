@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import type { BookingSearch } from "@/lib/booking";
 import { getRoomCategoryForSlot } from "@/lib/booking";
-import { HOTEL_WHATSAPP, ROYAL_STUDIO_BOOKING_POLICY } from "@/lib/constants";
+import { HOTEL_CHECK_IN_TIME, HOTEL_CHECK_OUT_TIME, HOTEL_WHATSAPP } from "@/lib/constants";
 
 export type ReservationContactDetails = {
   firstName: string;
@@ -81,8 +81,8 @@ export function buildWhatsAppReservationMessage({
     "",
     `*Property:* ${propertyName}`,
     `*Room:* ${roomSummary}`,
-    `*Check-in:* ${format(booking.checkIn, "MMMM d, yyyy")} (from ${ROYAL_STUDIO_BOOKING_POLICY.checkInTime})`,
-    `*Check-out:* ${format(booking.checkOut, "MMMM d, yyyy")} (until ${ROYAL_STUDIO_BOOKING_POLICY.checkOutTime})`,
+    `*Check-in:* ${format(booking.checkIn, "MMMM d, yyyy")} (from ${HOTEL_CHECK_IN_TIME})`,
+    `*Check-out:* ${format(booking.checkOut, "MMMM d, yyyy")} (until ${HOTEL_CHECK_OUT_TIME})`,
     `*Nights:* ${nights}`,
     `*Rooms:* ${booking.guests.length}`,
     "",

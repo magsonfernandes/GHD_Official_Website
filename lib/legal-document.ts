@@ -1,13 +1,13 @@
 export type LegalDocumentSubsection = {
   title: string;
-  paragraphs: readonly string[];
+  paragraphs?: readonly string[];
   bullets?: readonly string[];
 };
 
 export type LegalDocumentSection = {
   id: string;
   title: string;
-  paragraphs: readonly string[];
+  paragraphs?: readonly string[];
   bullets?: readonly string[];
   footer?: string;
   subsections?: readonly LegalDocumentSubsection[];

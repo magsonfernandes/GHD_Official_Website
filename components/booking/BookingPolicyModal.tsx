@@ -25,7 +25,7 @@ export function BookingPolicyModal({
   roomName,
   nightlyRate,
 }: BookingPolicyModalProps) {
-  const { rateLabel, sections } = ROYAL_STUDIO_BOOKING_POLICY;
+  const { rateLabel, checkInTime, checkOutTime, sections } = ROYAL_STUDIO_BOOKING_POLICY;
 
   useEffect(() => {
     if (!open) return;
@@ -64,7 +64,7 @@ export function BookingPolicyModal({
           <div>
             <h2
               id="booking-policy-title"
-              className="font-heading text-xl font-medium text-charcoal sm:text-2xl"
+              className="font-heading text-xl font-thin text-charcoal sm:text-2xl"
             >
               {roomName}
             </h2>
@@ -85,6 +85,18 @@ export function BookingPolicyModal({
           <p className="font-body text-xs font-medium uppercase tracking-[0.12em] text-grey">
             Sales conditions
           </p>
+
+          <div className="mt-3 border border-border bg-muted/20 p-4">
+            <p className="font-body text-xs font-medium uppercase tracking-[0.1em] text-grey">
+              Check-in &amp; check-out
+            </p>
+            <p className="mt-2 font-body text-sm font-medium text-charcoal">
+              Check-in: {checkInTime}
+            </p>
+            <p className="mt-1 font-body text-sm font-medium text-charcoal">
+              Check-out: {checkOutTime}
+            </p>
+          </div>
 
           <div className="mt-3 border border-border bg-muted/20 p-4">
             <p className="font-body text-xs font-medium uppercase tracking-[0.1em] text-grey">

@@ -30,7 +30,7 @@ export function RoomCategoryCard({ room }: { room: RoomCategory }) {
 
         <div className="flex flex-col justify-between p-6 sm:p-8">
           <div>
-            <h2 className="font-heading text-2xl font-light leading-[1.15] text-charcoal sm:text-[2rem]">
+            <h2 className="font-heading text-2xl font-thin leading-[1.15] text-charcoal sm:text-[2rem]">
               {room.name}
             </h2>
 

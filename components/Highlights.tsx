@@ -33,7 +33,7 @@ export function Highlights() {
               <div className="mb-5 flex size-14 items-center justify-center rounded-full border border-border text-gold transition-colors duration-500 hover:border-gold">
                 <Icon className="size-5" strokeWidth={1.25} aria-hidden />
               </div>
-              <p className="font-heading text-2xl font-medium text-charcoal md:text-3xl">
+              <p className="font-heading text-2xl font-thin text-charcoal md:text-3xl">
                 {item.value}
               </p>
               <p className="mt-2 font-body text-xs font-medium uppercase tracking-[0.14em] text-grey">

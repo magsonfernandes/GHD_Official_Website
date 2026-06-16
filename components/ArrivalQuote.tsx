@@ -30,7 +30,7 @@ export function ArrivalQuote() {
             <p className="font-brand text-[2rem] font-normal italic leading-[1.2] tracking-[0.01em] text-charcoal/70 sm:text-[2.75rem] md:text-[3.25rem]">
               You arrive.
             </p>
-            <p className="mt-3 font-heading text-[1.75rem] font-light leading-[1.12] tracking-[0.02em] text-[#543119] sm:mt-4 sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem]">
+            <p className="mt-3 font-heading text-[1.75rem] font-thin leading-[1.12] tracking-[0.02em] text-[#543119] sm:mt-4 sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem]">
               We take care of the rest.
             </p>
           </blockquote>

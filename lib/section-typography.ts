@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export function sectionHeadingClass(light = false, className?: string) {
   return cn(
-    "font-heading mt-3 max-w-none text-[2.75rem] font-light leading-[1.15] lg:mt-3.5 xl:text-[3rem]",
+    "font-heading mt-3 max-w-none text-[2.5rem] font-thin leading-[1.15] tracking-[-0.01em] lg:mt-3.5 xl:text-[2.75rem]",
     light ? "text-white" : "text-charcoal",
     className,
   );

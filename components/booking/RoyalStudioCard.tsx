@@ -52,7 +52,7 @@ export function RoyalStudioCard({ guests, nights, bookAsName }: RoyalStudioCardP
         </div>
 
         <div className="flex flex-col justify-center p-3 sm:p-6 lg:p-10">
-          <h2 className="font-heading text-base font-medium text-charcoal sm:text-2xl lg:text-4xl">
+          <h2 className="font-heading text-base font-thin text-charcoal sm:text-2xl lg:text-4xl">
             {ROYAL_STUDIO.name}
           </h2>
           <p className="mt-1.5 font-body text-[0.65rem] text-grey sm:mt-2 sm:text-sm">
@@ -77,7 +77,7 @@ export function RoyalStudioCard({ guests, nights, bookAsName }: RoyalStudioCardP
       <div className="space-y-4 border-t border-border px-4 py-4 sm:px-6 sm:py-5">
         <div className="flex items-start justify-between gap-4">
           <p className="max-w-[60%] font-body text-xs text-grey sm:text-sm">
-            <span className="font-medium uppercase tracking-[0.08em]">
+            <span className="font-semibold uppercase tracking-[0.08em]">
               Room rate:
             </span>{" "}
             {formatInr(basePerNight)} / room / night + {gstPercent}% GST (
@@ -85,7 +85,7 @@ export function RoyalStudioCard({ guests, nights, bookAsName }: RoyalStudioCardP
           </p>
 
           <div className="shrink-0 text-right">
-            <p className="font-heading text-2xl font-medium text-charcoal sm:text-3xl lg:text-4xl">
+            <p className="font-heading text-2xl font-thin text-charcoal sm:text-3xl lg:text-4xl">
               {formatInr(totalCost)}
             </p>
             <p className="mt-1 font-body text-[0.65rem] text-grey sm:text-xs">
@@ -121,7 +121,7 @@ export function RoyalStudioCard({ guests, nights, bookAsName }: RoyalStudioCardP
                 {bookAsName ? (
                   <p className="font-body text-xs text-charcoal sm:text-right sm:text-sm">
                     <span className="text-grey">Book as</span>{" "}
-                    <span className="font-medium">{bookAsName}</span>
+                    <span className="font-semibold">{bookAsName}</span>
                   </p>
                 ) : null}
               </li>

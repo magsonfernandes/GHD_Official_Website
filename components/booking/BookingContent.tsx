@@ -144,7 +144,7 @@ export function BookingContent() {
                     <p className="font-body text-xs font-medium uppercase tracking-[0.12em] text-grey">
                       Stay total
                     </p>
-                    <p className="mt-1 font-heading text-2xl font-light text-charcoal sm:text-3xl">
+                    <p className="mt-1 font-heading text-2xl font-thin text-charcoal sm:text-3xl">
                       {formatInr(totalCost)}
                     </p>
                   </div>
@@ -156,7 +156,7 @@ export function BookingContent() {
               ) : null}
 
               <div className="mt-10">
-                <h3 className="font-heading text-xl font-light text-charcoal sm:text-2xl">
+                <h3 className="font-heading text-xl font-thin text-charcoal sm:text-2xl">
                   Explore room categories
                 </h3>
                 <p className="mt-2 font-body text-sm text-charcoal/70">
