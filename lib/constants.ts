@@ -425,9 +425,17 @@ export const EXPERIENCES_HERO_VIDEO =
 
 export const EXPLORE_SPACES = [
   {
-    title: "Rooms with a View",
+    title: "Private Workspaces",
     description:
-      "Wake to sweeping hillside vistas through generous windows — serene rooms where natural light, quiet comfort, and the landscape beyond create a restorative stay.",
+      "Work from a peaceful, green-accented setting designed to support focus, comfort, and deep productivity.",
+    href: "#accommodation",
+    image: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
+    alt: "Private workspace with window view at Nivaãra Nerul",
+  },
+  {
+    title: "Panoramic Comfort",
+    description:
+      "Enjoy beautiful views, airy interiors, and a sense of calm that lingers throughout your stay.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
     alt: "Guest room with hillside view at Nivaãra Nerul",
@@ -435,7 +443,7 @@ export const EXPLORE_SPACES = [
   {
     title: "Rooftop Pool",
     description:
-      "Unwind above the city with open skies, tranquil waters, and panoramic views that slow down the pace of the day.",
+      "Relax under open skies, where calm waters and stunning views create the perfect escape.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
     alt: "Rooftop pool at Nivaãra Nerul",
@@ -449,17 +457,9 @@ export const EXPLORE_SPACES = [
     alt: "Open dining terrace at Nivaãra Nerul",
   },
   {
-    title: "Private Workspaces",
-    description:
-      "A calm corner desk framed by greenery — a private workspace designed for focus, clarity, and unhurried productivity.",
-    href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
-    alt: "Private workspace with window view at Nivaãra Nerul",
-  },
-  {
     title: "Reception & Arrival",
     description:
-      "A warm, contemporary reception welcomes every guest with thoughtful design, natural light, and the ease of a seamless arrival.",
+      "From the moment you arrive, our friendly team is dedicated to making you feel at home.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Reception_Desk_Pic1.w1200.webp",
     alt: "Reception desk at Nivaãra Nerul",
@@ -467,7 +467,7 @@ export const EXPLORE_SPACES = [
   {
     title: "Lobby Lounge",
     description:
-      "An inviting lounge for unhurried conversations — contemporary seating, soft light, and greenery set the tone for relaxed gatherings.",
+      "Settle into a comfortable space ideal for discussions, catch-ups, and quiet collaboration.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
     alt: "Lobby lounge at Nivaãra Nerul",
