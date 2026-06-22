@@ -36,7 +36,7 @@ function waitForVideo(video: HTMLVideoElement): Promise<void> {
   const src = video.currentSrc || video.src;
   if (!src) return Promise.resolve();
 
-  if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+  if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
     return Promise.resolve();
   }
 
@@ -44,7 +44,6 @@ function waitForVideo(video: HTMLVideoElement): Promise<void> {
     const done = () => resolve();
 
     video.addEventListener("canplaythrough", done, { once: true });
-    video.addEventListener("loadeddata", done, { once: true });
     video.addEventListener("error", done, { once: true });
 
     // Autoplay hero videos are already loading — never call load() or it resets sizing.
