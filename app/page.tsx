@@ -11,7 +11,8 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="home-page">
+      <div className="home-page__texture" aria-hidden />
       <Header />
       <main>
         <HeroSection />
@@ -24,6 +25,6 @@ export default function Home() {
         <NewsletterSignup idSuffix="-home" />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

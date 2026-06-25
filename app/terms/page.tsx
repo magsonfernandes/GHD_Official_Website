@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Terms & Conditions | GHD Hotels",
   description:
-    "Read the GHD Hotels hotel policy and booking conditions for Nivaara Nerul, Goa — check-in, cancellation, payment, and guest policies.",
+    "Read the GHD Hotels hotel policy and booking conditions for Nivaara Coco Beach, Goa — check-in, cancellation, payment, and guest policies.",
 };
 
 export default function TermsPage() {

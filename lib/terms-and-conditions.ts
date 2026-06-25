@@ -3,7 +3,7 @@ import type { LegalDocument } from "@/lib/legal-document";
 
 export const TERMS_AND_CONDITIONS: LegalDocument = {
   title: "Hotel Policy & Booking Conditions",
-  summaryTitle: "GHD Hotels LLP · Nivaara Nerul, Goa",
+  summaryTitle: "GHD Hotels LLP · Nivaara Coco Beach, Goa",
   contactEmail: SITE.email,
   contactEmailHref: SITE.emailHref,
   website: NIVAARA_CONTACT.website,

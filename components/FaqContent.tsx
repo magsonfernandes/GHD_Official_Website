@@ -11,7 +11,7 @@ export function FaqContent() {
           <SectionIntro
             label="Help Centre"
             title="Frequently Asked Questions"
-            description="Everything you need to know about staying at Nivaãra Nerul — from bookings and amenities to local attractions and property policies."
+            description="Everything you need to know about staying at Nivaãra Coco Beach — from bookings and amenities to local attractions and property policies."
             titleAs="h1"
           />
         </div>

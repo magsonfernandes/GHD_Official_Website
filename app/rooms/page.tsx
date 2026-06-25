@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Rooms | GHD Hotels",
   description:
-    "Explore Luxury Studio, Mountain View Studio, and Sea View Studio at Nivaãra Nerul — the same thoughtfully designed space with views priced for your preference.",
+    "Explore Luxury Studio, Mountain View Studio, and Sea View Studio at Nivaãra Coco Beach — the same thoughtfully designed space with views priced for your preference.",
 };
 
 export default function RoomsPage() {

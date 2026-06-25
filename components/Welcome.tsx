@@ -47,7 +47,7 @@ export function Welcome() {
             variants={fadeUp}
             className={sectionBodyClass(false, "max-w-lg text-left")}
           >
-            Nivaãra Nerul is designed for discerning travelers seeking refined
+            Nivaãra Coco Beach is designed for discerning travelers seeking refined
             comfort, personalized service, and immersive experiences. Every detail
             reflects the philosophy of understated luxury and thoughtful
             hospitality.
@@ -57,7 +57,7 @@ export function Welcome() {
         <div className="relative aspect-[4/5] overflow-hidden bg-muted">
           <Image
             src={WELCOME_IMAGE}
-            alt="Elegant guest room interior at Nivaãra Nerul"
+            alt="Elegant guest room interior at Nivaãra Coco Beach"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"

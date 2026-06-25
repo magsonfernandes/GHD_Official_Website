@@ -306,7 +306,7 @@ export function ExploreNivaara() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative z-10 w-full overflow-hidden bg-white pt-8 pb-16 md:pt-10 md:pb-24 lg:pt-12 lg:pb-28"
+      className="relative z-10 w-full overflow-hidden bg-transparent pt-8 pb-16 md:pt-10 md:pb-24 lg:pt-12 lg:pb-28"
     >
       <div
         className="pointer-events-none absolute inset-x-0 z-0 bg-[#245F73]/88 transition-[top,height] duration-300 ease-out"

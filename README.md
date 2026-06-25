@@ -1,6 +1,6 @@
 # GHD Hotels — Luxury Hospitality Website
 
-A minimalist, premium landing page for **GHD Hotels** and **Nivaãra Nerul**, built with Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Framer Motion, and shadcn/ui.
+A minimalist, premium landing page for **GHD Hotels** and **Nivaãra Coco Beach**, built with Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Framer Motion, and shadcn/ui.
 
 ## Stack
 

@@ -28,12 +28,12 @@ export const BEACHES_BLOG = {
     region: "North Goa",
     guideType: "Travel Guide",
     beachesCovered: "10 beaches covered",
-    baseLocation: "Base is in Nerul",
+    baseLocation: "Base is in Coco Beach",
     readTime: "9 min read",
   },
   intro: [
     "Goa's coastline stretches for over 100 kilometers along the Arabian Sea, offering a diverse collection of beaches, each with its own personality. Whether you're seeking quiet mornings by the water, thrilling adventures, lively beach clubs, or breathtaking sunsets, Goa has a shoreline that perfectly matches your travel style.",
-    "For guests staying in Nerul, some of Goa's most popular beaches are just minutes away, making it an ideal base to explore the coast.",
+    "For guests staying at Coco Beach, some of Goa's most popular beaches are just minutes away, making it an ideal base to explore the coast.",
   ],
   beaches: [
     {
@@ -190,5 +190,5 @@ export const BEACHES_BLOG = {
     { mood: "For wellness and slow travel", beaches: "Arambol, Mandrem, Ashwem" },
   ],
   outro:
-    "Whether you prefer quiet mornings by the sea, adventurous water sports, cultural exploration, or vibrant nightlife, Goa's beaches offer experiences that continue to captivate travelers from around the world. For guests staying in Nerul, many of these iconic destinations are just a short drive away, making every day an opportunity to discover a new side of Goa's coastline.",
+    "Whether you prefer quiet mornings by the sea, adventurous water sports, cultural exploration, or vibrant nightlife, Goa's beaches offer experiences that continue to captivate travelers from around the world. For guests staying at Coco Beach, many of these iconic destinations are just a short drive away, making every day an opportunity to discover a new side of Goa's coastline.",
 } as const;

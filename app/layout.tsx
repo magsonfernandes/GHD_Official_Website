@@ -55,18 +55,18 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "GHD Hotels | Nivaãra Nerul — Luxury on Goa's Coast",
+  title: "GHD Hotels | Nivaãra Coco Beach — Luxury on Goa's Coast",
   description:
-    "GHD Hotels presents Nivaãra Nerul — an intimate luxury retreat in Goa where timeless hospitality meets contemporary elegance.",
+    "GHD Hotels presents Nivaãra Coco Beach — an intimate luxury retreat in Goa where timeless hospitality meets contemporary elegance.",
   keywords: [
     "GHD Hotels",
     "Nivaãra",
     "luxury hotel Goa",
-    "Nerul Goa",
+    "Coco Beach Goa",
     "boutique hotel",
   ],
   openGraph: {
-    title: "GHD Hotels | Nivaãra Nerul",
+    title: "GHD Hotels | Nivaãra Coco Beach",
     description:
       "Luxury reimagined on Goa's coast. An intimate retreat of understated elegance.",
     type: "website",

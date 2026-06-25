@@ -1,5 +1,5 @@
 export const PROPERTIES = [
-  { id: "nivaara", name: "Nivaãra - Nerul, North Goa", available: true },
+  { id: "nivaara", name: "Nivaãra - Coco Beach, North Goa", available: true },
   { id: "celestra", name: "Celéstra", available: false },
   { id: "samraya", name: "Samrāya", available: false },
 ] as const;
@@ -9,7 +9,7 @@ export const BRAND_MENU = [
     id: "nivaara",
     name: "Nivaãra",
     available: true,
-    locations: [{ name: "Nerul", href: "/" }],
+    locations: [{ name: "Coco Beach", href: "/" }],
   },
 ] as const;
 
@@ -93,7 +93,7 @@ export const ROYAL_STUDIO = {
         name: "Manohar International Airport (Mopa)",
         distance: "30 km",
         duration: "40–50 min",
-        note: "New North Goa airport (better option from Nerul)",
+        note: "New North Goa airport (better option from Coco Beach)",
       },
     ],
     railway: [
@@ -126,38 +126,38 @@ export const ROYAL_STUDIO = {
     ],
   },
   travelTips: [
-    { label: "Nearest Airport", value: "Mopa (faster from Nerul)" },
+    { label: "Nearest Airport", value: "Mopa (faster from Coco Beach)" },
     { label: "Nearest Railway Station", value: "Thivim" },
     { label: "Nearest Bus Stand", value: "Panaji (Kadamba)" },
   ],
   gallery: [
     {
       src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
-      alt: "Royal Studio at Nivaãra Nerul",
+      alt: "Royal Studio at Nivaãra Coco Beach",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-      alt: "Royal Studio interior at Nivaãra Nerul",
+      alt: "Royal Studio interior at Nivaãra Coco Beach",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-      alt: "Royal Studio workspace at Nivaãra Nerul",
+      alt: "Royal Studio workspace at Nivaãra Coco Beach",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
-      alt: "Royal Studio seating area at Nivaãra Nerul",
+      alt: "Royal Studio seating area at Nivaãra Coco Beach",
     },
     {
       src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
-      alt: "Royal Studio bathroom at Nivaãra Nerul",
+      alt: "Royal Studio bathroom at Nivaãra Coco Beach",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
-      alt: "Royal Studio bedroom detail at Nivaãra Nerul",
+      alt: "Royal Studio bedroom detail at Nivaãra Coco Beach",
     },
     {
       src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
-      alt: "Royal Studio ensuite at Nivaãra Nerul",
+      alt: "Royal Studio ensuite at Nivaãra Coco Beach",
     },
   ],
   duringStay: {
@@ -183,63 +183,63 @@ export const ROYAL_STUDIO = {
 export const NIVAARA_FULL_GALLERY = [
   {
     src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
-    alt: "Luxury Studio at Nivaãra Nerul",
+    alt: "Luxury Studio at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-    alt: "Luxury Studio interior at Nivaãra Nerul",
+    alt: "Luxury Studio interior at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-    alt: "Luxury Studio workspace at Nivaãra Nerul",
+    alt: "Luxury Studio workspace at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
-    alt: "Luxury Studio seating area at Nivaãra Nerul",
+    alt: "Luxury Studio seating area at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
-    alt: "Luxury Studio bedroom detail at Nivaãra Nerul",
+    alt: "Luxury Studio bedroom detail at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
-    alt: "Ensuite bathroom at Nivaãra Nerul",
+    alt: "Ensuite bathroom at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
-    alt: "Luxury bathroom at Nivaãra Nerul",
+    alt: "Luxury bathroom at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
-    alt: "Private terrace at Nivaãra Nerul",
+    alt: "Private terrace at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Terrace_Pic2.w1200.webp",
-    alt: "Terrace overlooking Goa at Nivaãra Nerul",
+    alt: "Terrace overlooking Goa at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Rooftop pool at Nivaãra Nerul",
+    alt: "Rooftop pool at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Pool_Pic2.w1200.webp",
-    alt: "Poolside at Nivaãra Nerul",
+    alt: "Poolside at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
-    alt: "Private workspace at Nivaãra Nerul",
+    alt: "Private workspace at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
-    alt: "Lobby lounge at Nivaãra Nerul",
+    alt: "Lobby lounge at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-    alt: "Reception at Nivaãra Nerul",
+    alt: "Reception at Nivaãra Coco Beach",
   },
   {
     src: "/images/nivaara/Nivaara_Full Building View_Pic1.w1200.webp",
-    alt: "Nivaãra Nerul building view",
+    alt: "Nivaãra Coco Beach building view",
   },
 ] as const;
 
@@ -360,8 +360,8 @@ export const HOTEL_WHATSAPP = {
 export const SITE = {
   name: "GHD Hotels",
   tagline: "Luxury Hospitality. Thoughtfully Crafted.",
-  property: "Nivaãra - Nerul, North Goa",
-  propertyDisplay: "Nivaãra - Nerul, North Goa",
+  property: "Nivaãra - Coco Beach, North Goa",
+  propertyDisplay: "Nivaãra - Coco Beach, North Goa",
   phone: "+91 838 000 8687",
   phoneHref: "tel:+918380008687",
   whatsappHref: HOTEL_WHATSAPP.waMeUrl,
@@ -369,8 +369,8 @@ export const SITE = {
   phoneSecondaryHref: "tel:+918390020408",
   email: "info@ghdhotels.in",
   emailHref: "mailto:info@ghdhotels.in",
-  location: "Nerul, Goa, India",
-  locationHref: "https://maps.google.com/?q=Nivaara+Nerul+Goa",
+  location: "Coco Beach, North Goa, India",
+  locationHref: "https://maps.google.com/?q=Nivaara+Coco+Beach+Goa",
   reserveHref: "tel:+918380008687",
 } as const;
 
@@ -406,7 +406,7 @@ export const CORPORATE_OFFICE = {
   phone: SITE.phone,
   phoneHref: SITE.phoneHref,
   image: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-  alt: "Reception at Nivaãra Nerul",
+  alt: "Reception at Nivaãra Coco Beach",
 } as const;
 
 export const HERO_IMAGE =
@@ -416,14 +416,16 @@ export const NIVAARA_HERO_VIDEO = "/images/nivaara/nivaara-hero.mov";
 export const HERO_VIDEO = NIVAARA_HERO_VIDEO;
 export const HERO_VIDEO_POSTER = "/images/nivaara/nivaara-hero-poster.webp";
 
+export const HOME_PAGE_TEXTURE = "/images/nivaara/white%20background.jpg";
+
 export const WELCOME_IMAGE =
   "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp";
 
 export const NIVAARA_LOGO = "/logos/Nivaãra_logo.png";
 
-export const GHD_LOGO_WHITE = "/images/nivaara/GHD hotels logo white.png";
+export const GHD_LOGO_WHITE = "/logos/GHD Hotels LOGO - WHITE.png";
 
-export const GHD_LOGO = "/logos/GHD Hotels Logo - Brown.png";
+export const GHD_LOGO = "/logos/GHD Hotels LOGO - BROWN.png";
 
 export const SIGNATURE_EXPERIENCES_VIDEO =
   "/images/nivaara/Food_nivaara.mp4";
@@ -441,7 +443,7 @@ export const EXPLORE_SPACES = [
       "Work from a peaceful, green-accented setting designed to support focus, comfort, and deep productivity.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
-    alt: "Private workspace with window view at Nivaãra Nerul",
+    alt: "Private workspace with window view at Nivaãra Coco Beach",
   },
   {
     title: "Panoramic Comfort",
@@ -449,7 +451,7 @@ export const EXPLORE_SPACES = [
       "Enjoy beautiful views, airy interiors, and a sense of calm that lingers throughout your stay.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-    alt: "Guest room with hillside view at Nivaãra Nerul",
+    alt: "Guest room with hillside view at Nivaãra Coco Beach",
   },
   {
     title: "Rooftop Pool",
@@ -457,7 +459,7 @@ export const EXPLORE_SPACES = [
       "Relax under open skies, where calm waters and stunning views create the perfect escape.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Rooftop pool at Nivaãra Nerul",
+    alt: "Rooftop pool at Nivaãra Coco Beach",
   },
   {
     title: "Open Dining",
@@ -465,7 +467,7 @@ export const EXPLORE_SPACES = [
       "Enjoy relaxed dining experiences in an inviting setting where fresh flavors meet warm hospitality.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
-    alt: "Open dining terrace at Nivaãra Nerul",
+    alt: "Open dining terrace at Nivaãra Coco Beach",
   },
   {
     title: "Reception & Arrival",
@@ -473,7 +475,7 @@ export const EXPLORE_SPACES = [
       "From the moment you arrive, our friendly team is dedicated to making you feel at home.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Reception_Desk_Pic1.w1200.webp",
-    alt: "Reception desk at Nivaãra Nerul",
+    alt: "Reception desk at Nivaãra Coco Beach",
   },
   {
     title: "Lobby Lounge",
@@ -481,24 +483,24 @@ export const EXPLORE_SPACES = [
       "Settle into a comfortable space ideal for discussions, catch-ups, and quiet collaboration.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
-    alt: "Lobby lounge at Nivaãra Nerul",
+    alt: "Lobby lounge at Nivaãra Coco Beach",
   },
 ] as const;
 
 export const GALLERY_IMAGES = [
   {
     src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-    alt: "Elegant guest room at Nivaãra Nerul",
+    alt: "Elegant guest room at Nivaãra Coco Beach",
     aspect: "tall" as const,
   },
   {
     src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Serene pool at Nivaãra Nerul",
+    alt: "Serene pool at Nivaãra Coco Beach",
     aspect: "wide" as const,
   },
   {
     src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-    alt: "Reception lounge at Nivaãra Nerul",
+    alt: "Reception lounge at Nivaãra Coco Beach",
     aspect: "square" as const,
   },
   {
@@ -590,7 +592,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Where is Nivaãra located?",
         answer:
-          "Nivaãra is located in the serene village of Nerul, North Goa, offering convenient access to popular beaches, dining destinations, and cultural attractions while providing a peaceful retreat away from the crowds.",
+          "Nivaãra is located at Coco Beach, North Goa, offering convenient access to popular beaches, dining destinations, and cultural attractions while providing a peaceful retreat away from the crowds.",
       },
       {
         question: "Which are the nearest beaches to Nivaãra?",
@@ -765,7 +767,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Is Nivaãra suitable for exploring North Goa?",
         answer:
-          "Yes. Its location in Nerul provides convenient access to North Goa's beaches, nightlife, dining destinations, and cultural landmarks.",
+          "Yes. Its location at Coco Beach provides convenient access to North Goa's beaches, nightlife, dining destinations, and cultural landmarks.",
       },
     ],
   },

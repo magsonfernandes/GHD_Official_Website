@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Booking | GHD Hotels",
   description:
-    "Review your stay details and choose from three room categories at Nivaãra Nerul.",
+    "Review your stay details and choose from three room categories at Nivaãra Coco Beach.",
 };
 
 export default function BookingPage() {

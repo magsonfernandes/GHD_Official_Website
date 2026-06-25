@@ -70,9 +70,19 @@
   }
   html {
     scroll-behavior: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
   }
   body {
     @apply bg-white font-body font-light text-charcoal antialiased;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
   }
   img {
     opacity: 1;
@@ -199,10 +209,42 @@ footer#contact.site-footer {
   visibility: hidden;
 }
 
+.home-page {
+  position: relative;
+  background-color: #ffffff;
+}
+
+.home-page__texture {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #ffffff;
+  background-image: url("/images/nivaara/white%20background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.home-page > main {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page > footer.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page > header.site-header {
+  z-index: 100;
+}
+
 #hero.hero-section .hero-section__title {
   font-size: clamp(1.25rem, 4.8vw, 3.25rem);
   line-height: 1.12;
-  letter-spacing: clamp(0.02em, 0.12vw, 0.06em);
+  letter-spacing: clamp(-0.01em, 0.02vw, 0.015em);
 }
 
 /* Mobile reserve bar — forced layout (not reliant on Tailwind breakpoints alone) */

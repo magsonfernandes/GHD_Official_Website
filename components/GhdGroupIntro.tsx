@@ -4,7 +4,7 @@ import { sectionBodyClass } from "@/lib/section-typography";
 
 export function GhdGroupIntro() {
   return (
-    <section className="bg-white px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:px-10">
+    <section className="bg-transparent px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:px-10">
       <div className="mx-auto max-w-[88rem] text-center">
         <Image
           src={NIVAARA_LOGO}

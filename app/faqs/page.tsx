@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "FAQs | GHD Hotels",
   description:
-    "Find answers to common questions about Nivaãra Nerul — location, reservations, check-in, amenities, dining, policies, and nearby attractions.",
+    "Find answers to common questions about Nivaãra Coco Beach — location, reservations, check-in, amenities, dining, policies, and nearby attractions.",
 };
 
 export default function FaqsPage() {
