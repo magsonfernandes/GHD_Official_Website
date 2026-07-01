@@ -1,4 +1,11 @@
-import { HOTEL_CHECK_IN_TIME, HOTEL_CHECK_OUT_TIME, NIVAARA_CONTACT, RESERVATION_CONTACT, SITE } from "@/lib/constants";
+import {
+  GUEST_CARE_CONTACT,
+  HOTEL_CHECK_IN_TIME,
+  HOTEL_CHECK_OUT_TIME,
+  NIVAARA_CONTACT,
+  RESERVATION_CONTACT,
+  SITE,
+} from "@/lib/constants";
 import type { LegalDocument } from "@/lib/legal-document";
 
 export const TERMS_AND_CONDITIONS: LegalDocument = {
@@ -23,11 +30,13 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       paragraphs: [],
       subsections: [
         {
-          title: "Mandatory ID",
-          paragraphs: ["All guests must provide:"],
+          title: "Mandatory Identification",
+          paragraphs: [
+            "All guests must present valid identification at the time of check-in:",
+          ],
           bullets: [
-            "Government-approved photo ID",
-            "Passport & Visa for foreign nationals",
+            "Government-issued photo identification for Indian nationals.",
+            "Valid Passport and Visa for foreign nationals, in accordance with applicable government regulations.",
           ],
         },
       ],
@@ -38,20 +47,20 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       paragraphs: [],
       subsections: [
         {
-          title: "Child below 6 years",
+          title: "Children below 6 years",
           paragraphs: [
-            "Complimentary sharing parents bed without extra mattress.",
+            "Complimentary stay when sharing existing bedding with parents (without an extra mattress).",
           ],
         },
         {
-          title: "Child between 6–11 years",
+          title: "Children between 6–11 years",
           paragraphs: [
-            "Charged as per contracted child rate with 1 Extra mattress.",
+            "Charged as per the applicable contracted child rate, including one extra mattress.",
           ],
         },
         {
-          title: "Child above 12 years",
-          paragraphs: ["Treated as adult."],
+          title: "Children aged 12 years and above",
+          paragraphs: ["Considered adults and charged accordingly."],
         },
       ],
     },
@@ -59,8 +68,9 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       id: "extra-bed-occupancy",
       title: "3. Extra Bed & Occupancy Policy",
       paragraphs: [
-        "Standard room occupancy is a maximum of two adults per room. An extra bed or mattress may be arranged upon prior request, subject to room type and availability, at an additional charge per night.",
-        "A maximum of one extra adult may be accommodated in select room categories. Please confirm occupancy requirements at the time of booking. Rooms cannot accommodate more than the permitted maximum occupancy under any circumstances.",
+        "The standard occupancy is a maximum of two adults per room.",
+        "One extra bed or mattress may be provided upon prior request, subject to room category and availability, at an additional charge.",
+        "Only one additional adult may be accommodated in eligible room categories. Under no circumstances shall the maximum permitted occupancy of the room be exceeded.",
       ],
     },
     {
@@ -68,75 +78,185 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       title: "4. Booking Procedure",
       paragraphs: [],
       bullets: [
-        "All reservations must be sent by email or approved booking system.",
-        "Unconfirmed bookings shall not be treated as guaranteed.",
-        "Voucher number and guest details are mandatory.",
-        "Last-minute bookings are subject to room availability.",
+        "All reservations must be made through email or an approved booking platform.",
+        "Reservations shall be considered confirmed only after written confirmation from GHD Hotels.",
+        "Voucher number and complete guest details are mandatory.",
+        "Last-minute reservations are subject to room availability.",
       ],
-      footer: `Reservation Email: ${RESERVATION_CONTACT.email}\nReservation No.: ${RESERVATION_CONTACT.phone}\n${NIVAARA_CONTACT.website}`,
+      footer: `Reservation Email: ${RESERVATION_CONTACT.email}\nReservation No.: ${RESERVATION_CONTACT.phone}\nWebsite: ${NIVAARA_CONTACT.website}`,
     },
     {
       id: "cancellation-retention",
       title: "5. Cancellation & Retention Policy",
-      paragraphs: ["Cancellation within 3 days: 100% retention."],
-      bullets: [
-        "Less than 72 Hours: 100% Retention",
-        "No Show: 100% Retention",
-        "Early Checkout: Full retention",
+      paragraphs: [
+        `All cancellation requests must be submitted in writing via email to ${RESERVATION_CONTACT.email}.`,
+        "The following cancellation charges shall apply:",
       ],
-      footer: `All cancellation requests must be submitted in writing via email to ${RESERVATION_CONTACT.email}.`,
+      bullets: [
+        "More than 72 hours prior to the scheduled check-in: 100% refund of the booking amount.",
+        "Between 72 hours and 48 hours prior to check-in: 50% retention of the total booking value (50% refund).",
+        "Less than 48 hours prior to check-in: 100% retention (no refund).",
+        "No Show: 100% retention.",
+        "Early Check-Out: No refund shall be applicable for unused room nights.",
+        "Refunds, where applicable, shall be processed through the original mode of payment within the standard processing timelines.",
+      ],
+    },
+    {
+      id: "amendment-policy",
+      title: "6. Amendment Policy",
+      paragraphs: ["Guests may amend their reservation subject to the following conditions:"],
+      bullets: [
+        "A booking may be amended only once.",
+        "Amendments must be requested at least 48 hours prior to the scheduled check-in.",
+        "The revised check-in date must fall within 60 days from the original check-in date.",
+        "Requests to amend beyond the 60-day window shall be treated as a cancellation.",
+        "A second amendment request for the same reservation will not be permitted and shall be treated as a cancellation.",
+        "Amendment requests received less than 48 hours before check-in shall be governed by the Cancellation & Retention Policy stated above.",
+        `All amendment requests must be submitted in writing to ${RESERVATION_CONTACT.email} and remain subject to room availability and applicable rate differences.`,
+      ],
     },
     {
       id: "parking",
-      title: "6. Parking",
+      title: "7. Parking",
       paragraphs: [
-        "Secure shared parking is available in the vicinity of the property at no additional charge. Guests are advised to connect with our Front Desk team 10 to 15 minutes prior to arrival so that assistance may be arranged. All vehicles are parked at the owner's risk. GHD Hotels shall not be liable for any loss or damage to vehicles or their contents whilst on hotel premises.",
+        "Parking is available in the vicinity of the property, subject to availability.",
+        "Guests are requested to contact the Front Desk approximately 10–15 minutes prior to arrival for parking assistance.",
+        "All vehicles are parked solely at the owner's risk. Guests are entirely responsible for the safety, security, and contents of their vehicles. GHD Hotels LLP shall not be liable for any loss, theft, damage, accident, or claims arising in relation to vehicles parked on or near the hotel premises, regardless of the cause.",
       ],
     },
     {
       id: "special-requests",
-      title: "7. Special Requests",
+      title: "8. Special Requests",
       paragraphs: [
-        "GHD Hotels endeavours to accommodate all special requests received at the time of booking, including room location preferences, pillow types, dietary requirements, and occasion arrangements. However, all special requests are subject to availability upon arrival and cannot be guaranteed. The hotel does not accept liability for the non-fulfilment of special requests.",
+        "GHD Hotels will make every reasonable effort to accommodate special requests received at the time of booking, including room preferences, bedding preferences, dietary requirements, and celebration arrangements.",
+        "However, all such requests are subject to availability upon arrival and cannot be guaranteed. Failure to accommodate any special request shall not constitute grounds for compensation or cancellation without applicable charges.",
       ],
     },
     {
       id: "personal-belongings",
-      title: "8. Personal Belongings & Liability",
+      title: "9. Personal Belongings",
       paragraphs: [
-        "Guests are responsible for the safekeeping of their personal belongings, valuables, and luggage throughout their stay. GHD Hotels shall not be held liable for any loss, theft, or damage to personal property on hotel premises, including in guest rooms, public areas, and parking facilities. Guests are advised to make use of the in-room safe where available.",
+        "Guests are solely responsible for the safekeeping of their personal belongings, valuables, cash, jewellery, electronic devices, and luggage during their stay.",
+        "GHD Hotels shall not be liable for any loss, theft, or damage occurring within guest rooms, public areas, or parking facilities. Guests are encouraged to use in-room safes where available.",
+      ],
+    },
+    {
+      id: "cctv-surveillance",
+      title: "10. CCTV Surveillance",
+      paragraphs: [
+        "For the safety and security of guests, visitors, employees, and hotel assets, CCTV surveillance operates in designated public and common areas throughout the property.",
+        "By entering the premises, guests acknowledge and consent to such monitoring. CCTV cameras are not installed inside guest rooms or other private areas.",
+        "Recorded footage may be retained and used where required for security, operational, or legal purposes, in accordance with applicable laws.",
+      ],
+    },
+    {
+      id: "property-damage",
+      title: "11. Hotel Property & Damage Policy",
+      paragraphs: [
+        "Guests shall be responsible for any loss, damage, or excessive cleaning required as a result of their actions or those of their invitees during their stay.",
+      ],
+      subsections: [
+        {
+          title: "Room Key Card",
+          paragraphs: [
+            "The electronic room key card remains the property of GHD Hotels LLP at all times and is issued solely for the guest's convenience during their stay. Guests are requested to return the key card to the Front Desk upon check-out or when vacating the room. The hotel reserves the right to levy a replacement charge for any lost, damaged, or unreturned key card.",
+          ],
+        },
+        {
+          title: "Damage to Hotel Property",
+          paragraphs: [
+            "Guests shall be responsible for any loss, damage, misuse, or breakage of hotel property, including but not limited to guest rooms, fixtures, fittings, furniture, furnishings, equipment, appliances, linen, décor, and amenities, caused by themselves or any person associated with their stay.",
+            "The hotel reserves the right to assess the extent of the damage and recover the full cost of repair, replacement, restoration, or deep cleaning, including any consequential losses arising from damage caused to hotel property, furnishings, fixtures, equipment, or linen, as determined by the hotel. Such charges shall be payable immediately upon demand or, at the latest, prior to check-out.",
+            "Any damage resulting in a room being temporarily unavailable for sale may also attract additional charges for the resulting loss of revenue, where applicable.",
+            "Any illegal activity, misuse of hotel facilities, deliberate damage, theft, vandalism, or violation of applicable laws may result in immediate termination of the stay without refund and may be reported to the appropriate law enforcement authorities.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "visitor-policy",
+      title: "12. Visitor Policy",
+      paragraphs: [
+        "For the safety, privacy, and comfort of all guests:",
+      ],
+      bullets: [
+        "Visitors who are not registered occupants are permitted only up to the Reception/Lobby area.",
+        "Visitors are not permitted inside guest rooms or residential areas of the property.",
+        "Any exceptions shall be solely at the discretion of hotel management and may require visitor registration and valid identification.",
       ],
     },
     {
       id: "force-majeure",
-      title: "9. Force Majeure",
+      title: "13. Force Majeure",
       paragraphs: [
-        "GHD Hotels shall not be responsible or liable for any failure to perform or delay in performing any of its obligations under a booking where such failure or delay arises from events beyond the hotel's reasonable control. Such events include, but are not limited to, natural disasters, floods, storms, fire, explosions, epidemics or pandemics, acts of terrorism, civil unrest, industrial action, government orders, war, or any other circumstance constituting force majeure under applicable law.",
-        "In such circumstances, each party shall bear the costs and expenses arising from the force majeure event independently. Any additional costs incurred by the guest as a result of alternative accommodation arrangements shall be borne solely by the guest.",
+        "GHD Hotels shall not be responsible for any failure or delay in fulfilling its obligations where such failure arises due to events beyond its reasonable control, including but not limited to natural disasters, floods, storms, fire, pandemics, epidemics, acts of terrorism, civil disturbances, labour disputes, government restrictions, war, or other force majeure events.",
+        "Each party shall bear its own costs arising from such events.",
       ],
     },
     {
       id: "house-rules",
-      title: "10. General House Rules & Conduct",
-      paragraphs: [],
-      bullets: [
-        "Outside food, beverages, and liquor are strictly not permitted on hotel premises.",
-        "GHD Hotels is committed to providing a peaceful environment for all guests. Excessive noise or conduct that disturbs other guests will not be tolerated and may result in immediate eviction without refund.",
-        "The hotel operates a strict no-smoking policy in all indoor areas. Designated smoking zones, where available, are clearly indicated on the property.",
-        "Pets are not permitted on the premises unless explicitly agreed in advance and in writing by GHD Hotels management.",
-        "Guests are expected to treat all staff, property, and facilities with due respect. GHD Hotels reserves the right to charge for any damage caused to hotel property during a guest's stay.",
+      title: "14. General House Rules & Guest Conduct",
+      paragraphs: [
+        "To ensure a comfortable and enjoyable stay for all guests, the following rules shall apply:",
+      ],
+      subsections: [
+        {
+          title: "Outside Food & Liquor",
+          paragraphs: [
+            "Guests may bring outside food and alcoholic beverages onto the property.",
+            "However:",
+          ],
+          bullets: [
+            "Consumption of outside food and alcoholic beverages is strictly permitted only inside the guest's room.",
+            "Consumption in corridors, lobby, pool areas, restaurants, parking areas, or any other common or public area of the property is strictly prohibited.",
+            "The hotel reserves the right to request removal of such items from public areas.",
+          ],
+        },
+        {
+          title: "Smoking Policy",
+          paragraphs: [
+            "Smoking is permitted only on the private balcony attached to the guest room, where applicable.",
+            "Smoking is strictly prohibited inside guest rooms and throughout all indoor and common areas of the property.",
+            "Any violation may attract cleaning, deodorization, and damage recovery charges.",
+          ],
+        },
+        {
+          title: "Noise & Behaviour",
+          paragraphs: [
+            "Guests are expected to maintain reasonable noise levels at all times.",
+            "The hotel reserves the right to refuse service or terminate a stay without refund in cases of disorderly conduct, excessive noise, intoxication causing disturbance, illegal activities, or behaviour that affects the comfort, safety, or privacy of other guests.",
+          ],
+        },
+        {
+          title: "Pets",
+          paragraphs: [
+            "Pets are not permitted unless expressly approved in writing by GHD Hotels prior to arrival.",
+          ],
+        },
       ],
     },
     {
       id: "amendments",
-      title: "11. Amendments to These Terms & Conditions",
+      title: "15. Amendments to These Terms & Conditions",
       paragraphs: [
-        `GHD Hotels LLP reserves the right to modify, amend, or update these Terms & Conditions at any time without prior notice. The most current version will be published on our website at ${NIVAARA_CONTACT.website}. Guests are encouraged to review these terms prior to every booking. Continued use of our services constitutes acceptance of any revised terms.`,
+        "GHD Hotels LLP reserves the right to modify, amend, or update these Terms & Conditions at any time without prior notice.",
+        `The latest version shall always be available at ${NIVAARA_CONTACT.website}.`,
+        "Continued use of our services constitutes acceptance of the revised Terms & Conditions.",
+      ],
+    },
+    {
+      id: "guest-feedback",
+      title: "16. Guest Feedback & Care",
+      paragraphs: [
+        "At GHD Hotels, we value your feedback and continuously strive to improve our guest experience.",
+        "For any compliments, suggestions, feedback, or concerns regarding your stay, please contact us at:",
+        `Guest Care Email: ${GUEST_CARE_CONTACT.email}`,
+        "We appreciate every opportunity to serve you better and will make every effort to respond to your feedback in a timely manner.",
       ],
     },
     {
       id: "contact-reservations",
-      title: "12. Contact & Reservations",
+      title: "17. Contact & Reservations",
       paragraphs: [
         "GHD Hotels LLP",
         `Reservation Email: ${RESERVATION_CONTACT.email}`,

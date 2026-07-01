@@ -393,6 +393,12 @@ export const RESERVATION_CONTACT = {
   emailHref: "mailto:reservation@ghdhotels.in",
 } as const;
 
+export const GUEST_CARE_CONTACT = {
+  title: "Guest Care",
+  email: "care@ghdhotels.in",
+  emailHref: "mailto:care@ghdhotels.in",
+} as const;
+
 export const CORPORATE_OFFICE = {
   title: "Head Office",
   addressLines: [
@@ -412,7 +418,7 @@ export const CORPORATE_OFFICE = {
 export const HERO_IMAGE =
   "/images/nivaara/Nivaara_Full Building View_Pic1.w1600.webp";
 
-export const NIVAARA_HERO_VIDEO = "/images/nivaara/nivaara-hero.mov";
+export const NIVAARA_HERO_VIDEO = "/images/nivaara/Hero%20Section.mov";
 export const HERO_VIDEO = NIVAARA_HERO_VIDEO;
 export const HERO_VIDEO_POSTER = "/images/nivaara/nivaara-hero-poster.webp";
 

@@ -159,11 +159,13 @@ function MobileMenuButton({
   onClick,
   menuId,
   light = false,
+  className,
 }: {
   open: boolean;
   onClick: () => void;
   menuId: string;
   light?: boolean;
+  className?: string;
 }) {
   return (
     <button
@@ -173,6 +175,7 @@ function MobileMenuButton({
         light
           ? "text-white hover:text-white/75"
           : "text-charcoal hover:text-charcoal/70",
+        className,
       )}
       onClick={onClick}
       aria-expanded={open}
@@ -283,10 +286,10 @@ function StickyHeaderContent() {
   return (
     <div className="relative w-full bg-white">
       <div className="flex h-14 w-full items-stretch md:h-16">
-        <div className="relative z-10 flex min-w-0 flex-1 items-center justify-between gap-3 px-3 sm:px-6 lg:px-10">
+        <div className="relative z-10 flex min-w-0 flex-1 items-center justify-between gap-3 px-3 pointer-events-none sm:px-6 lg:px-10">
           <Link
             href="/"
-            className="site-header__logo relative block h-8 w-[8.5rem] shrink-0 sm:h-10 sm:w-[10.5rem] md:w-[11.5rem]"
+            className="site-header__logo pointer-events-auto relative block h-8 w-[8.5rem] shrink-0 sm:h-10 sm:w-[10.5rem] md:w-[11.5rem]"
             aria-label={`${SITE.name} home`}
           >
             <Image
@@ -303,11 +306,12 @@ function StickyHeaderContent() {
             open={menuOpen}
             onClick={() => setMenuOpen((current) => !current)}
             menuId="sticky-mobile-menu"
+            className="pointer-events-auto"
           />
         </div>
 
         <nav
-          className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex"
+          className="pointer-events-none absolute inset-0 z-20 hidden items-center justify-center md:flex"
           aria-label="Primary navigation"
         >
           <ul className="pointer-events-auto flex items-center justify-center gap-5 md:gap-6 lg:gap-8">
@@ -382,7 +386,7 @@ export function Header() {
         }}
         aria-hidden={showStickyHeader}
       >
-        <div className="pointer-events-auto">
+        <div className={cn("pointer-events-auto", showStickyHeader && "pointer-events-none")}>
           <TransparentHeaderContent />
         </div>
       </header>
