@@ -68,9 +68,10 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       id: "extra-bed-occupancy",
       title: "3. Extra Bed & Occupancy Policy",
       paragraphs: [
-        "The standard occupancy is a maximum of two adults per room.",
+        "The standard occupancy is of two adults per room.",
         "One extra bed or mattress may be provided upon prior request, subject to room category and availability, at an additional charge.",
         "Only one additional adult may be accommodated in eligible room categories. Under no circumstances shall the maximum permitted occupancy of the room be exceeded.",
+        "Maximum of 3 adults and 1 child (without extra mattress) can be accommodated in one room.",
       ],
     },
     {

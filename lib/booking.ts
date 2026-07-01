@@ -2,6 +2,7 @@ import { addDays, startOfDay } from "date-fns";
 import type { GuestSelection } from "@/components/reservation/GuestRoomPicker";
 import {
   DEFAULT_GUEST_SELECTION,
+  clampRoomGuests,
   MAX_ROOMS,
 } from "@/components/reservation/GuestRoomPicker";
 import { DEFAULT_PROPERTY_ID, ROOM_CATEGORIES } from "@/lib/constants";
@@ -79,11 +80,13 @@ function parseGuestSelection(
               typeof room.roomCategoryId === "string"),
         )
       ) {
-        return parsed.map((room) => ({
-          adults: room.adults,
-          children: room.children,
-          ...(room.roomCategoryId ? { roomCategoryId: room.roomCategoryId } : {}),
-        }));
+        return parsed.map((room) =>
+          clampRoomGuests({
+            adults: room.adults,
+            children: room.children,
+            ...(room.roomCategoryId ? { roomCategoryId: room.roomCategoryId } : {}),
+          }),
+        );
       }
     } catch {
       // Fall through to reconstructed guest selection.
@@ -91,18 +94,22 @@ function parseGuestSelection(
   }
 
   if (rooms <= 1) {
-    return [{ adults: Math.max(adults, 1), children: Math.max(children, 0) }];
+    return [
+      clampRoomGuests({
+        adults: Math.max(adults, 1),
+        children: Math.max(children, 0),
+      }),
+    ];
   }
 
-  const selection: GuestSelection = Array.from({ length: rooms }, () => ({
-    adults: 2,
-    children: 0,
-  }));
+  const selection: GuestSelection = Array.from({ length: rooms }, () =>
+    clampRoomGuests({ adults: 1, children: 0 }),
+  );
 
-  selection[0] = {
+  selection[0] = clampRoomGuests({
     adults: Math.max(adults, 1),
     children: Math.max(children, 0),
-  };
+  });
 
   return selection;
 }

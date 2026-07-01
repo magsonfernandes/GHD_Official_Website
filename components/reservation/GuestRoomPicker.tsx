@@ -13,6 +13,10 @@ import {
   fieldSegmentHeroClass,
   segmentDividerClass,
 } from "@/components/reservation/fieldStyles";
+import {
+  MAX_ADULTS_PER_ROOM,
+  MAX_GUESTS_PER_ROOM,
+} from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export type RoomGuests = {
@@ -29,31 +33,59 @@ export const DEFAULT_GUEST_SELECTION: GuestSelection = [
 
 export const MAX_ROOMS = 5;
 const MIN_ADULTS = 1;
-const MAX_OCCUPANCY = 4;
+
+function getChildrenCap(adults: number): number {
+  return adults >= 3 ? 1 : 2;
+}
 
 function getMaxAdultsForRoom(children: number): number {
-  return Math.max(MIN_ADULTS, MAX_OCCUPANCY - children);
+  return Math.min(
+    MAX_ADULTS_PER_ROOM,
+    Math.max(MIN_ADULTS, MAX_GUESTS_PER_ROOM - children),
+  );
 }
 
 function getMaxChildrenForRoom(adults: number): number {
-  return Math.max(0, MAX_OCCUPANCY - adults);
+  return Math.min(
+    getChildrenCap(adults),
+    Math.max(0, MAX_GUESTS_PER_ROOM - adults),
+  );
 }
 
-function normalizeRoom(room: RoomGuests, changedField: keyof RoomGuests): RoomGuests {
+export function clampRoomGuests(
+  room: RoomGuests,
+  changedField: keyof RoomGuests = "adults",
+): RoomGuests {
   let { adults, children } = room;
 
-  adults = Math.max(MIN_ADULTS, Math.min(adults, MAX_OCCUPANCY));
-  children = Math.max(0, Math.min(children, MAX_OCCUPANCY));
+  adults = Math.max(MIN_ADULTS, Math.min(adults, MAX_ADULTS_PER_ROOM));
+  children = Math.max(0, Math.min(children, getChildrenCap(adults)));
 
-  if (adults + children > MAX_OCCUPANCY) {
+  if (adults + children > MAX_GUESTS_PER_ROOM) {
     if (changedField === "adults") {
-      children = MAX_OCCUPANCY - adults;
+      children = Math.min(getChildrenCap(adults), MAX_GUESTS_PER_ROOM - adults);
     } else {
-      adults = Math.max(MIN_ADULTS, MAX_OCCUPANCY - children);
+      adults = Math.max(
+        MIN_ADULTS,
+        Math.min(MAX_ADULTS_PER_ROOM, MAX_GUESTS_PER_ROOM - children),
+      );
+      children = Math.min(
+        children,
+        getChildrenCap(adults),
+        MAX_GUESTS_PER_ROOM - adults,
+      );
     }
   }
 
-  return { adults, children };
+  return {
+    adults,
+    children,
+    ...(room.roomCategoryId ? { roomCategoryId: room.roomCategoryId } : {}),
+  };
+}
+
+function normalizeRoom(room: RoomGuests, changedField: keyof RoomGuests): RoomGuests {
+  return clampRoomGuests(room, changedField);
 }
 
 export function formatGuestSummary(rooms: GuestSelection): string {

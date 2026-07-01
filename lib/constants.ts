@@ -22,6 +22,10 @@ export const ROOM_OPTIONS = [1, 2, 3, 4, 5] as const;
 export const HOTEL_CHECK_IN_TIME = "1:00 PM";
 export const HOTEL_CHECK_OUT_TIME = "11:00 AM";
 
+export const MAX_ADULTS_PER_ROOM = 3;
+export const MAX_CHILDREN_PER_ROOM = 2;
+export const MAX_GUESTS_PER_ROOM = 4;
+
 export const ROYAL_STUDIO_RATE = {
   basePerNight: 7499,
   gstPercent: 5,

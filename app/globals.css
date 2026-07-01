@@ -61,7 +61,7 @@
   --footer-bg-r: 224;
   --footer-bg-g: 225;
   --footer-bg-b: 208;
-  --footer-bg-opacity: 0.5; /* 1 = opaque, 0.5 = 50% visible, 0 = fully transparent */
+  --footer-bg-opacity: 1;
 }
 
 @layer base {
@@ -232,9 +232,13 @@ footer#contact.site-footer {
   z-index: 1;
 }
 
-.home-page > footer.site-footer {
+.home-page > footer#contact.site-footer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  isolation: isolate;
+  background-color: rgb(
+    var(--footer-bg-r) var(--footer-bg-g) var(--footer-bg-b) / 1
+  ) !important;
 }
 
 .home-page > header.site-header {
