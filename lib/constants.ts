@@ -273,14 +273,14 @@ export const ROOM_CATEGORIES = [
   },
   {
     id: "mountain-view",
-    name: "Mountain View Studio",
+    name: "Luxury Valley Room",
     summary:
-      "Overlooking Goa's lush hills, this tranquil studio invites slower mornings, scenic views, and a stay connected to nature.",
+      "Overlooking Goa's lush hills, this tranquil room invites slower mornings, scenic views, and a stay connected to nature.",
     headline: "Wake Up to Goa's Green Landscape",
     description:
-      "Overlooking the surrounding hills and natural greenery, the Mountain View Studio combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
+      "Overlooking the surrounding hills and natural greenery, the Luxury Valley Room combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
     highlights: [
-      "Mountain Views",
+      "Valley Views",
       "Private Balcony",
       "King Bed",
       "Peaceful Surroundings",
@@ -296,14 +296,14 @@ export const ROOM_CATEGORIES = [
   },
   {
     id: "sea-view",
-    name: "Sea View Studio",
+    name: "Luxury Palms Room",
     summary:
-      "With views stretching towards the Arabian Sea, this studio captures the essence of Goa's coastal charm in a comfortable and elegant setting.",
-    headline: "Views of the Arabian Sea from Your Balcony",
+      "Framed by palms and coastal light, this room captures the essence of Goa's charm in a comfortable and elegant setting.",
+    headline: "A Relaxed Stay Among the Palms",
     description:
-      "Offering glimpses of the Arabian Sea, the Sea View Studio brings Goa's coastal charm directly to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a studio designed for comfort with an elevated sense of place.",
+      "Set among swaying palms with glimpses of Goa's coastal charm, the Luxury Palms Room brings an elevated sense of place to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a room designed for comfort with a serene tropical outlook.",
     highlights: [
-      "Sea Views",
+      "Palms Outlook",
       "Private Balcony",
       "King Bed",
       "Coastal Ambience",

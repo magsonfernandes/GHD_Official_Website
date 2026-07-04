@@ -420,8 +420,8 @@ export function BookingDetailsContent() {
 
             <section className="space-y-4 border-t border-border pt-8">
               <p className="font-body text-sm text-charcoal">
-                Cancellation within 3 days of check-in incurs 100% retention.
-                Less than 72 hours before arrival, no-show, and early checkout
+                Cancellation within 72 hours of check-in incurs 50% retention.
+                Less than 48 hours before arrival, no-show, and early checkout
                 are also subject to full retention.{" "}
                 <span className="font-semibold">{formatInr(retentionAmount)}</span>
               </p>
