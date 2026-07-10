@@ -5,7 +5,11 @@ import {
   clampRoomGuests,
   MAX_ROOMS,
 } from "@/components/reservation/GuestRoomPicker";
-import { DEFAULT_PROPERTY_ID, ROOM_CATEGORIES } from "@/lib/constants";
+import {
+  AXISROOMS_BOOKING_URL,
+  DEFAULT_PROPERTY_ID,
+  ROOM_CATEGORIES,
+} from "@/lib/constants";
 import { getRoomCategoryById, getRoomCategoryNightlyRate } from "@/lib/rooms";
 
 export type BookingSearch = {
@@ -242,15 +246,5 @@ export function buildAddRoomBookingHref(booking: BookingSearch): string | null {
 }
 
 export function getDefaultBookingHref(): string {
-  const { checkIn, checkOut } = getDefaultReservationDates();
-  const guests = getDefaultGuestSelection();
-
-  const params = buildBookingSearchParams({
-    property: DEFAULT_PROPERTY_ID,
-    guests,
-    checkIn,
-    checkOut,
-  });
-
-  return `/booking?${params.toString()}`;
+  return AXISROOMS_BOOKING_URL;
 }

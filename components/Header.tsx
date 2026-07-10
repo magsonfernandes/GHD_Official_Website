@@ -385,6 +385,7 @@ export function Header() {
           transform: `translate3d(0, -${heroOffset}px, 0)`,
         }}
         aria-hidden={showStickyHeader}
+        inert={showStickyHeader ? true : undefined}
       >
         <div className={cn("pointer-events-auto", showStickyHeader && "pointer-events-none")}>
           <TransparentHeaderContent />
@@ -396,11 +397,12 @@ export function Header() {
         className={cn(
           "site-header site-header--scrolled fixed inset-x-0 top-0 z-[100] bg-white shadow-[0_4px_24px_rgba(17,17,17,0.06)] transition-[opacity,transform] duration-300 ease-out",
           showStickyHeader
-            ? "pointer-events-auto translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-2 opacity-0",
+            ? "pointer-events-auto visible translate-y-0 opacity-100"
+            : "pointer-events-none invisible -translate-y-2 opacity-0",
         )}
         style={{ backgroundColor: "#ffffff" }}
         aria-hidden={!showStickyHeader}
+        inert={!showStickyHeader ? true : undefined}
       >
         <StickyHeaderContent />
       </header>

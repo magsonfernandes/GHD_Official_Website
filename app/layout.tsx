@@ -6,12 +6,15 @@ import {
   Inter,
   Playfair_Display,
 } from "next/font/google";
+import Script from "next/script";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import { NIVAARA_LOGO } from "@/lib/constants";
 import { MobileReserveBar } from "@/components/MobileReserveBar";
 import { PageMediaGate } from "@/components/PageMediaGate";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-5QLJVC3HJH";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -86,6 +89,21 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${forum.variable} ${playfair.variable} ${inter.variable} ${archivoExpanded.variable}`}
     >
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body>
         <ContactModalProvider>
           <ScrollToTop />

@@ -39,6 +39,13 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
             "Valid Passport and Visa for foreign nationals, in accordance with applicable government regulations.",
           ],
         },
+        {
+          title: "Early Check-In & Late Check-Out",
+          paragraphs: [
+            "Early check-in and late check-out are subject to room availability and shall attract additional charges, as applicable.",
+            "Guests are requested to inform the Front Desk in advance. Approval and any applicable fees shall be at the sole discretion of hotel management.",
+          ],
+        },
       ],
     },
     {
@@ -222,9 +229,15 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
           ],
         },
         {
+          title: "Quiet Hours",
+          paragraphs: [
+            "Quiet hours are observed from 10:00 PM to 8:00 AM daily. During this period, guests are expected to keep noise to a minimum in guest rooms, corridors, balconies, and all common areas so that every guest may rest undisturbed.",
+          ],
+        },
+        {
           title: "Noise & Behaviour",
           paragraphs: [
-            "Guests are expected to maintain reasonable noise levels at all times.",
+            "Outside of quiet hours, guests are still expected to maintain reasonable noise levels at all times.",
             "The hotel reserves the right to refuse service or terminate a stay without refund in cases of disorderly conduct, excessive noise, intoxication causing disturbance, illegal activities, or behaviour that affects the comfort, safety, or privacy of other guests.",
           ],
         },
@@ -237,8 +250,35 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       ],
     },
     {
+      id: "pool-rules",
+      title: "15. Swimming Pool Rules & Regulations",
+      paragraphs: [],
+      bullets: [
+        "Pool timings must be strictly followed: 8:00 AM to 8:00 PM.",
+        "Shower before entering the pool.",
+        "Proper swimwear is compulsory.",
+        "No entry in regular clothes or shoes.",
+        "Children must be accompanied by parents or guardians.",
+        "No diving in shallow areas.",
+        "Running, pushing, or rough play is not allowed near the pool.",
+        "No food or drinks inside the pool area.",
+        "Glass items are strictly prohibited.",
+        "Smoking and alcohol consumption are not allowed near the pool.",
+        "Use the pool at your own risk.",
+        "Guests with skin infections or open wounds should not enter the pool.",
+        "Spitting or urinating in the pool is strictly prohibited.",
+        "Keep the pool area clean and use dustbins.",
+        "Follow staff instructions at all times.",
+        "Management is not responsible for loss of personal belongings.",
+        "In case of emergency, contact Reception immediately.",
+        "The pool may be closed for maintenance or bad weather without prior notice.",
+        "Loud music or disturbing other guests is not allowed.",
+        "Respect other guests and enjoy safely.",
+      ],
+    },
+    {
       id: "amendments",
-      title: "15. Amendments to These Terms & Conditions",
+      title: "16. Amendments to These Terms & Conditions",
       paragraphs: [
         "GHD Hotels LLP reserves the right to modify, amend, or update these Terms & Conditions at any time without prior notice.",
         `The latest version shall always be available at ${NIVAARA_CONTACT.website}.`,
@@ -247,7 +287,7 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
     },
     {
       id: "guest-feedback",
-      title: "16. Guest Feedback & Care",
+      title: "17. Guest Feedback & Care",
       paragraphs: [
         "At GHD Hotels, we value your feedback and continuously strive to improve our guest experience.",
         "For any compliments, suggestions, feedback, or concerns regarding your stay, please contact us at:",
@@ -257,7 +297,7 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
     },
     {
       id: "contact-reservations",
-      title: "17. Contact & Reservations",
+      title: "18. Contact & Reservations",
       paragraphs: [
         "GHD Hotels LLP",
         `Reservation Email: ${RESERVATION_CONTACT.email}`,
