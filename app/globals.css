@@ -184,11 +184,6 @@ footer#contact.site-footer {
   }
 }
 
-#hero.hero-section .hero-section__overlay {
-  pointer-events: none;
-  background-color: rgb(0 0 0 / 0.42);
-}
-
 #hero.hero-section .hero-section__poster {
   z-index: 0;
 }

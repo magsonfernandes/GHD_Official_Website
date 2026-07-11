@@ -46,7 +46,7 @@ export function GoanFlavoursDuplicate() {
             <SectionIntro
               label="Poolside"
               title="Some Views Are Best Enjoyed From the Water"
-              description="Take a refreshing dip, watch the sky change colours, and embrace a slower pace in a setting designed for relaxation and reflection."
+              description="Take a refreshing dip in our rooftop pool, watch the sky change colours over Nerul, and embrace a slower pace in a setting designed for relaxation and reflection."
               light
               align="left"
               className="text-balance lg:text-left"

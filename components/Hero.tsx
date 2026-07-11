@@ -78,7 +78,7 @@ export function Hero() {
         />
       </div>
       <div
-        className="hero-section__overlay absolute inset-0 z-10 bg-black/[0.42]"
+        className="hero-section__overlay pointer-events-none absolute inset-0 z-10 bg-black/15"
         aria-hidden
       />
     </>

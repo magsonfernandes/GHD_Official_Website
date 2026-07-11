@@ -20,11 +20,18 @@ export async function generateMetadata({
   const room = getRoomCategoryById(slug);
 
   if (!room) {
-    return { title: "Room | GHD Hotels" };
+    return { title: "Room | Nivaãra by GHD Hotels" };
   }
 
+  const seoTitlePrefix =
+    room.id === "nivaara-room"
+      ? "Luxury Studio Room in Nerul, Goa"
+      : room.id === "mountain-view"
+        ? "Valley View Room in Nerul, Goa"
+        : "Palms & Coastal View Room in Nerul, Goa";
+
   return {
-    title: `${room.name} | GHD Hotels`,
+    title: `${seoTitlePrefix} | Nivaãra by GHD Hotels`,
     description: room.description,
   };
 }

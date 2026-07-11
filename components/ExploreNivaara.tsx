@@ -23,6 +23,22 @@ const DESKTOP_VISIBLE_SLIDES = 6;
 const MOBILE_VISIBLE_SLIDES = 6;
 const DESKTOP_BREAKPOINT = 1024;
 
+function MobileTwoLineTitle({ title }: { title: string }) {
+  const parts = title.split(" ");
+  if (parts.length < 2) return title;
+
+  const firstLine = parts.slice(0, -1).join(" ");
+  const secondLine = parts[parts.length - 1];
+
+  return (
+    <>
+      <span className="block lg:inline">{firstLine}</span>
+      <span className="hidden lg:inline"> </span>
+      <span className="block lg:inline">{secondLine}</span>
+    </>
+  );
+}
+
 function NavArrow({
   direction,
   className,
@@ -294,8 +310,8 @@ export function ExploreNivaara() {
   const editorialContent = (onStrip: boolean) => (
     <SectionIntro
       label="Explore Nivaãra"
-      title="Discover spaces designed for every moment"
-      description="Whether you're visiting for work, a quiet escape, meaningful conversations, or moments of leisure, Nivaãra brings together thoughtfully crafted spaces that balance productivity, comfort, and relaxation."
+      title="Discover Spaces Designed for Every Moment in Goa"
+      description="Whether you're visiting Nerul for work, a quiet escape, meaningful conversations, or moments of leisure, Nivaãra brings together thoughtfully crafted spaces that balance productivity, comfort, and relaxation."
       light={onStrip}
       align="left"
       titleAs="h2"
@@ -388,7 +404,7 @@ export function ExploreNivaara() {
 
                   <div className="mt-7 w-full">
                     <h3 className={sectionHeadingClass(true, "mt-0")}>
-                      {space.title}
+                      <MobileTwoLineTitle title={space.title} />
                     </h3>
                     <p className={sectionBodyClass(true, "mt-3 lg:mt-4")}>
                       {space.description}

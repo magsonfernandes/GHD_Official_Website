@@ -5,9 +5,9 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "City Attractions | GHD Hotels",
+  title: "Things to Do Near Nerul, Goa | Nivaãra by GHD Hotels",
   description:
-    "Experience Goa at its most authentic. From heritage landmarks to coastal adventures, uncover stories and city attractions waiting to be explored.",
+    "Discover North Goa's best attractions near Nivaãra by GHD Hotels in Nerul — heritage landmarks, coastal adventures, and the beaches around Coco Beach, all within easy reach.",
 };
 
 export default function ExperiencesPage() {

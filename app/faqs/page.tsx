@@ -4,9 +4,9 @@ import { FaqContent } from "@/components/FaqContent";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "FAQs | GHD Hotels",
+  title: "FAQs | Nivaãra by GHD Hotels, Nerul Goa",
   description:
-    "Find answers to common questions about Nivaãra Coco Beach — location, reservations, check-in, amenities, dining, policies, and nearby attractions.",
+    "Answers to common questions about Nivaãra by GHD Hotels in Nerul, North Goa — location, reservations, check-in, amenities, dining, policies, and nearby beaches.",
 };
 
 export default function FaqsPage() {

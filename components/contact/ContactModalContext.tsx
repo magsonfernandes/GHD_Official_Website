@@ -277,7 +277,7 @@ function ContactModal({
               id="contact-modal-title"
               className={sectionHeadingClass(false, "mt-0 text-left")}
             >
-              Contact
+              Contact Nivaãra by GHD Hotels
             </h2>
             <button
               type="button"

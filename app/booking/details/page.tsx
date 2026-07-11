@@ -5,9 +5,9 @@ import { BookingDetailsContent } from "@/components/booking/BookingDetailsConten
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Complete Your Stay | GHD Hotels",
+  title: "Complete Your Stay | Nivaãra by GHD Hotels",
   description:
-    "Complete your Nivaãra Coco Beach reservation with your contact details and send your booking request via WhatsApp.",
+    "Complete your reservation at Nivaãra by GHD Hotels in Nerul, North Goa — review your stay details and confirm your booking.",
 };
 
 export default function BookingDetailsPage() {

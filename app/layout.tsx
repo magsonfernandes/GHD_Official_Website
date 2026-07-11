@@ -8,7 +8,7 @@ import {
 } from "next/font/google";
 import Script from "next/script";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
-import { NIVAARA_LOGO } from "@/lib/constants";
+import { NIVAARA_LOGO, SEO_KEYWORDS } from "@/lib/constants";
 import { MobileReserveBar } from "@/components/MobileReserveBar";
 import { PageMediaGate } from "@/components/PageMediaGate";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -58,20 +58,14 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "GHD Hotels | Nivaãra Coco Beach — Luxury on Goa's Coast",
+  title: "Nivaãra by GHD Hotels | Luxury Boutique Hotel in Nerul, North Goa",
   description:
-    "GHD Hotels presents Nivaãra Coco Beach — an intimate luxury retreat in Goa where timeless hospitality meets contemporary elegance.",
-  keywords: [
-    "GHD Hotels",
-    "Nivaãra",
-    "luxury hotel Goa",
-    "Coco Beach Goa",
-    "boutique hotel",
-  ],
+    "Nivaãra by GHD Hotels is a boutique luxury hotel in Nerul, North Goa — minutes from Coco Beach and a short drive from Candolim, Calangute and Baga. Enjoy a rooftop pool, private balconies, and warm Goan hospitality. Book direct for the best rates.",
+  keywords: SEO_KEYWORDS,
   openGraph: {
-    title: "GHD Hotels | Nivaãra Coco Beach",
+    title: "Nivaãra by GHD Hotels | Luxury Boutique Hotel in Nerul, North Goa",
     description:
-      "Luxury reimagined on Goa's coast. An intimate retreat of understated elegance.",
+      "Boutique luxury hotel in Nerul, North Goa — minutes from Coco Beach, with rooftop pool, private balconies, and warm Goan hospitality.",
     type: "website",
   },
   icons: {

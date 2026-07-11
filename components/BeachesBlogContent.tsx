@@ -61,9 +61,10 @@ export function BeachesBlogContent() {
         <div className="mt-8 space-y-5">
           <p className={bodyClass}>{intro[0]}</p>
           <p className={bodyClass}>
-            For guests staying at <strong className="font-medium">Coco Beach</strong>,
-            some of Goa&apos;s most popular beaches are just minutes away, making
-            it an ideal base to explore the coast.
+            Staying at{" "}
+            <strong className="font-medium">Nivaãra by GHD Hotels</strong> in
+            Nerul puts you minutes from some of Goa&apos;s most popular beaches,
+            making it an ideal base to explore the coast.
           </p>
         </div>
 
@@ -95,7 +96,7 @@ export function BeachesBlogContent() {
                   <div className="mt-4 space-y-1">
                     {beach.distance ? (
                       <p className={`${bodyClass} text-sm md:text-base`}>
-                        <strong className="font-medium">Distance from Coco Beach:</strong>{" "}
+                        <strong className="font-medium">Distance from Nerul:</strong>{" "}
                         {beach.distance}
                       </p>
                     ) : null}

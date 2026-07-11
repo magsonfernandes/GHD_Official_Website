@@ -1,5 +1,5 @@
 export const PROPERTIES = [
-  { id: "nivaara", name: "Nivaãra - Coco Beach, North Goa", available: true },
+  { id: "nivaara", name: "Nivaãra by GHD Hotels — Nerul, North Goa", available: true },
   { id: "celestra", name: "Celéstra", available: false },
   { id: "samraya", name: "Samrāya", available: false },
 ] as const;
@@ -9,7 +9,7 @@ export const BRAND_MENU = [
     id: "nivaara",
     name: "Nivaãra",
     available: true,
-    locations: [{ name: "Coco Beach", href: "/" }],
+    locations: [{ name: "Nerul", href: "/" }],
   },
 ] as const;
 
@@ -101,7 +101,7 @@ export const ROYAL_STUDIO = {
         name: "Manohar International Airport (Mopa)",
         distance: "30 km",
         duration: "40–50 min",
-        note: "New North Goa airport (better option from Coco Beach)",
+        note: "New North Goa airport (better option from Nivaãra / Coco Beach area)",
       },
     ],
     railway: [
@@ -134,38 +134,38 @@ export const ROYAL_STUDIO = {
     ],
   },
   travelTips: [
-    { label: "Nearest Airport", value: "Mopa (faster from Coco Beach)" },
+    { label: "Nearest Airport", value: "Mopa (faster from Nivaãra / Coco Beach area)" },
     { label: "Nearest Railway Station", value: "Thivim" },
     { label: "Nearest Bus Stand", value: "Panaji (Kadamba)" },
   ],
   gallery: [
     {
       src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
-      alt: "Royal Studio at Nivaãra Coco Beach",
+      alt: "Royal Studio at Nivaãra by GHD Hotels",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-      alt: "Royal Studio interior at Nivaãra Coco Beach",
+      alt: "Royal Studio interior at Nivaãra by GHD Hotels",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-      alt: "Royal Studio workspace at Nivaãra Coco Beach",
+      alt: "Royal Studio workspace at Nivaãra by GHD Hotels",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
-      alt: "Royal Studio seating area at Nivaãra Coco Beach",
+      alt: "Royal Studio seating area at Nivaãra by GHD Hotels",
     },
     {
       src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
-      alt: "Royal Studio bathroom at Nivaãra Coco Beach",
+      alt: "Royal Studio bathroom at Nivaãra by GHD Hotels",
     },
     {
       src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
-      alt: "Royal Studio bedroom detail at Nivaãra Coco Beach",
+      alt: "Royal Studio bedroom detail at Nivaãra by GHD Hotels",
     },
     {
       src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
-      alt: "Royal Studio ensuite at Nivaãra Coco Beach",
+      alt: "Royal Studio ensuite at Nivaãra by GHD Hotels",
     },
   ],
   duringStay: {
@@ -191,63 +191,63 @@ export const ROYAL_STUDIO = {
 export const NIVAARA_FULL_GALLERY = [
   {
     src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
-    alt: "Luxury Studio at Nivaãra Coco Beach",
+    alt: "Luxury Studio at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-    alt: "Luxury Studio interior at Nivaãra Coco Beach",
+    alt: "Luxury Studio interior at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-    alt: "Luxury Studio workspace at Nivaãra Coco Beach",
+    alt: "Luxury Studio workspace at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
-    alt: "Luxury Studio seating area at Nivaãra Coco Beach",
+    alt: "Luxury Studio seating area at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
-    alt: "Luxury Studio bedroom detail at Nivaãra Coco Beach",
+    alt: "Luxury Studio bedroom detail at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
-    alt: "Ensuite bathroom at Nivaãra Coco Beach",
+    alt: "Ensuite bathroom at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
-    alt: "Luxury bathroom at Nivaãra Coco Beach",
+    alt: "Luxury bathroom at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
-    alt: "Private terrace at Nivaãra Coco Beach",
+    alt: "Private terrace at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Terrace_Pic2.w1200.webp",
-    alt: "Terrace overlooking Goa at Nivaãra Coco Beach",
+    alt: "Terrace overlooking Goa at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Rooftop pool at Nivaãra Coco Beach",
+    alt: "Rooftop pool at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Pool_Pic2.w1200.webp",
-    alt: "Poolside at Nivaãra Coco Beach",
+    alt: "Poolside at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
-    alt: "Private workspace at Nivaãra Coco Beach",
+    alt: "Private workspace at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
-    alt: "Lobby lounge at Nivaãra Coco Beach",
+    alt: "Lobby lounge at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-    alt: "Reception at Nivaãra Coco Beach",
+    alt: "Reception at Nivaãra by GHD Hotels",
   },
   {
     src: "/images/nivaara/Nivaara_Full Building View_Pic1.w1200.webp",
-    alt: "Nivaãra Coco Beach building view",
+    alt: "Nivaãra by GHD Hotels building view",
   },
 ] as const;
 
@@ -256,10 +256,10 @@ export const ROOM_CATEGORIES = [
     id: "nivaara-room",
     name: "Luxury Studio",
     summary:
-      "Offering generous space, a private balcony, and carefully considered comforts, this studio is ideal for both productive stays and relaxing escapes.",
-    headline: "Thoughtfully Designed for a Comfortable Stay",
+      "Offering generous space, a private balcony, and carefully considered comforts, this studio in Nerul is ideal for both productive stays and relaxing escapes.",
+    headline: "A Spacious Studio Retreat in Nerul, North Goa",
     description:
-      "Designed for modern comfort, the Luxury Studio offers a spacious and well-appointed retreat for business and leisure travellers alike. Featuring a king-sized bed, private balcony, dedicated workspace, and contemporary interiors, the studio provides everything needed for a seamless stay in Goa.",
+      "Designed for modern comfort, the Luxury Studio at Nivaãra offers a spacious and well-appointed retreat for business and leisure travellers in North Goa. Featuring a king-sized bed, private balcony, dedicated workspace, and contemporary interiors, the studio provides everything needed for a seamless stay near Coco Beach.",
     highlights: [
       "Private Balcony",
       "King Bed",
@@ -279,10 +279,10 @@ export const ROOM_CATEGORIES = [
     id: "mountain-view",
     name: "Luxury Valley Room",
     summary:
-      "Overlooking Goa's lush hills, this tranquil room invites slower mornings, scenic views, and a stay connected to nature.",
-    headline: "Wake Up to Goa's Green Landscape",
+      "Overlooking Nerul's lush hills, this tranquil room invites slower mornings, scenic views, and a stay connected to nature.",
+    headline: "Wake Up to Goa's Green Valley in Nerul",
     description:
-      "Overlooking the surrounding hills and natural greenery, the Luxury Valley Room combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience.",
+      "Overlooking the surrounding hills and natural greenery of Nerul, the Luxury Valley Room combines modern comfort with a calming outlook. Enjoy your morning coffee on the private balcony while taking in peaceful views that create a relaxed and refreshing stay experience in North Goa.",
     highlights: [
       "Valley Views",
       "Private Balcony",
@@ -302,10 +302,10 @@ export const ROOM_CATEGORIES = [
     id: "sea-view",
     name: "Luxury Palms Room",
     summary:
-      "Framed by palms and coastal light, this room captures the essence of Goa's charm in a comfortable and elegant setting.",
-    headline: "A Relaxed Stay Among the Palms",
+      "Framed by palms and coastal light, this room in Nerul captures the essence of Goa's charm in a comfortable and elegant setting.",
+    headline: "A Relaxed Stay Among the Palms in Nerul, Goa",
     description:
-      "Set among swaying palms with glimpses of Goa's coastal charm, the Luxury Palms Room brings an elevated sense of place to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a room designed for comfort with a serene tropical outlook.",
+      "Set among swaying palms with glimpses of Nerul's coastal charm, the Luxury Palms Room brings an elevated sense of place to your stay. Unwind on your private balcony, enjoy the sea breeze, and experience a room designed for comfort with a serene tropical outlook near Coco Beach.",
     highlights: [
       "Palms Outlook",
       "Private Balcony",
@@ -367,8 +367,8 @@ export const HOTEL_WHATSAPP = {
 
 export const SITE = {
   name: "GHD Hotels",
-  tagline: "Luxury Hospitality. Thoughtfully Crafted.",
-  property: "Nivaãra - Coco Beach, North Goa",
+  tagline: "Luxury Hospitality in Goa, Thoughtfully Crafted",
+  property: "Nivaãra — Coco Beach, North Goa",
   propertyDisplay: "Nivaãra - Coco Beach, North Goa",
   phone: "+91 838 000 8687",
   phoneHref: "tel:+918380008687",
@@ -377,13 +377,197 @@ export const SITE = {
   phoneSecondaryHref: "tel:+918390020408",
   email: "info@ghdhotels.in",
   emailHref: "mailto:info@ghdhotels.in",
-  location: "Coco Beach, North Goa, India",
-  locationHref: "https://maps.google.com/?q=Nivaara+Coco+Beach+Goa",
+  location: "Nerul, North Goa, India — 5 minutes from Coco Beach",
+  locationHref: "https://maps.google.com/?q=Nivaãra+by+GHD+Hotels+Nerul+Goa",
   reserveHref: "tel:+918380008687",
 } as const;
 
+/**
+ * SEO keywords — edit this list anytime.
+ * These feed the site <meta name="keywords"> tag via app/layout.tsx.
+ * Tip: also weave important phrases into page titles, descriptions, and body copy.
+ */
+export const SEO_KEYWORDS = [
+  "Nivaãra by GHD Hotels",
+  "Nivaara by GHD Hotels",
+  "Nivaãra Hotels",
+  "Nivaara Hotels",
+  "GHD Hotels",
+  "GHD Hotels Goa",
+  "Nivaãra Goa",
+  "Nivaara Goa",
+  "hotel in Goa",
+  "hotels in Goa",
+  "best hotel in Goa",
+  "best hotels in Goa",
+  "hotel booking Goa",
+  "book hotel Goa",
+  "Goa hotel booking",
+  "Goa accommodation",
+  "places to stay in Goa",
+  "stay in Goa",
+  "Goa vacation hotel",
+  "Goa holiday stay",
+  "Goa travel hotel",
+  "Goa tourism hotel",
+  "Goa boutique hotel",
+  "boutique hotel Goa",
+  "smart comfort hotel",
+  "premium hotel Goa",
+  "modern hotel Goa",
+  "family hotel Goa",
+  "couple friendly hotel Goa",
+  "hotel for couples Goa",
+  "hotel for families Goa",
+  "hotel for friends Goa",
+  "business hotel Goa",
+  "corporate hotel Goa",
+  "workation Goa",
+  "workation hotel Goa",
+  "remote work hotel Goa",
+  "vacation rental alternative Goa",
+  "luxury stay Goa",
+  "affordable luxury Goa",
+  "value hotel Goa",
+  "hotel with swimming pool Goa",
+  "hotel with rooftop pool Goa",
+  "rooftop swimming pool Goa",
+  "pool hotel Goa",
+  "hotel with parking Goa",
+  "hotel with WiFi Goa",
+  "free WiFi hotel Goa",
+  "hotel with balcony Goa",
+  "studio rooms Goa",
+  "studio hotel Goa",
+  "large rooms Goa",
+  "spacious hotel rooms Goa",
+  "hotel near beach Goa",
+  "hotel near Coco Beach",
+  "hotel near Coco Beach Goa",
+  "Coco Beach hotel",
+  "stay near Coco Beach",
+  "hotel near Candolim",
+  "hotel near Candolim Beach",
+  "hotel near Calangute",
+  "hotel near Calangute Beach",
+  "hotel near Baga",
+  "hotel near Baga Beach",
+  "hotel near Sinquerim Beach",
+  "hotel near Panaji",
+  "hotel near Miramar Beach",
+  "hotel near Reis Magos",
+  "hotel near Aguada Fort",
+  "hotel near Fort Aguada",
+  "hotel near Nerul",
+  "hotel in Nerul",
+  "hotel in Nerul Goa",
+  "best hotel in Nerul",
+  "Nerul accommodation",
+  "rooms in Nerul Goa",
+  "stay in Nerul Goa",
+  "North Goa hotel",
+  "North Goa hotels",
+  "best North Goa hotel",
+  "hotel in North Goa",
+  "stay in North Goa",
+  "North Goa accommodation",
+  "North Goa holiday stay",
+  "North Goa boutique hotel",
+  "North Goa rooftop pool hotel",
+  "North Goa swimming pool hotel",
+  "hotel in Candolim",
+  "hotel in Candolim Goa",
+  "best hotel in Candolim",
+  "Candolim hotel",
+  "Candolim accommodation",
+  "hotel in Calangute",
+  "hotel in Calangute Goa",
+  "Calangute hotel",
+  "Calangute accommodation",
+  "hotel in Panaji",
+  "hotel in Panjim",
+  "Panaji hotel",
+  "Panjim hotel",
+  "hotel in Vasco",
+  "hotel in Vasco Goa",
+  "hotel in Margao",
+  "hotel in Margao Goa",
+  "Goa weekend getaway",
+  "Goa weekend stay",
+  "Goa staycation",
+  "Goa vacation stay",
+  "best place to stay in Goa",
+  "Goa hotel deals",
+  "Goa hotel offers",
+  "Goa hotel discounts",
+  "book hotel online Goa",
+  "direct hotel booking Goa",
+  "hotel near airport Goa",
+  "Goa honeymoon hotel",
+  "romantic hotel Goa",
+  "hotel with sea breeze",
+  "hotel with scenic views Goa",
+  "hotel with nature views Goa",
+  "peaceful hotel Goa",
+  "quiet hotel Goa",
+  "relaxing stay Goa",
+  "comfortable stay Goa",
+  "modern rooms Goa",
+  "hotel with king bed Goa",
+  "hotel with spacious rooms Goa",
+  "hotel near tourist attractions Goa",
+  "Goa sightseeing stay",
+  "hotel close to beaches Goa",
+  "hotel near nightlife Goa",
+  "hotel near casinos Goa",
+  "hotel near restaurants Goa",
+  "hotel near cafes Goa",
+  "hotel near water sports Goa",
+  "hotel for digital nomads Goa",
+  "hotel for remote workers Goa",
+  "hotel for vacation Goa",
+  "hotel for holiday Goa",
+  "hotel with rooftop views Goa",
+  "hotel with terrace pool Goa",
+  "Goa hotel with balcony",
+  "Goa hotel near Candolim",
+  "Goa hotel near Calangute",
+  "Goa hotel near Panaji",
+  "Goa hotel near Coco Beach",
+  "Goa hotel near Fort Aguada",
+  "Goa hotel near Sinquerim Beach",
+  "best boutique hotel North Goa",
+  "best rooftop pool hotel Goa",
+  "best hotel near Coco Beach",
+  "best hotel for couples in Goa",
+  "best family hotel in North Goa",
+  "book rooms in Goa",
+  "reserve hotel Goa",
+  "online hotel booking Goa",
+  "Goa travel accommodation",
+  "Goa vacation rooms",
+  "Goa holiday hotel",
+  "hotel deals North Goa",
+  "luxury boutique hotel Goa",
+  "smart hotel Goa",
+  "comfortable hotel Goa",
+  "weekend hotel Goa",
+  "holiday accommodation Goa",
+  "Goa resort alternative",
+  "hotel near beaches North Goa",
+  "North Goa room booking",
+  "Goa room booking",
+  "Goa hotels with rooftop pool",
+  "best value hotel Goa",
+  "Goa hotel near attractions",
+  "Goa travel stay",
+  "North Goa travel accommodation",
+  "book North Goa hotel",
+  "best stay in North Goa"
+];
+
 export const NIVAARA_CONTACT = {
-  title: "Nivaãra",
+  title: "Nivaãra reception",
   receptionPhone: "+91 83900 20408",
   receptionPhoneHref: "tel:+918390020408",
   receptionEmail: "info.nerul@ghdhotels.in",
@@ -420,7 +604,7 @@ export const CORPORATE_OFFICE = {
   phone: SITE.phone,
   phoneHref: SITE.phoneHref,
   image: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-  alt: "Reception at Nivaãra Coco Beach",
+  alt: "Reception at Nivaãra by GHD Hotels",
 } as const;
 
 export const HERO_IMAGE =
@@ -435,7 +619,7 @@ export const HOME_PAGE_TEXTURE = "/images/nivaara/white%20background.jpg";
 export const WELCOME_IMAGE =
   "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp";
 
-export const NIVAARA_LOGO = "/logos/Nivaãra_logo.png";
+export const NIVAARA_LOGO = "/logos/Nivaara_logo.png";
 
 export const GHD_LOGO_WHITE = "/logos/GHD Hotels LOGO - WHITE.png";
 
@@ -454,42 +638,42 @@ export const EXPLORE_SPACES = [
   {
     title: "Private Workspaces",
     description:
-      "Work from a peaceful, green-accented setting designed to support focus, comfort, and deep productivity.",
+      "Workation-ready: work from a peaceful, green-accented setting designed to support focus, comfort, and deep productivity.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
-    alt: "Private workspace with window view at Nivaãra Coco Beach",
+    alt: "Private workspace with window view at Nivaãra by GHD Hotels",
   },
   {
     title: "Panoramic Comfort",
     description:
-      "Enjoy beautiful views, airy interiors, and a sense of calm that lingers throughout your stay.",
+      "Enjoy big studio rooms with beautiful views, airy interiors, and a sense of calm that lingers throughout your stay in Goa.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
-    alt: "Guest room with hillside view at Nivaãra Coco Beach",
+    alt: "Guest room with hillside view at Nivaãra by GHD Hotels",
   },
   {
     title: "Rooftop Pool",
     description:
-      "Relax under open skies, where calm waters and stunning views create the perfect escape.",
+      "Relax under open skies at our rooftop pool, where calm waters and North Goa views create the perfect escape.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Rooftop pool at Nivaãra Coco Beach",
+    alt: "Rooftop pool at Nivaãra by GHD Hotels",
   },
   {
     title: "Open Dining",
     description:
-      "Enjoy relaxed dining experiences in an inviting setting where fresh flavors meet warm hospitality.",
+      "Enjoy relaxed dining experiences in an inviting setting where fresh, local Goan flavours meet warm hospitality.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
-    alt: "Open dining terrace at Nivaãra Coco Beach",
+    alt: "Open dining terrace at Nivaãra by GHD Hotels",
   },
   {
     title: "Reception & Arrival",
     description:
-      "From the moment you arrive, our friendly team is dedicated to making you feel at home.",
+      "From the moment you arrive at Nivaãra, our friendly team is dedicated to making you feel at home.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Reception_Desk_Pic1.w1200.webp",
-    alt: "Reception desk at Nivaãra Coco Beach",
+    alt: "Reception desk at Nivaãra by GHD Hotels",
   },
   {
     title: "Lobby Lounge",
@@ -497,24 +681,24 @@ export const EXPLORE_SPACES = [
       "Settle into a comfortable space ideal for discussions, catch-ups, and quiet collaboration.",
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
-    alt: "Lobby lounge at Nivaãra Coco Beach",
+    alt: "Lobby lounge at Nivaãra by GHD Hotels",
   },
 ] as const;
 
 export const GALLERY_IMAGES = [
   {
     src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-    alt: "Elegant guest room at Nivaãra Coco Beach",
+    alt: "Elegant guest room at Nivaãra by GHD Hotels",
     aspect: "tall" as const,
   },
   {
     src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Serene pool at Nivaãra Coco Beach",
+    alt: "Serene pool at Nivaãra by GHD Hotels",
     aspect: "wide" as const,
   },
   {
     src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-    alt: "Reception lounge at Nivaãra Coco Beach",
+    alt: "Reception lounge at Nivaãra by GHD Hotels",
     aspect: "square" as const,
   },
   {
@@ -549,7 +733,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "We came for a quiet weekend and found exactly that — thoughtful design, warm hospitality, and Goan flavours that felt genuinely local.",
+      "We came for a quiet weekend in Nerul and found exactly that — thoughtful design, warm hospitality, and Goan flavours that felt genuinely local.",
     name: "Ananya",
     location: "Bengaluru",
   },
@@ -588,9 +772,9 @@ export const EXPERIENCES = [
 export const EXPERIENCE_POSTS = [
   {
     slug: "beaches-of-goa",
-    title: "Beaches of Goa: From Serene Shores to Vibrant Coastal Escapes",
+    title: "Beaches of Goa — A Guide from Nerul",
     excerpt:
-      "Explore Goa's diverse coastline, from tranquil hidden beaches and scenic sunset spots to lively shores filled with dining, water sports, and unforgettable seaside experiences.",
+      "Explore Goa's diverse coastline, from tranquil hidden beaches near Nerul to lively shores filled with dining, water sports, and unforgettable seaside experiences.",
     category: "BEACHES",
     date: "May 3, 2026",
     readTime: "9 min read",
@@ -606,12 +790,12 @@ export const FAQ_SECTIONS = [
       {
         question: "Where is Nivaãra located?",
         answer:
-          "Nivaãra is located at Coco Beach, North Goa, offering convenient access to popular beaches, dining destinations, and cultural attractions while providing a peaceful retreat away from the crowds.",
+          "Nivaãra by GHD Hotels is located in Nerul, North Goa, offering convenient access to popular beaches, dining destinations, and cultural attractions while providing a peaceful retreat away from the crowds.",
       },
       {
         question: "Which are the nearest beaches to Nivaãra?",
         answer:
-          "Coco Beach is the closest, at approximately 1.7 km from the property. Other popular North Goa beaches, including Sinquerim Beach and Candolim Beach, are also easily accessible from Nivaãra.",
+          "Coco Beach is the closest, at approximately 1.7 km from the property. Other popular North Goa beaches, including Sinquerim Beach and Candolim Beach, are also easily accessible from Nivaãra in Nerul.",
       },
       {
         question: "How far is Nivaãra from Goa Airport?",
@@ -619,9 +803,9 @@ export const FAQ_SECTIONS = [
           "The property is approximately 45–60 minutes from Manohar International Airport (Mopa) and 35–50 minutes from Goa International Airport (Dabolim), depending on traffic conditions.",
       },
       {
-        question: "Is public transportation available nearby?",
+        question: "Is public transportation available near Nerul?",
         answer:
-          "Yes. Local taxis, app-based cab services, and rental vehicles are readily available in the area.",
+          "Yes. Local taxis, app-based cab services, and rental vehicles are readily available in the Nerul area.",
       },
     ],
   },
@@ -629,12 +813,12 @@ export const FAQ_SECTIONS = [
     title: "Reservations & Bookings",
     items: [
       {
-        question: "How can I make a reservation?",
+        question: "How can I make a reservation at Nivaãra?",
         answer:
           "Reservations can be made directly through our website, by phone, email, or through authorized travel partners and online booking platforms.",
       },
       {
-        question: "Is it better to book directly with the hotel?",
+        question: "Is it better to book directly with Nivaãra?",
         answer:
           "Direct bookings may provide access to exclusive offers, special packages, and personalized assistance, subject to availability.",
       },
@@ -676,14 +860,14 @@ export const FAQ_SECTIONS = [
     title: "Accommodation",
     items: [
       {
-        question: "What types of accommodations are available at Nivaãra?",
+        question: "What types of rooms are available at Nivaãra?",
         answer:
-          "Nivaãra offers thoughtfully designed accommodations that combine comfort, privacy, and modern conveniences for leisure and business travelers alike.",
+          "Nivaãra offers thoughtfully designed rooms in Nerul that combine comfort, privacy, and modern conveniences for leisure and business travelers alike.",
       },
       {
         question: "Are all rooms air-conditioned?",
         answer:
-          "Yes, all accommodations are equipped with air conditioning and essential modern amenities.",
+          "Yes, all rooms are equipped with air conditioning and essential modern amenities.",
       },
       {
         question: "Is Wi-Fi available?",
@@ -716,9 +900,9 @@ export const FAQ_SECTIONS = [
     title: "Facilities & Services",
     items: [
       {
-        question: "Is there a swimming pool at the property?",
+        question: "Is there a swimming pool at Nivaãra?",
         answer:
-          "Yes. Nivaãra features an open terrace swimming pool, offering guests a refreshing swim with scenic views. The pool is accessible during designated operating hours.",
+          "Yes. Nivaãra features a rooftop swimming pool, offering guests a refreshing swim with scenic North Goa views. The pool is accessible during designated operating hours.",
       },
       {
         question: "Is parking available?",
@@ -731,7 +915,7 @@ export const FAQ_SECTIONS = [
           "Airport transfer services can be arranged upon request at an additional charge.",
       },
       {
-        question: "Is the property suitable for families?",
+        question: "Is Nivaãra suitable for families?",
         answer:
           "Yes, Nivaãra welcomes families and offers a comfortable environment for guests of all ages.",
       },
@@ -767,21 +951,13 @@ export const FAQ_SECTIONS = [
     items: [
       {
         question: "What are some attractions near Nivaãra?",
-        answer: "Popular nearby attractions include:",
-        bullets: [
-          "Candolim Beach",
-          "Sinquerim Fort",
-          "Aguada Fort",
-          "Coco Beach",
-          "Reis Magos Fort",
-          "Panaji City",
-          "Mandovi River Cruises",
-        ],
+        answer:
+          "Popular nearby attractions include Coco Beach, Fort Aguada, Sinquerim Beach, Candolim Beach, and Calangute Beach — all within a short drive of Nerul.",
       },
       {
         question: "Is Nivaãra suitable for exploring North Goa?",
         answer:
-          "Yes. Its location at Coco Beach provides convenient access to North Goa's beaches, nightlife, dining destinations, and cultural landmarks.",
+          "Yes. Its location in Nerul provides convenient access to North Goa's beaches, nightlife, dining destinations, and cultural landmarks.",
       },
     ],
   },

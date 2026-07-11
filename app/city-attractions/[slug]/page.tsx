@@ -24,12 +24,17 @@ export async function generateMetadata({
   const post = getExperiencePost(slug);
 
   if (!post) {
-    return { title: "City Attraction | GHD Hotels" };
+    return { title: "City Attraction | Nivaãra by GHD Hotels" };
   }
 
   return {
-    title: `${post.title} | GHD Hotels`,
-    description: post.excerpt,
+    title: post.slug === "beaches-of-goa"
+      ? "Best Beaches Near Nerul, Goa | Nivaãra by GHD Hotels"
+      : `${post.title} | Nivaãra by GHD Hotels`,
+    description:
+      post.slug === "beaches-of-goa"
+        ? "A guide to the best beaches near Nerul and Coco Beach — from peaceful Coco Beach and historic Sinquerim to lively Baga and Calangute — plus tips on which beach suits your trip."
+        : post.excerpt,
   };
 }
 

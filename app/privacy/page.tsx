@@ -4,9 +4,9 @@ import { PrivacyPolicyContent } from "@/components/PrivacyPolicyContent";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | GHD Hotels",
+  title: "Privacy Policy | Nivaãra by GHD Hotels",
   description:
-    "Read the GHD Hotels privacy policy covering data collection, usage, security, retention, and your rights as a guest.",
+    "Read the Nivaãra by GHD Hotels privacy policy covering data collection, usage, security, retention, and your rights as a guest.",
 };
 
 export default function PrivacyPage() {

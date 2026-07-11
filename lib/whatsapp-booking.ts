@@ -77,7 +77,7 @@ export function buildWhatsAppReservationMessage({
   return [
     "Hello,",
     "",
-    `I would like to make a reservation at *${propertyName}*. Please find my booking details below:`,
+    `I would like to make a reservation at *Nivaãra by GHD Hotels*. Please find my booking details below:`,
     "",
     `*Property:* ${propertyName}`,
     `*Room:* ${roomSummary}`,

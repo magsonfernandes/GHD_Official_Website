@@ -10,7 +10,7 @@ import type { LegalDocument } from "@/lib/legal-document";
 
 export const TERMS_AND_CONDITIONS: LegalDocument = {
   title: "Hotel Policy & Booking Conditions",
-  summaryTitle: "GHD Hotels LLP · Nivaara Coco Beach, Goa",
+  summaryTitle: "GHD Hotels LLP · Nivaãra by GHD Hotels, Nerul, Goa",
   contactEmail: SITE.email,
   contactEmailHref: SITE.emailHref,
   website: NIVAARA_CONTACT.website,
@@ -87,7 +87,7 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       paragraphs: [],
       bullets: [
         "All reservations must be made through email or an approved booking platform.",
-        "Reservations shall be considered confirmed only after written confirmation from GHD Hotels.",
+        "Reservations shall be considered confirmed only after written confirmation from Nivaãra by GHD Hotels.",
         "Voucher number and complete guest details are mandatory.",
         "Last-minute reservations are subject to room availability.",
       ],
@@ -136,7 +136,7 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       id: "special-requests",
       title: "8. Special Requests",
       paragraphs: [
-        "GHD Hotels will make every reasonable effort to accommodate special requests received at the time of booking, including room preferences, bedding preferences, dietary requirements, and celebration arrangements.",
+        "Nivaãra by GHD Hotels will make every reasonable effort to accommodate special requests received at the time of booking, including room preferences, bedding preferences, dietary requirements, and celebration arrangements.",
         "However, all such requests are subject to availability upon arrival and cannot be guaranteed. Failure to accommodate any special request shall not constitute grounds for compensation or cancellation without applicable charges.",
       ],
     },
@@ -289,7 +289,7 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       id: "guest-feedback",
       title: "17. Guest Feedback & Care",
       paragraphs: [
-        "At GHD Hotels, we value your feedback and continuously strive to improve our guest experience.",
+        "At Nivaãra by GHD Hotels, we value your feedback and continuously strive to improve our guest experience.",
         "For any compliments, suggestions, feedback, or concerns regarding your stay, please contact us at:",
         `Guest Care Email: ${GUEST_CARE_CONTACT.email}`,
         "We appreciate every opportunity to serve you better and will make every effort to respond to your feedback in a timely manner.",

@@ -15,13 +15,15 @@ export function GhdGroupIntro() {
           priority
         />
         <p className={sectionBodyClass(false, "mx-auto mt-4 max-w-[82rem] sm:mt-5")}>
-          Nivaãra is a hospitality destination created around the belief that great
-          stays are defined by comfort, thoughtful service, and meaningful
-          experiences. Managed by GHD Hotels, Nivaãra combines contemporary design,
-          attentive hospitality, and carefully curated spaces to create an experience
-          that feels welcoming from the moment guests arrive. From the spaces we
-          create to the service we provide, our focus remains simple: delivering
-          hospitality that feels genuine, intuitive, and memorable.
+          Nivaãra by GHD Hotels is a boutique luxury hotel in Nerul, North Goa — just
+          minutes from Coco Beach and a short drive from Candolim, Calangute and Baga.
+          As a sea-view property, it welcomes fresh breezes from the Arabian Sea and
+          offers beautiful views of the Goa landscape. Built on the belief that great
+          stays come from comfort, thoughtful service, and genuine experiences, Nivaãra
+          combines contemporary design, warm hospitality, and inviting spaces—including
+          an open terrace pool to relax and unwind. Whether you&apos;re here for
+          business, a quiet escape, or a family holiday in Goa, our focus stays simple:
+          hospitality that feels real, intuitive, and memorable.
         </p>
       </div>
     </section>

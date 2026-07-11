@@ -3,7 +3,7 @@ import type { LegalDocument } from "@/lib/legal-document";
 
 export const PRIVACY_POLICY: LegalDocument = {
   title: "Privacy Policy",
-  summaryTitle: "GHD Hotels LLP · Nivaara Coco Beach, Goa",
+  summaryTitle: "GHD Hotels LLP · Nivaãra by GHD Hotels, Nerul, Goa",
   contactEmail: SITE.email,
   contactEmailHref: SITE.emailHref,
   dateLabel: "Last updated",
@@ -15,7 +15,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       title: "1. Introduction",
       paragraphs: [
         "We invite our guests to read this policy carefully before sharing any personal information with us. By visiting our website or using our services, you accept and agree to the practices described in this document.",
-        "This Privacy Policy describes how GHD Hotels LLP and its properties — including Nivaara Coco Beach, Goa — collect, use, store, and protect personal information in accordance with applicable data protection laws, including the Digital Personal Data Protection Act, 2023 (India).",
+        "This Privacy Policy describes how GHD Hotels LLP and its properties — including Nivaãra by GHD Hotels, Nerul, Goa — collect, use, store, and protect personal information in accordance with applicable data protection laws, including the Digital Personal Data Protection Act, 2023 (India).",
         "GHD Hotels LLP reserves the right to update this Privacy Policy from time to time. We encourage you to review this page periodically to stay informed of any changes. Continued use of our website or services following any updates constitutes your acceptance of the revised policy.",
         `For any questions regarding this Privacy Policy, please contact us at: ${SITE.email}.`,
       ],

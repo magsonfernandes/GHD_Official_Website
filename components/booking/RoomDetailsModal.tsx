@@ -98,7 +98,7 @@ export function RoomDetailsModal({ open, onClose }: RoomDetailsModalProps) {
 
           <section>
             <h3 className="font-body text-xs font-medium uppercase tracking-[0.16em] text-charcoal">
-              Nearby transport hubs (Coco Beach)
+              Nearby transport hubs (Nivaãra / Coco Beach area)
             </h3>
 
             <div className="mt-4 space-y-5">

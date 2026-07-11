@@ -28,12 +28,12 @@ export const BEACHES_BLOG = {
     region: "North Goa",
     guideType: "Travel Guide",
     beachesCovered: "10 beaches covered",
-    baseLocation: "Base is in Coco Beach",
+    baseLocation: "Base is in Nerul, near Coco Beach",
     readTime: "9 min read",
   },
   intro: [
     "Goa's coastline stretches for over 100 kilometers along the Arabian Sea, offering a diverse collection of beaches, each with its own personality. Whether you're seeking quiet mornings by the water, thrilling adventures, lively beach clubs, or breathtaking sunsets, Goa has a shoreline that perfectly matches your travel style.",
-    "For guests staying at Coco Beach, some of Goa's most popular beaches are just minutes away, making it an ideal base to explore the coast.",
+    "Staying at Nivaãra by GHD Hotels in Nerul puts you minutes from some of Goa's most popular beaches, making it an ideal base to explore the coast.",
   ],
   beaches: [
     {
@@ -45,10 +45,10 @@ export const BEACHES_BLOG = {
       travelTime: "5 minutes",
       vibe: "Peaceful",
       paragraphs: [
-        "Nestled along the Nerul River estuary, Coco Beach is one of the closest beaches to Nerul and remains relatively peaceful compared to Goa's busier shores. Surrounded by swaying coconut palms and fishing boats, it offers a glimpse into Goa's traditional coastal life.",
+        "Nestled along the Nerul River estuary, Coco Beach is one of the closest beaches to Nivaãra and remains relatively peaceful compared to Goa's busier shores. Surrounded by swaying coconut palms and fishing boats, it offers a glimpse into Goa's traditional coastal life.",
         "The beach is particularly known as a departure point for dolphin-watching tours, river cruises, and water-based activities. Early mornings and evenings provide beautiful views as fishing vessels return to shore and the sun casts golden reflections across the estuary.",
       ],
-      bestFor: ["Dolphin trips", "Photography", "Peaceful walks", "Local experiences"],
+      bestFor: ["Dolphin trips", "Peaceful walks", "Local experiences"],
     },
     {
       id: "sinquerim-beach",
@@ -77,7 +77,7 @@ export const BEACHES_BLOG = {
         "Its wide sandy shoreline is lined with excellent beach shacks, seafood restaurants, and elegant beachfront cafés. Visitors can spend the day relaxing by the sea before enjoying dinner with stunning sunset views.",
         "Candolim is often considered one of the best beaches for travelers seeking comfort, accessibility, and vibrant yet manageable activity.",
       ],
-      bestFor: ["Families", "Dining", "Beachside relaxation", "Sunset views"],
+      bestFor: ["Beachside relaxation", "Sunset views"],
     },
     {
       id: "calangute-beach",
@@ -92,7 +92,7 @@ export const BEACHES_BLOG = {
         "The beach is lined with restaurants, shopping stalls, beach shacks, and entertainment options, creating a lively atmosphere throughout the day and evening.",
         "For first-time visitors to Goa, Calangute offers an energetic introduction to the state's vibrant beach culture.",
       ],
-      bestFor: ["First-time visitors", "Shopping", "Dining", "People-watching"],
+      bestFor: ["First-time visitors"],
     },
     {
       id: "baga-beach",
@@ -105,7 +105,7 @@ export const BEACHES_BLOG = {
         "By day, visitors enjoy parasailing, jet skiing, and other water sports. As evening approaches, the beach transforms into one of Goa's most active entertainment hubs, with music, dining, and nightlife drawing visitors from across the region.",
         "Popular beach clubs, live performances, and waterfront dining make Baga a favorite among travelers looking for excitement after sunset.",
       ],
-      bestFor: ["Nightlife", "Water sports", "Groups", "Entertainment"],
+      bestFor: ["Water sports"],
     },
     {
       id: "anjuna-beach",
@@ -190,5 +190,5 @@ export const BEACHES_BLOG = {
     { mood: "For wellness and slow travel", beaches: "Arambol, Mandrem, Ashwem" },
   ],
   outro:
-    "Whether you prefer quiet mornings by the sea, adventurous water sports, cultural exploration, or vibrant nightlife, Goa's beaches offer experiences that continue to captivate travelers from around the world. For guests staying at Coco Beach, many of these iconic destinations are just a short drive away, making every day an opportunity to discover a new side of Goa's coastline.",
+    "Whether you prefer quiet mornings by the sea, adventurous water sports, cultural exploration, or vibrant nightlife, Goa's beaches offer experiences that continue to captivate travelers from around the world. Staying at Nivaãra by GHD Hotels in Nerul puts many of these iconic destinations just a short drive away, making every day an opportunity to discover a new side of Goa's coastline.",
 } as const;

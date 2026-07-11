@@ -1,5 +1,4 @@
 import { Hero } from "@/components/Hero";
-import { ReservationWidget } from "@/components/ReservationWidget";
 import { SITE } from "@/lib/constants";
 
 export function HeroSection() {
@@ -13,9 +12,6 @@ export function HeroSection() {
         <p className="hero-section__title font-heading mb-0 text-center font-thin text-white">
           {SITE.propertyDisplay}
         </p>
-        <div className="pointer-events-auto mt-[1vw] hidden w-[90vw] max-w-[1240px] md:mt-[1.25vw] md:block">
-          <ReservationWidget />
-        </div>
       </div>
     </section>
   );

@@ -115,12 +115,12 @@ export function BookingContent() {
             title={
               isMultiRoom
                 ? "Choose a category for each room"
-                : "Choose your room category"
+                : "Choose Your Room Category at Nivaãra"
             }
             description={
               isMultiRoom
                 ? `You have ${booking.guests.length} rooms in this stay. Pick a view category for each room below, then continue when every room is assigned.`
-                : "The thoughtfully designed room — offered across three honest view categories. Select one to continue."
+                : "Thoughtfully designed rooms at Nivaãra by GHD Hotels — offered across three honest view categories. Select one to continue."
             }
             align="left"
             titleAs="h2"

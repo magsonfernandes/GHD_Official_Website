@@ -45,8 +45,8 @@ export function Experiences() {
           <motion.div variants={fadeUp}>
             <SectionIntro
               label="Goan Flavours"
-              title="Taste the Soul of Goa"
-              description="From fresh seafood delicacies to time-honoured Goan specialties, uncover the flavours that have shaped the region's rich culinary heritage."
+              title="Taste the Soul of Goa at Nivaãra"
+              description="From fresh seafood delicacies to time-honoured Goan specialties, uncover the flavours that have shaped North Goa's rich culinary heritage."
               light
               align="left"
               className="text-balance lg:text-left"

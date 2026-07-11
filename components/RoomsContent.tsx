@@ -9,8 +9,8 @@ export function RoomsContent() {
         <div className="mx-auto max-w-3xl px-6 lg:px-10">
           <SectionIntro
             label="Accommodation"
-            title="Rooms Category at Nivaãra"
-            description="The thoughtfully designed room — offered across three honest view categories. Select a room to view full details."
+            title="Luxury Rooms at Nivaãra by GHD Hotels, Nerul"
+            description="Thoughtfully designed rooms in Nerul, North Goa — offered across three honest view categories. Select a room to view full details."
             titleAs="h1"
           />
         </div>

@@ -40,9 +40,9 @@ export function ExperienceStories() {
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-10 md:pb-20 md:pt-14 lg:px-10">
           <div className="mx-auto max-w-2xl">
             <SectionIntro
-              label="City Attractions"
-              title="City Attractions in Goa"
-              description="Experience Goa at its most authentic. From heritage landmarks to coastal adventures, uncover stories and attractions waiting to be explored."
+              label="City Attractions in Goa"
+              title="Things to Do Near Nivaãra — North Goa Attractions"
+              description="Discover curated guides to Goa's beaches, culture, and coastal experiences — starting from Nerul and Coco Beach."
               titleAs="h1"
             />
           </div>

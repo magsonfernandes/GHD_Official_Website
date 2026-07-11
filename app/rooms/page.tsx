@@ -4,9 +4,9 @@ import { RoomsContent } from "@/components/RoomsContent";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Rooms | GHD Hotels",
+  title: "Rooms in Nerul, Goa | Nivaãra by GHD Hotels",
   description:
-    "Explore Luxury Studio, Luxury Valley Room, and Luxury Palms Room at Nivaãra Coco Beach — thoughtfully designed spaces with views priced for your preference.",
+    "Explore the Luxury Studio, Luxury Valley Room, and Luxury Palms Room at Nivaãra by GHD Hotels in Nerul — thoughtfully designed hotel rooms with private balconies, minutes from Coco Beach, North Goa.",
 };
 
 export default function RoomsPage() {

@@ -150,7 +150,7 @@ export function Footer() {
 
         <div className="mt-8 w-full border-t border-charcoal/10 pt-6 sm:mt-10 sm:pt-7">
           <p className="font-body text-[8px] tracking-[0.03em] text-charcoal/55 sm:text-[9px]">
-            © 2026 GHD. All Rights Reserved.
+            © 2026 Nivaãra by GHD Hotels. All Rights Reserved.
           </p>
         </div>
       </div>

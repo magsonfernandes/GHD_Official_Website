@@ -117,8 +117,8 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
       <div className="mx-auto max-w-2xl px-6 text-center lg:px-10">
         <SectionIntro
           label="Newsletter"
-          title="Be the first to know"
-          description="Sign up to receive GHD Hotels newsletters and offers in your inbox."
+          title="Be the First to Know"
+          description="Sign up to receive news and offers from Nivaãra by GHD Hotels in your inbox."
         />
 
         {status === "success" ? (
@@ -131,8 +131,8 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
               Thank you for signing up
             </p>
             <p className={sectionBodyClass(false, "mt-3")}>
-              Your subscription has been received. We&apos;ll share GHD Hotels
-              newsletters and exclusive offers in your inbox soon.
+              Your subscription has been received. We&apos;ll share news and
+              offers from Nivaãra by GHD Hotels in your inbox soon.
             </p>
           </div>
         ) : (
