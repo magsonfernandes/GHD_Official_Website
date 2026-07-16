@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { SectionIntro } from "@/components/ui/SectionIntro";
-import { POOL_EXPERIENCES_VIDEO } from "@/lib/constants";
+import { POOL_EXPERIENCES_POSTER, POOL_EXPERIENCES_VIDEO } from "@/lib/constants";
 import { fadeUp, fadeUpStagger, viewportOnce } from "@/lib/animations";
 
 export function GoanFlavoursDuplicate() {
@@ -24,15 +24,16 @@ export function GoanFlavoursDuplicate() {
         <video
           ref={videoRef}
           src={POOL_EXPERIENCES_VIDEO}
+          poster={POOL_EXPERIENCES_POSTER}
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute bottom-0 left-0 h-full w-[108%] max-w-none object-cover object-left-bottom lg:w-[115%]"
         />
       </div>
-      <div className="absolute inset-0 bg-black/[0.42]" aria-hidden />
+      <div className="absolute inset-0 bg-black/15" aria-hidden />
 
       <div className="absolute inset-0 z-10 flex items-center justify-center px-6 py-10 lg:justify-start lg:px-10 lg:py-16 xl:px-16">
         <motion.div

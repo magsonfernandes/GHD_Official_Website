@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { RoomGallery } from "@/components/RoomGallery";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { ReserveButton } from "@/components/ui/ReserveButton";
 import { ROYAL_STUDIO } from "@/lib/constants";
 import type { RoomCategory } from "@/lib/rooms";
 import { RoomFromPrice } from "@/components/RoomFromPrice";
@@ -84,6 +85,10 @@ export function RoomDetailContent({ room }: { room: RoomCategory }) {
             {room.highlights.join(" • ")}
           </p>
 
+          <div className="mt-8">
+            <ReserveButton variant="gold" label="Reserve Now" />
+          </div>
+
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             <DetailBlock label="Bed" value={room.beds} />
             <DetailBlock
@@ -155,6 +160,10 @@ export function RoomDetailContent({ room }: { room: RoomCategory }) {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-10">
+              <ReserveButton variant="gold" label="Reserve Now" />
+            </div>
           </div>
         </div>
       </section>

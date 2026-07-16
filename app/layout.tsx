@@ -9,7 +9,7 @@ import {
 import Script from "next/script";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import { NIVAARA_LOGO, SEO_KEYWORDS } from "@/lib/constants";
-import { MobileReserveBar } from "@/components/MobileReserveBar";
+import { StickyBookingButton } from "@/components/StickyBookingButton";
 import { PageMediaGate } from "@/components/PageMediaGate";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
@@ -102,7 +102,7 @@ export default function RootLayout({
         <ContactModalProvider>
           <ScrollToTop />
           <PageMediaGate>{children}</PageMediaGate>
-          <MobileReserveBar />
+          <StickyBookingButton />
         </ContactModalProvider>
       </body>
     </html>

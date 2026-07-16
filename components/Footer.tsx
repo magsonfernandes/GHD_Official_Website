@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContactNavLink } from "@/components/contact/ContactNavLink";
-import { GHD_LOGO, NAV_ITEMS, SITE, SOCIAL_LINKS } from "@/lib/constants";
+import { GHD_LOGO_GOLD_EMBOSSED, NAV_ITEMS, SITE, SOCIAL_LINKS } from "@/lib/constants";
 
 type IconProps = {
   className?: string;
@@ -116,15 +116,15 @@ export function Footer() {
 
         <Link
           href="/"
-          className="relative mt-8 block h-9 w-[10rem] sm:mt-10 sm:h-10 sm:w-[11.5rem] md:h-11 md:w-[13rem]"
+          className="relative mt-8 block h-12 w-[14rem] sm:mt-10 sm:h-14 sm:w-[16.5rem] md:h-16 md:w-[19rem]"
           aria-label={`${SITE.name} home`}
         >
           <Image
-            src={GHD_LOGO}
+            src={GHD_LOGO_GOLD_EMBOSSED}
             alt={SITE.name}
             fill
             className="object-contain object-center"
-            sizes="(max-width: 768px) 160px, 208px"
+            sizes="(max-width: 768px) 224px, 304px"
           />
         </Link>
 

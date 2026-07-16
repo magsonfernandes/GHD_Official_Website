@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ContactNavLink } from "@/components/contact/ContactNavLink";
 import { getDefaultBookingHref } from "@/lib/booking";
-import { GHD_LOGO, GHD_LOGO_WHITE, NAV_ITEMS, SITE } from "@/lib/constants";
+import { GHD_LOGO_GOLD, GHD_LOGO_WHITE, NAV_ITEMS, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 function contactClass(scrolled: boolean) {
@@ -141,13 +141,15 @@ function MobileNavMenu({
         </ul>
 
         <div className="border-t border-border px-5 py-4">
-          <Link
+          <a
             href={getDefaultBookingHref()}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onClose}
-            className="flex h-11 w-full items-center justify-center bg-[#543119] font-body text-xs font-medium uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#543119]/90"
+            className="flex h-11 w-full items-center justify-center rounded-none bg-gold font-body text-xs font-medium uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#b89755]"
           >
-            Reserve
-          </Link>
+            Book Now
+          </a>
         </div>
       </nav>
     </>
@@ -289,25 +291,34 @@ function StickyHeaderContent() {
         <div className="relative z-10 flex min-w-0 flex-1 items-center justify-between gap-3 px-3 pointer-events-none sm:px-6 lg:px-10">
           <Link
             href="/"
-            className="site-header__logo pointer-events-auto relative block h-8 w-[8.5rem] shrink-0 sm:h-10 sm:w-[10.5rem] md:w-[11.5rem]"
+            className="site-header__logo pointer-events-auto relative block h-9 w-[10rem] shrink-0 sm:h-10 sm:w-[12rem] md:h-11 md:w-[13.5rem] lg:w-[15rem]"
             aria-label={`${SITE.name} home`}
           >
             <Image
-              src={GHD_LOGO}
+              src={GHD_LOGO_GOLD}
               alt={SITE.name}
               fill
               className="object-contain object-left"
-              sizes="(max-width: 768px) 136px, 184px"
+              sizes="(max-width: 768px) 160px, 240px"
               priority
             />
           </Link>
 
-          <MobileMenuButton
-            open={menuOpen}
-            onClick={() => setMenuOpen((current) => !current)}
-            menuId="sticky-mobile-menu"
-            className="pointer-events-auto"
-          />
+          <div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
+            <a
+              href={getDefaultBookingHref()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-none bg-gold px-3.5 py-2 font-body text-[0.6rem] font-medium uppercase tracking-[0.12em] text-white transition-all duration-300 hover:bg-[#b89755] md:hidden"
+            >
+              Book Now
+            </a>
+            <MobileMenuButton
+              open={menuOpen}
+              onClick={() => setMenuOpen((current) => !current)}
+              menuId="sticky-mobile-menu"
+            />
+          </div>
         </div>
 
         <nav
@@ -319,12 +330,16 @@ function StickyHeaderContent() {
           </ul>
         </nav>
 
-        <Link
-          href={getDefaultBookingHref()}
-          className="site-header__reserve-desktop relative z-10 h-full shrink-0 items-center justify-center rounded-none bg-[#543119] px-5 font-body text-[0.62rem] font-medium uppercase tracking-[0.1em] text-white transition-colors duration-500 hover:bg-[#543119]/90 sm:px-7 sm:text-[0.7rem] lg:px-9"
-        >
-          Reserve
-        </Link>
+        <div className="relative z-10 hidden shrink-0 items-center pr-3 sm:pr-6 md:flex lg:pr-10">
+          <a
+            href={getDefaultBookingHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-header__book-now inline-flex items-center justify-center rounded-none bg-gold px-5 py-2.5 font-body text-[0.65rem] font-medium uppercase tracking-[0.12em] text-white transition-all duration-300 hover:bg-[#b89755] hover:shadow-[0_8px_20px_rgba(198,168,106,0.35)] lg:px-6"
+          >
+            Book Now
+          </a>
+        </div>
       </div>
 
       <MobileNavMenu

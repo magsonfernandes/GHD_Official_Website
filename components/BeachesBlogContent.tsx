@@ -96,7 +96,7 @@ export function BeachesBlogContent() {
                   <div className="mt-4 space-y-1">
                     {beach.distance ? (
                       <p className={`${bodyClass} text-sm md:text-base`}>
-                        <strong className="font-medium">Distance from Nerul:</strong>{" "}
+                        <strong className="font-medium">Distance from Nivaãra:</strong>{" "}
                         {beach.distance}
                       </p>
                     ) : null}

@@ -4,15 +4,6 @@ export const PROPERTIES = [
   { id: "samraya", name: "Samrāya", available: false },
 ] as const;
 
-export const BRAND_MENU = [
-  {
-    id: "nivaara",
-    name: "Nivaãra",
-    available: true,
-    locations: [{ name: "Nerul", href: "/" }],
-  },
-] as const;
-
 export const AVAILABLE_PROPERTIES = PROPERTIES.filter((p) => p.available);
 
 export const DEFAULT_PROPERTY_ID = "nivaara";
@@ -272,7 +263,7 @@ export const ROOM_CATEGORIES = [
     sleeps: 2,
     sizeSqFt: 517,
     size: "517 sq. ft.",
-    image: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
+    image: "/images/nivaara/luxury-room.w1200.webp",
     gallery: NIVAARA_FULL_GALLERY,
   },
   {
@@ -295,7 +286,7 @@ export const ROOM_CATEGORIES = [
     sleeps: 2,
     sizeSqFt: 517,
     size: "517 sq. ft.",
-    image: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
+    image: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
     gallery: NIVAARA_FULL_GALLERY,
   },
   {
@@ -318,7 +309,7 @@ export const ROOM_CATEGORIES = [
     sleeps: 2,
     sizeSqFt: 517,
     size: "517 sq. ft.",
-    image: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+    image: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
     gallery: NIVAARA_FULL_GALLERY,
   },
 ] as const;
@@ -335,17 +326,17 @@ export const SOCIAL_LINKS = [
   {
     label: "Instagram",
     icon: "instagram",
-    href: "https://www.instagram.com/ghd_hotels?igsh=dGF2aDRyMnN4MGpt",
+    href: "https://www.instagram.com/nivaarahotels/",
   },
   {
     label: "Facebook",
     icon: "facebook",
-    href: "https://www.facebook.com/profile.php?id=61590444132512",
+    href: "https://www.facebook.com/profile.php?id=61591596812262",
   },
   {
     label: "X",
     icon: "x",
-    href: "https://x.com/GHD_Hotels",
+    href: "https://x.com/ghdhotels",
   },
   {
     label: "LinkedIn",
@@ -607,32 +598,35 @@ export const CORPORATE_OFFICE = {
   alt: "Reception at Nivaãra by GHD Hotels",
 } as const;
 
-export const HERO_IMAGE =
-  "/images/nivaara/Nivaara_Full Building View_Pic1.w1600.webp";
-
-export const NIVAARA_HERO_VIDEO = "/images/nivaara/Hero%20Section.mov";
+export const NIVAARA_HERO_VIDEO = "/images/nivaara/hero-section.mp4";
 export const HERO_VIDEO = NIVAARA_HERO_VIDEO;
 export const HERO_VIDEO_POSTER = "/images/nivaara/nivaara-hero-poster.webp";
 
-export const HOME_PAGE_TEXTURE = "/images/nivaara/white%20background.jpg";
-
-export const WELCOME_IMAGE =
-  "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp";
-
 export const NIVAARA_LOGO = "/logos/Nivaara_logo.png";
 
-export const GHD_LOGO_WHITE = "/logos/GHD Hotels LOGO - WHITE.png";
+export const GHD_LOGO_WHITE = "/logos/GHD-Hotels-Logo-White.png";
 
-export const GHD_LOGO = "/logos/GHD Hotels LOGO - BROWN.png";
+export const GHD_LOGO_GOLD = "/logos/GHD-Hotels-Logo-Gold.png";
+export const GHD_LOGO_GOLD_EMBOSSED = "/logos/GHD-Hotels-Logo-Gold-Embossed.png";
 
-export const SIGNATURE_EXPERIENCES_VIDEO =
-  "/images/nivaara/Food_nivaara.mp4";
+export const BEACH_EXPERIENCES_VIDEO =
+  "/images/nivaara/beach_nivaara.mp4";
+
+export const BEACH_EXPERIENCES_POSTER =
+  "/images/nivaara/beach_nivaara-poster.webp";
 
 export const POOL_EXPERIENCES_VIDEO =
   "/images/nivaara/Pool_nivaara.mp4";
 
+export const POOL_EXPERIENCES_POSTER =
+  "/images/nivaara/Pool_nivaara-poster.webp";
+
 export const EXPERIENCES_HERO_VIDEO =
-  "/images/experiences/Timeline 1.mov";
+  "/images/experiences/experiences-hero.mp4";
+
+export const SILHOUETTE_VIDEO = "/images/nivaara/silhouette.mp4";
+
+export const FAMILY_AT_BEACH_VIDEO = "/images/nivaara/family-at-beach.mp4";
 
 export const EXPLORE_SPACES = [
   {
@@ -682,39 +676,6 @@ export const EXPLORE_SPACES = [
     href: "#accommodation",
     image: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
     alt: "Lobby lounge at Nivaãra by GHD Hotels",
-  },
-] as const;
-
-export const GALLERY_IMAGES = [
-  {
-    src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
-    alt: "Elegant guest room at Nivaãra by GHD Hotels",
-    aspect: "tall" as const,
-  },
-  {
-    src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Serene pool at Nivaãra by GHD Hotels",
-    aspect: "wide" as const,
-  },
-  {
-    src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-    alt: "Reception lounge at Nivaãra by GHD Hotels",
-    aspect: "square" as const,
-  },
-  {
-    src: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
-    alt: "Terrace overlooking Goa",
-    aspect: "tall" as const,
-  },
-  {
-    src: "/images/nivaara/Nivaara_Pool_Pic2.w1200.webp",
-    alt: "Poolside retreat",
-    aspect: "wide" as const,
-  },
-  {
-    src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
-    alt: "Luxury bathroom suite",
-    aspect: "square" as const,
   },
 ] as const;
 
@@ -960,28 +921,5 @@ export const FAQ_SECTIONS = [
           "Yes. Its location in Nerul provides convenient access to North Goa's beaches, nightlife, dining destinations, and cultural landmarks.",
       },
     ],
-  },
-] as const;
-
-export const HIGHLIGHTS = [
-  {
-    icon: "bed" as const,
-    value: "20",
-    label: "Luxury Rooms",
-  },
-  {
-    icon: "waves" as const,
-    value: "Beach",
-    label: "Proximity",
-  },
-  {
-    icon: "concierge" as const,
-    value: "Personal",
-    label: "Service",
-  },
-  {
-    icon: "sparkles" as const,
-    value: "Curated",
-    label: "City Attractions",
   },
 ] as const;

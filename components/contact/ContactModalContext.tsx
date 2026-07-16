@@ -384,7 +384,7 @@ function ContactModal({
                 </p>
                 <button
                   type="button"
-                  className="mt-6 h-10 border border-charcoal bg-white px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-charcoal sm:text-xs"
+                  className="mt-6 h-10 rounded-none border border-charcoal bg-white px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-charcoal sm:text-xs"
                   onClick={() => setStatus("idle")}
                 >
                   Send Another Message
@@ -488,7 +488,7 @@ function ContactModal({
                 <button
                   type="submit"
                   disabled={!canSend}
-                  className="mt-2 h-10 w-full bg-[#543119] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-xs"
+                  className="mt-2 h-10 w-full rounded-none bg-[#543119] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-xs"
                 >
                   {status === "loading" ? (
                     "Sending..."

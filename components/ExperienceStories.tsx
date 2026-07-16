@@ -32,7 +32,7 @@ export function ExperienceStories() {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className="absolute left-0 top-0 h-full w-[118%] max-w-none object-cover object-left"
           />
         </div>

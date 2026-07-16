@@ -1,11 +1,26 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { NIVAARA_LOGO } from "@/lib/constants";
+import {
+  BookingCta,
+  BoutiqueUrgencyBanner,
+} from "@/components/BookingCta";
+import { NIVAARA_LOGO, SILHOUETTE_VIDEO } from "@/lib/constants";
 import { sectionBodyClass } from "@/lib/section-typography";
 
 export function GhdGroupIntro() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    void video.play().catch(() => {});
+  }, []);
+
   return (
-    <section className="bg-transparent px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:px-10">
-      <div className="mx-auto max-w-[88rem] text-center">
+    <section className="bg-transparent px-0 pt-12 pb-0 md:pt-16">
+      <div className="mx-auto max-w-[88rem] px-6 text-center lg:px-10">
         <Image
           src={NIVAARA_LOGO}
           alt="Nivaãra by GHD Hotels"
@@ -25,6 +40,40 @@ export function GhdGroupIntro() {
           business, a quiet escape, or a family holiday in Goa, our focus stays simple:
           hospitality that feels real, intuitive, and memorable.
         </p>
+      </div>
+
+      <div className="relative mt-10 overflow-hidden md:mt-12">
+        <div className="absolute inset-0" aria-hidden>
+          <video
+            ref={videoRef}
+            src={SILHOUETTE_VIDEO}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/45" />
+        </div>
+
+        <div className="relative z-10">
+          <BookingCta
+            title="Ready for Your Goa Escape?"
+            description="Stay just minutes from Coco Beach in spacious studio rooms, enjoy our rooftop pool, warm hospitality, and thoughtfully designed spaces for work or relaxation."
+            buttonLabel="Check Our Rooms"
+            href="/rooms"
+            actionStyle="link"
+            benefits={[
+              "Best Available Rate",
+              "Instant Confirmation",
+              "Direct Booking Benefits",
+            ]}
+            tone="onDark"
+          />
+
+          <BoutiqueUrgencyBanner light />
+        </div>
       </div>
     </section>
   );

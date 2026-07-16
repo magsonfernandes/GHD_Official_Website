@@ -162,7 +162,7 @@ export function ExploreNivaara() {
   const [visibleSlideCount, setVisibleSlideCount] = useState(MOBILE_VISIBLE_SLIDES);
   const [stepCount, setStepCount] = useState(1);
   const [scrollOffset, setScrollOffset] = useState(0);
-  const [stripStyle, setStripStyle] = useState({ top: 0, height: 0 });
+  const [stripStyle, setStripStyle] = useState({ top: 0 });
   const [introPadTop, setIntroPadTop] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -199,11 +199,9 @@ export function ExploreNivaara() {
     const sectionRect = section.getBoundingClientRect();
     const imageRect = image.getBoundingClientRect();
     const imageMidY = imageRect.top + imageRect.height / 2 - sectionRect.top;
-    const sectionHeight = section.offsetHeight;
 
     setStripStyle({
       top: imageMidY,
-      height: Math.max(sectionHeight - imageMidY, 0),
     });
     setIntroPadTop(image.offsetHeight / 2 + STRIP_TEXT_PAD);
   }, []);
@@ -322,13 +320,12 @@ export function ExploreNivaara() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative z-10 w-full overflow-hidden bg-transparent pt-8 pb-16 md:pt-10 md:pb-24 lg:pt-12 lg:pb-28"
+      className="relative z-10 mb-[-1px] w-full overflow-hidden bg-transparent pt-8 pb-16 md:pt-10 md:pb-24 lg:pt-12 lg:pb-28"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 z-0 bg-[#245F73]/88 transition-[top,height] duration-300 ease-out"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 bg-[#245F73]/88 transition-[top] duration-300 ease-out"
         style={{
           top: stripStyle.top,
-          height: stripStyle.height,
         }}
         aria-hidden
       />
@@ -423,19 +420,19 @@ export function ExploreNivaara() {
               onClick={retreat}
               disabled={isAtStart}
               className={cn(
-                "group flex items-center justify-center p-1 text-white transition-colors duration-500",
+                "group flex items-center justify-center p-1 text-gold transition-colors duration-500",
                 isAtStart
                   ? "cursor-default opacity-35"
-                  : "hover:text-white/85",
+                  : "hover:text-gold/80",
               )}
               aria-label="Previous space"
             >
               <NavArrow direction="left" />
             </button>
 
-            <span className="min-w-[2.75rem] text-center font-body text-sm tabular-nums tracking-[0.12em] text-white">
+            <span className="min-w-[2.75rem] text-center font-body text-sm tabular-nums tracking-[0.12em] text-gold">
               {activeIndex + 1}
-              <span className="mx-1.5 text-white/70">/</span>
+              <span className="mx-1.5 text-gold/60">/</span>
               {stepCount}
             </span>
 
@@ -444,8 +441,8 @@ export function ExploreNivaara() {
               onClick={advance}
               disabled={isAtEnd}
               className={cn(
-                "group flex items-center justify-center p-1 text-white transition-colors duration-500",
-                isAtEnd ? "cursor-default opacity-35" : "hover:text-white/85",
+                "group flex items-center justify-center p-1 text-gold transition-colors duration-500",
+                isAtEnd ? "cursor-default opacity-35" : "hover:text-gold/80",
               )}
               aria-label="Next space"
             >

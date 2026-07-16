@@ -16,7 +16,7 @@ export function Hero() {
     link.rel = "preload";
     link.as = "video";
     link.href = HERO_VIDEO;
-    link.type = "video/quicktime";
+    link.type = "video/mp4";
     document.head.appendChild(link);
 
     return () => {

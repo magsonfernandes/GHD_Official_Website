@@ -160,7 +160,7 @@ export function NewsletterSignup({ idSuffix = "" }: NewsletterSignupProps) {
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="h-10 shrink-0 bg-[#543119] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
+                className="h-10 shrink-0 rounded-none bg-[#543119] px-6 font-body text-[0.65rem] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#543119]/90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               >
                 {status === "loading" ? "Submitting…" : "Sign Up"}
               </button>

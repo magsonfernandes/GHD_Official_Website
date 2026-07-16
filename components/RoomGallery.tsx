@@ -367,7 +367,7 @@ function Lightbox({
             <button
               type="button"
               onClick={onPrevious}
-              className="absolute left-0 top-1/2 z-20 -translate-x-2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 font-body text-xs uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-colors hover:bg-black/60 sm:-translate-x-4"
+              className="absolute left-0 top-1/2 z-20 -translate-x-2 -translate-y-1/2 rounded-none border border-white/20 bg-black/40 px-3 py-2 font-body text-xs uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-colors hover:bg-black/60 sm:-translate-x-4"
               aria-label="Previous image"
             >
               Prev
@@ -375,7 +375,7 @@ function Lightbox({
             <button
               type="button"
               onClick={onNext}
-              className="absolute right-0 top-1/2 z-20 translate-x-2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 font-body text-xs uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-colors hover:bg-black/60 sm:translate-x-4"
+              className="absolute right-0 top-1/2 z-20 translate-x-2 -translate-y-1/2 rounded-none border border-white/20 bg-black/40 px-3 py-2 font-body text-xs uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-colors hover:bg-black/60 sm:translate-x-4"
               aria-label="Next image"
             >
               Next

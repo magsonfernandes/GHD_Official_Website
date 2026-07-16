@@ -97,7 +97,7 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden bg-[#faf9f6] py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden bg-transparent py-16 md:py-20 lg:py-24"
     >
       <div
         className="pointer-events-none absolute inset-x-0 top-[42%] h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent"
@@ -242,10 +242,10 @@ export function Testimonials() {
               disabled={isAtStart}
               aria-disabled={isAtStart}
               className={cn(
-                "group flex items-center justify-center p-2 text-[#543119] transition-colors duration-500",
+                "group flex items-center justify-center p-2 text-gold transition-colors duration-500",
                 isAtStart
                   ? "cursor-default opacity-35"
-                  : "hover:text-gold",
+                  : "hover:text-[#b89755]",
               )}
               aria-label="Previous testimonial"
             >
@@ -254,7 +254,7 @@ export function Testimonials() {
 
             <span className="min-w-[2.75rem] text-center font-body text-sm tabular-nums tracking-[0.12em] text-charcoal">
               {activeIndex + 1}
-              <span className="mx-1.5 text-grey/70">/</span>
+              <span className="mx-1.5 text-gold/70">/</span>
               {count}
             </span>
 
@@ -266,8 +266,8 @@ export function Testimonials() {
               disabled={isAtEnd}
               aria-disabled={isAtEnd}
               className={cn(
-                "group flex items-center justify-center p-2 text-[#543119] transition-colors duration-500",
-                isAtEnd ? "cursor-default opacity-35" : "hover:text-gold",
+                "group flex items-center justify-center p-2 text-gold transition-colors duration-500",
+                isAtEnd ? "cursor-default opacity-35" : "hover:text-[#b89755]",
               )}
               aria-label="Next testimonial"
             >

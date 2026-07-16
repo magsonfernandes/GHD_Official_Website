@@ -209,6 +209,8 @@ footer#contact.site-footer {
   background-color: #ffffff;
 }
 
+/* Full-viewport textured backdrop — visible only where sections are transparent
+   (Nivaãra intro, Explore Nivaãra, Stay Close beaches CTA, Words From Our Guests) */
 .home-page__texture {
   position: fixed;
   inset: 0;
@@ -246,13 +248,20 @@ footer#contact.site-footer {
   letter-spacing: clamp(-0.01em, 0.02vw, 0.015em);
 }
 
-/* Mobile reserve bar — forced layout (not reliant on Tailwind breakpoints alone) */
-@media (max-width: 767px) {
-  .site-header__reserve-desktop {
-    display: none !important;
-  }
+/* Sticky booking CTA — desktop floating button */
+.sticky-booking-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  text-decoration: none;
+}
 
-  .mobile-reserve-bar {
+/* Mobile book strip — full-width sticky bottom bar */
+:root {
+  --mobile-book-strip-height: 2.75rem;
+}
+
+@media (max-width: 767px) {
+  .mobile-book-strip {
     box-sizing: border-box !important;
     display: flex !important;
     visibility: visible !important;
@@ -268,13 +277,13 @@ footer#contact.site-footer {
     z-index: 9998 !important;
     align-items: center !important;
     justify-content: center !important;
-    height: calc(2rem + env(safe-area-inset-bottom, 0px)) !important;
-    min-height: 2rem !important;
+    height: calc(var(--mobile-book-strip-height) + env(safe-area-inset-bottom, 0px)) !important;
+    min-height: var(--mobile-book-strip-height) !important;
     padding: 0 1rem env(safe-area-inset-bottom, 0px) !important;
-    background-color: #543119 !important;
+    background-color: #c6a86a !important;
     color: #ffffff !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.625rem !important;
+    font-family: var(--font-body), system-ui, sans-serif !important;
+    font-size: 0.6875rem !important;
     font-weight: 500 !important;
     letter-spacing: 0.16em !important;
     text-decoration: none !important;
@@ -283,23 +292,20 @@ footer#contact.site-footer {
     touch-action: manipulation;
   }
 
-  html,
-  body {
-    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px)) !important;
+  /* Reserve space inside the footer so content clears the strip without extra page scroll */
+  footer#contact.site-footer {
+    padding-bottom: calc(4rem + var(--mobile-book-strip-height) + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  footer#contact.site-footer {
+    padding-bottom: calc(5rem + var(--mobile-book-strip-height) + env(safe-area-inset-bottom, 0px)) !important;
   }
 }
 
 @media (min-width: 768px) {
-  .site-header__reserve-desktop {
-    display: flex !important;
-  }
-
-  .mobile-reserve-bar {
+  .mobile-book-strip {
     display: none !important;
-  }
-
-  html,
-  body {
-    padding-bottom: 0 !important;
   }
 }
