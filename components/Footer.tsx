@@ -67,20 +67,34 @@ const SOCIAL_ICONS = {
 
 export function Footer() {
   return (
-    <footer id="contact" className="site-footer py-16 sm:py-20">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center px-6 text-center">
+    <footer id="contact" className="site-footer relative overflow-hidden py-16 sm:py-20">
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+        aria-hidden
+      >
+        <Image
+          src="/images/nivaara/footer-mandala.png"
+          alt=""
+          width={1082}
+          height={1082}
+          className="h-[min(110vw,36rem)] w-[min(110vw,36rem)] object-contain opacity-10 sm:h-[42rem] sm:w-[42rem] md:h-[48rem] md:w-[48rem]"
+          sizes="(max-width: 640px) 110vw, 768px"
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center px-6 text-center">
         <nav className="w-full" aria-label="Footer navigation">
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 sm:gap-x-7 md:gap-x-9">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 {item.label === "CONTACT" ? (
-                  <ContactNavLink className="font-body text-[9px] font-normal uppercase tracking-[0.13em] text-charcoal/80 transition-[color,opacity] duration-300 hover:text-charcoal sm:text-[10px] sm:tracking-[0.14em]">
+                  <ContactNavLink className="font-body text-[9px] font-semibold uppercase tracking-[0.13em] text-charcoal transition-[color,opacity] duration-300 hover:text-[#543119] sm:text-[10px] sm:tracking-[0.14em]">
                     {item.label}
                   </ContactNavLink>
                 ) : (
                   <Link
                     href={item.href}
-                    className="font-body text-[9px] font-normal uppercase tracking-[0.13em] text-charcoal/80 transition-[color,opacity] duration-300 hover:text-charcoal sm:text-[10px] sm:tracking-[0.14em]"
+                    className="font-body text-[9px] font-semibold uppercase tracking-[0.13em] text-charcoal transition-[color,opacity] duration-300 hover:text-[#543119] sm:text-[10px] sm:tracking-[0.14em]"
                   >
                     {item.label}
                   </Link>
@@ -95,18 +109,18 @@ export function Footer() {
             <li>
               <Link
                 href="/privacy"
-                className="font-body text-[8px] uppercase tracking-[0.12em] text-charcoal/65 transition-colors hover:text-charcoal sm:text-[9px]"
+                className="font-body text-[8px] font-semibold uppercase tracking-[0.12em] text-charcoal/85 transition-colors hover:text-charcoal sm:text-[9px]"
               >
                 Privacy Policy
               </Link>
             </li>
-            <li aria-hidden className="text-charcoal/35">
+            <li aria-hidden className="text-charcoal/40">
               |
             </li>
             <li>
               <Link
                 href="/terms"
-                className="font-body text-[8px] uppercase tracking-[0.12em] text-charcoal/65 transition-colors hover:text-charcoal sm:text-[9px]"
+                className="font-body text-[8px] font-semibold uppercase tracking-[0.12em] text-charcoal/85 transition-colors hover:text-charcoal sm:text-[9px]"
               >
                 Terms &amp; Conditions
               </Link>
@@ -114,21 +128,28 @@ export function Footer() {
           </ul>
         </nav>
 
+        {/* Soft spotlight behind logo so gold mark reads as the footer focus */}
         <Link
           href="/"
-          className="relative mt-8 block h-12 w-[14rem] sm:mt-10 sm:h-14 sm:w-[16.5rem] md:h-16 md:w-[19rem]"
+          className="relative mt-6 flex w-[min(52vw,11rem)] items-center justify-center sm:mt-8 sm:w-[min(42vw,13rem)] md:w-[15rem]"
           aria-label={`${SITE.name} home`}
         >
+          <span
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[140%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(250,247,240,0.95)_0%,rgba(250,247,240,0.72)_45%,transparent_72%)]"
+            aria-hidden
+          />
           <Image
             src={GHD_LOGO_GOLD_EMBOSSED}
             alt={SITE.name}
-            fill
-            className="object-contain object-center"
-            sizes="(max-width: 768px) 224px, 304px"
+            width={1160}
+            height={420}
+            className="relative z-10 h-auto w-full object-contain object-center drop-shadow-[0_6px_18px_rgba(84,49,25,0.22)]"
+            sizes="(max-width: 768px) 176px, 240px"
+            priority
           />
         </Link>
 
-        <ul className="mt-7 flex items-center justify-center gap-5 sm:mt-8 sm:gap-6">
+        <ul className="mt-5 flex items-center justify-center gap-5 sm:mt-6 sm:gap-6">
           {SOCIAL_LINKS.map((social) => {
             const Icon = SOCIAL_ICONS[social.icon];
 
@@ -139,7 +160,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="inline-flex text-charcoal/70 transition-[color,opacity] duration-300 hover:text-charcoal"
+                  className="inline-flex text-charcoal transition-[color,opacity] duration-300 hover:text-[#543119]"
                 >
                   <Icon className="size-4 sm:size-[18px]" />
                 </a>
@@ -148,8 +169,8 @@ export function Footer() {
           })}
         </ul>
 
-        <div className="mt-8 w-full border-t border-charcoal/10 pt-6 sm:mt-10 sm:pt-7">
-          <p className="font-body text-[8px] tracking-[0.03em] text-charcoal/55 sm:text-[9px]">
+        <div className="mt-8 w-full border-t border-charcoal/15 pt-6 sm:mt-10 sm:pt-7">
+          <p className="font-body text-[8px] font-semibold tracking-[0.03em] text-charcoal/75 sm:text-[9px]">
             © 2026 Nivaãra by GHD Hotels. All Rights Reserved.
           </p>
         </div>

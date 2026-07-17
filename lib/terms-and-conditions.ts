@@ -2,6 +2,7 @@ import {
   GUEST_CARE_CONTACT,
   HOTEL_CHECK_IN_TIME,
   HOTEL_CHECK_OUT_TIME,
+  HOTEL_POOL_HOURS,
   NIVAARA_CONTACT,
   RESERVATION_CONTACT,
   SITE,
@@ -254,7 +255,7 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       title: "15. Swimming Pool Rules & Regulations",
       paragraphs: [],
       bullets: [
-        "Pool timings must be strictly followed: 8:00 AM to 8:00 PM.",
+        `Pool timings must be strictly followed: ${HOTEL_POOL_HOURS.replace("–", "to")}.`,
         "Shower before entering the pool.",
         "Proper swimwear is compulsory.",
         "No entry in regular clothes or shoes.",

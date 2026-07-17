@@ -57,10 +57,10 @@
   --radius: 0.5rem;
   --ghd-brown: #543119;
 
-  /* Footer — change color and opacity here */
-  --footer-bg-r: 224;
-  --footer-bg-g: 225;
-  --footer-bg-b: 208;
+  /* Footer — light ivory */
+  --footer-bg-r: 250;
+  --footer-bg-g: 247;
+  --footer-bg-b: 240;
   --footer-bg-opacity: 1;
 }
 

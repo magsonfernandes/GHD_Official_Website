@@ -14,8 +14,9 @@ export const AXISROOMS_BOOKING_URL =
 
 export const ROOM_OPTIONS = [1, 2, 3, 4, 5] as const;
 
-export const HOTEL_CHECK_IN_TIME = "1:00 PM";
+export const HOTEL_CHECK_IN_TIME = "2:00 PM";
 export const HOTEL_CHECK_OUT_TIME = "11:00 AM";
+export const HOTEL_POOL_HOURS = "8:00 AM – 8:00 PM";
 
 export const MAX_ADULTS_PER_ROOM = 3;
 export const MAX_CHILDREN_PER_ROOM = 2;
@@ -164,7 +165,7 @@ export const ROYAL_STUDIO = {
       { label: "Check-in", value: HOTEL_CHECK_IN_TIME },
       { label: "Check-out", value: HOTEL_CHECK_OUT_TIME },
       { label: "Housekeeping", value: "9:00 AM – 6:00 PM" },
-      { label: "Pool", value: "9:00 AM – 8:00 PM" },
+      { label: "Pool", value: HOTEL_POOL_HOURS },
     ],
     guidelines: [
       "Deposit your room keys at Reception when going out.",
@@ -863,7 +864,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Is there a swimming pool at Nivaãra?",
         answer:
-          "Yes. Nivaãra features a rooftop swimming pool, offering guests a refreshing swim with scenic North Goa views. The pool is accessible during designated operating hours.",
+          `Yes. Nivaãra features a rooftop swimming pool, offering guests a refreshing swim with scenic North Goa views. Pool hours are ${HOTEL_POOL_HOURS}.`,
       },
       {
         question: "Is parking available?",
