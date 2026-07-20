@@ -14,7 +14,7 @@ export function ReserveButton({
   className,
   variant = "outline",
   href,
-  label = "Reserve",
+  label = "Reserved",
 }: ReserveButtonProps) {
   return (
     <a
