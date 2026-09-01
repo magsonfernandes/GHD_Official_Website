@@ -14,11 +14,11 @@ import {
   reservationDividerClass,
   searchSegmentClass,
 } from "@/components/reservation/fieldStyles";
-import { buildBookingSearchParams, getDefaultReservationDates } from "@/lib/booking";
+import { submitAxisRoomsBookingSearch, buildBookingSearchParams, getDefaultReservationDates } from "@/lib/booking";
 import { AVAILABLE_PROPERTIES, DEFAULT_PROPERTY_ID } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const propertyOptions = AVAILABLE_PROPERTIES.map((p) => ({
+const defaultPropertyOptions = AVAILABLE_PROPERTIES.map((p) => ({
   value: p.id,
   label: p.name,
 }));
@@ -43,6 +43,8 @@ function getValidationErrors(
   return errors;
 }
 
+type PropertyOption = { value: string; label: string };
+
 type ReservationBarProps = {
   className?: string;
   initialProperty?: string;
@@ -52,6 +54,10 @@ type ReservationBarProps = {
   guestsPickerOpen?: boolean;
   onGuestsPickerOpenChange?: (open: boolean) => void;
   onSearch?: (params: URLSearchParams) => void;
+  propertyOptions?: readonly PropertyOption[];
+  propertyPlaceholder?: string;
+  resolvePropertyId?: (value: string) => string;
+  bookingRedirect?: "internal" | "axisrooms";
 };
 
 type ReservationFormProps = {
@@ -71,6 +77,8 @@ type ReservationFormProps = {
   guestsPickerOpen?: boolean;
   onGuestsPickerOpenChange?: (open: boolean) => void;
   variant?: "hero" | "booking";
+  propertyOptions: readonly PropertyOption[];
+  propertyPlaceholder: string;
 };
 
 function ReservationForm({
@@ -87,6 +95,8 @@ function ReservationForm({
   guestsPickerOpen,
   onGuestsPickerOpenChange,
   variant = "hero",
+  propertyOptions,
+  propertyPlaceholder,
 }: ReservationFormProps) {
   const isHero = variant === "hero";
 
@@ -107,7 +117,7 @@ function ReservationForm({
         className="flex h-[4.25rem] w-full min-w-0 flex-nowrap overflow-visible md:h-[5rem]"
       >
         <LuxurySelect
-          placeholder="Search Hotels"
+          placeholder={propertyPlaceholder}
           value={property}
           options={propertyOptions}
           onChange={(value) => {
@@ -195,6 +205,10 @@ export function ReservationBar({
   guestsPickerOpen,
   onGuestsPickerOpenChange,
   onSearch,
+  propertyOptions = defaultPropertyOptions,
+  propertyPlaceholder = "Search Hotels",
+  resolvePropertyId = (value) => value,
+  bookingRedirect = "internal",
   variant = "hero",
 }: ReservationBarProps & { variant?: "hero" | "booking" }) {
   const router = useRouter();
@@ -229,7 +243,7 @@ export function ReservationBar({
     setValidationErrors([]);
 
     const params = buildBookingSearchParams({
-      property,
+      property: resolvePropertyId(property),
       guests,
       checkIn: checkIn!,
       checkOut: checkOut!,
@@ -237,6 +251,15 @@ export function ReservationBar({
 
     if (onSearch) {
       onSearch(params);
+      return;
+    }
+
+    if (bookingRedirect === "axisrooms") {
+      submitAxisRoomsBookingSearch({
+        guests,
+        checkIn: checkIn!,
+        checkOut: checkOut!,
+      });
       return;
     }
 
@@ -262,6 +285,8 @@ export function ReservationBar({
         guestsPickerOpen={guestsPickerOpen}
         onGuestsPickerOpenChange={onGuestsPickerOpenChange}
         variant={variant}
+        propertyOptions={propertyOptions}
+        propertyPlaceholder={propertyPlaceholder}
       />
     </div>
   );

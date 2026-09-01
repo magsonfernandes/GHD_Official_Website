@@ -8,9 +8,23 @@ export const AVAILABLE_PROPERTIES = PROPERTIES.filter((p) => p.available);
 
 export const DEFAULT_PROPERTY_ID = "nivaara";
 
-/** External AxisRooms booking engine — used by all Reserve CTAs */
+/** GHD corporate homepage search — single Nivaãra destination */
+export const CORPORATE_SEARCH_DESTINATIONS = [
+  {
+    value: "nivaara",
+    label: "Nivaãra — Coco Beach, North Goa",
+    propertyId: "nivaara",
+  },
+] as const;
+
+/** External AxisRooms booking engine — official link from AxisRooms support (Jul 2026) */
 export const AXISROOMS_BOOKING_URL =
   "https://app.axisrooms.com/beV2/searchHotel.html?paxInfo=2%7C0%7C%7C&allHotels=true&newBe=true&productId=214632&bookingEngineId=5012&rooms=1&searchId=-1&searchNumber=1";
+
+export const AXISROOMS_PRODUCT_ID = "214632";
+export const AXISROOMS_BOOKING_ENGINE_ID = "5012";
+export const AXISROOMS_SEARCH_BASE_URL =
+  "https://app.axisrooms.com/beV2/searchHotel.html";
 
 export const ROOM_OPTIONS = [1, 2, 3, 4, 5] as const;
 
@@ -316,7 +330,7 @@ export const ROOM_CATEGORIES = [
 ] as const;
 
 export const NAV_ITEMS = [
-  { label: "HOME", href: "/" },
+  { label: "HOME", href: "/nivaara" },
   { label: "ROOMS", href: "/rooms" },
   { label: "CITY ATTRACTIONS", href: "/city-attractions" },
   { label: "FAQs", href: "/faqs" },

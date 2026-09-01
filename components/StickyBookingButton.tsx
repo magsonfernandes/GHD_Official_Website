@@ -1,17 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
 import { getDefaultBookingHref } from "@/lib/booking";
 
+/** Property routes where the sticky Book Now strip should appear */
+const PROPERTY_ROUTE_PREFIXES = [
+  "/nivaara",
+  "/rooms",
+  "/booking",
+  "/faqs",
+  "/city-attractions",
+];
+
+function isPropertyRoute(pathname: string) {
+  return PROPERTY_ROUTE_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
+}
+
 export function StickyBookingButton() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
+  if (!mounted || !isPropertyRoute(pathname)) {
     return null;
   }
 
@@ -19,7 +36,6 @@ export function StickyBookingButton() {
 
   return createPortal(
     <>
-      {/* Mobile: full-width sticky bottom strip */}
       <a
         href={href}
         target="_blank"
@@ -30,7 +46,6 @@ export function StickyBookingButton() {
         Book Now
       </a>
 
-      {/* Desktop: floating bottom-right button */}
       <a
         href={href}
         target="_blank"
