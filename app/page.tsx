@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { CorporateFooter } from "@/components/corporate/CorporateFooter";
 import { CorporateHero } from "@/components/corporate/CorporateHero";
+import { CorporateIntro } from "@/components/corporate/CorporateIntro";
+import { CorporateBeachBanner } from "@/components/corporate/CorporateBeachBanner";
 import { BrandShowcase } from "@/components/corporate/BrandShowcase";
 import {
-  AboutGhdSection,
-  PhilosophySection,
+  CultureSection,
+  WhatWeBelieveSection,
 } from "@/components/corporate/AboutPhilosophy";
 import {
-  DestinationSection,
-  LeadershipSection,
+  GetInTouchSection,
 } from "@/components/corporate/LeadershipDestinations";
 import {
   CinematicSection,
-  ExperienceSection,
   FinalBookingCta,
-  SamrayaTeaser,
 } from "@/components/corporate/HomeSections";
 
 export const metadata: Metadata = {
@@ -26,18 +25,17 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="corporate-site bg-[#FCFBF8] text-[#2D2D2D]">
+    <div className="corporate-site bg-white text-[#2D2D2D]">
       <Header />
       <main className="pt-0">
         <CorporateHero />
+        <CorporateIntro />
+        <CorporateBeachBanner />
         <BrandShowcase />
-        <AboutGhdSection />
-        <PhilosophySection />
-        <LeadershipSection />
-        <DestinationSection />
-        <ExperienceSection />
+        <CultureSection />
+        <WhatWeBelieveSection />
+        <GetInTouchSection className="bg-white" />
         <CinematicSection />
-        <SamrayaTeaser />
         <FinalBookingCta />
       </main>
       <CorporateFooter />

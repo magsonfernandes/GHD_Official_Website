@@ -27,14 +27,25 @@ export async function generateMetadata({
     return { title: "City Attraction | Nivaãra by GHD Hotels" };
   }
 
+  if (post.slug === "beaches-of-goa") {
+    return {
+      title: "Best Beaches Near Nerul, Goa | Nivaãra by GHD Hotels",
+      description:
+        "A guide to the best beaches near Nerul and Coco Beach — from peaceful Coco Beach and historic Sinquerim to lively Baga and Calangute — plus tips on which beach suits your trip.",
+    };
+  }
+
+  if (post.slug === "goa-finest-fish-seafood") {
+    return {
+      title: "Best Seafood Restaurants in Goa | GHD Hotels",
+      description:
+        "Discover Goa's finest fish and seafood restaurants, from refined Goan dining in Assagao to classic fish thalis in Benaulim and iconic seafood tables across Panaji and South Goa.",
+    };
+  }
+
   return {
-    title: post.slug === "beaches-of-goa"
-      ? "Best Beaches Near Nerul, Goa | Nivaãra by GHD Hotels"
-      : `${post.title} | Nivaãra by GHD Hotels`,
-    description:
-      post.slug === "beaches-of-goa"
-        ? "A guide to the best beaches near Nerul and Coco Beach — from peaceful Coco Beach and historic Sinquerim to lively Baga and Calangute — plus tips on which beach suits your trip."
-        : post.excerpt,
+    title: `${post.title} | Nivaãra by GHD Hotels`,
+    description: post.excerpt,
   };
 }
 

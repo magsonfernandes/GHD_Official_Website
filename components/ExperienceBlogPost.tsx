@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BeachesBlogContent } from "@/components/BeachesBlogContent";
+import { SeafoodBlogContent } from "@/components/SeafoodBlogContent";
 import { getExperienceBlogContent } from "@/lib/experience-content";
 import type { ExperiencePost } from "@/lib/experiences";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -10,9 +11,62 @@ type ExperienceBlogPostProps = {
   post: ExperiencePost;
 };
 
+function HeroMedia({
+  image,
+  alt,
+  headline,
+  subheading,
+}: {
+  image: string | null;
+  alt: string;
+  headline?: string;
+  subheading?: string;
+}) {
+  return (
+    <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted sm:aspect-[2.1/1]">
+      {image ? (
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      ) : (
+        <div
+          className="absolute inset-0 bg-[#e8e2d8]"
+          role="img"
+          aria-label={alt}
+        >
+          <span className="absolute inset-0 flex items-center justify-center px-6 text-center font-body text-[0.7rem] font-medium uppercase tracking-[0.18em] text-charcoal/40">
+            Hero photo coming soon
+          </span>
+        </div>
+      )}
+
+      {headline ? (
+        <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/65 via-black/25 to-transparent">
+          <div className="w-full px-6 pb-8 pt-16 sm:px-10 sm:pb-12 lg:px-16">
+            <h1 className="max-w-3xl font-heading text-3xl font-normal leading-tight text-white sm:text-5xl md:text-[3.25rem]">
+              {headline}
+            </h1>
+            {subheading ? (
+              <p className="mt-3 max-w-2xl font-body text-sm font-light leading-relaxed text-white/85 sm:mt-4 sm:text-base">
+                {subheading}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function ExperienceBlogPost({ post }: ExperienceBlogPostProps) {
   const paragraphs = getExperienceBlogContent(post.slug);
   const isBeachesGuide = post.slug === "beaches-of-goa";
+  const isSeafoodGuide = post.slug === "goa-finest-fish-seafood";
 
   return (
     <article>
@@ -33,31 +87,41 @@ export function ExperienceBlogPost({ post }: ExperienceBlogPostProps) {
             <span>{post.readTime}</span>
           </div>
 
-          <h1 className={sectionHeadingClass(false, "mt-5 text-left")}>
-            {post.title}
-          </h1>
+          {!isSeafoodGuide ? (
+            <>
+              <h1 className={sectionHeadingClass(false, "mt-5 text-left")}>
+                {post.title}
+              </h1>
 
-          {!isBeachesGuide ? (
+              {!isBeachesGuide ? (
+                <p className={sectionBodyClass(false, "mt-5 text-left")}>
+                  {post.excerpt}
+                </p>
+              ) : null}
+            </>
+          ) : (
             <p className={sectionBodyClass(false, "mt-5 text-left")}>
               {post.excerpt}
             </p>
-          ) : null}
+          )}
         </div>
       </section>
 
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted sm:aspect-[2.1/1]">
-        <Image
-          src={post.image}
+      {isSeafoodGuide ? (
+        <HeroMedia
+          image={post.image}
           alt={post.alt}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
+          headline="Goa's Finest Fish & Seafood"
+          subheading="Seven exceptional places to discover the flavours, traditions and coastal character of Goa."
         />
-      </div>
+      ) : (
+        <HeroMedia image={post.image} alt={post.alt} />
+      )}
 
       {isBeachesGuide ? (
         <BeachesBlogContent />
+      ) : isSeafoodGuide ? (
+        <SeafoodBlogContent />
       ) : (
         <section className="bg-white px-6 py-14 md:py-20 lg:px-10">
           <div className="mx-auto max-w-3xl">

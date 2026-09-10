@@ -46,14 +46,16 @@ function BrandMegaPanel({
         </p>
 
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link
-            href={brand.exploreHref}
-            onClick={onNavigate}
-            className="inline-flex items-center gap-2 font-body text-[0.68rem] font-medium uppercase tracking-[0.14em] text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
-          >
-            Explore {brand.name}
-            <span aria-hidden>→</span>
-          </Link>
+          {brand.status === "live" && brand.exploreHref ? (
+            <Link
+              href={brand.exploreHref}
+              onClick={onNavigate}
+              className="inline-flex items-center gap-2 font-body text-[0.68rem] font-medium uppercase tracking-[0.14em] text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
+            >
+              Explore {brand.name}
+              <span aria-hidden>→</span>
+            </Link>
+          ) : null}
           {brand.status === "live" && brand.bookHref ? (
             <a
               href={getDefaultBookingHref()}
@@ -152,6 +154,14 @@ export function BrandsMegaMenu({
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/brands"
+                onClick={onClose}
+                className="mt-6 inline-flex items-center gap-2 font-body text-[0.68rem] font-medium uppercase tracking-[0.14em] text-[#C6A86B] transition-colors hover:text-[#2D2D2D]"
+              >
+                View all brands
+                <span aria-hidden>→</span>
+              </Link>
             </div>
 
             <BrandMegaPanel brand={active} onNavigate={onClose} />

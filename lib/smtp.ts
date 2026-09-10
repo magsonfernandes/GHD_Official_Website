@@ -3,8 +3,8 @@ import type { SendMailOptions } from "nodemailer";
 import { getSmtpPasswordFromEnv } from "@/lib/mailEnv";
 
 const MAIL_CANONICAL_HOST = "mail.ghdhotels.in";
-/** cPanel SMTP host when mail.* DNS wrongly points at the public website IP. */
-const DEFAULT_SMTP_CONNECT_HOST = "d16211.bom1.stableserver.net";
+/** Reachable cPanel/provider SMTP host when mail.* DNS points at the public website CDN. */
+const DEFAULT_SMTP_CONNECT_HOST = "mail.mysecurecloudhost.com";
 
 export type SmtpConfig = {
   host: string;
@@ -110,8 +110,8 @@ export function getSmtpConfigFromEnv(): SmtpConfig {
   };
 }
 
-const SMTP_CONNECT_MS = 10_000;
-const SMTP_ATTEMPT_MS = 14_000;
+const SMTP_CONNECT_MS = 5_000;
+const SMTP_ATTEMPT_MS = 8_000;
 
 function errCode(err: unknown): string {
   if (err && typeof err === "object" && "code" in err) {
@@ -250,27 +250,60 @@ async function trySendWithVariants(
 
 export async function sendMailViaSmtp(mail: SendMailOptions): Promise<void> {
   const base = getSmtpConfigFromEnv();
-  const primary = smtpAuthVariants(base);
-  let lastAuthErr: unknown;
-  try {
-    if (await trySendWithVariants(primary, mail)) return;
-  } catch (e) {
-    if (isConnectionError(e)) throw e;
-    if (!isAuth535(e)) throw e;
-    lastAuthErr = e;
-  }
 
-  if (base.port === 465 && base.secure) {
-    const alt: SmtpConfig = {
+  const connectHosts = Array.from(
+    new Set(
+      [
+        normalizeCredential(process.env.SMTP_CONNECT_HOST || ""),
+        base.host !== DEFAULT_SMTP_CONNECT_HOST &&
+        base.host !== MAIL_CANONICAL_HOST
+          ? base.host
+          : "",
+        "mail.mysecurecloudhost.com",
+        DEFAULT_SMTP_CONNECT_HOST,
+      ].filter(Boolean),
+    ),
+  ).slice(0, 3);
+
+  let lastError: unknown;
+
+  for (const connectHost of connectHosts) {
+    const tlsServername =
+      connectHost.includes("mysecurecloudhost.com") ||
+      connectHost.includes("stableserver.net")
+        ? connectHost
+        : base.tlsServername;
+
+    const candidate: SmtpConfig = {
       ...base,
-      port: 587,
-      secure: false,
+      host: connectHost,
+      tlsServername,
     };
-    const secondary = smtpAuthVariants(alt);
-    await trySendWithVariants(secondary, mail);
-    return;
+
+    try {
+      const variants = smtpAuthVariants(candidate);
+      if (await trySendWithVariants(variants, mail)) return;
+
+      if (candidate.port === 465 && candidate.secure) {
+        const alt: SmtpConfig = {
+          ...candidate,
+          port: 587,
+          secure: false,
+        };
+        if (await trySendWithVariants(smtpAuthVariants(alt), mail)) return;
+      }
+    } catch (e) {
+      lastError = e;
+      if (isConnectionError(e) || /Cannot reach mail server/i.test(String(e))) {
+        continue;
+      }
+      if (isAuth535(e)) {
+        continue;
+      }
+      throw e;
+    }
   }
 
-  if (lastAuthErr) throw new Error(authFailureMessage(lastAuthErr));
+  if (lastError) throw lastError instanceof Error ? lastError : new Error(String(lastError));
   throw new Error("SMTP authentication failed after all attempts");
 }

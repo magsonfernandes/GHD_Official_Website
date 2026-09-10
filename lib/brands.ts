@@ -18,7 +18,7 @@ export type Brand = {
     detail?: string;
   };
   route: string;
-  exploreHref: string;
+  exploreHref?: string;
   bookHref?: string;
   image: string;
   imageAlt: string;
@@ -47,15 +47,15 @@ export const PUBLIC_BRANDS: readonly Brand[] = [
     route: "/nivaara",
     exploreHref: "/nivaara",
     bookHref: "/nivaara",
-    image: "/images/nivaara/Nivaara_Full Building View_Pic1.w1200.webp",
-    cardImage: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-full-building-view.webp",
+    cardImage: "/images/nivaara/nivaara-rooftop-pool.png",
     imageAlt: "Nivaãra by GHD Hotels in Nerul, North Goa",
     highlights: ["SEA VIEW", "ROOFTOP POOL", "NORTH GOA"],
     public: true,
   },
   {
     id: "samraya",
-    name: "Samraya",
+    name: "Samrāya",
     tagline: "Crafted Indian hospitality",
     status: "coming-soon",
     description:
@@ -65,10 +65,9 @@ export const PUBLIC_BRANDS: readonly Brand[] = [
     megaMenuDescription:
       "An upcoming GHD Hotels brand celebrating Indian artistry, cultural heritage and sophisticated hospitality. A new chapter is taking shape.",
     route: "/samraya",
-    exploreHref: "/samraya",
-    image: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
-    cardImage: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
-    imageAlt: "Samraya by GHD Hotels — coming soon",
+    image: "/images/nivaara/nivaara-reception.webp",
+    cardImage: "/images/nivaara/samraya-entrance.png",
+    imageAlt: "Samrāya by GHD Hotels — coming soon",
     public: true,
   },
 ] as const;

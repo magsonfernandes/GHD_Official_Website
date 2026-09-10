@@ -5,59 +5,69 @@ import { CorporateFooter } from "@/components/corporate/CorporateFooter";
 import {
   FadeInSection,
   GoldLink,
-  SectionEyebrow,
   SectionHeading,
 } from "@/components/corporate/CorporateUi";
 import { ABOUT_PAGE } from "@/lib/corporate-content";
-import { LeadershipSection } from "@/components/corporate/LeadershipDestinations";
-import { PhilosophySection } from "@/components/corporate/AboutPhilosophy";
+import { VisionMissionSection, PhilosophySection } from "@/components/corporate/AboutPhilosophy";
+import { OurLeadershipSection } from "@/components/corporate/LeadershipProfiles";
+import { GetInTouchSection } from "@/components/corporate/LeadershipDestinations";
 
 export const metadata: Metadata = {
-  title: "About GHD Hotels | Our Story & Philosophy",
+  title: "Who We Are | GHD Hotels",
   description:
-    "Learn about GHD Hotels — a hospitality company built on thoughtful design, genuine service, and distinctive brands including Nivaãra and Samraya.",
+    "A new-generation hospitality group creating distinctive hotels and destinations across India, blending contemporary luxury with meaningful experiences.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="corporate-site bg-[#FCFBF8] text-[#2D2D2D]">
+    <div className="corporate-site bg-white text-[#2D2D2D]">
       <Header />
       <main className="pt-14 md:pt-16">
-        <section className="border-b border-[#E6DDCF] bg-[#FAF7F2] py-16 sm:py-20 lg:py-28">
-          <div className="mx-auto grid max-w-[1200px] gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-10">
+        <section className="w-full">
+          <Image
+            src={ABOUT_PAGE.heroImage}
+            alt={ABOUT_PAGE.heroImageAlt}
+            width={1448}
+            height={1086}
+            priority
+            className="h-auto w-full object-cover"
+            sizes="100vw"
+          />
+        </section>
+
+        <section className="border-b border-[#E6DDCF] py-12 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-[1100px] px-6 text-center lg:px-10">
             <FadeInSection>
-              <SectionEyebrow>{ABOUT_PAGE.eyebrow}</SectionEyebrow>
-              <SectionHeading className="mt-3 whitespace-pre-line">
-                {ABOUT_PAGE.headline}
-              </SectionHeading>
-            </FadeInSection>
-            <FadeInSection className="space-y-5">
-              {ABOUT_PAGE.extended.map((p) => (
-                <p key={p.slice(0, 40)} className="font-body text-base leading-relaxed text-[#6F6A62]">
-                  {p}
-                </p>
-              ))}
-              <GoldLink href="/#brands">Explore Our Brands</GoldLink>
+              <SectionHeading className="text-center">{ABOUT_PAGE.headline}</SectionHeading>
+              <p className="mx-auto mt-6 max-w-4xl font-body text-base font-normal leading-relaxed text-black sm:mt-8 sm:text-[1.0625rem]">
+                {ABOUT_PAGE.paragraph}
+              </p>
+
+              <h3 className="mt-10 font-heading text-2xl font-normal text-black sm:mt-12 sm:text-3xl">
+                {ABOUT_PAGE.subheading}
+              </h3>
+              <div className="mx-auto mt-5 max-w-4xl space-y-4 sm:mt-6">
+                {ABOUT_PAGE.body.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="font-body text-base font-normal leading-relaxed text-black sm:text-[1.0625rem]"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div className="mt-6 flex justify-center pt-2">
+                <GoldLink href="/brands">Explore Our Brands</GoldLink>
+              </div>
             </FadeInSection>
           </div>
         </section>
 
-        <section className="py-16 sm:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-            <div className="relative aspect-[21/9] overflow-hidden">
-              <Image
-                src="/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp"
-                alt="GHD Hotels hospitality"
-                fill
-                className="object-cover"
-                sizes="1200px"
-              />
-            </div>
-          </div>
-        </section>
-
+        <VisionMissionSection />
         <PhilosophySection />
-        <LeadershipSection />
+        <OurLeadershipSection />
+        <GetInTouchSection className="bg-white" centered />
       </main>
       <CorporateFooter />
     </div>

@@ -3,110 +3,96 @@ import { Header } from "@/components/Header";
 import { CorporateFooter } from "@/components/corporate/CorporateFooter";
 import {
   FadeInSection,
-  SectionEyebrow,
   SectionHeading,
 } from "@/components/corporate/CorporateUi";
+import { ContactMessageForm } from "@/components/contact/ContactMessageForm";
 import {
   CORPORATE_OFFICE,
-  GUEST_CARE_CONTACT,
-  NIVAARA_CONTACT,
   RESERVATION_CONTACT,
   SITE,
 } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact GHD Hotels",
-  description: "Contact GHD Hotels for reservations, guest care, and corporate enquiries.",
+  description:
+    "Contact GHD Hotels for reservations and corporate enquiries — phone, email, and head office address.",
 };
 
 export default function ContactPage() {
-  const blocks = [
-    {
-      title: RESERVATION_CONTACT.title,
-      lines: [
-        { label: "Phone", href: RESERVATION_CONTACT.phoneHref, text: RESERVATION_CONTACT.phone },
-        { label: "Email", href: RESERVATION_CONTACT.emailHref, text: RESERVATION_CONTACT.email },
-      ],
-    },
-    {
-      title: GUEST_CARE_CONTACT.title,
-      lines: [
-        { label: "Email", href: GUEST_CARE_CONTACT.emailHref, text: GUEST_CARE_CONTACT.email },
-      ],
-    },
-    {
-      title: NIVAARA_CONTACT.title,
-      lines: [
-        {
-          label: "Phone",
-          href: NIVAARA_CONTACT.receptionPhoneHref,
-          text: NIVAARA_CONTACT.receptionPhone,
-        },
-        {
-          label: "Email",
-          href: NIVAARA_CONTACT.receptionEmailHref,
-          text: NIVAARA_CONTACT.receptionEmail,
-        },
-        ...NIVAARA_CONTACT.addressLines.map((line) => ({
-          label: "Address",
-          href: null as string | null,
-          text: line,
-        })),
-      ],
-    },
-    {
-      title: CORPORATE_OFFICE.title,
-      lines: [
-        ...CORPORATE_OFFICE.addressLines.map((line) => ({
-          label: "Address",
-          href: null as string | null,
-          text: line,
-        })),
-        { label: "Email", href: CORPORATE_OFFICE.emailHref, text: CORPORATE_OFFICE.email },
-        { label: "Phone", href: CORPORATE_OFFICE.phoneHref, text: CORPORATE_OFFICE.phone },
-      ],
-    },
-  ];
-
   return (
-    <div className="corporate-site bg-[#FCFBF8] text-[#2D2D2D]">
+    <div className="corporate-site bg-white text-[#2D2D2D]">
       <Header />
       <main className="pt-14 md:pt-16">
-        <section className="py-16 sm:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
+        <section className="py-12 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
             <FadeInSection>
-              <SectionEyebrow>Contact</SectionEyebrow>
-              <SectionHeading className="mt-3">Get in touch</SectionHeading>
-              <p className="mt-4 max-w-xl font-body text-base text-[#6F6A62]">
-                For reservations, guest care, or property enquiries, reach the {SITE.name} team
-                through the channels below.
+              <SectionHeading>Contact Us</SectionHeading>
+              <p className="mt-4 max-w-xl font-body text-base font-normal text-black">
+                Reach GHD Hotels for reservations and general enquiries.
               </p>
             </FadeInSection>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
-              {blocks.map((block) => (
-                <FadeInSection key={block.title}>
-                  <div className="border border-[#E6DDCF] bg-[#FAF7F2] p-6 sm:p-8">
-                    <h2 className="font-heading text-xl text-[#2D2D2D]">{block.title}</h2>
-                    <ul className="mt-5 space-y-3">
-                      {block.lines.map((line, i) => (
-                        <li key={`${block.title}-${i}`} className="font-body text-sm">
-                          {line.href ? (
-                            <a
-                              href={line.href}
-                              className="text-[#6F6A62] transition-colors hover:text-[#C6A86B]"
-                            >
-                              {line.text}
-                            </a>
-                          ) : (
-                            <span className="text-[#6F6A62]">{line.text}</span>
-                          )}
-                        </li>
-                      ))}
+            <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-2 lg:gap-14">
+              <FadeInSection>
+                <div className="space-y-8">
+                  <div className="border-t border-[#E6DDCF] pt-6">
+                    <h2 className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#C6A86B]">
+                      Reservation
+                    </h2>
+                    <ul className="mt-4 space-y-2">
+                      <li>
+                        <a
+                          href={RESERVATION_CONTACT.phoneHref}
+                          className="font-body text-base text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
+                        >
+                          {RESERVATION_CONTACT.phone}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={RESERVATION_CONTACT.emailHref}
+                          className="font-body text-base text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
+                        >
+                          {RESERVATION_CONTACT.email}
+                        </a>
+                      </li>
                     </ul>
                   </div>
-                </FadeInSection>
-              ))}
+
+                  <div className="border-t border-[#E6DDCF] pt-6">
+                    <h2 className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#C6A86B]">
+                      Info
+                    </h2>
+                    <ul className="mt-4 space-y-2">
+                      <li>
+                        <a
+                          href={SITE.emailHref}
+                          className="font-body text-base text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
+                        >
+                          {SITE.email}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-t border-[#E6DDCF] pt-6">
+                    <h2 className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#C6A86B]">
+                      Head Office
+                    </h2>
+                    <address className="mt-4 space-y-1 font-body text-base not-italic leading-relaxed text-[#2D2D2D]">
+                      {CORPORATE_OFFICE.addressLines.map((line) => (
+                        <p key={line}>{line}</p>
+                      ))}
+                    </address>
+                  </div>
+                </div>
+              </FadeInSection>
+
+              <FadeInSection>
+                <div className="border border-[#E6DDCF] bg-[#FAF7F2] p-6 sm:p-8">
+                  <ContactMessageForm idPrefix="page-contact" />
+                </div>
+              </FadeInSection>
             </div>
           </div>
         </section>

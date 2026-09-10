@@ -5,19 +5,17 @@ import {
   CINEMATIC_STATEMENT,
   FINAL_BOOKING_CTA,
   GHD_EXPERIENCE,
-  SAMRAYA_TEASER,
 } from "@/lib/corporate-content";
 import {
   FadeInSection,
   GoldButton,
-  GoldLink,
   SectionEyebrow,
   SectionHeading,
 } from "./CorporateUi";
 
 export function ExperienceSection() {
   return (
-    <section className="bg-[#FAF7F2] py-16 sm:py-20 lg:py-28">
+    <section className="bg-white py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
         <FadeInSection className="max-w-xl">
           <SectionEyebrow>{GHD_EXPERIENCE.eyebrow}</SectionEyebrow>
@@ -51,7 +49,7 @@ export function ExperienceSection() {
 
 export function CinematicSection() {
   return (
-    <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[36vh] items-center justify-center overflow-hidden sm:min-h-[40vh] md:min-h-[44vh]">
       <Image
         src={CINEMATIC_STATEMENT.image}
         alt=""
@@ -60,8 +58,8 @@ export function CinematicSection() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-[#2D2D2D]/50" />
-      <FadeInSection className="relative z-10 px-6 text-center">
-        <p className="font-heading text-3xl leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+      <FadeInSection className="relative z-10 px-6 py-12 text-center sm:py-14">
+        <p className="font-heading text-3xl leading-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
           {CINEMATIC_STATEMENT.line1}
           <br />
           {CINEMATIC_STATEMENT.line2}
@@ -71,42 +69,16 @@ export function CinematicSection() {
   );
 }
 
-export function SamrayaTeaser() {
-  return (
-    <section className="relative overflow-hidden bg-[#F4EFE6] py-20 sm:py-28">
-      <div className="absolute inset-0 opacity-[0.07]">
-        <div className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C6A86B]" />
-        <div className="absolute left-1/2 top-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C6A86B]" />
-      </div>
-      <div className="relative mx-auto max-w-[800px] px-6 text-center lg:px-10">
-        <FadeInSection>
-          <SectionEyebrow>{SAMRAYA_TEASER.eyebrow}</SectionEyebrow>
-          <SectionHeading className="mt-4">{SAMRAYA_TEASER.headline}</SectionHeading>
-          <p className="mt-8 font-heading text-4xl text-[#2D2D2D] sm:text-5xl md:text-6xl">
-            {SAMRAYA_TEASER.brand}
-          </p>
-          <p className="mt-3 font-body text-sm uppercase tracking-[0.2em] text-[#C6A86B]">
-            Coming Soon
-          </p>
-          <div className="mt-10">
-            <GoldLink href={SAMRAYA_TEASER.cta.href}>{SAMRAYA_TEASER.cta.label}</GoldLink>
-          </div>
-        </FadeInSection>
-      </div>
-    </section>
-  );
-}
-
 export function FinalBookingCta() {
   return (
-    <section className="border-t border-[#E6DDCF] bg-[#FCFBF8] py-16 sm:py-20 lg:py-24">
+    <section className="border-t border-[#E6DDCF] bg-white py-10 sm:py-12 lg:py-14">
       <div className="mx-auto max-w-[800px] px-6 text-center lg:px-10">
         <FadeInSection>
           <SectionHeading>{FINAL_BOOKING_CTA.headline}</SectionHeading>
-          <p className="mt-4 font-body text-base text-[#6F6A62]">
+          <p className="mt-3 font-body text-base font-normal text-black">
             {FINAL_BOOKING_CTA.subheading}
           </p>
-          <div className="mt-8">
+          <div className="mt-6">
             <GoldButton href={FINAL_BOOKING_CTA.cta.href}>
               {FINAL_BOOKING_CTA.cta.label} →
             </GoldButton>

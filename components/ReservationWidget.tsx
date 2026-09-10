@@ -58,6 +58,10 @@ type ReservationBarProps = {
   propertyPlaceholder?: string;
   resolvePropertyId?: (value: string) => string;
   bookingRedirect?: "internal" | "axisrooms";
+  /** Location-only bar (corporate homepage): destination + Visit */
+  fields?: "full" | "location";
+  submitLabel?: string;
+  onVisit?: (property: string) => void;
 };
 
 type ReservationFormProps = {
@@ -79,6 +83,8 @@ type ReservationFormProps = {
   variant?: "hero" | "booking";
   propertyOptions: readonly PropertyOption[];
   propertyPlaceholder: string;
+  fields?: "full" | "location";
+  submitLabel?: string;
 };
 
 function ReservationForm({
@@ -97,8 +103,11 @@ function ReservationForm({
   variant = "hero",
   propertyOptions,
   propertyPlaceholder,
+  fields = "full",
+  submitLabel = "Search",
 }: ReservationFormProps) {
   const isHero = variant === "hero";
+  const locationOnly = fields === "location";
 
   return (
     <div
@@ -125,34 +134,44 @@ function ReservationForm({
             onPropertyChange(value);
           }}
           variant={isHero ? "hero" : "default"}
-          className="md:flex-[1.1]"
+          className={locationOnly ? "min-w-0 flex-1" : "md:flex-[1.1]"}
         />
 
-        <div className={reservationDividerClass} aria-hidden />
+        {!locationOnly ? (
+          <>
+            <div className={reservationDividerClass} aria-hidden />
 
-        <DateRangePicker
-          checkIn={checkIn}
-          checkOut={checkOut}
-          onChange={(range) => {
-            onDismissErrors();
-            onDatesChange(range);
-          }}
-          variant={isHero ? "hero" : "default"}
-          className="md:flex-[1.6]"
-        />
+            <DateRangePicker
+              checkIn={checkIn}
+              checkOut={checkOut}
+              onChange={(range) => {
+                onDismissErrors();
+                onDatesChange(range);
+              }}
+              variant={isHero ? "hero" : "default"}
+              className="md:flex-[1.6]"
+            />
 
-        <div className={reservationDividerClass} aria-hidden />
+            <div className={reservationDividerClass} aria-hidden />
 
-        <GuestRoomPicker
-          value={guests}
-          onChange={onGuestsChange}
-          open={guestsPickerOpen}
-          onOpenChange={onGuestsPickerOpenChange}
-          variant={isHero ? "hero" : "default"}
-          className="md:flex-[1.2]"
-        />
+            <GuestRoomPicker
+              value={guests}
+              onChange={onGuestsChange}
+              open={guestsPickerOpen}
+              onOpenChange={onGuestsPickerOpenChange}
+              variant={isHero ? "hero" : "default"}
+              className="md:flex-[1.2]"
+            />
+          </>
+        ) : null}
 
-        <div className={cn(searchSegmentClass, "relative z-30 md:flex-1")}>
+        <div
+          className={cn(
+            searchSegmentClass,
+            "relative z-30",
+            locationOnly ? "w-auto shrink-0 flex-none" : "md:flex-1",
+          )}
+        >
           {validationErrors.length > 0 ? (
             <div className="absolute bottom-[calc(100%+0.625rem)] right-0 z-[60] flex flex-col items-end">
               <div
@@ -182,13 +201,13 @@ function ReservationForm({
             whileTap={{ scale: 0.99 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             className={cn(
-              "inline-flex h-10 shrink-0 items-center justify-center rounded-none px-5 font-body text-[0.7rem] font-semibold uppercase tracking-[0.08em] transition-colors duration-500 ease-out sm:h-11 sm:px-6",
+              "inline-flex h-10 shrink-0 items-center justify-center rounded-none px-5 font-body text-[0.7rem] font-normal uppercase tracking-[0.08em] transition-colors duration-500 ease-out sm:h-11 sm:px-6",
               isHero
                 ? "bg-white text-charcoal hover:bg-white/90 group-hover/reservation:bg-charcoal group-hover/reservation:text-white group-hover/reservation:hover:bg-charcoal/90"
-                : "bg-[#543119] text-white hover:bg-[#543119]/90",
+                : "bg-[#E8D9B0] text-[#2D2D2D] hover:bg-[#DFCFA0]",
             )}
           >
-            Search
+            {submitLabel}
           </motion.button>
         </div>
       </form>
@@ -210,6 +229,9 @@ export function ReservationBar({
   resolvePropertyId = (value) => value,
   bookingRedirect = "internal",
   variant = "hero",
+  fields = "full",
+  submitLabel = "Search",
+  onVisit,
 }: ReservationBarProps & { variant?: "hero" | "booking" }) {
   const router = useRouter();
   const defaultDates = getDefaultReservationDates();
@@ -233,6 +255,24 @@ export function ReservationBar({
   }, [initialProperty, initialGuests, initialCheckIn, initialCheckOut]);
 
   const handleSearch = () => {
+    if (fields === "location") {
+      if (!property) {
+        setValidationErrors(["Please select a hotel."]);
+        return;
+      }
+
+      setValidationErrors([]);
+      const propertyId = resolvePropertyId(property);
+
+      if (onVisit) {
+        onVisit(propertyId);
+        return;
+      }
+
+      router.push(`/${propertyId}`);
+      return;
+    }
+
     const errors = getValidationErrors(property, checkIn, checkOut);
 
     if (errors.length > 0) {
@@ -287,6 +327,8 @@ export function ReservationBar({
         variant={variant}
         propertyOptions={propertyOptions}
         propertyPlaceholder={propertyPlaceholder}
+        fields={fields}
+        submitLabel={submitLabel}
       />
     </div>
   );

@@ -13,7 +13,7 @@ export function SectionEyebrow({ children, className, light }: SectionEyebrowPro
   return (
     <p
       className={cn(
-        "font-body text-[0.65rem] font-medium uppercase tracking-[0.22em] sm:text-[0.7rem]",
+        "font-body text-[0.65rem] font-normal uppercase tracking-[0.22em] sm:text-[0.7rem]",
         light ? "text-white/80" : "text-[#C6A86B]",
         className,
       )}
@@ -40,7 +40,7 @@ export function SectionHeading({
     <Tag
       className={cn(
         "font-heading text-[2rem] font-normal leading-[1.12] tracking-[-0.01em] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem]",
-        light ? "text-white" : "text-[#2D2D2D]",
+        light ? "text-white" : "text-black",
         className,
       )}
     >
@@ -82,7 +82,7 @@ export function GoldLink({
     <a
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2 font-body text-[0.72rem] font-medium uppercase tracking-[0.16em] text-[#2D2D2D] transition-colors hover:text-[#C6A86B]",
+        "group inline-flex items-center gap-2 font-body text-[0.72rem] font-normal uppercase tracking-[0.16em] text-[#2D2D2D] transition-colors hover:text-[#C6A86B]",
         className,
       )}
     >
@@ -102,21 +102,28 @@ export function GoldButton({
   children,
   variant = "primary",
   className,
+  external = false,
 }: {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "outline-light";
   className?: string;
+  external?: boolean;
 }) {
   return (
     <a
       href={href}
+      {...(external
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
       className={cn(
-        "inline-flex items-center justify-center px-7 py-3.5 font-body text-[0.68rem] font-medium uppercase tracking-[0.14em] transition-all duration-300",
+        "inline-flex items-center justify-center px-7 py-3.5 font-body text-[0.68rem] font-normal uppercase tracking-[0.14em] transition-all duration-300",
         variant === "primary" &&
           "bg-[#C6A86B] text-white hover:bg-[#b89755]",
         variant === "outline" &&
           "border border-[#E6DDCF] bg-transparent text-[#2D2D2D] hover:border-[#C6A86B] hover:text-[#C6A86B]",
+        variant === "outline-light" &&
+          "border border-white/70 bg-transparent text-white hover:border-white hover:bg-white/10",
         className,
       )}
     >
