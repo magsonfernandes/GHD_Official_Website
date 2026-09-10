@@ -112,14 +112,26 @@ export function ExperienceStories() {
                     imageOnRight ? "order-2" : "order-1",
                   )}
                 >
-                  <Image
-                    src={post.image}
-                    alt={post.alt}
-                    fill
-                    className="object-cover"
-                    sizes="68vw"
-                    priority={index < 2}
-                  />
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.alt}
+                      fill
+                      className="object-cover"
+                      sizes="68vw"
+                      priority={index < 2}
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0 flex items-center justify-center bg-[#e8e2d8] px-6"
+                      role="img"
+                      aria-label={post.alt}
+                    >
+                      <span className="text-center font-body text-[0.7rem] font-medium uppercase tracking-[0.18em] text-charcoal/40">
+                        Photo coming soon
+                      </span>
+                    </div>
+                  )}
                 </div>
               </article>
             );

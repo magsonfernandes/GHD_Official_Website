@@ -5,8 +5,6 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ReserveButton } from "@/components/ui/ReserveButton";
 import { ROYAL_STUDIO } from "@/lib/constants";
 import type { RoomCategory } from "@/lib/rooms";
-import { RoomFromPrice } from "@/components/RoomFromPrice";
-import { getRoomCategoryNightlyRate } from "@/lib/rooms";
 import { sectionBodyClass, sectionHeadingClass } from "@/lib/section-typography";
 
 function DetailBlock({
@@ -29,8 +27,6 @@ function DetailBlock({
 }
 
 export function RoomDetailContent({ room }: { room: RoomCategory }) {
-  const rate = getRoomCategoryNightlyRate(room);
-
   return (
     <>
       <section className="bg-muted pt-16">
@@ -55,22 +51,10 @@ export function RoomDetailContent({ room }: { room: RoomCategory }) {
             ← All rooms
           </Link>
 
-          <div className="mt-8 flex flex-wrap items-start justify-between gap-6">
-            <div>
-              <h1 className="font-heading text-4xl font-thin text-charcoal sm:text-5xl">
-                {room.name}
-              </h1>
-            </div>
-            <div>
-              <RoomFromPrice
-                amount={rate.nightlyRate}
-                align="right"
-                priceClassName="font-thin sm:text-3xl"
-              />
-              <p className="mt-0.5 text-right font-body text-xs text-grey">
-                fees &amp; taxes incl.
-              </p>
-            </div>
+          <div className="mt-8">
+            <h1 className="font-heading text-4xl font-thin text-charcoal sm:text-5xl">
+              {room.name}
+            </h1>
           </div>
 
           <h2 className={sectionHeadingClass(false, "mt-8 text-left")}>

@@ -8,8 +8,9 @@ import {
 } from "next/font/google";
 import Script from "next/script";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
-import { NIVAARA_LOGO, SEO_KEYWORDS } from "@/lib/constants";
+import { GHD_FAVICON, SEO_KEYWORDS } from "@/lib/constants";
 import { StickyBookingButton } from "@/components/StickyBookingButton";
+import { FaviconSwitcher } from "@/components/FaviconSwitcher";
 import { PageMediaGate } from "@/components/PageMediaGate";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
@@ -58,18 +59,21 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Nivaãra by GHD Hotels | Luxury Boutique Hotel in Nerul, North Goa",
+  title: {
+    default: "GHD Hotels | Thoughtful Stays. Genuine Hospitality.",
+    template: "%s | GHD Hotels",
+  },
   description:
-    "Nivaãra by GHD Hotels is a boutique luxury hotel in Nerul, North Goa — minutes from Coco Beach and a short drive from Candolim, Calangute and Baga. Enjoy a rooftop pool, private balconies, and warm Goan hospitality. Book direct for the best rates.",
+    "GHD Hotels is a growing hospitality company with distinctive brands including Nivaãra in North Goa and Samraya — coming soon.",
   keywords: SEO_KEYWORDS,
   openGraph: {
-    title: "Nivaãra by GHD Hotels | Luxury Boutique Hotel in Nerul, North Goa",
+    title: "GHD Hotels | Thoughtful Stays. Genuine Hospitality.",
     description:
-      "Boutique luxury hotel in Nerul, North Goa — minutes from Coco Beach, with rooftop pool, private balconies, and warm Goan hospitality.",
+      "A growing collection of distinctive hospitality brands — including Nivaãra in North Goa and Samraya, coming soon.",
     type: "website",
   },
   icons: {
-    icon: NIVAARA_LOGO,
+    icon: GHD_FAVICON,
   },
 };
 
@@ -100,6 +104,7 @@ export default function RootLayout({
       </head>
       <body>
         <ContactModalProvider>
+          <FaviconSwitcher />
           <ScrollToTop />
           <PageMediaGate>{children}</PageMediaGate>
           <StickyBookingButton />

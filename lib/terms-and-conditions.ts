@@ -116,11 +116,11 @@ export const TERMS_AND_CONDITIONS: LegalDocument = {
       paragraphs: ["Guests may amend their reservation subject to the following conditions:"],
       bullets: [
         "A booking may be amended only once.",
-        "Amendments must be requested at least 48 hours prior to the scheduled check-in.",
+        "Amendments must be requested at least 72 hours prior to the scheduled check-in.",
         "The revised check-in date must fall within 60 days from the original check-in date.",
         "Requests to amend beyond the 60-day window shall be treated as a cancellation.",
         "A second amendment request for the same reservation will not be permitted and shall be treated as a cancellation.",
-        "Amendment requests received less than 48 hours before check-in shall be governed by the Cancellation & Retention Policy stated above.",
+        "Amendment requests received less than 72 hours before check-in shall be governed by the Cancellation & Retention Policy stated above.",
         `All amendment requests must be submitted in writing to ${RESERVATION_CONTACT.email} and remain subject to room availability and applicable rate differences.`,
       ],
     },

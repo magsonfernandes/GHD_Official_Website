@@ -1,14 +1,14 @@
 const BEACH_IMAGES = {
-  coco: "/images/experiences/Beaches/coco beach.png",
-  sinquerim: "/images/experiences/Beaches/sinquerim beach.png",
-  candolim: "/images/experiences/Beaches/candolim beach .png",
-  calangute: "/images/experiences/Beaches/calangute beach.png",
-  baga: "/images/experiences/Beaches/Baga Beach.png",
-  anjuna: "/images/experiences/Beaches/anjuna beach.png",
-  vagator: "/images/experiences/Beaches/vagator beach.png",
-  arambol: "/images/experiences/Beaches/arambol beach.png",
-  morjim: "/images/experiences/Beaches/morjim beach.png",
-  mandremAshwem: "/images/experiences/Beaches/mandrem and ashwem beach.png",
+  coco: "/images/experiences/beaches/coco-beach.png",
+  sinquerim: "/images/experiences/beaches/sinquerim-beach.png",
+  candolim: "/images/experiences/beaches/candolim-beach.png",
+  calangute: "/images/experiences/beaches/calangute-beach.png",
+  baga: "/images/experiences/beaches/baga-beach.png",
+  anjuna: "/images/experiences/beaches/anjuna-beach.png",
+  vagator: "/images/experiences/beaches/vagator-beach.png",
+  arambol: "/images/experiences/beaches/arambol-beach.png",
+  morjim: "/images/experiences/beaches/morjim-beach.png",
+  mandremAshwem: "/images/experiences/beaches/mandrem-ashwem-beach.png",
 } as const;
 
 export type BeachGuideEntry = {

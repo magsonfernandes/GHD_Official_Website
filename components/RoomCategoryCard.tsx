@@ -1,17 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { RoomCategory } from "@/lib/rooms";
-import { RoomFromPrice } from "@/components/RoomFromPrice";
-import {
-  formatRoomGuests,
-  formatRoomSize,
-  getRoomCategoryNightlyRate,
-} from "@/lib/rooms";
+import { formatRoomGuests, formatRoomSize } from "@/lib/rooms";
 import { sectionBodyClass } from "@/lib/section-typography";
 
 export function RoomCategoryCard({ room }: { room: RoomCategory }) {
-  const rate = getRoomCategoryNightlyRate(room);
-
   return (
     <article className="overflow-hidden border border-border bg-white shadow-[0_8px_30px_rgba(17,17,17,0.06)]">
       <div className="grid md:grid-cols-2">
@@ -48,11 +41,9 @@ export function RoomCategoryCard({ room }: { room: RoomCategory }) {
           </div>
 
           <div className="mt-8 border-t border-border pt-6">
-            <RoomFromPrice amount={rate.nightlyRate} />
-
             <Link
               href={`/rooms/${room.id}`}
-              className="mt-5 inline-flex items-center justify-center rounded-none border border-charcoal bg-white px-6 py-2.5 font-body text-xs lowercase tracking-[0.08em] text-charcoal"
+              className="inline-flex items-center justify-center rounded-none border border-charcoal bg-white px-6 py-2.5 font-body text-xs lowercase tracking-[0.08em] text-charcoal"
             >
               show room
             </Link>

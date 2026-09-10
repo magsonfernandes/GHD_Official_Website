@@ -1,8 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
 import { NextResponse } from "next/server";
-import { isSmtpPassConfigured, missingSmtpPassHint } from "@/lib/mailEnv";
-import { sendMailViaSmtp } from "@/lib/smtp";
+import { isMailConfigured, missingMailHint, sendAppMail } from "@/lib/sendMail";
 
 const mailbox = String(
   process.env.NEWSLETTER_RECIPIENT ||
@@ -39,16 +36,12 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!isSmtpPassConfigured()) {
-      const envFilePath = path.join(process.cwd(), ".env.local");
+    if (!isMailConfigured()) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Missing SMTP_PASS",
-          hint: missingSmtpPassHint({
-            envFilePath,
-            envFileExists: fs.existsSync(envFilePath),
-          }),
+          error: "Email not configured",
+          hint: missingMailHint(),
         },
         { status: 400 },
       );
@@ -67,8 +60,8 @@ export async function POST(request: Request) {
       `Submitted at: ${submittedAt}`,
     ].join("\n");
 
-    await sendMailViaSmtp({
-      from: mailbox,
+    await sendAppMail({
+      from: process.env.RESEND_FROM?.trim() || mailbox,
       to: mailbox,
       subject,
       text,
@@ -77,16 +70,17 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    if (error instanceof Error && /Missing SMTP_PASS/i.test(error.message)) {
-      const envFilePath = path.join(process.cwd(), ".env.local");
+    if (
+      error instanceof Error &&
+      (/Missing SMTP_PASS/i.test(error.message) ||
+        /Missing RESEND_API_KEY/i.test(error.message) ||
+        /Email not configured/i.test(error.message))
+    ) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Missing SMTP_PASS",
-          hint: missingSmtpPassHint({
-            envFilePath,
-            envFileExists: fs.existsSync(envFilePath),
-          }),
+          error: "Email not configured",
+          hint: missingMailHint(),
         },
         { status: 400 },
       );

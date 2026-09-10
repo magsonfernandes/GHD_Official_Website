@@ -201,6 +201,8 @@ export function buildBookingSearchParams(booking: {
   return new URLSearchParams(params);
 }
 
+export { buildAxisRoomsBookingHref, submitAxisRoomsBookingSearch } from "@/lib/axisrooms";
+
 export function buildGuestsWithRoomSelections(
   guests: GuestSelection,
   selections: (string | null)[],

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# oversized media (exceeds GitHub 100MB limit)
+public/images/nivaara/ghd-hotels-hero.mp4

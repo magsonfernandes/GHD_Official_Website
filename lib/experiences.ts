@@ -1,6 +1,15 @@
 import { EXPERIENCE_POSTS } from "@/lib/constants";
 
-export type ExperiencePost = (typeof EXPERIENCE_POSTS)[number];
+export type ExperiencePost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  image: string | null;
+  alt: string;
+};
 
 export function getAllExperiencePosts(): ExperiencePost[] {
   return [...EXPERIENCE_POSTS];

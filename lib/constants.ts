@@ -8,9 +8,23 @@ export const AVAILABLE_PROPERTIES = PROPERTIES.filter((p) => p.available);
 
 export const DEFAULT_PROPERTY_ID = "nivaara";
 
-/** External AxisRooms booking engine — used by all Reserve CTAs */
+/** GHD corporate homepage search — single Nivaãra destination */
+export const CORPORATE_SEARCH_DESTINATIONS = [
+  {
+    value: "nivaara",
+    label: "Nivaãra — Coco Beach, North Goa",
+    propertyId: "nivaara",
+  },
+] as const;
+
+/** External AxisRooms booking engine — official link from AxisRooms support (Jul 2026) */
 export const AXISROOMS_BOOKING_URL =
   "https://app.axisrooms.com/beV2/searchHotel.html?paxInfo=2%7C0%7C%7C&allHotels=true&newBe=true&productId=214632&bookingEngineId=5012&rooms=1&searchId=-1&searchNumber=1";
+
+export const AXISROOMS_PRODUCT_ID = "214632";
+export const AXISROOMS_BOOKING_ENGINE_ID = "5012";
+export const AXISROOMS_SEARCH_BASE_URL =
+  "https://app.axisrooms.com/beV2/searchHotel.html";
 
 export const ROOM_OPTIONS = [1, 2, 3, 4, 5] as const;
 
@@ -67,7 +81,7 @@ export const ROYAL_STUDIO = {
   beds: "1 King Bed",
   sleeps: 2,
   size: "517 sq. ft.",
-  image: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+  image: "/images/nivaara/nivaara-room-1.webp",
   description:
     "Designed for modern comfort, the Royal Studio at Nivaãra offers a spacious and thoughtfully curated stay experience. Featuring a king-sized bed, a functional workspace, and clean contemporary interiors, the room is ideal for both short stays and extended visits. Natural lighting, an efficient layout, and essential amenities ensure a seamless and comfortable stay.",
   amenities: [
@@ -80,6 +94,9 @@ export const ROYAL_STUDIO = {
     "Bathroom Amenities",
     "Fresh Linen",
     "Daily Housekeeping",
+    "Iron",
+    "Iron Stand",
+    "Hairdryer",
   ],
   transport: {
     airports: [
@@ -132,31 +149,31 @@ export const ROYAL_STUDIO = {
   ],
   gallery: [
     {
-      src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+      src: "/images/nivaara/nivaara-room-1.webp",
       alt: "Royal Studio at Nivaãra by GHD Hotels",
     },
     {
-      src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
+      src: "/images/nivaara/nivaara-room-2.webp",
       alt: "Royal Studio interior at Nivaãra by GHD Hotels",
     },
     {
-      src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
+      src: "/images/nivaara/nivaara-room-3.webp",
       alt: "Royal Studio workspace at Nivaãra by GHD Hotels",
     },
     {
-      src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
+      src: "/images/nivaara/nivaara-room-4.webp",
       alt: "Royal Studio seating area at Nivaãra by GHD Hotels",
     },
     {
-      src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
+      src: "/images/nivaara/nivaara-washroom-1.webp",
       alt: "Royal Studio bathroom at Nivaãra by GHD Hotels",
     },
     {
-      src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
+      src: "/images/nivaara/nivaara-room-5.webp",
       alt: "Royal Studio bedroom detail at Nivaãra by GHD Hotels",
     },
     {
-      src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
+      src: "/images/nivaara/nivaara-washroom-2.webp",
       alt: "Royal Studio ensuite at Nivaãra by GHD Hotels",
     },
   ],
@@ -182,64 +199,122 @@ export const ROYAL_STUDIO = {
 
 export const NIVAARA_FULL_GALLERY = [
   {
-    src: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+    src: "/images/nivaara/nivaara-room-1.webp",
     alt: "Luxury Studio at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Room_Pic_2.w1200.webp",
+    src: "/images/nivaara/nivaara-room-2.webp",
     alt: "Luxury Studio interior at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
+    src: "/images/nivaara/nivaara-room-3.webp",
     alt: "Luxury Studio workspace at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Room_Pic_4.w1200.webp",
+    src: "/images/nivaara/nivaara-room-4.webp",
     alt: "Luxury Studio seating area at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Room_Pic_5.w1200.webp",
+    src: "/images/nivaara/nivaara-room-5.webp",
     alt: "Luxury Studio bedroom detail at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Washroom_Pic1.w1200.webp",
+    src: "/images/nivaara/nivaara-washroom-1.webp",
     alt: "Ensuite bathroom at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Washroom_Pic2.w1200.webp",
+    src: "/images/nivaara/nivaara-washroom-2.webp",
     alt: "Luxury bathroom at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
-    alt: "Private terrace at Nivaãra by GHD Hotels",
+    src: "/images/nivaara/nivaara-private-workspace.webp",
+    alt: "Private workspace at Nivaãra by GHD Hotels",
+  },
+] as const;
+
+/** Full property gallery for the Nivaãra Gallery page */
+export const NIVAARA_SITE_GALLERY = [
+  {
+    src: "/images/nivaara/nivaara-luxury-room.webp",
+    alt: "Luxury studio at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Terrace_Pic2.w1200.webp",
-    alt: "Terrace overlooking Goa at Nivaãra by GHD Hotels",
+    src: "/images/nivaara/nivaara-room-1.webp",
+    alt: "Guest room at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
-    alt: "Rooftop pool at Nivaãra by GHD Hotels",
+    src: "/images/nivaara/nivaara-room-2.webp",
+    alt: "Room interior at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Pool_Pic2.w1200.webp",
-    alt: "Poolside at Nivaãra by GHD Hotels",
+    src: "/images/nivaara/nivaara-room-3.webp",
+    alt: "In-room workspace at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
+    src: "/images/nivaara/nivaara-room-4.webp",
+    alt: "Seating area at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-room-5.webp",
+    alt: "Bedroom detail at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-washroom-1.webp",
+    alt: "Ensuite bathroom at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-washroom-2.webp",
+    alt: "Bathroom at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-private-workspace.webp",
     alt: "Private workspace at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
+    src: "/images/nivaara/nivaara-terrace-1.webp",
+    alt: "Terrace at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-terrace-2.webp",
+    alt: "Open terrace views at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-pool-1.webp",
+    alt: "Rooftop pool at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-pool-2.webp",
+    alt: "Poolside at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-rooftop-pool.png",
+    alt: "Rooftop pool overlook at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-lobby-lounge.webp",
     alt: "Lobby lounge at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
+    src: "/images/nivaara/nivaara-reception.webp",
     alt: "Reception at Nivaãra by GHD Hotels",
   },
   {
-    src: "/images/nivaara/Nivaara_Full Building View_Pic1.w1200.webp",
+    src: "/images/nivaara/nivaara-reception-desk.webp",
+    alt: "Reception desk at Nivaãra by GHD Hotels",
+  },
+  {
+    src: "/images/nivaara/nivaara-full-building-view.webp",
     alt: "Nivaãra by GHD Hotels building view",
+  },
+
+  {
+    src: "/images/nivaara/nivaara-hero-poster.webp",
+    alt: "Nivaãra by GHD Hotels in Nerul",
+  },
+
+  {
+    src: "/images/nivaara/ghd-hotels-wall-signage.png",
+    alt: "GHD Hotels signage at the property",
   },
 ] as const;
 
@@ -264,7 +339,7 @@ export const ROOM_CATEGORIES = [
     sleeps: 2,
     sizeSqFt: 517,
     size: "517 sq. ft.",
-    image: "/images/nivaara/luxury-room.w1200.webp",
+    image: "/images/nivaara/nivaara-luxury-room.webp",
     gallery: NIVAARA_FULL_GALLERY,
   },
   {
@@ -287,7 +362,7 @@ export const ROOM_CATEGORIES = [
     sleeps: 2,
     sizeSqFt: 517,
     size: "517 sq. ft.",
-    image: "/images/nivaara/Nivaara_Room_Pic_1.w1200.webp",
+    image: "/images/nivaara/nivaara-room-1.webp",
     gallery: NIVAARA_FULL_GALLERY,
   },
   {
@@ -310,15 +385,16 @@ export const ROOM_CATEGORIES = [
     sleeps: 2,
     sizeSqFt: 517,
     size: "517 sq. ft.",
-    image: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-room-2.webp",
     gallery: NIVAARA_FULL_GALLERY,
   },
 ] as const;
 
 export const NAV_ITEMS = [
-  { label: "HOME", href: "/" },
+  { label: "HOME", href: "/nivaara" },
   { label: "ROOMS", href: "/rooms" },
   { label: "CITY ATTRACTIONS", href: "/city-attractions" },
+  { label: "GALLERY", href: "/gallery" },
   { label: "FAQs", href: "/faqs" },
   { label: "CONTACT", href: "/#contact" },
 ] as const;
@@ -355,6 +431,14 @@ export const HOTEL_WHATSAPP = {
   phone: "918380008687",
   display: "+91 83800 08687",
   waMeUrl: "https://wa.me/918380008687",
+} as const;
+
+/** Nivaãra quick-contact CTAs (sticky Book Now cluster) */
+export const NIVAARA_QUICK_CONTACT = {
+  phone: "919529822907",
+  display: "+91 95298 22907",
+  phoneHref: "tel:+919529822907",
+  whatsappHref: "https://wa.me/919529822907",
 } as const;
 
 export const SITE = {
@@ -577,6 +661,12 @@ export const RESERVATION_CONTACT = {
   emailHref: "mailto:reservation@ghdhotels.in",
 } as const;
 
+export const SALES_CONTACT = {
+  title: "Sales",
+  phone: "+91 95298 22907",
+  phoneHref: "tel:+919529822907",
+} as const;
+
 export const GUEST_CARE_CONTACT = {
   title: "Guest Care",
   email: "care@ghdhotels.in",
@@ -595,7 +685,7 @@ export const CORPORATE_OFFICE = {
   emailHref: SITE.emailHref,
   phone: SITE.phone,
   phoneHref: SITE.phoneHref,
-  image: "/images/nivaara/Nivaara_Reception_Pic1.w1200.webp",
+  image: "/images/nivaara/nivaara-reception.webp",
   alt: "Reception at Nivaãra by GHD Hotels",
 } as const;
 
@@ -603,24 +693,29 @@ export const NIVAARA_HERO_VIDEO = "/images/nivaara/hero-section.mp4";
 export const HERO_VIDEO = NIVAARA_HERO_VIDEO;
 export const HERO_VIDEO_POSTER = "/images/nivaara/nivaara-hero-poster.webp";
 
-export const NIVAARA_LOGO = "/logos/Nivaara_logo.png";
+export const NIVAARA_LOGO = "/logos/nivaara-logo.png";
+export const SAMRAYA_LOGO = "/logos/samraya-logo.png";
 
-export const GHD_LOGO_WHITE = "/logos/GHD-Hotels-Logo-White.png";
+export const GHD_LOGO_WHITE = "/logos/ghd-hotels-logo-white.png";
 
-export const GHD_LOGO_GOLD = "/logos/GHD-Hotels-Logo-Gold.png";
-export const GHD_LOGO_GOLD_EMBOSSED = "/logos/GHD-Hotels-Logo-Gold-Embossed.png";
+export const GHD_LOGO_GOLD = "/logos/ghd-hotels-logo-gold.png";
+export const GHD_LOGO_GOLD_EMBOSSED = "/logos/ghd-hotels-logo-gold-embossed.png";
+/** Primary GHD Hotels logo for header, footer, and on-page use. */
+export const GHD_LOGO = GHD_LOGO_GOLD_EMBOSSED;
+/** Tab / favicon only — wordmark without monogram. */
+export const GHD_FAVICON = "/logos/ghd-hotels-favicon-gold.png";
 
 export const BEACH_EXPERIENCES_VIDEO =
-  "/images/nivaara/beach_nivaara.mp4";
+  "/images/nivaara/nivaara-beach.mp4";
 
 export const BEACH_EXPERIENCES_POSTER =
-  "/images/nivaara/beach_nivaara-poster.webp";
+  "/images/nivaara/nivaara-beach-poster.webp";
 
 export const POOL_EXPERIENCES_VIDEO =
-  "/images/nivaara/Pool_nivaara.mp4";
+  "/images/nivaara/nivaara-pool.mp4";
 
 export const POOL_EXPERIENCES_POSTER =
-  "/images/nivaara/Pool_nivaara-poster.webp";
+  "/images/nivaara/nivaara-pool-poster.webp";
 
 export const EXPERIENCES_HERO_VIDEO =
   "/images/experiences/experiences-hero.mp4";
@@ -635,7 +730,7 @@ export const EXPLORE_SPACES = [
     description:
       "Workation-ready: work from a peaceful, green-accented setting designed to support focus, comfort, and deep productivity.",
     href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Private_Workspace_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-private-workspace.webp",
     alt: "Private workspace with window view at Nivaãra by GHD Hotels",
   },
   {
@@ -643,7 +738,7 @@ export const EXPLORE_SPACES = [
     description:
       "Enjoy big studio rooms with beautiful views, airy interiors, and a sense of calm that lingers throughout your stay in Goa.",
     href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Room_Pic_3.w1200.webp",
+    image: "/images/nivaara/nivaara-room-3.webp",
     alt: "Guest room with hillside view at Nivaãra by GHD Hotels",
   },
   {
@@ -651,7 +746,7 @@ export const EXPLORE_SPACES = [
     description:
       "Relax under open skies at our rooftop pool, where calm waters and North Goa views create the perfect escape.",
     href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Pool_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-pool-1.webp",
     alt: "Rooftop pool at Nivaãra by GHD Hotels",
   },
   {
@@ -659,7 +754,7 @@ export const EXPLORE_SPACES = [
     description:
       "Enjoy relaxed dining experiences in an inviting setting where fresh, local Goan flavours meet warm hospitality.",
     href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Terrace_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-terrace-1.webp",
     alt: "Open dining terrace at Nivaãra by GHD Hotels",
   },
   {
@@ -667,7 +762,7 @@ export const EXPLORE_SPACES = [
     description:
       "From the moment you arrive at Nivaãra, our friendly team is dedicated to making you feel at home.",
     href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Reception_Desk_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-reception-desk.webp",
     alt: "Reception desk at Nivaãra by GHD Hotels",
   },
   {
@@ -675,7 +770,7 @@ export const EXPLORE_SPACES = [
     description:
       "Settle into a comfortable space ideal for discussions, catch-ups, and quiet collaboration.",
     href: "#accommodation",
-    image: "/images/nivaara/Nivaara_Lobby_Lounge_Pic1.w1200.webp",
+    image: "/images/nivaara/nivaara-lobby-lounge.webp",
     alt: "Lobby lounge at Nivaãra by GHD Hotels",
   },
 ] as const;
@@ -740,8 +835,19 @@ export const EXPERIENCE_POSTS = [
     category: "BEACHES",
     date: "May 3, 2026",
     readTime: "9 min read",
-    image: "/images/experiences/Beaches/pexels-mohit-hambiria-92377455-28520489.jpg",
+    image: "/images/experiences/beaches/goa-beach-scenic.jpg",
     alt: "Scenic Goan beach with lush hills and gentle waves",
+  },
+  {
+    slug: "goa-finest-fish-seafood",
+    title: "Goa's Finest Fish & Seafood: 7 Exceptional Places to Dine",
+    excerpt:
+      "A curated North-to-South guide to refined Goan seafood — from Assagao and Panaji to a classic fish thali in Benaulim and iconic South Goa tables.",
+    category: "DINING",
+    date: "September 10, 2026",
+    readTime: "11 min read",
+    image: "/images/nivaara/goa-seafood-dining.jpg",
+    alt: "Grilled lobster and cocktail at a refined Goan seafood table",
   },
 ] as const;
 
