@@ -846,8 +846,8 @@ export const EXPERIENCE_POSTS = [
     category: "DINING",
     date: "September 10, 2026",
     readTime: "11 min read",
-    image: null as string | null,
-    alt: "Goan seafood and fine coastal dining",
+    image: "/images/nivaara/goa-seafood-dining.jpg",
+    alt: "Grilled lobster and cocktail at a refined Goan seafood table",
   },
 ] as const;
 
