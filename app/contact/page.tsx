@@ -9,6 +9,7 @@ import { ContactMessageForm } from "@/components/contact/ContactMessageForm";
 import {
   CORPORATE_OFFICE,
   RESERVATION_CONTACT,
+  SALES_CONTACT,
   SITE,
 } from "@/lib/constants";
 
@@ -54,6 +55,22 @@ export default function ContactPage() {
                           className="font-body text-base text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
                         >
                           {RESERVATION_CONTACT.email}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-t border-[#E6DDCF] pt-6">
+                    <h2 className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#C6A86B]">
+                      {SALES_CONTACT.title}
+                    </h2>
+                    <ul className="mt-4 space-y-2">
+                      <li>
+                        <a
+                          href={SALES_CONTACT.phoneHref}
+                          className="font-body text-base text-[#2D2D2D] transition-colors hover:text-[#C6A86B]"
+                        >
+                          {SALES_CONTACT.phone}
                         </a>
                       </li>
                     </ul>

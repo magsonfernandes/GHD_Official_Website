@@ -661,6 +661,12 @@ export const RESERVATION_CONTACT = {
   emailHref: "mailto:reservation@ghdhotels.in",
 } as const;
 
+export const SALES_CONTACT = {
+  title: "Sales",
+  phone: "+91 95298 22907",
+  phoneHref: "tel:+919529822907",
+} as const;
+
 export const GUEST_CARE_CONTACT = {
   title: "Guest Care",
   email: "care@ghdhotels.in",

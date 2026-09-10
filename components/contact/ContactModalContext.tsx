@@ -14,6 +14,7 @@ import {
   CORPORATE_OFFICE,
   NIVAARA_CONTACT,
   RESERVATION_CONTACT,
+  SALES_CONTACT,
 } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { sectionHeadingClass } from "@/lib/section-typography";
@@ -209,6 +210,16 @@ function ContactModal({
                 <ContactDetailRow label="Email">
                   <ContactLink href={RESERVATION_CONTACT.emailHref}>
                     {RESERVATION_CONTACT.email}
+                  </ContactLink>
+                </ContactDetailRow>
+              </ContactSection>
+
+              <ContactSectionDivider className="my-4 sm:my-5" />
+
+              <ContactSection title={SALES_CONTACT.title}>
+                <ContactDetailRow label="Sales">
+                  <ContactLink href={SALES_CONTACT.phoneHref}>
+                    {SALES_CONTACT.phone}
                   </ContactLink>
                 </ContactDetailRow>
               </ContactSection>
